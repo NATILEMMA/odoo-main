@@ -29,7 +29,7 @@ class estate_property_offer(models.Model):
     def action_accept_offer(self):
         for record in self :
             if record.status == "refused":
-                raise UserError("offer already refused")
+                raise UserError("offer already refused try another time")
             else:
                 record.status = "accepted"
                 record.property_id.selling_price = record.price

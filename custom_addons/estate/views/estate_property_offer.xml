@@ -33,7 +33,9 @@
     <field name="model">estate.property</field>
     <field name="arch" type="xml">
       <search string="Tests">
+
         <field name="name"/>
+        
     </search>
     </field>
   </record>
