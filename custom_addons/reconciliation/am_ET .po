@@ -1,0 +1,493 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* reconciliation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20220525\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-01 08:49+0000\n"
+"PO-Revision-Date: 2023-02-01 08:49+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__balance_difference
+msgid "+ Deposites in transit"
+msgstr "+በሽግግር ውስጥ ተቀማጭ ገንዘብ"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__balance_difference_2
+msgid "-outstanding check"
+msgstr "-በጣም ጥሩ ቼክ"
+
+#. module: reconciliation
+#: model:ir.model,name:reconciliation.model_account_account
+msgid "Account"
+msgstr "መለያ"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_account_account__account_balance
+#: model:ir.model.fields,field_description:reconciliation.field_account_account__account_credit
+msgid "Account Credit"
+msgstr "የመለያ ሂሳብ"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_account_account__account_debit
+msgid "Account Debit"
+msgstr "የመለያ ክፍያ"
+
+#. module: reconciliation
+#: model_terms:ir.ui.view,arch_db:reconciliation.fiscal_year_fream_view_2
+msgid "Activate"
+msgstr "አንቃ"
+
+#. module: reconciliation
+#: model:ir.model.fields.selection,name:reconciliation.selection__fiscal_year__state__active
+msgid "Active"
+msgstr "ንቁ"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__statement_ending_line
+msgid "Balance as per Bank"
+msgstr "እንደ ባንክ ሚዛን"
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__gl_balance
+msgid "Balance as per Company Books"
+msgstr "በኩባንያው መጽሐፍት ሚዛን"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__current_update
+msgid "Balance of entries updated now"
+msgstr "የ መግቢያ ሚዛን አሁን የዘመኑ"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__journal_id
+msgid "Bank"
+msgstr "ባንክ"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__account_id
+msgid "Bank Account"
+msgstr "የባንክ ሒሳብ"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_account_move_line__bank_statement_id
+msgid "Bank Statement"
+msgstr "የባንክ መግለጫ"
+
+#. module: reconciliation
+#: model:ir.actions.act_window,name:reconciliation.action_bank_statement_2
+#: model_terms:ir.ui.view,arch_db:reconciliation.bank_statement_tree
+#: model_terms:ir.ui.view,arch_db:reconciliation.bank_statement_wiz
+#: model_terms:ir.ui.view,arch_db:reconciliation.reconciliation_time_fream_tree
+#: model_terms:ir.ui.view,arch_db:reconciliation.reconciliation_time_fream_view
+msgid "Bank Statement Reconciliation"
+msgstr "የባንክ ስቴትመንት ማስታረቅ"
+
+# #. module: reconciliation
+# #: model:ir.model.fields,field_description:reconciliation.field_account_move_line__statement_date
+# msgid "Bank.St Date"
+# msgstr "ባንክ. ኛው ቀን"
+
+#. module: reconciliation
+#: model_terms:ir.ui.view,arch_db:reconciliation.view_account_financial_closing
+#: model_terms:ir.ui.view,arch_db:reconciliation.view_account_financial_opening
+msgid "Cancel"
+msgstr "ይቅር "
+
+#. module: reconciliation
+#: model_terms:ir.ui.view,arch_db:reconciliation.view_account_financial_closing
+msgid "Close Year"
+msgstr "የመጨረሻ ዓመት"
+
+#. module: reconciliation
+#: model:ir.model.fields.selection,name:reconciliation.selection__fiscal_year__state__closed
+msgid "Closed"
+msgstr "ዝግ"
+
+#. module: reconciliation
+#: model:ir.actions.act_window,name:reconciliation.action_credit_payment_financial_closing
+msgid "Closing"
+msgstr "መዝጊያ"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__company_id
+msgid "Company"
+msgstr "ኩባንያ"
+
+#. module: reconciliation
+#: model_terms:ir.actions.act_window,help:reconciliation.action_fiscal_year_fream
+msgid "Create a new fiscal year"
+msgstr "አዲስ በጀት ዓመት ፍጠር"
+
+#. module: reconciliation
+#: model_terms:ir.actions.act_window,help:reconciliation.action_bank_statement_2
+#: model_terms:ir.actions.act_window,help:reconciliation.action_reconciliation_time_fream
+msgid "Create a new reconciliation"
+msgstr "አዲስ የማስታረቅ ይክፈቱ"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__create_uid
+#: model:ir.model.fields,field_description:reconciliation.field_financial_closing__create_uid
+#: model:ir.model.fields,field_description:reconciliation.field_financial_opening__create_uid
+#: model:ir.model.fields,field_description:reconciliation.field_fiscal_year__create_uid
+#: model:ir.model.fields,field_description:reconciliation.field_reconciliation_time_fream__create_uid
+msgid "Created by"
+msgstr "የተፈጠረ በ" 
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__create_date
+#: model:ir.model.fields,field_description:reconciliation.field_financial_closing__create_date
+#: model:ir.model.fields,field_description:reconciliation.field_financial_opening__create_date
+#: model:ir.model.fields,field_description:reconciliation.field_fiscal_year__create_date
+#: model:ir.model.fields,field_description:reconciliation.field_reconciliation_time_fream__create_date
+msgid "Created on"
+msgstr "ተፈጠረ በ"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_financial_closing__credit
+#: model:ir.model.fields,field_description:reconciliation.field_financial_opening__credit
+msgid "Credit Account group"
+msgstr "የብድር ሂሳብ ቡድን"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__currency_id
+msgid "Currency"
+msgstr "ምንዛሬ"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_financial_closing__date
+#: model:ir.model.fields,field_description:reconciliation.field_financial_opening__date
+msgid "Current Date"
+msgstr "የአሁኑ ቀን"
+ 
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__date_from
+#: model:ir.model.fields,field_description:reconciliation.field_fiscal_year__date_from
+#: model:ir.model.fields,field_description:reconciliation.field_reconciliation_time_fream__date_from
+msgid "Date From"
+msgstr "ቀን ከ"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__date_to
+#: model:ir.model.fields,field_description:reconciliation.field_fiscal_year__date_to
+#: model:ir.model.fields,field_description:reconciliation.field_reconciliation_time_fream__date_to
+msgid "Date To"
+msgstr "ቀን ለ"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_financial_closing__debit
+#: model:ir.model.fields,field_description:reconciliation.field_financial_opening__debit
+msgid "Debit Account group"
+msgstr "የዴቢት ሂሳብ ቡድን"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_fiscal_year__name
+#: model:ir.model.fields,field_description:reconciliation.field_reconciliation_time_fream__name
+msgid "Description"
+msgstr "መግለጫ"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__display_name
+#: model:ir.model.fields,field_description:reconciliation.field_financial_closing__display_name
+#: model:ir.model.fields,field_description:reconciliation.field_financial_opening__display_name
+#: model:ir.model.fields,field_description:reconciliation.field_fiscal_year__display_name
+#: model:ir.model.fields,field_description:reconciliation.field_reconciliation_time_fream__display_name
+msgid "Display Name"
+msgstr "ማሳያ ስም"
+
+#. module: reconciliation
+#: model:ir.model.fields.selection,name:reconciliation.selection__bank_reconciliation__state__done
+msgid "Done"
+msgstr "ተከናውኗል"
+
+#. module: reconciliation
+#: model:ir.model.fields.selection,name:reconciliation.selection__bank_reconciliation__state__draft
+msgid "Draft"
+msgstr "ረቂቅ"
+
+#. module: reconciliation
+#: model_terms:ir.ui.view,arch_db:reconciliation.view_account_financial_closing
+msgid "Financial Closing"
+msgstr "የገንዘብ መዘጋት"
+
+#. module: reconciliation
+#: model_terms:ir.ui.view,arch_db:reconciliation.view_account_financial_opening
+msgid "Financial open"
+msgstr "የገንዘብ ክፍት"
+
+#. module: reconciliation
+#: model:ir.actions.act_window,name:reconciliation.action_fiscal_year_fream
+#: model:ir.model.fields,field_description:reconciliation.field_account_move__fiscal_year
+#: model:ir.model.fields,field_description:reconciliation.field_account_move_line__fiscal_year
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__fiscal_year
+#: model:ir.model.fields,field_description:reconciliation.field_reconciliation_time_fream__fiscal_year
+#: model:ir.ui.menu,name:reconciliation.menu_action_reconciliation_time_fream_3
+#: model_terms:ir.ui.view,arch_db:reconciliation.fiscal_year_fream_tree
+#: model_terms:ir.ui.view,arch_db:reconciliation.fiscal_year_fream_view_2
+#: model_terms:ir.ui.view,arch_db:reconciliation.view_move_form_2
+msgid "Fiscal year"
+msgstr "የበጀት ዓመት"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__id
+#: model:ir.model.fields,field_description:reconciliation.field_financial_closing__id
+#: model:ir.model.fields,field_description:reconciliation.field_financial_opening__id
+#: model:ir.model.fields,field_description:reconciliation.field_fiscal_year__id
+#: model:ir.model.fields,field_description:reconciliation.field_reconciliation_time_fream__id
+msgid "ID"
+msgstr "መታወቂያ"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_reconciliation_time_fream__is_active
+msgid "Is Active time frame"
+msgstr "ንቁ የጊዜ እርከን ነው"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_account_move_line__is_done
+msgid "Is done"
+msgstr "ተከናውኗል"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_account_move_line__is_reconciled
+#: model:ir.model.fields,field_description:reconciliation.field_account_move_line__reconciled
+msgid "Is reconciled"
+msgstr "ታርቀዋል"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_financial_closing__journal_id
+#: model:ir.model.fields,field_description:reconciliation.field_financial_opening__journal_id
+msgid "Journal"
+msgstr "መዝገብ"
+
+#. module: reconciliation
+#: model:ir.model,name:reconciliation.model_account_move
+msgid "Journal Entries"
+msgstr "የመዝገብ መግቢያዎች"
+
+#. module: reconciliation
+#: model:ir.model,name:reconciliation.model_account_move_line
+msgid "Journal Item"
+msgstr "የመዝገብ ንጥል ነገር"
+
+#. module: reconciliation
+#: model_terms:ir.ui.view,arch_db:reconciliation.view_bank_statement_move_line_tree
+msgid "Journal Items"
+msgstr "የመዝገብ ንጥል ነገሮች"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_fiscal_year__fiscal_year
+msgid "Last Fiscal year"
+msgstr "ባለፈው በጀት ዓመት"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation____last_update
+#: model:ir.model.fields,field_description:reconciliation.field_financial_closing____last_update
+#: model:ir.model.fields,field_description:reconciliation.field_financial_opening____last_update
+#: model:ir.model.fields,field_description:reconciliation.field_fiscal_year____last_update
+#: model:ir.model.fields,field_description:reconciliation.field_reconciliation_time_fream____last_update
+msgid "Last Modified on"
+msgstr "ለመጨረሻ ጊዜ ተሻሽሏል"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__write_uid
+#: model:ir.model.fields,field_description:reconciliation.field_financial_closing__write_uid
+#: model:ir.model.fields,field_description:reconciliation.field_financial_opening__write_uid
+#: model:ir.model.fields,field_description:reconciliation.field_fiscal_year__write_uid
+#: model:ir.model.fields,field_description:reconciliation.field_reconciliation_time_fream__write_uid
+msgid "Last Updated by"
+msgstr "ለመጨረሻ ጊዜ ተዘምኗል በ"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__write_date
+#: model:ir.model.fields,field_description:reconciliation.field_financial_closing__write_date
+#: model:ir.model.fields,field_description:reconciliation.field_financial_opening__write_date
+#: model:ir.model.fields,field_description:reconciliation.field_fiscal_year__write_date
+#: model:ir.model.fields,field_description:reconciliation.field_reconciliation_time_fream__write_date
+msgid "Last Updated on"
+msgstr "ለመጨረሻ ጊዜ ተዘምኗል በ ጊዜ"
+
+#. module: reconciliation
+#: model:ir.model.fields.selection,name:reconciliation.selection__fiscal_year__state__locked
+#: model_terms:ir.ui.view,arch_db:reconciliation.fiscal_year_fream_view_2
+msgid "Locked"
+msgstr "ተቆፏል"
+
+#. module: reconciliation
+#: model:ir.model.fields.selection,name:reconciliation.selection__fiscal_year__state__draft
+msgid "New"
+msgstr "አዲስ"
+
+#. module: reconciliation
+#: model_terms:ir.ui.view,arch_db:reconciliation.view_account_financial_opening
+msgid "Open Year"
+msgstr "ክፍት ዓመት"
+
+#. module: reconciliation
+#: model:ir.actions.act_window,name:reconciliation.wizard_return_date_act_2
+msgid "Opening"
+msgstr "መክፈቻ"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_financial_closing__profit
+msgid "Profit / loss account"
+msgstr "ትርፍ / ኪሳራ ሂሳብ"
+
+#. module: reconciliation
+#: model_terms:ir.ui.view,arch_db:reconciliation.bank_statement_wiz
+msgid "Rest to draft"
+msgstr "ወደ ረቂቅ መልስ"
+
+#. module: reconciliation
+#: model_terms:ir.ui.view,arch_db:reconciliation.fiscal_year_fream_view_2
+msgid "Set to new"
+msgstr "ወደ አዲስ ቀይር"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__statement_lines
+msgid "Statement Lines"
+msgstr "ስቴትመንት መስመሮች"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__state
+#: model:ir.model.fields,field_description:reconciliation.field_fiscal_year__state
+msgid "Status"
+msgstr "ሁኔታ"
+
+#. module: reconciliation
+#: code:addons/reconciliation/models/fiscal_year.py:0
+#, python-format
+msgid "There active fiscal year"
+msgstr "እዚያ ንቁ በጀት ዓመት"
+
+#. module: reconciliation
+#: model:ir.actions.act_window,name:reconciliation.action_reconciliation_time_fream
+#: model:ir.ui.menu,name:reconciliation.menu_action_reconciliation_time_fream_2
+#: model_terms:ir.ui.view,arch_db:reconciliation.view_move_form_2
+msgid "Time Frame"
+msgstr "የጊዜ እርከን"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_account_move__time_frame
+#: model:ir.model.fields,field_description:reconciliation.field_account_move_line__time_frame
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__time_frame
+#: model:ir.model.fields,field_description:reconciliation.field_reconciliation_time_fream__time_frame
+msgid "Time frame"
+msgstr "የጊዜ እርከን"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_bank_reconciliation__bank_balance
+msgid "Unreconciled Difference"
+msgstr "ያልታረቀ ልዩነት"
+
+#. module: reconciliation
+#: model_terms:ir.ui.view,arch_db:reconciliation.bank_statement_wiz
+msgid "Validate"
+msgstr "ትክክለኛነት"
+
+#. module: reconciliation
+#: code:addons/reconciliation/models/account_move_line.py:0
+#, python-format
+msgid "You Date is not in this time frame."
+msgstr "የርሶ ጊዜ በ ጊዜ እርከን ውስጥ አይደለም"
+
+#. module: reconciliation
+#: code:addons/reconciliation/models/account_move_line.py:0
+#, python-format
+msgid "You Posting date out of the active fiscal year."
+msgstr "የእርሶ ፖስቲንግ ከ ንቁ የበጀት ዓመት የወጣ ነው"
+
+#. module: reconciliation
+#: code:addons/reconciliation/models/account_move_line.py:0
+#, python-format
+msgid "You Posting date out of the current time frame."
+msgstr "የእርሶ ፖስቲንግ ከ ጊዜ እርከን የወጣ ነው"
+
+#. module: reconciliation
+#: code:addons/reconciliation/wizard/closing.py:0
+#, python-format
+msgid "You can not close the fiscal year. There is draft entry"
+msgstr "የበጀት ዓመት መዝጋት አይችሉም። ረቂቅ የገባ አለ"
+
+#. module: reconciliation
+#: code:addons/reconciliation/models/time_fream.py:0
+#, python-format
+msgid "You can not have 2 Time frame that overlaps on same day!"
+msgstr "በተመሳሳይ ቀን የተደራረቡ 2 የጊዜ እርከን ሊኖርዎት አይችልም"
+
+#. module: reconciliation
+#: model:ir.model,name:reconciliation.model_bank_reconciliation
+msgid "bank.reconciliation"
+msgstr ""
+
+#. module: reconciliation
+#: model_terms:ir.ui.view,arch_db:reconciliation.fiscal_year_fream_view_2
+msgid "close"
+msgstr "ዝግ"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_financial_opening__diff
+msgid "difference"
+msgstr "ልዩነት"
+
+#. module: reconciliation
+#: model:ir.actions.act_window,name:reconciliation.action_credit_payment_financial_opening
+msgid "financial opening"
+msgstr "የፋይናንስ መክፈቻ"
+
+#. module: reconciliation
+#: model:ir.model,name:reconciliation.model_financial_closing
+msgid "financial.closing"
+msgstr ""
+
+#. module: reconciliation
+#: model:ir.model,name:reconciliation.model_financial_opening
+msgid "financial.opening"
+msgstr ""
+
+#. module: reconciliation
+#: model:ir.model,name:reconciliation.model_fiscal_year
+msgid "fiscal year"
+msgstr "የበጀት ዓመት"
+
+#. module: reconciliation
+#: model:ir.model.fields,field_description:reconciliation.field_fiscal_year__open
+msgid "opening Entry"
+msgstr "የመክፈቻ መግቢያ"
+
+#. module: reconciliation
+#: code:addons/reconciliation/models/account_move_line.py:0
+#: code:addons/reconciliation/models/account_move_line.py:0
+#, python-format
+msgid "please set Active fiscal year for the journal"
+msgstr "እባክዎ የመዝገብ ንቁ በጀት ዓመት ያዘጋጁ"
+
+#. module: reconciliation
+#: code:addons/reconciliation/models/account_move_line.py:0
+#: code:addons/reconciliation/wizard/closing.py:0
+#: code:addons/reconciliation/wizard/openig.py:0
+#, python-format
+msgid "please set Time frame for the journal"
+msgstr "እባክዎ መዝገብ የጊዜ እርከን ያዘጋጁ"
+
+#. module: reconciliation
+#: code:addons/reconciliation/models/account_move_line.py:0
+#, python-format
+msgid "please set Time frame for the journal line"
+msgstr "እባክዎ የጊዜ እርከን ይተምኑ ለ መዝገብ መስመር"
+
+#. module: reconciliation
+#: code:addons/reconciliation/models/time_fream.py:0
+#, python-format
+msgid "start date should be less than end date !"
+msgstr "የመነሻ ቀኑ ከመጨረሻ ቀን በታች መሆን አለበት"
+
+#. module: reconciliation
+#: model:ir.model,name:reconciliation.model_reconciliation_time_fream
+msgid "time frame for reconciliation"
+msgstr "የጊዜ እርከን ለ ማስታረቅ"
