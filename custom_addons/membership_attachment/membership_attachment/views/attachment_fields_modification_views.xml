@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <record id="add_attachment" model="ir.ui.view">
+    <field name="name">add.attachment</field>
+    <field name="model">res.partner</field>
+    <field name="groups_id" eval="[(6,0,[ref('members_custom.member_group_manager'), ref('members_custom.member_group_agent'), ref('members_custom.member_group_complaint_management')])]"/>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+      <notebook position="inside">
+        <page string="Attachement">
+          <field name="attachment_ids" string="Attachments" widget="many2many_binary" class="oe_inline"/>
+          <!-- <field name="attachment_ids">
+            <tree>
+              <field name="name"/>
+              <field name="attachment_type"/>
+              <field name="description"/>
+              <field name="file_size"/>
+            </tree>
+          </field> -->
+        </page>
+      </notebook>
+    </field>
+  </record>
+
+
+  <record id="base.action_attachment" model="ir.actions.act_window">
+    <field name="name">Attachments Modify</field>
+    <field name="res_model">ir.attachment</field>
+    <field name="domain">[('res_id', '=', active_id)]</field>
+  </record>
+
+  <record id="attachment_types" model="ir.actions.act_window">
+    <field name="name">Attachment Type</field>
+    <field name="res_model">attachment.type</field>
+    <field name="view_mode">tree</field>
+  </record>
+
+  <record id="attachment_types_tree" model="ir.ui.view">
+    <field name="name">attachment.type.tree</field>
+    <field name="model">attachment.type</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="name"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="attachment_view_modification" model="ir.ui.view">
+    <field name="name">attachment.view.modification</field>
+    <field name="model">ir.attachment</field>
+    <field name="inherit_id" ref="base.view_attachment_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='mimetype']" position="after">
+        <field name="attachment_type"/>
+      </xpath>
+    </field>
+  </record>
+
+  <menuitem name="Membership Products" id="menu_membership_products" parent="membership.menu_marketing_config_association" action="membership.action_membership_products" sequence="1"/>
+  <menuitem name="Attachment Types" id="membership_attachment_types" parent="membership.menu_marketing_config_association" action="attachment_types" sequence="3"/>
+
+</odoo>

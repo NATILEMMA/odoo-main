@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<odoo>
+  <record id="test_estate_record_type" model="ir.ui.view">
+    <field name="name">estate.record.type</field>
+    <field name="model">estate.property.type</field>
+    <field name="arch" type="xml">
+      <tree string="Channel">
+        <field name="sequence" widget="handle"/>
+        <field name="name" />
+      </tree>
+    </field>
+  </record>
+  <record id="test_estate_type_record_form" model="ir.ui.view">
+      <field name="name">estate.record.type</field>
+    <field name="model">estate.property.type</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="property_ids">
+              <tree>
+                  <field name="expected_price" />
+                  <field name="state" />
+                  <field name="name"/>
+              </tree>
+            </field>
+          </group>
+       </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="estate_model_type_action" model="ir.actions.act_window">
+    <field name="name">Estate property type</field>
+    <field name="res_model">estate.property.type</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+   <record id="test_estate_record_filter" model="ir.ui.view">
+    <field name="name">estate.record.search</field>
+    <field name="model">estate.property</field>
+    <field name="arch" type="xml">
+      <search string="Tests">
+        <field name="name"/>
+    </search>
+    </field>
+  </record>
+  <menuitem id="estate_type_sub_menu" parent="estate_root_menu" name = "Settings" />
+  <menuitem
+    id="estate_settings_property_type_menu"
+    action="estate_model_type_action"
+    parent="estate_type_sub_menu"
+    name = "property types"
+  />
+</odoo>

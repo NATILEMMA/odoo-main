@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- This record will create an action to employee complaints -->
+    <record id="employee_complaint_form_action" model="ir.actions.act_window">
+        <field name="name">Employee Complaints</field>
+        <field name="res_model">employee.complaint</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">['&amp;', ('mode', '=', 'by_department'), ('department_offendors_ids.department_complaint_assessor.user_id', 'in', [uid])]</field>
+    </record>
+
+    <!--This record will show the tree view for complain assessors -->
+    <record id="employee_complaint_tree_view" model="ir.ui.view">
+        <field name="name">Department Complaints</field>
+        <field name="model">employee.complaint</field>
+        <field name="arch" type="xml">
+            <tree delete="false">
+                <field name="create_date"/>
+                <field name="subject"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- This record will show the form view for complaint assessors -->
+    <record id="employee_complaint_form_view" model="ir.ui.view">
+        <field name="name">Department Complaints</field>
+        <field name="model">employee.complaint</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="complaint_reviewed" states="waiting for approval" string="Send Review" type="object" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="new,draft,waiting for approval,resolved"/>
+                    </header>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="subject" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="mode" readonly="1"/>
+                            <field name="employee_offendors_ids" widget="many2many_tags" attrs="{'invisible': [('mode', '!=', 'by_employee')]}" readonly="1"/>
+                            <field name="department_offendors_ids" widget="many2many_tags" attrs="{'invisible': [('mode', '!=', 'by_department')]}" readonly="1"/>
+                            <field name="company_offendors_id" attrs="{'invisible': [('mode', '!=', 'by_company')]}" readonly="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="circumstances" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Complaint Report">
+                            <group>
+                                <group>
+                                    <field name="action" attrs="{'readonly': [('state', '=', 'resolved')]}"/>
+                                </group>
+                                <group>
+                                    <field name="action_details" attrs="{'readonly': [('state', '=', 'resolved')]}"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- This record will add complaint tab inside res.users profile-->
+    <record id="res_users_view_form_complaint" model="ir.ui.view">
+       <field name="name">res.users.complaint.form.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="hr.res_users_view_form_simple_modif"/>
+        <field name="arch" type="xml">
+             <notebook position="inside">
+                <page string="Complaint">
+                    <field name="employee_complaint_ids">
+                        <tree delete="false">
+                            <field name="create_date"/>
+                            <field name="subject"/>
+                            <field name="state"/>
+                        </tree>
+                        <form>
+                            <header>
+                                <button name="in_progress" states="draft" string="Send For Approval" type="object" class="btn-primary"/>
+                            </header>
+                            <sheet>
+                                <header>
+                                    <field name="state" widget="statusbar" statusbar_visible="new,draft,waiting for approval,resolved"/>
+                                </header>
+                                <div class="oe_title">
+                                    <h1>
+                                        <field name="name" readonly="1"/>
+                                    </h1>
+                                </div>
+                                <group>
+                                    <group>
+                                        <field name="subject" options="{'no_create': True, 'no_create_edit': True}"/>
+                                        <field name="victim_id"/>
+                                    </group>
+                                    <group>
+                                        <field name="mode"/>
+                                        <field name="employee_offendors_ids" widget="many2many_tags"
+                                                                             attrs="{'invisible': [('mode', '!=', 'by_employee')]}"
+                                                                             options="{'no_create': True, 'no_create_edit': True}"/>
+                                        <field name="department_offendors_ids" widget="many2many_tags"
+                                                                               attrs="{'invisible': [('mode', '!=', 'by_department')]}"
+                                                                               options="{'no_create': True, 'no_create_edit': True}"/>
+                                        <field name="company_offendors_id" attrs="{'invisible': [('mode', '!=', 'by_company')]}"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <field name="circumstances"/>
+                                </group>
+                                <notebook>
+                                    <page string="Complaint Report">
+                                        <group>
+                                            <group>
+                                                <field name="action" readonly="1"/>
+                                            </group>
+                                            <group>
+                                                <field name="action_details" readonly="1"/>
+                                            </group>
+                                        </group>
+                                    </page>
+                                </notebook>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+            </notebook>       
+        </field>
+    </record>
+
+    <!-- This record will modifiy the department view -->
+    <record id="view_department_form_inherit" model="ir.ui.view">
+        <field name="name">department_view_inherit</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <field name="department_complaint_assessor"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="disciplinary_search_view" model="ir.ui.view">
+        <field name="name">complaint_search</field>
+        <field name="model">employee.complaint</field>
+        <field name="arch" type="xml">
+            <search string="Search complaint">
+                <field name="victim_id"/>
+                <filter string="Mode" name="by_department" domain="[('mode','=','by_department')]"/>
+                <filter string="Draft" name="draft" domain="[('state','=','draft')]"/>
+                <filter string="Waiting For Approval" name="waiting for approval" domain="[('state','=','waiting for approval')]"/>
+                <filter string="Resolved" name="resolved" domain="[('state','=','resolved')]"/>
+                <separator/>
+                <group expand="1" string="Group By">
+                    <filter string="Subject" name="subject" context="{'group_by': 'subject'}"/>
+                    <filter string="State" name="state" context="{'group_by':'state'}"/>
+                </group>
+            </search>
+        </field>
+        </record>
+
+    <menuitem id="complaint_assessor_menu"
+              name="Company Complaint"
+              parent="hr.menu_hr_root"
+              sequence="30"
+              groups="hr.group_hr_manager"
+              action="employee_complaint_form_action"/>
+
+</odoo>

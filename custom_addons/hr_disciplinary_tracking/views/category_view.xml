@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+                <!--Action Category Creation-->
+
+        <record id="action_category_noact" model="discipline.action">
+            <field name="code">NOACTION</field>
+            <field name="name">No Action</field>
+            
+        </record>
+
+        <record id="action_category_verb" model="discipline.action">
+            <field name="code">VERBAL</field>
+            <field name="name">Verbal Warning</field>
+        </record>
+
+
+        <record id="action_category_wrt" model="discipline.action">
+            <field name="code">WRITTEN</field>
+            <field name="name">Written Warning</field>
+        </record>
+
+        <record id="action_category_meet" model="discipline.action">
+            <field name="code">MEET</field>
+            <field name="name">Meet the Manager</field>
+        </record>
+
+        <record id="action_category_susp" model="discipline.action">
+            <field name="code">SUSPENSION</field>
+            <field name="name">Suspend the Employee</field>
+        </record>
+
+        <record id="action_category_term" model="discipline.action">
+            <field name="code">TERMINATE</field>
+            <field name="name">Terminate the Employee</field>
+        </record>
+
+             <!--Discipline Category Creation-->
+
+        <record id="discipline_category_care" model="discipline.category">
+            <field name="code">RULES</field>
+            <field name="name">Violation of Company Rules</field>
+            <field name="action_category" ref="action_category_meet"/>
+        </record>
+
+        <record id="discipline_category_behave" model="discipline.category">
+            <field name="code">BEHAVE</field>
+            <field name="name">Misbehaviour to Co-workers</field>
+            <field name="action_category" ref="action_category_verb"/>
+        </record>
+       
+        <record id="discipline_category_damage" model="discipline.category">
+            <field name="code">DAMAGE</field>
+            <field name="name">Damage to Company Properties</field>
+            <field name="action_category" ref="action_category_susp"/>
+        </record>
+       
+        <record id="discipline_category_instruction" model="discipline.category">
+            <field name="code">INSTRUCTION</field>
+            <field name="name">Not Follow Management Instructions</field>
+            <field name="action_category" ref="action_category_meet"/>
+        </record>
+        
+        <record id="discipline_category_performence" model="discipline.category">
+            <field name="code">INSTRUCTION</field>
+            <field name="name">Work Performance Issues</field>
+            <field name="action_category" ref="action_category_verb"/>
+        </record>
+
+        <record id="disciplinary_search_view" model="ir.ui.view">
+            <field name="name">hr disciplinary category view</field>
+            <field name="model">discipline.category</field>
+            <field name="arch" type="xml">
+                <search string="Search information">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="description"/>
+                </search>
+            </field>
+        </record>
+
+        <!--Discipline Category View-->
+
+        <record id="disciplinary_category_view_tree" model="ir.ui.view">
+            <field name="name">discipline.category.tree</field>
+            <field name="model">discipline.category</field>
+            <field name="arch" type="xml">
+                <tree string="Discipline Categories">
+                    <field name="name"/>		    
+                </tree>
+            </field>
+        </record>
+	
+        
+        <record id="disciplinary_category_view_form" model="ir.ui.view">
+            <field name="name">discipline.category.form</field>
+            <field name="model">discipline.category</field>
+            <field name="groups_id" eval="[(6,0,[ref('hr.group_hr_manager')])]"/>
+            <field name="arch" type="xml">
+                <form string="Discipline Category">
+                    <sheet>
+                        <group>
+                            <field name="name" required="True"/>
+                            <field name="code" required="True"/>
+                            <field name="description"/>
+                            <field name="action_category"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="disciplinary_category_view_form_employees" model="ir.ui.view">
+            <field name="name">discipline.category.form.for.employees</field>
+            <field name="model">discipline.category</field>
+            <field name="groups_id" eval="[(6,0,[ref('hr.group_hr_user')])]"/>
+            <field name="arch" type="xml">
+                <form string="Discipline Category">
+                    <sheet>
+                        <group>
+                            <field name="name" required="True"/>
+                            <field name="code" required="True"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="disciplinary_action_search_view" model="ir.ui.view">
+            <field name="name">hr disciplinary action category view</field>
+            <field name="model">discipline.action</field>
+            <field name="arch" type="xml">
+                <search string="Search information">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="description"/>
+                </search>
+            </field>
+        </record>
+		    <!--Discipline Category View-->
+
+        <record id="disciplinary_action_view_tree" model="ir.ui.view">
+            <field name="name">discipline.action.tree</field>
+            <field name="model">discipline.action</field>
+            <field name="arch" type="xml">
+                <tree string="Discipline Action">
+                    <field name="name"/>		    
+                </tree>
+            </field>
+        </record>
+
+    
+        <record id="disciplinary_action_view_form" model="ir.ui.view">
+            <field name="name">discipline.action.form</field>
+            <field name="model">discipline.action</field>
+            <field name="arch" type="xml">
+                <form string="Discipline Action">
+                    <sheet>
+                        <group>
+                        <field name="name" required="True"/>
+                        <field name="code" required="True"/>
+                        <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+	    <record id="action_disciplinary_action_view" model="ir.actions.act_window">
+            <field name="name">Discipline Action</field>
+            <field name="res_model">discipline.action</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_disciplinary_category_view" model="ir.actions.act_window">
+            <field name="name">Discipline Categories</field>
+            <field name="res_model">discipline.category</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+	<menuitem id="disciplinary_main_view" groups="hr.group_hr_manager" name="Discipline Category and Action" parent="disciplinary_action"
+                    sequence="3"/>
+
+	<menuitem id="disciplinary_category_view" action="action_disciplinary_category_view" parent="disciplinary_main_view" name="Discipline Category"
+                    sequence="1"/>
+
+    <menuitem id="disciplinary_action_view" action="action_disciplinary_action_view" parent="disciplinary_main_view" name="Discipline Action"
+                sequence="2"/>
+
+    </data>
+</odoo>

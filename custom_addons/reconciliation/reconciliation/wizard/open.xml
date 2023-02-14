@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_account_financial_opening" model="ir.ui.view">
+        <field name="name">financial opening</field>
+        <field name="model">financial.opening</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Financial open">
+
+                    <group>
+                          <field name="journal_id" force_save="1"/>
+                          <field name="date" force_save="1"/>
+                          <field name="debit" force_save="1" widget="many2many_tags"/>
+                          <field name="credit" force_save="1" widget="many2many_tags"/>
+                          <field name="diff" force_save="1"/>
+
+                    </group>
+
+                <footer>
+                    <button name="open_year" string="Open Year" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-default"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_credit_payment_financial_opening" model="ir.actions.act_window">
+        <field name="name">financial opening</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">financial.opening</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

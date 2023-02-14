@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bank_statement,bank_statement,model_bank_reconciliation,account.group_account_user,1,1,1,1
+access_reconciliation_time_fream,bank_statement,model_reconciliation_time_fream,account.group_account_user,1,1,1,1
+access_fiscal_year,fiscal_year,model_fiscal_year,account.group_account_user,1,1,1,1

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <!-- <record id="employee_complaint_rule" model="ir.rule">
+            <field name="name">Complaint Department Rule</field>
+            <field name="model_id" ref="hr_disciplinary_tracking.model_employee_complaint"/>
+            <field name="groups" eval="[(4, ref('hr.group_hr_manager'))]"/>
+            <field name="perm_read" eval="False"/>
+            <field name="domain_force">[('complaint_assessor.user_id','in',[user.id])]</field>
+        </record> -->
+
+</odoo>
