@@ -11,6 +11,8 @@ class estate(models.Model):
 
     name = fields.Char(string='Name', required=True)
     description = fields.Text(string='Description', )
+    date_from = fields.Date(String ="date from")
+    date_to = fields.Date(string="date to")
     postcode = fields.Char(string='Postcode', )
     date_availability = fields.Date(string='Date Available', copy=False,
                                     default=datetime.now() + relativedelta(months=3))
