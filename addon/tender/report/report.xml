@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+        string="Bid Bocument"
+        id="action_bid_document_2"
+        model="bid.document"
+        report_type="qweb-pdf"
+        name="tender.report_bid_document"
+        file="tender.report_bid_document"
+     />
+
+</odoo>

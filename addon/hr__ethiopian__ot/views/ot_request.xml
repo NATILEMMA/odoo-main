@@ -1,0 +1,147 @@
+ <odoo>
+    <data>
+      <record model="ir.ui.view" id="hr__ethiopian__ot_request_list">
+      <field name="name">Overtime Request</field>
+      <field name="model">hr_ethiopian_ot.request</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="employee_id"/>
+            <field name="date_from"/>
+            <field name="date_to"/>
+            <field name="state"/>
+            <field name="total"/>
+            <field name='manager_id'/>
+            <field name="company_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr__ethiopian__ot_request_form">
+      <field name="name">Overtime Type Rate</field>
+      <field name="model">hr_ethiopian_ot.request</field>
+      <field name="arch" type="xml">
+        <form>
+            <header>
+                <field name="state" widget="statusbar" statusbar_visible="Pre_draft,draft,f_approve,approved,calculated,paid,refused"/>
+<field name="payslip_paid" invisible="1"/>
+                <button name="cheak" string="Check"  states="Pre_draft" type="object" class="btn-primary"/>
+                <button name="submit_to_f" string="Submit"  states="draft" type="object" class="btn-primary"/>
+                <button name="recheck" string="Recheck" type="object" class="btn-primary"
+                        states="refused" groups="hr__ethiopian__ot.group_overtime_manager"/>
+                <button name="approve" string="Approve" type="object" class="btn-primary" states="f_approve"
+                                                 groups="hr__ethiopian__ot.group_overtime_manager"/>
+                <button name="reject" string="Refuse" type="object" class="btn-primary"
+                        states="f_approve" groups="hr__ethiopian__ot.group_overtime_manager"/>
+                <button name="calculate" string="Calculate" type="object" class="btn-primary"
+                        states="approved" groups="hr__ethiopian__ot.group_overtime_manager" />
+                <button name="set_to_waiting" string="Set To Waiting" type="object"
+                        states="calculated" groups="hr__ethiopian__ot.group_overtime_manager" />
+                <button name="return_to_draft" string="Return to draft" type="object" states="f_approve"/>
+                <button name="recheck" string="Recheck" type="object"
+                        states="refused" groups="hr__ethiopian__ot.group_overtime_manager"/>
+            </header>
+            <sheet>
+                <group>
+                    <group>
+
+<!--                        <field name="name"/>-->
+                    
+                        <field name='employee_id' options="{'no_quick_create': True, 'no_create_edit' : True}" 
+                                        attrs="{'readonly': ['&amp;',('state', '!=', 'draft'),('state', '!=', 'Pre_draft')]}"/>
+                        
+                        <field name="date_from" required="1"
+                                class="oe_inline"
+                                attrs="{'readonly': ['&amp;',('state', '!=', 'draft'),('state', '!=', 'Pre_draft')]}"/>
+
+
+                        <field name="date_to" required="1"
+                                class="oe_inline"
+                                attrs="{'readonly': ['&amp;',('state', '!=', 'draft'),('state', '!=', 'Pre_draft')]}"/>
+                          <field name='hr_payslip' options="{'no_quick_create': True, 'no_create_edit' : True}"
+                                        readonly="True" states="paid"/>
+
+                    </group>
+
+                    <group>
+                        <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                        <field name='department_id'/>
+                        <field name='job_id'/>
+                        <field name='manager_id'/>
+                        <field name='contract_id'/>
+                        
+                    </group>
+                    </group>
+
+                   
+                        <notebook>
+                            <page string="OT Times">
+
+                                
+                                <field name="ot_times" attrs="{'readonly': ['&amp;',('state', '!=', 'draft'),('state', '!=', 'Pre_draft')]}">
+                                    <tree string="Times" editable="bottom" decoration-bf=" ot_type!='normal' and ot_type!=False "  decoration-primary=" ot_type=='sunday' " decoration-success=" ot_type=='holiday'"
+                                    >
+                                        <field name="date_from"/>
+                                         <field name="date_name"/>
+                                        <field name="user_start_time" widget="float_time" force_save="1" readonly= "True" />
+                                        <field name="user_end_time"   widget="float_time"  force_save="1" readonly= "True"/>
+                                        <field name="start_time"  widget="float_time"/>
+                                        <field name="end_time"  widget="float_time"/>
+                                        <field name="worked_hour" widget="float_time"/>
+                                        <field name="rate_amount"/>
+                                        <field name="ot_type"/>
+                                        <field name="payment_per_hour"/>
+                                        <field name="payment_total"/>
+                                       
+   
+                                    </tree>
+                                </field>
+                                <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                               <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                    <label for="total" />
+                                </div>
+                                <field name="total" nolabel="1" class="oe_subtotal_footer_separator"/>
+                              </group>
+
+                            </page>
+
+                        </notebook>
+
+
+            </sheet>
+            <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="hr__ethiopian__ot_request_window">
+      <field name="name">Overtime Request window</field>
+      <field name="res_model">hr_ethiopian_ot.request</field>
+      <field name="view_mode">tree,form</field>
+        <field name="domain">[('employee_id.user_id','=',uid)]</field>
+
+    </record>
+
+<record model="ir.actions.act_window" id="hr__ethiopian__ot_to_approve">
+      <field name="name">To Approve</field>
+      <field name="res_model">hr_ethiopian_ot.request</field>
+      <field name="view_mode">tree,form</field>
+      <field name="domain">['|',('state','!=','Pre_draft'),('manager_id.id','=',uid)]</field>
+    </record>
+
+
+
+
+
+    <menuitem name="Overtime Request" id="hr__ethiopian__ot.menu_ot_request" 
+    parent="hr__ethiopian__ot.menu_overtime" action="hr__ethiopian__ot_request_window"/>
+
+  <menuitem name="Overtime To Approve" id="hr__ethiopian__ot.menu_ot_request_to_approve" 
+    parent="hr__ethiopian__ot.menu_overtime" action="hr__ethiopian__ot_to_approve"  groups="hr__ethiopian__ot.group_overtime_manager"/>
+
+   
+  </data>
+</odoo>

@@ -39,13 +39,14 @@
         'views/res_config_settings_views.xml',
         'views/mail_channel_views.xml',
         'views/res_users.xml',
-        'data/hr_data.xml',
+        #'data/hr_data.xml',
     ],
     'demo': [
-        'data/hr_demo.xml'
+        #'data/hr_demo.xml'
     ],
     'installable': True,
     'application': True,
     'auto_install': False,
     'qweb': ['static/src/xml/hr_templates.xml'],
+    'license': 'LGPL-3',
 }

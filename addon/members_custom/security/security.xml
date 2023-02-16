@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<odoo>
+  <record id="module_category_member_handlers" model="ir.module.category">
+    <field name="name">Member Handlers</field>
+    <field name="description">Helps with handling issues related to memebers</field>
+  </record>
+
+  <record id="member_group_agent" model="res.groups">
+    <field name="name">Agent</field>
+    <field name="category_id" ref="module_category_member_handlers"/>
+  </record>
+
+  <record id="member_group_complaint_management" model="res.groups">
+    <field name="name">Complaint Management</field>
+    <field name="category_id" ref="module_category_member_handlers"/>
+  </record>
+
+  <record id="member_group_manager" model="res.groups">
+    <field name="name">Woreda Manager</field>
+    <field name="category_id" ref="module_category_member_handlers"/>
+    <field name="implied_ids" eval="[(4, ref('member_group_agent'))]"/>
+  </record>
+
+  <record id="member_group_admin" model="res.groups">
+    <field name="name">Subcity Administrator</field>
+    <field name="category_id" ref="module_category_member_handlers"/>
+    <field name="implied_ids" eval="[(4, ref('member_group_manager')), (4, ref('member_group_complaint_management')), (4, ref('member_group_agent'))]"/>
+  </record>
+
+  <record id="member_group_city_admin" model="res.groups">
+    <field name="name">City Administrator</field>
+    <field name="category_id" ref="module_category_member_handlers"/>
+    <field name="implied_ids" eval="[(4, ref('member_group_admin'))]"/>
+  </record>
+
+  <!-- <record id="member_group_city_manager" model="res.groups">
+    <field name="name">Regional Office Manager</field>
+    <field name="category_id" ref="module_category_member_handlers"/>
+    <field name="implied_ids" eval="[(4, ref('member_group_city_admin'))]"/>
+  </record>
+
+  <record id="member_group_all_manager" model="res.groups">
+    <field name="name">Main Office Manager</field>
+    <field name="category_id" ref="module_category_member_handlers"/>
+    <field name="implied_ids" eval="[(4, ref('member_group_city_manager'))]"/>
+  </record> -->
+
+  <record id="member_group_user_admin" model="res.groups">
+    <field name="name">System Adminstrator</field>
+    <field name="category_id" ref="module_category_member_handlers"/>
+    <field name="implied_ids" eval="[(4, ref('member_group_city_admin'))]"/>
+  </record>
+
+  <record id="hr_complaint_handler_rule" model="ir.rule">
+    <field name="name">Complaint Handler's Rule</field>
+    <field name="model_id" ref="members_custom.model_member_complaint"/>
+    <field name="groups" eval="[(4, ref('members_custom.member_group_complaint_management'))]"/>
+    <field name="domain_force">['|', ('handler', '=', False), ('handler', '=', user.id)]</field>
+  </record>
+
+  <record id="manager_complaint_handling" model="ir.rule">
+    <field name="name">Manager Complaint Rule</field>
+    <field name="model_id" ref="members_custom.model_member_complaint"/>
+    <field name="groups" eval="[(4, ref('member_group_manager'))]"/>
+    <field name="domain_force">['|', ('victim_id.wereda_id.branch_manager', '=', user.id), ('victim_id.subcity_id.parent_manager', '=', user.id)]</field>
+  </record>
+
+</odoo>

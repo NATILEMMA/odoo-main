@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_frontend" inherit_id="website.assets_frontend">
+       <xpath expr="." position="inside">
+           <script type="text/javascript" src="/auth_signup_verify_email/static/main.js"></script>
+           <script type="text/javascript" src="/auth_signup_verify_email/static/product_new.js"></script>
+       </xpath>
+    </template>
+
+    <template id="child_portal_my_details" inherit_id="portal.portal_my_details" >
+        <xpath expr="//input[@name='email']" position="attributes">
+            <attribute name="readonly">True</attribute>
+        </xpath>
+
+        <xpath expr="//form[1]" position="attributes">
+            <attribute name="enctype">multipart/form-data</attribute>
+        </xpath>
+
+        <xpath expr="//div/div/div/div[3]" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+
+        <xpath expr="//div/div/div/div[5]" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+
+        <xpath expr="//div/div/div/div[6]" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+
+        <xpath expr="//div/div/div/div[7]" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+
+        <xpath expr="//div/div/div/div[9]" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+
+        <xpath expr="//div/div/div/div[10]" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+
+        <xpath expr="//div/div/div/div[11]" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+
+        <xpath expr="//div/div/div/div[12]" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+
+        <xpath expr="//div/div/div/div[13]" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+
+        <xpath expr="//div[@class='col-lg-12']" position="after">
+            <div class="col-lg-12" id="s2u_portal_avatar">
+                <input type="file" class="d-none s2u_portal_avatar_upload" name="image_1920" accept="image/*"/>
+                <img class="mb-3 s2u_portal_avatar_img" t-att-src="website.image_url(partner, 'image_1920')" style="object-fit: cover; border-radius: 50%; width: 128px; height: 128px;"/>
+                <div class="text-left">
+                    <a href="#" class="btn btn-primary s2u_portal_avatar_edit" aria-label="Edit">
+                        <i class="fa fa-pencil fa-1g float-sm-none float-md-left" title="Edit"></i>
+                    </a>
+                    <a href="#" title="Clear" aria-label="Clear" class="btn border-primary s2u_portal_avatar_clear">
+                        <i class="fa fa-trash-o float-sm-none float-md-right"></i>
+                    </a>
+                </div>
+            </div>
+        </xpath>
+
+        <xpath expr="//div/div/div/div[11]" position="after">
+           <div t-attf-class="form-group #{error.get('subcity_id') and 'o_has_error' or ''} col-xl-6">
+            <label class="col-form-label" for="subcity_id">Subcity</label>
+            <select name="subcity_id" t-attf-class="form-control #{error.get('subcity_id') and 'is-invalid' or ''}">
+                <option value="">Subcity...</option>
+                <t t-foreach="subcities" t-as="subcity">
+                  <option t-att-value="subcity.id" t-att-selected="subcity.id == partner.subcity_id.id">
+                    <t t-esc="subcity.name"/>
+                  </option>
+                </t>
+            </select>
+           </div>
+           <div t-attf-class="form-group #{error.get('wereda_id') and 'o_has_error' or ''} col-xl-6">
+             <label class="col-form-label" for="wereda_id">Woreda</label>
+             <select name="wereda_id" t-attf-class="form-control #{error.get('wereda_id') and 'is-invalid' or ''}">
+               <option value="">Select your Woreda..</option>
+               <t t-foreach="weredas" t-as="wereda">
+                 <option t-att-value="wereda.id" style="display:none;" t-att-data-parent_id="wereda.parent_id.id" t-att-selected="wereda.id == partner.wereda_id.id">
+                   <t t-esc="wereda.name"/>
+                 </option>
+               </t>
+             </select>
+           </div>
+           <div t-attf-class="form-group #{error.get('house_number') and 'o_has_error' or ''} col-xl-6">
+             <label class="col-form-label" for="house_number">House Number</label>
+             <input type="text" name="house_number" t-attf-class="form-control #{error.get('house_number') and 'is-invalid' or ''}" t-att-value="partner.house_number" />
+           </div>
+           <div t-attf-class="form-group #{error.get('phone') and 'o_has_error' or ''} col-xl-6">
+             <label class="col-form-label" for="phone">Phone</label>
+             <input type="text" name="phone" t-attf-class="form-control #{error.get('phone') and 'is-invalid' or ''}" t-att-value="partner.phone" />
+           </div>
+        </xpath>
+
+        <xpath expr="//div/div/div/div[4]" position="after">
+            <div t-attf-class="form-group #{error.get('age') and 'o_has_error' or ''} col-xl-6">
+              <label class="col-form-label" for="age">Age</label>
+              <input type="text" name="age" t-attf-class="form-control #{error.get('age') and 'is-invalid' or ''}" t-att-value="partner.age" />
+            </div>
+            <div t-attf-class="form-group #{error.get('gender') and 'o_has_error' or ''} col-xl-6">
+              <label class="col-form-label" for="gender">Gender</label>
+              <select name="gender" t-attf-class="form-control #{error.get('gender') and 'is-invalid' or ''}">
+                <option value="">Select a gender</option>
+                <option t-att-selected="'Male' == partner.gender">Male</option>
+                <option t-att-selected="'Female' == partner.gender">Female</option>
+              </select>
+            </div>
+            <div t-attf-class="form-group #{error.get('education_level') and 'o_has_error' or ''} col-xl-6">
+              <label class="col-form-label" for="education_level">Education Level</label>
+              <select name="education_level" t-attf-class="form-control #{error.get('education_level') and 'is-invalid' or ''}">
+                <option value="">Education Level...</option>
+                <t t-foreach="ed_levels" t-as="ed">
+                  <option t-att-value="ed.id" t-att-selected="ed.id == partner.education_level.id">
+                    <t t-esc="ed.name"/>
+                  </option>
+                </t>
+              </select>
+            </div>
+            <div t-attf-class="form-group #{error.get('education_type') and 'o_has_error' or ''} col-xl-6">
+              <label class="col-form-label" for="education_type">Education Type</label>
+              <select name="education_type" t-attf-class="form-control #{error.get('education_type') and 'is-invalid' or ''}">
+                <option value="">Education Type....</option>
+                <option t-att-selected="'formal' == partner.education_type">Formal</option>
+                <option t-att-selected="'informal' == partner.education_type">Informal</option>
+                <option t-att-selected="'non-formal' == partner.education_type">Non Formal</option>
+              </select>
+            </div>
+            <div t-attf-class="form-group #{error.get('company_name') and 'o_has_error' or ''} col-xl-6">
+              <label class="col-form-label" for="company_name">Company Name</label>
+              <input type="text" name="company_name" t-attf-class="form-control #{error.get('company_name') and 'is-invalid' or ''}" t-att-value="partner.company_name" />
+            </div>
+            <div t-attf-class="form-group #{error.get('function') and 'o_has_error' or ''} col-xl-6">
+              <label class="col-form-label" for="function">Job Position</label>
+              <input type="text" name="function" t-attf-class="form-control #{error.get('function') and 'is-invalid' or ''}" t-att-value="partner.function" />
+            </div>
+            <div t-attf-class="form-group #{error.get('income') and 'o_has_error' or ''} col-xl-6">
+              <label class="col-form-label" for="income">Income</label>
+              <input type="text" name="income" t-attf-class="form-control #{error.get('income') and 'is-invalid' or ''}" t-att-value="partner.income" />
+            </div>
+            <div t-attf-class="form-group #{error.get('region') and 'o_has_error' or ''} col-xl-6">
+              <label class="col-form-label" for="region">Region</label>
+              <select name="region" t-attf-class="form-control #{error.get('region') and 'is-invalid' or ''}">
+                <option value="">Region...</option>
+                <t t-foreach="regions" t-as="region">
+                  <option t-att-value="region.id" t-att-selected="region.id == partner.region.id">
+                    <t t-esc="region.name"/>
+                  </option>
+                </t>
+              </select>
+            </div>
+        </xpath>
+    </template>
+</odoo>

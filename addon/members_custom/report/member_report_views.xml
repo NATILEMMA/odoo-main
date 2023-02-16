@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <!-- This record holds the action for report -->
+  <record id="create_member_id" model="ir.actions.report">
+        <field name="name">Member ID card</field>
+        <field name="model">res.partner</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">members_custom.member_report_templates</field>
+        <field name="report_file">members_custom.member_report_templates</field>
+        <field name="binding_model_id" ref="model_res_partner"/>
+        <field name="binding_type">report</field>
+   </record>
+
+   <!-- This record will hold the action to the report of membership payment -->
+   <record id="create_member_payment_report" model="ir.actions.report">
+     <field name="name">Member Payment Report</field>
+     <field name="model">each.member.payment</field>
+     <field name="report_type">qweb-pdf</field>
+     <field name="report_name">members_custom.member_payment_report</field>
+     <field name="report_file">members_custom.member_payment_report</field>
+     <field name="binding_model_id" ref="model_each_member_payment"/>
+     <field name="binding_type">report</field>
+   </record>
+
+   <!-- This record will hold the action to the report of subcity -->
+   <record id="report_for_subcity" model="ir.actions.report">
+     <field name="name">Subcity Report</field>
+     <field name="model">membership.handlers.parent</field>
+     <field name="report_type">qweb-pdf</field>
+     <field name="report_name">members_custom.subcity_report</field>
+     <field name="report_file">members_custom.subcity_report</field>
+     <field name="binding_model_id" ref="model_membership_handlers_parent"/>
+     <field name="binding_type">report</field>
+   </record>
+
+   <!-- This record will hold the action to the report of city -->
+   <record id="report_for_city" model="ir.actions.report">
+     <field name="name">City Report</field>
+     <field name="model">membership.city.handlers</field>
+     <field name="report_type">qweb-pdf</field>
+     <field name="report_name">members_custom.city_report</field>
+     <field name="report_file">members_custom.city_report</field>
+     <field name="binding_model_id" ref="model_membership_city_handlers"/>
+     <field name="binding_type">report</field>
+   </record>
+
+  <!-- This record will hold the action to create certificate details -->
+   <record id="create_certificate" model="ir.actions.report">
+     <field name="name">Certificate</field>
+     <field name="model">res.partner</field>
+     <field name="report_type">qweb-pdf</field>
+     <field name="report_name">members_custom.certificate_template</field>
+     <field name="report_file">members_custom.certificate_template</field>
+     <field name="binding_model_id" ref="model_res_partner"/>
+     <field name="binding_type">report</field>
+   </record>
+
+</odoo>

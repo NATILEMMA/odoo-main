@@ -1,0 +1,386 @@
+<odoo>
+  <data>
+     <!-- Fund  Kanban View -->
+     <record id="view_fund_collection_kanban" model="ir.ui.view">
+      <field name="name">fund.collection.kanban</field>
+      <field name="model">fund.collection</field>
+      <field name="arch" type="xml">
+          <kanban class="o_kanban_mobile">
+              <field name="name"/>
+              <field name="amount"/>
+              <field name="state"/>
+              <templates>
+                  <t t-name="kanban-box">
+                      <div t-attf-class="oe_kanban_global_click">
+                          <div class="row mb4">
+                              <div class="col-8">
+                                  <strong>
+                                      <field name="name"/>
+
+                                  </strong>
+                              </div>
+                              <div class="col-4">
+                                  <span class="float-right">
+                                    
+                                      <field name="state" widget="label_selection"
+                                             options="{'classes': {'draft': 'default', 'done': 'success'}}"/>
+                                      
+
+                                             
+                                  </span>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-10">
+                                  <i class="fa fa-money"/>
+                                  <field name="amount"/>
+                                  <!-- <t t-esc="record.amount.value"/>- -->
+                                  <!-- <t t-esc="record.date_to.value"/> -->
+                              </div>
+                              <div class="col-xs-2">
+                                  <!-- <span class="float-right">
+                                      <img alt="" t-att-src="kanban_image('res.users', 'image_small', record.creating_user_id.raw_value)"
+                                           t-att-title="record.creating_user_id.value" width="24" height="24"
+                                           class="oe_kanban_avatar float-right"/>
+                                  </span> -->
+                              </div>
+                          </div>
+                      </div>
+                  </t>
+              </templates>
+          </kanban>
+      </field>
+  </record>
+
+     <!-- <record model="ir.ui.view" id="view_fund_kanban">
+      <field name="name">fund.collection.kanban</field>
+      <field name="model">fund.collection</field>
+      <field name="arch" type="xml">
+          <kanban default_group_by="stage_id" class="o_kanban_small_column o_kanban_project_tasks" on_create="quick_create" quick_create_view="project.quick_create_task_form" examples="project">
+              <field name="color"/>
+              <field name="priority"/>
+              <field name="stage_id" options='{"group_by_tooltip": {"description": "Description"}}'/>
+              <field name="user_id"/>
+              <field name="partner_id"/>
+              <field name="sequence"/>
+              <field name="date_deadline"/>
+              <field name="date_deadline_formatted"/>
+              <field name="message_needaction_counter"/>
+              <field name="displayed_image_id"/>
+              <field name="active"/>
+              <field name="legend_blocked"/>
+              <field name="legend_normal"/>
+              <field name="legend_done"/>
+              <field name="activity_ids"/>
+              <field name="activity_state"/>
+              <field name="rating_last_value"/>
+              <field name="rating_ids"/>
+              <progressbar field="kanban_state" colors='{"done": "success", "blocked": "danger", "normal": "muted"}'/>
+              <templates>
+              <t t-name="kanban-box">
+                  <div t-attf-class="{{!selection_mode ? 'oe_kanban_color_' + kanban_getcolor(record.color.raw_value) : ''}} oe_kanban_card oe_kanban_global_click">
+                      <div class="oe_kanban_content">
+                          <div class="o_kanban_record_top">
+                              <div class="o_kanban_record_headings">
+                                  <strong class="o_kanban_record_title"><field name="name"/></strong>
+                                  <span  invisible="context.get('default_project_id', False) or context.get('fsm_mode', False)"><br/><field name="project_id"/></span>
+                                  <br />
+                                  <t t-if="record.partner_id.value">
+                                      <span>
+                                          <field name="partner_id"/>
+                                      </span>
+                                  </t>
+                                  <t t-else="record.email_from.raw_value"><span><field name="email_from"/></span></t>
+                              </div>
+                              <div class="o_dropdown_kanban dropdown" t-if="!selection_mode" groups="base.group_user">
+                                  <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown" data-display="static" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                      <span class="fa fa-ellipsis-v"/>
+                                  </a>
+                                  <div class="dropdown-menu" role="menu">
+                                      <a t-if="widget.editable" role="menuitem" type="set_cover" class="dropdown-item" data-field="displayed_image_id">Set Cover Image</a>
+                                      <a name="%(portal.portal_share_action)d" role="menuitem" type="action" class="dropdown-item">Share</a>
+                                      <a t-if="widget.editable" role="menuitem" type="edit" class="dropdown-item">Edit Task</a>
+                                      <a t-if="widget.deletable" role="menuitem" type="delete" class="dropdown-item">Delete</a>
+                                      <div role="separator" class="dropdown-divider"></div>
+                                      <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="o_kanban_record_body">
+                              <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" invisible="context.get('fsm_mode', False)"/>
+                              <div t-if="record.displayed_image_id.value">
+                                  <field name="displayed_image_id" widget="attachment_image"/>
+                              </div>
+                          </div>
+                          <div class="o_kanban_record_bottom" t-if="!selection_mode">
+                              <div class="oe_kanban_bottom_left">
+                                  <field name="priority" widget="priority"/>
+                                  <field name="activity_ids" widget="kanban_activity"/>
+                                  <t t-if="record.message_needaction_counter.raw_value">
+                                      <span role="alert" class='oe_kanban_mail_new' title='Unread Messages'><i class='fa fa-comments' role="img" aria-label="Unread Messages"/><t t-raw="record.message_needaction_counter.raw_value"/></span>
+                                  </t>
+                                  <b t-if="record.rating_ids.raw_value.length">
+                                      <span style="font-weight:bold;" class="fa fa-fw mt4 fa-smile-o text-success" t-if="record.rating_last_value.value == 10" title="Latest Rating: Satisfied" role="img" aria-label="Happy face"/>
+                                      <span style="font-weight:bold;" class="fa fa-fw mt4 fa-meh-o text-warning" t-if="record.rating_last_value.value == 5" title="Latest Rating: Not Satisfied" role="img" aria-label="Neutral face"/>
+                                      <span style="font-weight:bold;" class="fa fa-fw mt4 fa-frown-o text-danger" t-if="record.rating_last_value.value == 1" title="Latest Rating: Higly Dissatisfied" role="img" aria-label="Sad face"/>
+                                  </b>
+                                 
+                                  <t t-set="date_format" t-value="'MM/DD/YY'" />
+                                  <t t-set="date" t-value=""/>
+                              
+                                  <t t-if="record.date_deadline.raw_value and moment(record.date_deadline.raw_value.toISOString()).startOf('day') lt moment().startOf('day')">
+                                      <t t-set="deadline_class" t-value="'oe_kanban_text_red'" />
+                                  </t>
+                                  <t t-elif="record.date_deadline.raw_value and moment(record.date_deadline.raw_value.toISOString()).startOf('day') lt moment().endOf('day')">
+                                      <t t-set="deadline_class" t-value="'text-warning font-weight-bold'" />
+                                  </t>
+                               
+                                  <t t-if="record.date_deadline.raw_value" t-set="date" t-value="record.date_deadline_formatted.raw_value" />
+                                  <span name="date" t-attf-class="#{deadline_class || ''}"><t t-esc="date" /></span>
+                              </div>
+                              <div class="oe_kanban_bottom_right" t-if="!selection_mode">
+                                  <field name="kanban_state" widget="state_selection" groups="base.group_user" invisible="context.get('fsm_mode', False)"/>
+                                  <img t-att-src="kanban_image('res.users', 'image_128', record.user_id.raw_value)" t-att-title="record.user_id.value" t-att-alt="record.user_id.value" class="oe_kanban_avatar"/>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="oe_clear"></div>
+                  </div>
+              </t>
+              </templates>
+          </kanban>
+      </field>
+   </record> -->
+
+    <record model="ir.ui.view" id="fund_management.list">
+      <field name="name">fund.collection.list</field>
+      <field name="model">fund.collection</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="squ"/>
+          <field name="funder_id"/>
+          <field name="amount"/>
+          <field name="receiver_id"/>
+        </tree>
+      </field>
+    </record>
+
+ 
+    <record model="ir.ui.view" id="fund_management.form">
+      <field name="name">fund.collection form</field>
+      <field name="model">fund.collection</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button name="action_fund_recieved"  class="oe_highlight"       groups="fund_management.fund_collection_group,fund_management.group_controller_group,fund_management.group_distribution_group"
+            type="object" attrs="{'invisible':[('state','!=','draft')]}" string="Fund Recieved"/>
+            <!-- <button name="action_paid" states="draft" string="Confirm" type="object" class="oe_highlight" groups="fund_management.fund_collection_group"/> -->
+            <button name="action_fund_manager_approval" states="paid" string="Fund Manager Approve" class="oe_highlight" groups="fund_management.fund_approval_group" type="object" />
+            <button name="action_fund_allocation" states="submitted" string="Fund Allocate Approve" class="oe_highlight" groups="fund_management.fund_collection_group" type="object" />
+            <button name="action_fund_distribution" states="to_allocate" string="Fund Distribution Approve" class="oe_highlight" groups="fund_management.fund_collection_group" type="object" />
+                    
+            <field name="state" widget="statusbar"/>
+          </header>
+          <sheet>
+            <div class="oe_button_box" name="button_box">
+                      
+              <!-- <button class="oe_stat_button" name="%(base.action_attachment)d" type="action" icon="fa-files-o">
+                  <field name="attachment_count" string="Files" widget="statinfo"/>
+              </button> -->
+
+              <button class="oe_stat_button" name="%(base.action_attachment)d" type="action" icon="fa-files-o">
+                <field name="attachment_amount" string="Attachments" widget="statinfo"/>
+              </button>
+              <button 
+                class="oe_stat_button"
+                icon="fa-globe icon">
+                <div class="o_field_widget o_stat_info">
+                    <span class="o_stat_text">Customer</span>
+                    <span class="o_stat_text">Preview</span>
+                </div>
+            </button>
+          </div>
+            <div class="oe_title">
+              <h1>
+                  <field name="squ" string="Reference"/>
+              </h1>
+          </div>
+        
+            <group>
+            <group>
+                <field name="funder_id" attrs="{'readonly':[('state','=','paid')]}"/>
+                <field name="amount" attrs="{'readonly':[('state','=','paid')]}"/>
+                <field name="create_date" string="Create Date" attrs="{'readonly':[('state','=','paid')]}"/>
+                <field name="receiver_id" attrs="{'readonly':[('state','=','paid')]}"/>
+            </group>
+            <group>        
+                  <field name="quarter" attrs="{'readonly':[('state','=','paid')]}"/>        
+                  <label for="month" string="Paid for Period"/>                
+                  <div class="o_address_format">
+                    <field name="month" placeholder="Month" class="o_address_city" style="width:124px;" attrs="{'readonly':[('state','=','paid')]}"/>
+                    <field name="year" class="o_address_city"  style="width:220px;" placeholder="Year" attrs="{'readonly':[('state','=','paid')]}"/>
+                  </div>     
+                  <field name="grant_type" attrs="{'readonly':[('state','=','paid')]}"/>
+                  <field name="grant_motheds" attrs="{'readonly':[('state','=','paid')]}"/>
+                  
+                  
+            </group>
+            <group >
+              <field name="user_id" string="Fund Manager" widget="many2one_avatar_user" groups="fund_management.group_controller_group"  attrs="{'invisible':[('state','in',['paid','draft','approved','allocated','canceled','done'])]}"/>
+              
+            </group>
+            <group>
+              <field name="payment_date"  groups="fund_management.group_controller_group" attrs="{'invisible':[('state','in',['paid','draft','approved','allocated','canceled','done'])]}"/>
+         
+            </group>
+          </group>
+          <newline />
+          <notebook attrs="{'invisible':[('state','in',['paid','draft','canceled'])]}">
+            <page string="Fund Allocation" attrs="{'invisible':[('state','in',['paid','draft','canceled'])]}" groups="fund_management.group_controller_group,fund_management.group_distribution_group" >
+              <separator string="Allocate To Fund Analytic Account" colspan="4" />
+         
+               <field name="allocate_id" attrs="{'readonly': [('state', 'in',['done','approved'])]}">
+                   <tree
+                          string="Fund Allocated To"
+                          editable="bottom"
+                      >
+                          <control>
+                              <create name="add_product_control" string="Add Fund Line"/>
+                             
+                          </control>
+                          <field name="general_fund_id" groups="fund_management.fund_collection_group,fund_management.fund_approval_group,fund_management.group_controller_group,fund_management.group_distribution_group"/>
+                          <field name="analytic_account_id" groups="fund_management.fund_collection_group,fund_management.fund_approval_group,fund_management.group_controller_group,fund_management.group_distribution_group"/>
+                          <field name="amount"/>
+                  </tree>
+
+                  <form>
+                      <group>
+                        <field name="general_fund_id" groups="fund_management.fund_collection_group,fund_management.fund_approval_group,fund_management.group_controller_group,fund_management.group_distribution_group"/>
+                        <field name="analytic_account_id" groups="fund_management.fund_collection_group,fund_management.fund_approval_group,fund_management.group_controller_group,fund_management.group_distribution_group"/>
+                      </group>
+                      
+                  </form>
+              </field>
+              <group name="note_group" col="6" class="mt-2 mt-md-0">
+                 
+                  <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                     
+                      <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                          <label for="amount" />
+                      </div> 
+                      <field name="amount" nolabel="1" string="Total Amount:" class="oe_subtotal_footer_separator"/>
+                   </group>
+                  <div class="oe_clear"/>
+              </group>
+              </page>
+            
+              <page string="Descritption"  attrs="{'readonly': [('state', 'in',['submitted'])]}">
+                  <field name="description" />
+              </page>
+              <page string="Attachements">
+                <field name="attachment_ids" string="Attachment" widget="many2many_binary" class="oe_inline"/>
+              </page>
+              </notebook>
+              
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+            <field name="message_ids" widget="mail_thread"/>
+        </div>
+        </form>
+      </field>
+    </record>
+  
+    <record model="ir.ui.view" id="bday_fund_expense_form">
+      <field name="name">fund.expense form</field>
+      <field name="model">fund.expense</field>
+      <field name="arch" type="xml">
+        <form>  
+          <header>
+            <button name="action_expensed"         groups="fund_management.fund_collection_group,fund_management.fund_approval_group,fund_management.group_controller_group,fund_management.group_distribution_group"
+            type="object" attrs="{'invisible':[('state','!=','draft')]}" string="Expensed"/>
+            <field name="state" widget="statusbar"/>
+          </header>
+          <sheet>
+            <group>
+              <group>
+                  <field name="purpose"/>
+                  <field name="payment_date"/>
+                  <field name="expense_amount"/>
+              </group>
+              <group>                
+                  <field name="funder_id" attrs="{'invisible':[('purpose','!=','bday')]}" />
+                  <field name="other_reason" attrs="{'invisible':[('purpose','!=','other')]}" />
+                  <field name="spender" class="o_address_state" />
+              </group>
+            </group>
+          </sheet>          
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="grant_type_list">
+      <field name="name">grant.type.list</field>
+      <field name="model">grant.type</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="code"/>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+ 
+    <record model="ir.ui.view" id="grant_type_form">
+      <field name="name">grant.type.form</field>
+      <field name="model">grant.type</field>
+      <field name="arch" type="xml">
+        <form>
+          <group class="col-4">
+            <field name="code"/>
+          </group>
+          <group class="col-4">
+            <field name="name"/>
+          </group>
+         
+          </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="grant_method_list">
+      <field name="name">grant.method.list</field>
+      <field name="model">grant.method</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="code"/>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+ 
+    <record model="ir.ui.view" id="grant_method_form">
+      <field name="name">grant.method.form</field>
+      <field name="model">grant.method</field>
+      <field name="arch" type="xml">
+        <form>
+          <group class="col-4">
+            <field name="code"/>
+            </group>
+            <group class="col-4">
+            <field name="name"/>
+          </group>
+         
+          </form>
+      </field>
+    </record>
+
+    <record id="base.action_attachment" model="ir.actions.act_window">
+      <field name="name">Fund Attachments</field>
+      <field name="res_model">ir.attachment</field>
+      <field name="domain">[('res_id', '=', active_id)]</field>
+    </record>
+
+   
+  </data>
+</odoo>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="ir_cron_update_membership" model="ir.cron">
+            <field name="name">Membership: update memberships</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_update_membership()</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+
+        <record id="seq_mapping" model="ir.sequence">
+            <field name="name">Mentor Mapping Sequence</field>
+            <field name="code">mentor.mapping</field>
+            <field name="prefix">M-MMap</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_duration" model="ir.sequence">
+            <field name="name">Mentor Duration Sequence</field>
+            <field name="code">mentor.duration</field>
+            <field name="prefix">Dur</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_category" model="ir.sequence">
+            <field name="name">complain cat Sequence</field>
+            <field name="code">complaint.category</field>
+            <field name="prefix">Cat</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_complaint" model="ir.sequence">
+            <field name="name">complain Sequence</field>
+            <field name="code">member.complaint</field>
+            <field name="prefix">COM</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_report" model="ir.sequence">
+            <field name="name">Report Sequence</field>
+            <field name="code">report.report</field>
+            <field name="prefix">R</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

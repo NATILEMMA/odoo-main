@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+
+<odoo>
+
+    <record id="city_payment_tree" model="ir.ui.view">
+        <field name="name">City Payments</field>
+        <field name="model">city.payment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="time_frame"/>
+                <field name="amount"/>
+                <field name="fiscal_year"/>
+                <field name="name_2"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="city_payment_form" model="ir.ui.view">
+        <field name="name">city Payments</field>
+        <field name="model">city.payment</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                     <button name="set_submit" class="oe_highlight" states="draft"
+                             string="Submit" type="object"/>
+                    <button name="set_draft" class="oe_link" states="submit"
+                             string="Rest to Draft" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submit,register"/>
+                </header>
+                <sheet>
+                    <h1>
+                        <field name="name" readonly="1" force_save="1"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="name_2" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="fiscal_year" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="time_frame" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                        <group>
+                            <field name="amount" force_save="1" readonly="1"/>
+                            <field name="amount_2" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="user" invisible="1"/>
+                            <field name="amount_3" force_save="1" readonly="1"/>
+                        </group>
+                    </group>
+                        <notebook>
+                            <page string="Woreda Payment" readonly="1">
+
+                            <field name="payments" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                 <tree>
+                                    <field name="fiscal_year"/>
+                                    <field name="time_frame"/>
+                                    <field name="amount"/>
+                                    <field name="amount_2"/>
+                                    <field name="amount_3"/>
+                                    <field name="woreda"/>
+                                 </tree>
+                            </field>
+                            </page>
+                        </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="membership_city_payment_action" model="ir.actions.act_window">
+        <field name="name">Subcity Payment Menu</field>
+        <field name="res_model">city.payment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">['|',('user', '=', uid),('name_2.city_id.city_manager', 'in', [uid])]</field>
+    </record>
+
+
+    <menuitem id="membership_city_payment_action_id"
+              name="Sub-city Membership Payment"
+              parent="members_custom.membership_payment_menu"
+              action="membership_city_payment_action"
+              sequence="6"
+              groups="members_custom.member_group_admin"/>
+
+</odoo>

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="1" model="hr.gratuity.accounting.configuration">
+        <field name="name">Basic</field>
+        <field name="config_contract_type">limited</field>
+    </record>
+
+    <record id="2" model="hr.gratuity.accounting.configuration">
+        <field name="name">Retired</field>
+        <field name="config_contract_type">limited</field>
+    </record>
+
+    <record id="3" model="hr.gratuity.accounting.configuration">
+        <field name="name">Fired</field>
+        <field name="config_contract_type">limited</field>
+    </record>
+
+    <record id="4" model="hr.gratuity.accounting.configuration">
+        <field name="name">Company Issues(Bankruptcy, Reducing Workforce)</field>
+        <field name="config_contract_type">limited</field>
+    </record>
+
+    <record id="5" model="hr.gratuity.accounting.configuration">
+        <field name="name">Sexual Harrassment(No Measure Taken)</field>
+        <field name="config_contract_type">limited</field>
+    </record>
+
+    <record id="6" model="hr.gratuity.accounting.configuration">
+        <field name="name">Bad Working Environment</field>
+        <field name="config_contract_type">limited</field>
+    </record>
+
+    <record id="7" model="hr.gratuity.accounting.configuration">
+        <field name="name">Disability</field>
+        <field name="config_contract_type">limited</field>
+    </record>
+
+    <record id="8" model="hr.gratuity.accounting.configuration">
+        <field name="name">Death</field>
+        <field name="config_contract_type">limited</field>
+    </record>
+
+    <record id="9" model="hr.gratuity.accounting.configuration">
+        <field name="name">Chronic Debilitating Illness</field>
+        <field name="config_contract_type">limited</field>
+    </record> 
+
+
+</odoo>

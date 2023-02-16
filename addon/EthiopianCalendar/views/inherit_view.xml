@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data> 
+     
+                <!-- 
+                    
+                    Adding Ethiopian Calander Date to Time Fream 
+
+                    step 1: Inherit the View of the model to which you wish to add the Ethiopian calendar extension.
+
+                    step 2, xpath your exact location of converting date fields if your date fields are located within a form sheet, use col and colspan to adjust CSS
+                
+                    Ethiopian Date Picker Widget
+
+                    - ethiopian_calander_widget
+                    - ethiopian_calander_widget_two
+                    - ethiopian_calander_widget_three
+                    - ethiopian_calander_widget_four
+                
+                
+                -->
+                
+        <record id="view_reconciliation_time_fream_form_inherit_local" model="ir.ui.view">
+            <field name="name">reconciliation.time.fream.form.inherit.local</field>
+            <field name="model">reconciliation.time.fream</field>
+            <field name="inherit_id" ref="reconciliation.reconciliation_time_fream_view"/>
+            <field name="arch" type="xml">
+            
+                <xpath expr="//field[@name='date_from']" position="replace">
+                        <field  name="date_from"  class="col-50" colspan="3"/>
+                        <field  name="ethiopian_from" class="oe_read_only" style=" float:left" />
+                         <div>
+                         </div>
+                        <div style="margin-bottom:40px;margin-top:-15px;margin-left:10px;margin-right:0px">
+                        <widget name="ethiopian_calander_widget"  style=" float:left;width:226px;" class="oe_edit_only"/>
+                        </div>
+                   
+                </xpath>
+                <xpath expr="//field[@name='date_to']" position="replace">
+                    <field  name="date_to"  class="col-50" colspan="3"/>
+                    <field  name="ethiopian_to" class="oe_read_only" style=" float:left" />
+                    <div>
+                    </div>
+                    <div style="margin-bottom:40px;margin-top:-15px;margin-left:10px;margin-right:0px">
+                    <widget name="ethiopian_calander_widget_two"  style=" float:left;width:226px;" class="oe_edit_only"/>
+                    </div>
+            
+                </xpath>
+              
+                
+            </field>
+        </record>
+
+        <record id="view_fiscal_year_form_inherit_local" model="ir.ui.view">
+            <field name="name">fiscal.year.form.inherit.local</field>
+            <field name="model">fiscal.year</field>
+            <field name="inherit_id" ref="reconciliation.fiscal_year_fream_view_2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="action_reload_page"  string="reload" class="oe_highlight"  type="object" />
+                </xpath>
+                    <xpath expr="//field[@name='date_from']" position="replace">
+                        <field  name="date_from"  class="col-50" colspan="3"/>
+                        <field  name="ethiopian_from" class="oe_read_only" style=" float:left" />
+                         <div>
+                         </div>
+                        <div style="margin-bottom:40px;margin-top:-15px;margin-left:10px;margin-right:0px">
+                        <widget name="ethiopian_calander_widget"  style=" float:left;width:226px;" class="oe_edit_only"/>
+                        </div>
+                   
+                </xpath>
+                <xpath expr="//field[@name='date_to']" position="replace">
+                    <field  name="date_to"  class="col-50" colspan="3"/>
+                    <field  name="ethiopian_to" class="oe_read_only" style=" float:left" />
+                    <div>
+                    </div>
+                    <div style="margin-bottom:40px;margin-top:-15px;margin-left:10px;margin-right:0px">
+                    <widget name="ethiopian_calander_widget_two"  style=" float:left;width:226px;" class="oe_edit_only"/>
+                    </div>
+            
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_partners_form_inherit_local" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit.local</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+             
+                <xpath expr="//form/sheet/group" position="before">
+                  
+                       <group>
+                        <group class="4">
+                            <field  name="ethiopian_date" class="oe_read_only"/>
+                        </group>
+                        <group class="8">
+                            <widget name="ethiopian_calander_widget"  style=" float:left" class="oe_edit_only"/>
+                        </group>
+                       </group>
+                     
+                   
+                </xpath>
+               
+                
+            </field>
+        </record>
+    
+   
+        
+    </data>
+   
+</odoo>

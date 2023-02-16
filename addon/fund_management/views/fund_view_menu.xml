@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+   
+    <record id="view_current_balance_pivot" model="ir.ui.view">
+         <field name="name">current.balance.report</field>
+         <field name="model">current.balance.report</field>
+         <field name="arch" type="xml">
+                 <pivot string="Current Balance" disable_linking="True">
+                     <field name="receiver_id" interval="month" type="row"/>
+                     <field name="amount" type="measure"/>
+                 </pivot>
+         </field>
+    </record>
+
+
+    <record id="view_current_balance_graph" model="ir.ui.view">
+         <field name="name">current.balance.report</field>
+         <field name="model">current.balance.report</field>
+         <field name="arch" type="xml">
+             <graph string="Current Balance">
+                 <field name="receiver_id" type="row"/>
+                 <field name="amount" type="measure"/>
+             </graph>
+         </field>
+    </record>
+
+    
+    <record id="action_balance_report" model="ir.actions.act_window">
+        <field name="name">Current Balance</field>
+        <field name="res_model">current.balance.report</field>
+        <field name="view_mode">graph</field>
+        <field name="help"></field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_fund_collection">
+        <field name="name">Fund Collection</field>
+        <field name="res_model">fund.collection</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[ ('state', 'in', ['draft', 'paid','submitted','to_allocate','done'])]</field>
+       
+    </record>
+    <record model="ir.actions.act_window" id="action_fund_allocation">
+        <field name="name">Fund Approveal</field>
+        <field name="res_model">fund.collection</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[ ('state', 'in', ['submitted','to_allocate','done'])]</field>
+       
+    </record>
+    <record model="ir.actions.act_window" id="action_fund_distribution">
+        <field name="name">Fund Distribution</field>
+        <field name="res_model">fund.collection</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[ ('state', 'not in', ['draft', 'paid','submitted'])]</field>
+       
+    </record>
+ 
+    <record model="ir.actions.act_window" id="action_fund_grant_type">
+        <field name="name">Grant Type</field>
+        <field name="res_model">grant.type</field>
+        <field name="view_mode">tree,form</field>
+       
+    </record>
+    <record model="ir.actions.act_window" id="action_fund_grant_methods">
+        <field name="name">Grant Methods</field>
+        <field name="res_model">grant.method</field>
+        <field name="view_mode">tree,form</field>
+       
+    </record>
+
+     <!-- Application Stage -->
+     <record id="apllication_stage_search" model="ir.ui.view">
+        <field name="name">fund.application.stage.search</field>
+        <field name="model">fund.application.stage</field>
+        <field name="arch" type="xml">
+            <search string="Apllication Stages">
+               <field name="name" string="Stages"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="application_stage_edit" model="ir.ui.view">
+        <field name="name">fund.application.stage.form</field>
+        <field name="model">fund.application.stage</field>
+        <field name="arch" type="xml">
+            <form string="Application Stage">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="mail_template_id"/>
+                            <field name="rating_template_id" groups="project.group_project_rating"/>
+                            <field name="auto_validation_kanban_state" attrs="{'invisible': [('rating_template_id','=', False)]}" groups="project.group_project_rating"/>
+                        </group>
+                        <group>
+                            <field name="fold"/>
+                            <field name="fund_ids" widget="many2many_tags" groups="base.group_no_one"/>
+                            <field name="sequence" groups="base.group_no_one"/>
+                        </group>
+                    </group>
+                    <group string="Stage Description and Tooltips">
+                        <p class="text-muted" colspan="2">
+                            At each stage employees can block or make task/issue ready for next stage.
+                            You can define here labels that will be displayed for the state instead
+                            of the default labels.
+                        </p>
+                        <label for="legend_normal" string=" " class="o_status oe_project_kanban_legend"
+                            title="Task in progress. Click to block or set as done."
+                            aria-label="Task in progress. Click to block or set as done." role="img"/>
+                        <field name="legend_normal" nolabel="1"/>
+                        <label for="legend_blocked" string=" " class="o_status o_status_red oe_project_kanban_legend"
+                            title="Task is blocked. Click to unblock or set as done."
+                            aria-label="Task is blocked. Click to unblock or set as done." role="img"/>
+                        <field name="legend_blocked" nolabel="1"/>
+                        <label for="legend_done" string=" " class="o_status o_status_green oe_project_kanban_legend"
+                            title="This step is done. Click to block or set in progress."
+                            aria-label="This step is done. Click to block or set in progress." role="img"/>
+                        <field name="legend_done" nolabel="1"/>
+
+                        <p class="text-muted" colspan="2">
+                            You can also add a description to help your coworkers understand the meaning and purpose of the stage.
+                        </p>
+                        <field name="description" placeholder="Add a description..." nolabel="1" colspan="2"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="application_stage_tree" model="ir.ui.view">
+        <field name="name">fund.application.stage.tree</field>
+        <field name="model">fund.application.stage</field>
+        <field name="arch" type="xml">
+            <tree string="Application Stage">
+                <field name="sequence" widget="handle" groups="base.group_no_one"/>
+                <field name="name"/>
+                <field name="fold"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_application_stage_kanban" model="ir.ui.view">
+        <field name="name">fund.application.stage.kanban</field>
+        <field name="model">fund.application.stage</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name"/>
+                <field name="fold"/>
+                <field name="description"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="row">
+                                <div class="col-12">
+                                    <strong><t t-esc="record.name.value"/></strong>
+                                </div>
+                            </div>
+                            <t t-if="record.description.value">
+                                <hr class="mt8 mb8"/>
+                                <t t-esc="record.description.value"/>
+                            </t>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_fund_application_stage" model="ir.actions.act_window">
+        <field name="name">Stages</field>
+        <field name="res_model">fund.application.stage</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_id" ref="application_stage_tree"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new stage in the fund pipeline
+          </p><p>
+            Define the steps that will be used in the fund from the
+            creation of the fund list.
+            You will use these stages in order to track the progress in fund rising and allocation.
+          </p>
+        </field>
+    </record>
+
+
+    <menuitem name="Fund Managment"
+        id="fund_management.menu_root"
+        web_icon="fund_management,static/description/icon.png"
+        groups="fund_management.fund_collection_group,fund_management.fund_approval_group,fund_management.group_controller_group,fund_management.group_distribution_group"
+        sequence="26"/>
+
+   
+    <!-- <menuitem name="Dashboard" 
+        id="fund_management.menu_dashboard"
+        web_icon="fund_management,static/description/icon.png"
+        sequence="1" 
+        action="action_fund_collection"
+        parent="fund_management.menu_root"  /> -->
+
+ 
+    <menuitem 
+        name="Fund Collection" id="fund_management.menu_fund_collection"   
+        sequence="2"
+        parent="fund_management.menu_root" 
+        action="action_fund_collection"  
+        groups="fund_management.fund_collection_group,fund_management.fund_approval_group"/>
+
+    <menuitem 
+        name="Fund Allocation" 
+        id="fund_management.menu_fund_allocation"   
+        sequence="3"
+        parent="fund_management.menu_root" 
+        action="action_fund_allocation"  
+        groups="fund_management.group_controller_group"/>
+
+    <menuitem 
+        name="Fund Distribution/Control" 
+        id="fund_management.menu_fund_distribution"   
+        sequence="4"
+        parent="fund_management.menu_root" 
+        action="action_fund_distribution"  
+        groups="fund_management.group_distribution_group"/>
+
+    
+    <menuitem 
+        name="Configuration" 
+        id="fund_management.menu_fund_configuration"   
+        sequence="40"
+        parent="fund_management.menu_root" 
+        action="action_fund_distribution"  
+        groups="fund_management.group_distribution_group,fund_management.group_controller_group"/>
+    
+    <menuitem 
+        name="Grant Type" 
+        id="fund_management.menu_grant_type"   
+        sequence="4"
+        parent="fund_management.menu_fund_configuration" 
+        action="action_fund_distribution"  
+        groups="fund_management.group_distribution_group,fund_management.group_controller_group"/>
+    
+        <menuitem 
+        name="Grant Type" 
+        id="fund_management.menu_grant_type"   
+        sequence="4"
+        parent="fund_management.menu_fund_configuration" 
+        action="action_fund_grant_type"  
+        groups="fund_management.group_distribution_group,fund_management.group_controller_group"/>
+    
+        <menuitem 
+        name="Grant Methods" 
+        id="fund_management.menu_grant_methods"   
+        sequence="4"
+        parent="fund_management.menu_fund_configuration" 
+        action="action_fund_grant_methods"  
+        groups="fund_management.group_distribution_group,fund_management.group_controller_group"/>
+
+        <menuitem 
+        name="Application Stage" 
+        id="fund_management.menu_application_stage"   
+        sequence="4"
+        parent="fund_management.menu_fund_configuration" 
+        action="action_fund_application_stage"  
+        groups="fund_management.group_distribution_group,fund_management.group_controller_group"/>
+    
+
+        <menuitem 
+        name="Fund Reporting" 
+        id="fund_management.menu_fund_report"   
+        sequence="5"
+        parent="fund_management.menu_fund_configuration" 
+        action="action_fund_application_stage"  
+        groups="fund_management.group_distribution_group,fund_management.group_controller_group"/>
+    
+
+</data>
+</odoo>

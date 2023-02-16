@@ -30,9 +30,11 @@ class HrEmployeePublic(models.Model):
     resource_calendar_id = fields.Many2one(readonly=True)
     tz = fields.Selection(readonly=True)
     color = fields.Integer(readonly=True)
-
+    tin_number = fields.Char(readonly=True)
+    employee_id = fields.Many2one('hr.employee', 'Employee', compute="_compute_employee_id", search="_search_employee_id", compute_sudo=True)
+    
     # hr.employee.public specific fields
-    child_ids = fields.One2many('hr.employee.public', 'parent_id', string='Direct subordinates', readonly=True)
+    child_ids = fields.One2many('hr.employee.public', 'parent_id', string='Direct subordinates', readonly=True, domain="['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]")
     image_1920 = fields.Image("Original Image", compute='_compute_image', compute_sudo=True)
     image_1024 = fields.Image("Image 1024", compute='_compute_image', compute_sudo=True)
     image_512 = fields.Image("Image 512", compute='_compute_image', compute_sudo=True)
@@ -62,3 +64,10 @@ class HrEmployeePublic(models.Model):
                 %s
             FROM hr_employee emp
         )""" % (self._table, self._get_fields()))
+
+    def _search_employee_id(self, operator, value):
+        return [('id', operator, value)]
+
+    def _compute_employee_id(self):
+        for employee in self:
+            employee.employee_id = self.env['hr.employee'].browse(employee.id)

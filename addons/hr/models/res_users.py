@@ -13,21 +13,22 @@ class User(models.Model):
     employee_id = fields.Many2one('hr.employee', string="Company employee",
         compute='_compute_company_employee', search='_search_company_employee', store=False)
 
-    job_title = fields.Char(related='employee_id.job_title', readonly=False)
-    work_phone = fields.Char(related='employee_id.work_phone', readonly=False)
-    mobile_phone = fields.Char(related='employee_id.mobile_phone', readonly=False)
+    job_title = fields.Char(related='employee_id.job_title', readonly=False, related_sudo=False)
+    work_phone = fields.Char(related='employee_id.work_phone', readonly=False, related_sudo=False)
+    mobile_phone = fields.Char(related='employee_id.mobile_phone', readonly=False, related_sudo=False)
     employee_phone = fields.Char(related='employee_id.phone', readonly=False, related_sudo=False)
     work_email = fields.Char(related='employee_id.work_email', readonly=False, related_sudo=False)
     category_ids = fields.Many2many(related='employee_id.category_ids', string="Employee Tags", readonly=False, related_sudo=False)
     department_id = fields.Many2one(related='employee_id.department_id', readonly=False, related_sudo=False)
     address_id = fields.Many2one(related='employee_id.address_id', readonly=False, related_sudo=False)
     work_location = fields.Char(related='employee_id.work_location', readonly=False, related_sudo=False)
-    employee_parent_id = fields.Many2one(related='employee_id.parent_id', related_sudo=False)
+    employee_parent_id = fields.Many2one(related='employee_id.parent_id', readonly=False, related_sudo=False)
     coach_id = fields.Many2one(related='employee_id.coach_id', readonly=False, related_sudo=False)
     address_home_id = fields.Many2one(related='employee_id.address_home_id', readonly=False, related_sudo=False)
     is_address_home_a_company = fields.Boolean(related='employee_id.is_address_home_a_company', readonly=False, related_sudo=False)
     private_email = fields.Char(related='address_home_id.email', string="Private Email", readonly=False)
     km_home_work = fields.Integer(related='employee_id.km_home_work', readonly=False, related_sudo=False)
+    tin_number = fields.Char(related='employee_id.tin_number', readonly=False, related_sudo=False)
     # res.users already have a field bank_account_id and country_id from the res.partner inheritance: don't redefine them
     employee_bank_account_id = fields.Many2one(related='employee_id.bank_account_id', string="Employee's Bank Account Number", related_sudo=False, readonly=False)
     employee_country_id = fields.Many2one(related='employee_id.country_id', string="Employee's Country", readonly=False, related_sudo=False)
@@ -127,6 +128,7 @@ class User(models.Model):
             'certificate',
             'study_field',
             'study_school',
+            'tin_number'
         ]
 
         init_res = super(User, self).__init__(pool, cr)
@@ -210,5 +212,6 @@ class User(models.Model):
         self.ensure_one()
         self.env['hr.employee'].create(dict(
             name=self.name,
+            company_id=self.env.company.id,
             **self.env['hr.employee']._sync_user(self)
         ))

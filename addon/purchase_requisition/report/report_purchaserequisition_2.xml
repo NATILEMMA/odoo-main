@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<template id="report_purchaserequisitions_2">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+
+                    <h2>Tender result:<span t-field="o.name"/></h2>
+
+                    <div class="row mt32 mb32">
+                        <div class="col-3">
+                            <strong>Tender result:</strong><br/>
+                            <span t-field="o.name"/>
+                        </div>
+                        <div class="col-3">
+                            <strong>Scheduled Ordering Date:</strong><br/>
+                            <span t-field="o.ordering_date"/>
+                        </div>
+                        <div class="col-3">
+                            <strong>Source:</strong><br/>
+                            <span t-field="o.origin"/>
+                        </div>
+                                           </div>
+                    <div class="row mt32 mb32">
+                         <div class="col-3">
+                        <strong>purchase representative:</strong><br/>
+                        <span t-field="o.user_id"/>
+                    </div>
+                        <div class="col-3">
+                        <strong>purchase Analyst:</strong><br/>
+                        <span t-field="o.analysis_id"/>
+                    </div>
+                        <div class="col-3">
+                        <strong>purchase approve</strong><br/>
+                        <span t-field="o.approver_id"/>
+                    </div>
+
+                    </div>
+
+
+
+                    <t t-if="o.purchase_ids">
+                        <h3>Requests for Quotation Details</h3>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th><strong>Product</strong></th>
+                                    <th><strong>Quantity</strong></th>
+                                    <th><strong>unit price</strong></th>
+                                    <th><strong>Tax</strong></th>
+                                    <th><strong>Total</strong></th>
+                                    <th><strong>Vendor</strong></th>
+                                    <th><strong>status</strong></th>
+                                    <th><strong>Reason</strong></th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.line_id_2" t-as="purchase_ids">
+                                    <td class="text-center">
+                                        <span t-field="purchase_ids.product_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="purchase_ids.product_qty"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="purchase_ids.price_unit"/>
+                                    </td>
+                                      <td class="text-right">
+                                        <span t-field="purchase_ids.taxes_id"/>
+                                    </td>
+                                     <td class="text-right">
+                                        <span t-field="purchase_ids.price_subtotal"/>
+                                    </td>
+                                     <td class="text-right">
+                                        <span t-field="purchase_ids.partner_id.name"/>
+                                    </td>
+                                     <td class="text-right">
+                                        <span t-field="purchase_ids.selection"/>
+                                    </td>
+                                     <td class="text-right">
+                                        <span t-field="purchase_ids.reason"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+
+                    <div class="oe_structure"/>
+                </div>
+            </t>
+        </t>
+    </t>
+</template>
+</data>
+</odoo>

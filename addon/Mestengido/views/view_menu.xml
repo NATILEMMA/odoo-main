@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+    <record model="ir.actions.act_window" id="action_mest_request">
+        <field name="name">Mestengido</field>
+        <field name="res_model">mest.mest</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <!-- <field name="domain">[ ('state', 'in', ['requested','submitted','approved','done'])]</field> -->
+       
+    </record>
+
+    <record model="ir.actions.act_window" id="action_mest_request_collection">
+        <field name="name">Request collection</field>
+        <field name="res_model">mest.order</field>
+        <field name="view_mode">tree,form</field>
+        <!-- <field name="domain">[ ('state', 'in', ['requested','submitted','approved','done'])]</field> -->
+       
+    </record>
+   
+    <record model="ir.actions.act_window" id="action_monthly_amount">
+        <field name="name">Monthly Amonut</field>
+        <field name="res_model">monthly.amount</field>
+        <field name="view_mode">tree,form</field>
+        <!-- <field name="domain">[ ('state', 'in', ['requested','submitted','approved','done'])]</field> -->
+       
+    </record>
+   
+
+    <menuitem name="Mestengido"
+        id="Mestengido.menu_root"
+        web_icon="Mestengido,static/description/icon.png"
+        groups="Mestengido.mest_request_group,Mestengido.mest_approval_group,Mestengido.mest_purchase_order_group"
+        sequence="26"/>
+
+    <menuitem 
+        name="Mestengido" id="Mestengido.menu_mest_request"   
+        sequence="2"
+        parent="Mestengido.menu_root" 
+        action="action_mest_request"  
+        groups="Mestengido.mest_request_group,Mestengido.mest_approval_group,Mestengido.mest_purchase_order_group"/>
+    
+    <menuitem 
+        name="Collect Requests" id="Mestengido.menu_order_request"   
+        sequence="3"
+        parent="Mestengido.menu_root" 
+        action="action_mest_request_collection"  
+        groups="Mestengido.mest_purchase_order_group"/>
+
+        <menuitem 
+        name="Configuration" 
+        id="Mestengido.menu_Mestengido_configuration"   
+        sequence="40"
+        parent="Mestengido.menu_root" 
+        action="action_monthly_amount" 
+        groups="Mestengido.mest_purchase_order_group"/>
+    
+    <menuitem 
+        name="Monthly Amonut" 
+        id="Mestengido.menu_monthly_amount"   
+        sequence="4"
+        parent="Mestengido.menu_Mestengido_configuration" 
+        action="action_monthly_amount"   
+        groups="Mestengido.mest_purchase_order_group"/>
+</data>
+</odoo>

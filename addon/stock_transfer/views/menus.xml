@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_sprogroup_purchase_request_sr">
+        <field name="name">sprogroup.purchase.request.add.sr</field>
+        <field name="model">sprogroup.purchase.request</field>
+        <field name="inherit_id" ref="sprogroup_purchase_request.view_sprogroup_purchase_request_form"/>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+        <xpath expr="//field[@name='description']" position="after">
+            <field name="sr" string="SR"/>
+        </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_res_users_location">
+        <field name="name">res.users.add.location</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+        <xpath expr="//notebook" position="inside">
+            <page string="Location">
+               <group col="4">
+                  <field name="x_studio_location"/>
+                </group>
+             </page>
+        </xpath>
+        </field>
+    </record>
+
+   <record id="view_transfer_requester_tree" model="ir.ui.view">
+        <field name="name">transfer.request.form</field>
+        <field name="model">transfer.request</field>
+        <field name="arch" type="xml">
+           <form string="Transfer">
+
+                <header>
+                    <button name="action_request" attrs="{'invisible': [('state', '!=', 'draft')]}" string="Request" type="object" class="oe_highlight"/>
+                    <button name="action_confirm" attrs="{'invisible': [('state', '!=', 'waiting')]}" string="Confirm" type="object" class="oe_highlight"/>
+                    <button name="action_receive" attrs="{'invisible': [('state', '!=', 'approved')]}" string="Receive" type="object" class="oe_highlight"/>
+                    <button name="action_cancel" attrs="{'invisible': [('state', 'in', ('cancel','done'))]}" string="Cancel" type="object"/>
+                    <button name="action_print" attrs="{'invisible': [('state', '==', 'draft')]}" string="Print" type="object"/>
+                    <field name="state" widget="statusbar" nolabel="1"/>
+                </header>
+                <sheet>
+                  
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" attrs="{'invisible': [('name','=','/')]}"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                          
+                            <field name="picking_type_id"/>
+                            <field name="location_id" options="{'no_create': True}" />
+                            <field name="location_dest_id" options="{'no_create': True}" />
+                        
+                        </group>
+                        <group>
+                            <label for="scheduled_date"/>
+                            <div class="o_row">
+                                <field name="scheduled_date"  decoration-warning="state not in ('done', 'cancel')" decoration-danger="state not in ('done', 'cancel') and scheduled_date &lt; current_date" decoration-bf="state not in ('done', 'cancel') and (scheduled_date &lt; current_date or scheduled_date)"/>
+                            </div>
+                            <field name="date" string="Effective Date"/>
+                            <field name="pr" string="PR"/>
+
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Items" name="items">
+                            <field name="item_ids" mode="tree,kanban" context="{'default_date': scheduled_date, 'default_picking_type_id': picking_type_id, 'default_location_id': location_id, 'default_location_dest_id': location_dest_id}">
+                                <tree string="Transfer Items" editable="bottom" decoration-danger="available_in_store==False">
+                                    <field name="available_in_store"/>
+                                    <field name="number" />
+                                    <field name="product_id" required="1" context="{'default_type': 'product'}"/>
+                                    <field name="products_availability" string="Available Amount In source"/>
+                                    <!-- <field name="products_availability_dest" string="Available Amountn destination"/> -->
+                                    <field name="demand"/> 
+                                    <button name="action_change_availability" attrs="{'invisible': [('available_in_store', 'in', [False])]}" icon="fa-remove" style="color:red;" type="object"/>
+                                    <button name="action_change_availability" attrs="{'invisible': [('available_in_store', 'in', [True])]}" icon="fa-check" type="object"/>
+                                    <button name="request_purchase" string="Request Purchase" attrs="{'invisible': [('products_availability', '>=', 'demand')]}"  type="object" />
+
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <group>
+                            
+                                  <field name="user_id" />
+                                <field name="approved_id" />
+                                <field name="received_id" />
+                                <field name="canceled_id" attrs="{'invisible': [('state', 'not in', ['cancel'])]}"/>
+                                
+                            </group>
+                         
+                        </page>
+
+                    </notebook>
+                </sheet>
+                </form> 
+         
+        </field>
+    </record>
+
+    <record id="action_transfer_requester" model="ir.actions.act_window">
+        <field name="name">Internal Transfer</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">transfer.request</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+         <p class="o_view_nocontent_smiling_face">
+             Create Your Transfer Request Here!
+         </p> 
+       </field>
+    </record>
+
+
+<menuitem name="Stock  Transfer"
+            id="menu_transfer_request_root"
+            web_icon="stock_transfer,static/description/icon.png"
+            sequence="25"/>
+
+<menuitem  action="action_transfer_requester"
+              name="Internal Transfer"
+              id="transfer_request_menu"
+              parent="menu_transfer_request_root"
+              sequence="5"/>
+
+
+</odoo>

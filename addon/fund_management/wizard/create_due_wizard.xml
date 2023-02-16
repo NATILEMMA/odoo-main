@@ -1,0 +1,38 @@
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="create_dues_wizard_form">
+			<field name="name">create.dues.wizard.form</field>
+			<field name="model">generate.dues.wizard</field>
+			<field name="arch" type="xml">
+			<form string="Generate Dues">
+			<group>
+				<group>
+					<field name="month"/>
+					<field name="amount"/>
+				</group>
+				<group>
+					<field name="year"/>
+				</group>
+			</group>
+			<footer>
+			<button string="Generate Dues" name="generate_dues" type="object" class="oe_highlight"/>
+			or
+			<button string="Cancel" class="oe_link" special="cancel"/>
+			</footer>
+			</form>
+			</field>
+			</record>
+
+			<record id="create_dues_wizard_action_id" model="ir.actions.act_window">
+				<field name="name">Generate Dues</field>
+				<field name="type">ir.actions.act_window</field>
+				<field name="res_model">generate.dues.wizard</field>
+				<field name="view_type">form</field>
+				<field name="view_mode">form</field>
+				<field name="target">new</field>
+			</record>
+
+			 <menuitem name="Create Dues" id="create_dues_menu" parent="bday_fund_mgmt.bday_fund_mgmt_configuration_menu"          groups="fund_management.fund_collection_group,fund_management.fund_approval_group,fund_management.group_controller_group,fund_management.group_distribution_group"
+			 action="create_dues_wizard_action_id"   sequence="10"/>
+	</data>
+</odoo>

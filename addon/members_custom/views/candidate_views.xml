@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<odoo>
+
+
+  <!-- This record will create a tree view for candidate members -->
+  <record id="candidate_members_tree_view" model="ir.ui.view">
+    <field name="name">Candidate Members</field>
+    <field name="model">candidate.members</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name" string="Name"/>
+        <field name="gender" string="Gender"/>
+        <field name="region" string="Region"/>
+        <field name="subcity_id" string="Subcity"/>
+        <field name="wereda_id" string="Woreda"/>
+      </tree>
+    </field>
+  </record>
+
+  <!-- This record will create a form for candidate Members -->
+  <record id="candidate_members_form_view" model="ir.ui.view">
+    <field name="name">Candidate Member Form</field>
+    <field name="model">candidate.members</field>
+    <field name="arch" type="xml">
+      <form>
+        <field name="new_member" invisible="1"/>
+        <header>
+          <button type="object" name="create_members" string="Create a Member" class="oe_highlight float-right" attrs="{'invisible': [('state', '=', 'approved')]}" groups="members_custom.member_group_manager"/>
+          <field name="state" widget="statusbar" statusbar_visible="new,approved"/>
+        </header>
+        <sheet>
+          <field name="image_1920" widget="image" class="oe_avatar" options='{"preview_image": "image_1920"}'/>
+          <group>
+            <group>
+              <separator string="Demographic Information"/>
+              <field name="name" placeholder="Eg. John Does Smith"/>
+              <field name="gender" string="Gender"/>
+              <field name="age" string="Age"/>
+              <field name="date" string="Date of Birth" class="col-50" colspan="3"/>
+              <!-- <field name="ethiopian_date" class="oe_read_only" style="float:left"/>
+              <div>
+              </div>
+              <div style="margin-bottom:40px;margin-top:-15px;margin-left:10px;margin-right:0px">
+                <widget name="ethiopian_calander_widget" style="float:left;width:500" class="oe_edit_only"/>
+              </div> -->
+              <field name="region" string="Region"/>
+              <separator string="Educational Status"/>
+              <field name="education_level" string="Education Level"/>
+              <!-- <field name="education_type" string="Education Type"/> -->
+              <field name="other_trainings" string="Other Trainings"/>
+              <separator string="Can Become A Member On"/>
+              <field name="becomes_member_on" class="col-50" colspan="3"/>
+              <!-- <field name="ethiopian_date_two" class="oe_read_only" style="float:left"/>
+              <div>
+              </div>
+              <div style="margin-bottom:40px;margin-top:-15px;margin-left:10px;margin-right:0px">
+                <widget name="ethiopian_calander_widget_two" style="float:left;width:500" class="oe_edit_only"/>
+              </div> -->
+            </group>
+            <group>
+              <separator string="Employment Status"/>
+              <field name="source_of_livelihood" string="Livelihood"/>
+              <field name="company_name" string="Company Name" attrs="{'invisible': [('source_of_livelihood', '=', 'stay at home')]}"/>
+              <field name="position" string="Job Position" attrs="{'invisible': [('source_of_livelihood', '=', 'stay at home')]}"/>
+              <field name="income" string="Income" attrs="{'invisible': [('source_of_livelihood', '=', 'stay at home')]}"/>
+              <field name="years_of_service" class="oe_inline" attrs="{'invisible': [('source_of_livelihood', '=', 'stay at home')]}"/>
+              <separator string="Private Address"/>
+              <field name="city" string="City"/>
+              <field name="subcity_id" string="Subcity"/>
+              <field name="wereda_id" string="Woreda"/>
+              <field name="house_number" string="House Number"/>
+              <field name="house_phone_number" string="Home Phone Number"/>
+              <field name="office_phone_number" string="Office Phone Number"/>
+              <field name="phone" string="Phone"/>
+              <field name="previous_membership" string="Previous Political Membership"/>
+              <field name="partner_id" attrs="{'invisible': [('state', '=', 'new')]}"/>
+              <field name="x_css" force_save="1" nolabel="1"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+    <record id="candidate_kanban_view" model="ir.ui.view">
+      <field name="name">Candidate Kanban</field>
+      <field name="model">candidate.members</field>
+      <field name="arch" type="xml">
+          <kanban class="o_candidate_kanban" sample="1">
+              <field name="id"/>
+              <field name="image_1920"/>
+              <field name="name"/>
+              <field name="age"/>
+              <field name="position"/>
+              <field name="region"/>
+              <field name="company_name"/>
+              <field name="subcity_id"/>
+              <field name="wereda_id"/>
+              <templates>
+                  <t t-name="kanban-box">
+                      <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_candidate_kanban">
+                          <t>
+                              <t t-set="placeholder" t-value="'/base/static/img/avatar_grey.png'"/>
+                              <div class="o_kanban_image_fill_left o_kanban_image_full" t-attf-style="background-image: url(#{kanban_image('candidate.members', 'image_1920', record.id.raw_value, placeholder)})" role="img"/>
+                          </t>
+                          <div class="oe_kanban_details d-flex flex-column justify-content-between">
+                              <div>
+                                  <strong class="o_kanban_record_title oe_partner_heading"><field name="name"/>, <field name="age"/></strong>
+                                  <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                                  <ul>
+                                      <li t-if="record.company_name.raw_value and record.position.raw_value"><field name="position"/> at <field name="company_name"/></li>
+                                      <li t-if="record.subcity_id.raw_value or record.wereda_id.raw_value">
+                                          <t t-if="record.subcity_id.raw_value"><field name="subcity_id"/><t t-if="record.wereda_id.raw_value">, </t></t>
+                                          <t t-if="record.wereda_id.raw_value"><field name="wereda_id"/><t t-if="record.region.raw_value">, </t></t>
+                                          <t t-if="record.region.raw_value"><field name="region"/></t>
+                                      </li>
+                                      <li t-if="record.phone.raw_value" class="o_text_overflow"><field name="phone"/></li>
+                                  </ul>
+                              </div>
+                              <div class="o_kanban_record_bottom">
+                                  <div class="oe_kanban_bottom_left"/>
+                                  <div class="oe_kanban_bottom_right"/>
+                              </div>
+                          </div>
+                      </div>
+                  </t>
+              </templates>
+          </kanban>
+      </field>
+  </record>
+
+  <!-- This record will create the action for candidate members -->
+  <record id="candidate_members_action" model="ir.actions.act_window">
+    <field name="name">Candidate Members</field>
+    <field name="res_model">candidate.members</field>
+    <field name="view_mode">kanban,form,tree</field>
+    <field name="domain">['|', '|', '|', ('wereda_id.branch_manager', '=', uid), ('subcity_id.parent_manager.id', '=', uid), ('subcity_id.city_id.city_manager', 'in', [uid]), ('subcity_id.city_id.responsible_id.system_admin', '=', uid)]</field>
+  </record>
+
+  <!-- This record will handle the search options for Candidate Members -->
+  <record id="candidate_view_search" model="ir.ui.view">
+    <field name="name">candidate.view.search</field>
+    <field name="model">candidate.members</field>
+    <field name="arch" type="xml">
+      <search string="Candidate Members">
+          <field name="name" string="Names" filter_domain="[('name', 'ilike', self)]"/>
+          <separator/>
+            <filter name="state" string="Status" context="{'group_by': 'state'}"/>
+      </search>
+    </field>
+  </record>
+
+  <menuitem id="candidate_members"
+            name="Candidates"
+            parent="membership.menu_membership"
+            sequence="5"
+            action="candidate_members_action"
+            groups="members_custom.member_group_manager,members_custom.member_group_agent"/>
+
+</odoo>

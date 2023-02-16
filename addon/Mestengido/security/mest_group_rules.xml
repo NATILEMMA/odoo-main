@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.module.category" id="module_category_mestengido">
+        <field name="name">Mestengido Setting</field>
+        <field name="description">Mestengido Setting</field>
+        <field name="sequence">63</field>
+    </record>
+
+    <record id="mest_request_group" model="res.groups">
+        <field name="name">Allow to request</field>
+        <field name="category_id" ref="module_category_mestengido" />
+    </record>
+
+    <record id="mest_approval_group" model="res.groups">
+        <field name="name">Allow to approval</field>
+        <field name="category_id" ref="module_category_mestengido" />
+    </record>
+    <record id="mest_purchase_order_group" model="res.groups">
+        <field name="name">Allow to purchase order approval</field>
+        <field name="category_id" ref="module_category_mestengido" />
+    </record>
+   
+</odoo>

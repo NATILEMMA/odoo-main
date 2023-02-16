@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<odoo>
+  <template id="complaint_report_templates">
+    <t t-call="web.html_container">
+      <t t-foreach="docs" t-as="complaint">
+        <t t-call="web.external_layout">
+        <t t-lang="am_ET"/>
+          <div class="page">
+            <br/>
+            <br/>
+            <table class="table" style="border: 3px solid black">
+              <tr>
+                <td>
+                  <span>Date of Creation</span>
+                </td>
+                <td>
+                  <span>Subject</span>
+                </td>
+                <td>
+                  <span>Status</span>
+                </td>
+                <td>
+                  <span>Date of Remedy</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span t-field="complaint.create_date"/>
+                </td>
+                <td>
+                  <span t-field="complaint.subject"/>
+                </td>
+                <td>
+                  <span t-field="complaint.state"/>
+                </td>
+                <td>
+                  <span t-field="complaint.date_of_remedy"/>
+                </td>
+              </tr>
+            </table>
+            <br/>
+            <br/>
+            <table class="table" style="border: 3px solid white">
+              <tr>
+                <td>
+                  <h5>
+                    <span>Victim :- </span>
+                    <span t-field="complaint.victim_id"/>
+                  </h5>
+                </td>
+                <td>
+                  <h5>
+                    <span>Complaint Handler :- </span>
+                    <span t-field="complaint.handler"/>
+                  </h5>
+                </td>
+              </tr>
+            </table>
+            <div class="complaint">
+              <h4>Member Complaint</h4>
+              <span t-field="complaint.circumstances"/>
+            </div>
+            <div class="conclusion">
+              <h4>Handler Conclusion</h4>
+              <span t-field="complaint.conclusion_report"/>
+            </div>
+          </div>
+        </t>
+      </t>
+    </t>
+  </template>
+</odoo>

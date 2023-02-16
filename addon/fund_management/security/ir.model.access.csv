@@ -1,0 +1,21 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+
+access_fund_fund,fund.fund,model_fund_fund,account.group_account_manager,1,1,1,1
+access_account_fund_post,account.fund.post,model_account_fund_post,account.group_account_manager,1,1,1,1
+access_account_fund_post_accountant,account.fund.post accountant,model_account_fund_post,account.group_account_user,1,1,1,1
+access_fund_fund_accountant,fund.fund accountant,model_fund_fund,account.group_account_user,1,1,1,1
+access_fund_lines_accountant,fund.lines accountant,model_fund_lines,account.group_account_user,1,1,1,1
+access_fund,fund.lines manager,model_fund_lines,base.group_user,1,1,1,0
+access_fund,fund.lines.allocate,model_allocate_fund_line,,1,1,1,1
+
+access.fund.collection,access_fund_collection,fund_management.model_fund_collection,fund_management.fund_collection_group,1,1,1,1
+access.fund.collection.approval,access_fund_collection,fund_management.model_fund_collection,fund_management.fund_approval_group,1,1,0,1
+access.fund.collection.finanical.group.controller.group,access_fund_collection,fund_management.model_fund_collection,fund_management.group_controller_group,1,1,0,1
+access.fund.collection.finanical.group.controller.group,access_fund_collection,fund_management.model_fund_collection,fund_management.group_distribution_group,1,1,0,0
+
+access.project.team,access_project_team,fund_management.model_project_team,,1,1,1,1
+access.application.team,access_application_team,fund_management.model_application_team,,1,1,1,1
+access.grant.type,access_grant_type,fund_management.model_grant_type,,1,1,1,1
+access.grant.methods,access_grant_method,fund_management.model_grant_method,,1,1,1,1
+access.fund.application.stage,access_fund_application_stage,fund_management.model_fund_application_stage,,1,1,1,1

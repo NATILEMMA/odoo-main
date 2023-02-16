@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <record id="menu_registration" model="website.menu">
+    <field name="name">Membership Registration Form</field>
+    <field name="url">/registration</field>
+    <field name="parent_id" ref="website.main_menu"/>
+    <field name="sequence" type="int">50</field>
+  </record>
+
+ <template id="assets_frontend" inherit_id="website.assets_frontend">
+   <xpath expr="." position="inside">
+     <script type="text/javascript" src="/auth_signup_verify_email/static/main.js"></script>
+     <script type="text/javascript" src="/auth_signup_verify_email/static/product_new.js"></script>
+   </xpath>
+ </template>
+
+ <template id="registration_form" name="Membership Registration Form">
+    <t t-call="website.layout">
+      <div class="col d-flex justify-content-center">
+        <div class="card m-5 w-50">
+          <h5 class="card-header">Registration Form</h5>
+          <div class="card-body">
+            <form role="form" action="/registration" enctype="multipart/form-data" method="POST">
+              <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+              <div class="row registration_details">
+                <div class="col-lg-12">
+                  <div class="row">
+                    <div class="col-lg-12" id="s2u_portal_avatar">
+                      <input type="file" class="d-none s2u_portal_avatar_upload" name="image_1920" accept="image/*"/>
+                      <img class="mb-3 s2u_portal_avatar_img" t-att-src="'/web/static/src/img/placeholder.png'" style="object-fit: cover; border-radius: 50%; width: 128px; height: 128px;"/>
+                      <div class="text-left">
+                        <a href="#" class="btn btn-primary s2u_portal_avatar_edit" aria-label="Edit">
+                          <i class="fa fa-pencil fa-1g float-sm-none float-md-left" title="Edit"></i>
+                        </a>
+                        <a href="#" title="Clear" aria-label="Clear" class="btn border-primary s2u_portal_avatar_clear">
+                          <i class="fa fa-trash-o float-sm-none float-md-right"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div t-attf-class="form-group  col-xl-6">
+                      <label class="col-form-label" for="first_name">First Name</label>
+                      <input type="text" name="first_name" t-attf-class="form-control" required="required"/>
+                    </div>
+                    <div t-attf-class="form-group  col-xl-6">
+                      <label class="col-form-label" for="fathers_name">Father's Name</label>
+                      <input type="text" name="fathers_name" t-attf-class="form-control" required="required"/>
+                    </div>
+                    <div class="clearfix" />
+                    <div t-attf-class="form-group  col-xl-6">
+                      <label class="col-form-label" for="grandfathers_name">Grand Father's Name</label>
+                      <input type="text" name="grandfathers_name" t-attf-class="form-control" required="required"/>
+                    </div>
+                    <div t-attf-class="form-group col-xl-6">
+                      <label class="col-form-label" for="age">Age</label>
+                      <input type="text" name="age" t-attf-class="form-control" required="required"/>
+                    </div>
+                    <div class="clearfix" />
+                    <div t-attf-class="form-group col-xl-6">
+                      <label class="col-form-label" for="gender">Gender</label>
+                      <select name="gender" t-attf-class="form-control" required="required">
+                        <option value="">Select a gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+c                      </select>
+                    </div>
+                    <div t-attf-class="form-group col-xl-6">
+                      <label class="col-form-label" for="education_level">Education Level</label>
+                      <select name="education_level" t-attf-class="form-control" required="required">
+                        <option value="">Education Level....</option>
+                        <t t-foreach="ed_levels" t-as="ed">
+                          <option t-att-value="ed.id">
+                            <t t-esc="ed.name"/>
+                          </option>
+                        </t>
+                      </select>
+                    </div>
+                    <div class="clearfix" />
+                    <div t-attf-class="form-group col-xl-6">
+                      <label class="col-form-label" for="company_name">Company Name</label>
+                      <input type="text" name="company_name" t-attf-class="form-control"/>
+                    </div>
+                    <div t-attf-class="form-group col-xl-6">
+                      <label class="col-form-label" for="position">Job Position</label>
+                      <input type="text" name="position" t-attf-class="form-control"/>
+                    </div>
+                    <div class="clearfix" />
+                    <div t-attf-class="form-group col-xl-6">
+                      <label class="col-form-label" for="region">Region</label>
+                      <select name="region" t-attf-class="form-control" required="required">
+                        <option value="">Region...</option>
+                        <t t-foreach="cities" t-as="city">
+                          <option t-att-value="city.id">
+                            <t t-esc="city.name"/>
+                          </option>
+                        </t>
+                      </select>
+                    </div>
+                    <div class="clearfix" />
+                    <div t-attf-class="form-group col-xl-6">
+                      <label class="col-form-label" for="subcity_id">Subcity</label>
+                      <select name="subcity_id" t-attf-class="form-control" required="required">
+                        <option value="">Subcity...</option>
+                        <t t-foreach="subcities" t-as="subcity">
+                          <option t-att-value="subcity.id">
+                            <t t-esc="subcity.name"/>
+                          </option>
+                        </t>
+                      </select>
+                    </div>
+                    <div t-attf-class="form-group col-xl-6">
+                      <label class="col-form-label label-optional" for="wereda_id">Woreda</label>
+                      <select name="wereda_id" t-attf-class="form-control" required="required">
+                        <option value="">Select your Woreda..</option>
+                        <t t-foreach="weredas" t-as="wereda">
+                          <option t-att-value="wereda.id" style="display:none;" t-att-data-parent_id="wereda.parent_id.id">
+                            <t t-esc="wereda.name"/>
+                          </option>
+                        </t>
+                      </select>
+                    </div>
+                    <div t-attf-class="form-group col-xl-6">
+                      <label class="col-form-label" for="membership_type">Join As</label>
+                      <select name="membership_type" t-attf-class="form-control" required="required">
+                        <option value="">Select...</option>
+                        <option value="candidate">Candidate</option>
+                        <option value="league">League</option>
+                        <!-- <option value="supporter">Supporter</option> -->
+                      </select>
+                    </div>
+                    <div t-attf-class="form-group col-xl-6">
+                      <label class="col-form-label" for="phone">Phone</label>
+                      <input type="tel" name="phone" t-attf-class="form-control" required="required"/>
+                    </div>
+                  </div>
+                  <div class="clearfix">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </t>
+ </template>
+
+  <template id="registration_end" name="Registration End">
+    <t t-call="website.layout">
+      <div id="wrap">
+        <div class="container">
+          <h1>Thank you!</h1>
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="alert alert-success">
+                 You Membership Registration Form Has Been Submitted!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </t>
+  </template>
+</odoo>

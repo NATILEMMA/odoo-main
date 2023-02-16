@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_employee_position_request_user,hr.employee.position.request.user,model_hr_employee_position_request,base.group_user,1,1,1,1
+access_hr_job_request_user,hr.employee.position.request.user,model_hr_job,hr_request_position.group_requester,1,1,0,0
+access_hr_contract_request_user,hr.employee.position.request.user,model_hr_contract,hr_request_position.group_requester,1,1,0,0
+access_hr_contract_request_manager,hr.employee.position.request.user,model_hr_contract,hr_request_position.group_request_manager_approval,1,1,0,0

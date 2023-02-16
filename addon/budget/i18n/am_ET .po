@@ -1,0 +1,1322 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* budget
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-25 10:55+0000\n"
+"PO-Revision-Date: 2023-01-25 10:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid ""
+"<span class=\"o_stat_text\">Customer</span>\n"
+"                              <span class=\"o_stat_text\">Preview</span>"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.actions.act_window,help:budget.act_budget_view
+msgid ""
+"A budget is a forecast of your company's income and/or expenses\n"
+"                expected for a period in the future. A budget is defined on some\n"
+"                financial accounts and/or analytic accounts (that may represent\n"
+"                projects, departments, categories of products, etc.)"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__access_warning
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__access_warning
+#: model:ir.model.fields,field_description:budget.field_budget_type__access_warning
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__access_warning
+msgid "Access warning"
+msgstr "የመዳረሻ ማስጠንቀቂያ"
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_hr_employee__accountAnalytic
+msgid "Accountanalytic"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_account_budget_post__account_ids
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_post_form
+msgid "Accounts"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_lines__percentage
+msgid "Achievement"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__message_needaction
+#: model:ir.model.fields,field_description:budget.field_budget_planning__message_needaction
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__message_needaction
+#: model:ir.model.fields,field_description:budget.field_budget_type__message_needaction
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__active
+msgid "Active"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__activity_ids
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__activity_ids
+#: model:ir.model.fields,field_description:budget.field_budget_type__activity_ids
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__activity_exception_decoration
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__activity_exception_decoration
+#: model:ir.model.fields,field_description:budget.field_budget_type__activity_exception_decoration
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__name
+msgid "Activity Name"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__activity_state
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__activity_state
+#: model:ir.model.fields,field_description:budget.field_budget_type__activity_state
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields.selection,name:budget.selection__budget_planning__budget_methods__activity_based_budgeting
+msgid "Activity-based budgeting"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Add Attachement"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Add Work stream"
+msgstr ""
+
+#. module: budget
+#: model:ir.ui.menu,name:budget.menu_act_all_budget_view
+msgid "All Budgets Details"
+msgstr ""
+
+#. module: budget
+#: model:res.groups,name:budget.group_departmental_approval
+msgid "Allow to Department Manager Approval"
+msgstr ""
+
+#. module: budget
+#: model:res.groups,name:budget.group_financial_approval
+msgid "Allow to Financial Approval"
+msgstr ""
+
+#. module: budget
+#: model:res.groups,name:budget.group_requester
+msgid "Allow to request budget planning"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Allowed Members"
+msgstr ""
+
+#. module: budget
+#: model:ir.model,name:budget.model_account_analytic_account
+#: model:ir.model.fields,field_description:budget.field_budget_lines__analytic_account_id
+#: model:ir.model.fields,field_description:budget.field_budget_planning__analytic_account_id
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__analytic_account_id
+msgid "Analytic Account"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,help:budget.field_budget_planning__analytic_account_id
+msgid ""
+"Analytic account to which this project is linked for financial management. "
+"Use an analytic account to record cost and revenue on your project."
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.crossovered_budget_view_form
+msgid "Approve"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields.selection,name:budget.selection__budget_planning__state__fin_approved
+msgid "Approved"
+msgstr ""
+
+#. module: budget
+#: model:ir.model,name:budget.model_ir_attachment
+msgid "Attachment"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__attachment_amount
+msgid "Attachment Amount"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__message_attachment_count
+#: model:ir.model.fields,field_description:budget.field_budget_planning__message_attachment_count
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__message_attachment_count
+#: model:ir.model.fields,field_description:budget.field_budget_type__message_attachment_count
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_attachment_type__name
+msgid "Attachment Type"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__budget_attachment_ids
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Attachments"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__attchement_information
+msgid "Attchement Information"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_lines__available_amount
+msgid "Available Amount"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__squ
+msgid "BPF"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields.selection,name:budget.selection__budget_planning__kanban_state__blocked
+msgid "Blocked"
+msgstr ""
+
+#. module: budget
+#: model:ir.model,name:budget.model_budget_budget
+#: model:ir.model.fields,field_description:budget.field_budget_lines__budget_id
+#: model_terms:ir.ui.view,arch_db:budget.budget_budget_view_tree
+#: model_terms:ir.ui.view,arch_db:budget.crossovered_budget_view_form
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_attachment_tree
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_tree
+msgid "Budget"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Budget Account"
+msgstr "የበጀት ሂሳብ"
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_account_analytic_account__budget_analytic_account
+msgid "Budget Analytic Account"
+msgstr ""
+
+#. module: budget
+#: model:ir.ui.menu,name:budget.menu_for_departmental_approval
+msgid "Budget Approval"
+msgstr "የበጀት ማጽደቅ"
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_attachment_form
+msgid "Budget Documents Attachments"
+msgstr ""
+
+#. module: budget
+#: model:ir.ui.menu,name:budget.menu_act_project_budget_view
+msgid "Budget Entries"
+msgstr ""
+
+#. module: budget
+#: model:ir.actions.act_window,name:budget.budget_financial_approval
+msgid "Budget Financial Approval"
+msgstr ""
+
+#. module: budget
+#: model:ir.model,name:budget.model_budget_lines
+msgid "Budget Line"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_account_analytic_account__budget_line
+#: model:ir.model.fields,field_description:budget.field_account_budget_post__budget_line
+#: model:ir.model.fields,field_description:budget.field_budget_budget__budget_line
+#: model_terms:ir.ui.view,arch_db:budget.crossovered_budget_view_form
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_line_form
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_line_search
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_line_tree
+msgid "Budget Lines"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__budget_methods
+msgid "Budget Methods"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__name
+#: model:ir.model.fields,field_description:budget.field_budget_planning__name
+#: model_terms:ir.ui.view,arch_db:budget.crossovered_budget_view_form
+msgid "Budget Name"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__user_id
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Budget Planner"
+msgstr "የበጀት እቅድ አውጪ"
+
+#. module: budget
+#: model:ir.model,name:budget.model_budget_planning
+#: model:ir.ui.menu,name:budget.menu_for_budget_planning
+#: model:ir.ui.menu,name:budget.menu_root
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Budget Planning"
+msgstr "የበጀት እቅድ ማውጣት"
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_ir_attachment__budget_planning_attachment_type
+msgid "Budget Planning Attachment Type"
+msgstr ""
+
+#. module: budget
+#: model:ir.actions.act_window,name:budget.action_attachment
+msgid "Budget Planning Attachments"
+msgstr ""
+
+#. module: budget
+#: model:ir.model,name:budget.model_budget_planning_attachement
+msgid "Budget Planning Detail Information"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,help:budget.field_budget_planning__attchement_information
+msgid "Budget Planning Document Attachement detail Information"
+msgstr ""
+
+#. module: budget
+#: model:ir.actions.act_window,name:budget.budget_departmental_approval
+msgid "Budget Planning Requests for Approval"
+msgstr ""
+
+#. module: budget
+#: model:ir.module.category,description:budget.module_category_budget_planning_request
+#: model:ir.module.category,name:budget.module_category_budget_planning_request
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Budget Planning Setting"
+msgstr "የበጀት እቅድ ዝግጅት"
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__budget_attachement_id
+msgid "Budget Reference"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Budget Request"
+msgstr ""
+
+#. module: budget
+#: model:ir.actions.act_window,name:budget.budget_planning_request
+msgid "Budget Requests"
+msgstr ""
+
+#. module: budget
+#: model:ir.actions.act_window,name:budget.action_budget_type
+msgid "Budget TYpe"
+msgstr ""
+
+#. module: budget
+#: model:ir.model,name:budget.model_budget_type
+#: model:ir.model.fields,field_description:budget.field_budget_planning__budget_type
+#: model:ir.ui.menu,name:budget.menu_budget_type
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_type_form
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_type_tree
+msgid "Budget Type"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_account_analytic_account__used_percentage
+#: model:ir.model.fields,field_description:budget.field_budget_budget__budget_usage
+#: model:ir.model.fields,field_description:budget.field_budget_lines__budget_usage
+msgid "Budget Usage"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Budget objective and Descritption"
+msgstr "የበጀት ዓላማ እና መግለጫ"
+
+#. module: budget
+#: model:ir.model,name:budget.model_account_budget_post
+#: model:ir.model.fields,field_description:budget.field_budget_lines__general_budget_id
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__general_budget_id
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_post_form
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_post_search
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_post_tree
+msgid "Budgetary Position"
+msgstr ""
+
+#. module: budget
+#: model:ir.actions.act_window,name:budget.open_budget_post_form
+#: model:ir.ui.menu,name:budget.menu_budget_post_form
+msgid "Budgetary Positions"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__budgeted_amount
+msgid "Budgeted Amount"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_account_analytic_account__budgeted_amount
+msgid "Budgeted amount"
+msgstr ""
+
+#. module: budget
+#: model:ir.actions.act_window,name:budget.act_budget_lines_view
+#: model:ir.actions.act_window,name:budget.act_budget_view
+#: model:ir.ui.menu,name:budget.menu_act_budget_view
+#: model:ir.ui.menu,name:budget.menu_act_crossovered_budget_lines_view
+#: model:ir.ui.menu,name:budget.menu_budget_planning
+msgid "Budgets"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.actions.act_window,help:budget.act_budget_view
+msgid ""
+"By keeping track of where your money goes, you may be less\n"
+"                likely to overspend, and more likely to meet your financial\n"
+"                goals. Forecast a budget by detailing the expected revenue per\n"
+"                analytic account and monitor its evolution based on the actuals\n"
+"                realised during that period."
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "CEO Approve"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields.selection,name:budget.selection__budget_planning__state__ceo_approved
+msgid "CEO Approved"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__campaign_id
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__campaign_id
+#: model:ir.model.fields,field_description:budget.field_budget_type__campaign_id
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__campaign_id
+msgid "Campaign"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.crossovered_budget_view_form
+msgid "Cancel Budget"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields.selection,name:budget.selection__budget_budget__state__cancel
+msgid "Cancelled"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.actions.act_window,help:budget.act_budget_view
+msgid "Click to create a new budget."
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_lines__commitment
+msgid "Commitment"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_account_budget_post__company_id
+#: model:ir.model.fields,field_description:budget.field_budget_budget__company_id
+#: model:ir.model.fields,field_description:budget.field_budget_lines__company_id
+#: model:ir.model.fields,field_description:budget.field_budget_planning__company_id
+msgid "Company"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,help:budget.field_account_analytic_account__unused_percentage
+#: model:ir.model.fields,help:budget.field_account_analytic_account__used_percentage
+msgid ""
+"Comparison between practical and theoretical amount. This measure tells you "
+"if you are below or over budget."
+msgstr ""
+
+#. module: budget
+#: model:ir.ui.menu,name:budget.menu_budget_configuration
+msgid "Configuration"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.crossovered_budget_view_form
+msgid "Confirm"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields.selection,name:budget.selection__budget_budget__state__confirm
+msgid "Confirmed"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_account_budget_post__create_uid
+#: model:ir.model.fields,field_description:budget.field_budget_attachment_type__create_uid
+#: model:ir.model.fields,field_description:budget.field_budget_budget__create_uid
+#: model:ir.model.fields,field_description:budget.field_budget_lines__create_uid
+#: model:ir.model.fields,field_description:budget.field_budget_planning__create_uid
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__create_uid
+#: model:ir.model.fields,field_description:budget.field_budget_type__create_uid
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_account_budget_post__create_date
+#: model:ir.model.fields,field_description:budget.field_budget_attachment_type__create_date
+#: model:ir.model.fields,field_description:budget.field_budget_budget__create_date
+#: model:ir.model.fields,field_description:budget.field_budget_lines__create_date
+#: model:ir.model.fields,field_description:budget.field_budget_planning__create_date
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__create_date
+#: model:ir.model.fields,field_description:budget.field_budget_type__create_date
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,help:budget.field_budget_planning__access_url
+#: model:ir.model.fields,help:budget.field_budget_planning_attachement__access_url
+#: model:ir.model.fields,help:budget.field_budget_type__access_url
+#: model:ir.model.fields,help:budget.field_work_activity_stream__access_url
+msgid "Customer Portal URL"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__date
+msgid "Date"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_account_analytic_account__department_id
+#: model:ir.model.fields,field_description:budget.field_budget_lines__department_id
+msgid "Department"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__description
+msgid "Description"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_account_budget_post__display_name
+#: model:ir.model.fields,field_description:budget.field_budget_attachment_type__display_name
+#: model:ir.model.fields,field_description:budget.field_budget_budget__display_name
+#: model:ir.model.fields,field_description:budget.field_budget_lines__display_name
+#: model:ir.model.fields,field_description:budget.field_budget_planning__display_name
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__display_name
+#: model:ir.model.fields,field_description:budget.field_budget_type__display_name
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Document Attachement"
+msgstr "አባሪ ሰነድ"
+
+#. module: budget
+#: model:ir.model.fields.selection,name:budget.selection__budget_budget__state__done
+#: model:ir.model.fields.selection,name:budget.selection__budget_planning__state__done
+#: model_terms:ir.ui.view,arch_db:budget.crossovered_budget_view_form
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Done"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields.selection,name:budget.selection__budget_budget__state__draft
+#: model:ir.model.fields.selection,name:budget.selection__budget_planning__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.constraint,message:budget.constraint_budget_attachment_type_Check
+#: on name
+msgid "Each attachment type must be unique"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__partner_email
+msgid "Email"
+msgstr ""
+
+#. module: budget
+#: model:ir.model,name:budget.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__date_to
+#: model:ir.model.fields,field_description:budget.field_budget_lines__date_to
+#: model:ir.model.fields,field_description:budget.field_budget_type__date_to
+msgid "End Date"
+msgstr ""
+
+#. module: budget
+#: model:ir.model,name:budget.model_hr_expense
+msgid "Expense"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__file_name
+msgid "File Name"
+msgstr ""
+
+#. module: budget
+#: model:ir.ui.menu,name:budget.menu_for_financial_approval
+msgid "Financial Approval"
+msgstr "የፋይናንስ ማጽደቅ"
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Finanical Approve"
+msgstr "የፋይናንስ ማጽደቅ"
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__fiscal_year
+msgid "Fiscal Year"
+msgstr ""
+
+#. module: budget
+#: code:addons/budget/models/account_analytic_account.py:0
+#: code:addons/budget/models/account_analytic_account.py:0
+#, python-format
+msgid "Fiscal year of the system is not set."
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__message_follower_ids
+#: model:ir.model.fields,field_description:budget.field_budget_planning__message_follower_ids
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__message_follower_ids
+#: model:ir.model.fields,field_description:budget.field_budget_type__message_follower_ids
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__message_channel_ids
+#: model:ir.model.fields,field_description:budget.field_budget_planning__message_channel_ids
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__message_channel_ids
+#: model:ir.model.fields,field_description:budget.field_budget_type__message_channel_ids
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__message_partner_ids
+#: model:ir.model.fields,field_description:budget.field_budget_planning__message_partner_ids
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__message_partner_ids
+#: model:ir.model.fields,field_description:budget.field_budget_type__message_partner_ids
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.crossovered_budget_view_form
+msgid "From"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_account_budget_post__id
+#: model:ir.model.fields,field_description:budget.field_budget_attachment_type__id
+#: model:ir.model.fields,field_description:budget.field_budget_budget__id
+#: model:ir.model.fields,field_description:budget.field_budget_lines__id
+#: model:ir.model.fields,field_description:budget.field_budget_planning__id
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__id
+#: model:ir.model.fields,field_description:budget.field_budget_type__id
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__id
+msgid "ID"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__activity_exception_icon
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__activity_exception_icon
+#: model:ir.model.fields,field_description:budget.field_budget_type__activity_exception_icon
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,help:budget.field_budget_planning__activity_exception_icon
+#: model:ir.model.fields,help:budget.field_budget_planning_attachement__activity_exception_icon
+#: model:ir.model.fields,help:budget.field_budget_type__activity_exception_icon
+#: model:ir.model.fields,help:budget.field_work_activity_stream__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,help:budget.field_budget_budget__message_needaction
+#: model:ir.model.fields,help:budget.field_budget_budget__message_unread
+#: model:ir.model.fields,help:budget.field_budget_planning__message_needaction
+#: model:ir.model.fields,help:budget.field_budget_planning__message_unread
+#: model:ir.model.fields,help:budget.field_budget_planning_attachement__message_needaction
+#: model:ir.model.fields,help:budget.field_budget_planning_attachement__message_unread
+#: model:ir.model.fields,help:budget.field_budget_type__message_needaction
+#: model:ir.model.fields,help:budget.field_budget_type__message_unread
+#: model:ir.model.fields,help:budget.field_work_activity_stream__message_needaction
+#: model:ir.model.fields,help:budget.field_work_activity_stream__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,help:budget.field_budget_budget__message_has_error
+#: model:ir.model.fields,help:budget.field_budget_budget__message_has_sms_error
+#: model:ir.model.fields,help:budget.field_budget_planning__message_has_error
+#: model:ir.model.fields,help:budget.field_budget_planning__message_has_sms_error
+#: model:ir.model.fields,help:budget.field_budget_planning_attachement__message_has_error
+#: model:ir.model.fields,help:budget.field_budget_planning_attachement__message_has_sms_error
+#: model:ir.model.fields,help:budget.field_budget_type__message_has_error
+#: model:ir.model.fields,help:budget.field_budget_type__message_has_sms_error
+#: model:ir.model.fields,help:budget.field_work_activity_stream__message_has_error
+#: model:ir.model.fields,help:budget.field_work_activity_stream__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields.selection,name:budget.selection__budget_planning__kanban_state__normal
+msgid "In Progress"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields.selection,name:budget.selection__budget_planning__budget_methods__incremental_budgeting
+msgid "Incremental budgeting"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__is_project
+msgid "Integrate to Project"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__message_is_follower
+#: model:ir.model.fields,field_description:budget.field_budget_planning__message_is_follower
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__message_is_follower
+#: model:ir.model.fields,field_description:budget.field_budget_type__message_is_follower
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_account_analytic_account__is_allowed
+#: model:ir.model.fields,field_description:budget.field_hr_employee__is_allowed
+msgid "Is_allowed"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__kanban_state
+msgid "Kanban State"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_account_budget_post____last_update
+#: model:ir.model.fields,field_description:budget.field_budget_attachment_type____last_update
+#: model:ir.model.fields,field_description:budget.field_budget_budget____last_update
+#: model:ir.model.fields,field_description:budget.field_budget_lines____last_update
+#: model:ir.model.fields,field_description:budget.field_budget_planning____last_update
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement____last_update
+#: model:ir.model.fields,field_description:budget.field_budget_type____last_update
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_account_budget_post__write_uid
+#: model:ir.model.fields,field_description:budget.field_budget_attachment_type__write_uid
+#: model:ir.model.fields,field_description:budget.field_budget_budget__write_uid
+#: model:ir.model.fields,field_description:budget.field_budget_lines__write_uid
+#: model:ir.model.fields,field_description:budget.field_budget_planning__write_uid
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__write_uid
+#: model:ir.model.fields,field_description:budget.field_budget_type__write_uid
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_account_budget_post__write_date
+#: model:ir.model.fields,field_description:budget.field_budget_attachment_type__write_date
+#: model:ir.model.fields,field_description:budget.field_budget_budget__write_date
+#: model:ir.model.fields,field_description:budget.field_budget_lines__write_date
+#: model:ir.model.fields,field_description:budget.field_budget_planning__write_date
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__write_date
+#: model:ir.model.fields,field_description:budget.field_budget_type__write_date
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__message_main_attachment_id
+#: model:ir.model.fields,field_description:budget.field_budget_planning__message_main_attachment_id
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__message_main_attachment_id
+#: model:ir.model.fields,field_description:budget.field_budget_type__message_main_attachment_id
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__medium_id
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__medium_id
+#: model:ir.model.fields,field_description:budget.field_budget_type__medium_id
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__medium_id
+msgid "Medium"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__message_has_error
+#: model:ir.model.fields,field_description:budget.field_budget_planning__message_has_error
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__message_has_error
+#: model:ir.model.fields,field_description:budget.field_budget_type__message_has_error
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__message_ids
+#: model:ir.model.fields,field_description:budget.field_budget_planning__message_ids
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__message_ids
+#: model:ir.model.fields,field_description:budget.field_budget_type__message_ids
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: budget
+#: model:ir.ui.menu,name:budget.menu_for_my_request
+msgid "My Request"
+msgstr "የበጀት ጥያቄ"
+
+#. module: budget
+#: model:ir.actions.act_window,name:budget.my_budget_planning_request
+msgid "My Requests"
+msgstr "የበጀት ጥያቄ"
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_account_budget_post__name
+#: model:ir.model.fields,field_description:budget.field_budget_type__name
+msgid "Name"
+msgstr ""
+
+#. module: budget
+#: code:addons/budget/models/budget_planning.py:0
+#: code:addons/budget/models/budget_planning.py:0
+#: code:addons/budget/models/budget_planning.py:0
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__activity_date_deadline
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__activity_date_deadline
+#: model:ir.model.fields,field_description:budget.field_budget_type__activity_date_deadline
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__activity_summary
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__activity_summary
+#: model:ir.model.fields,field_description:budget.field_budget_type__activity_summary
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__activity_type_id
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__activity_type_id
+#: model:ir.model.fields,field_description:budget.field_budget_type__activity_type_id
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.actions.act_window,help:budget.budget_departmental_approval
+msgid "No Budget Requests From Your Derpartment"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.actions.act_window,help:budget.budget_financial_approval
+msgid "No Budget Requests Yet"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__message_needaction_counter
+#: model:ir.model.fields,field_description:budget.field_budget_planning__message_needaction_counter
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__message_needaction_counter
+#: model:ir.model.fields,field_description:budget.field_budget_type__message_needaction_counter
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__attachment_number
+msgid "Number of Attachments"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__message_has_error_counter
+#: model:ir.model.fields,field_description:budget.field_budget_planning__message_has_error_counter
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__message_has_error_counter
+#: model:ir.model.fields,field_description:budget.field_budget_type__message_has_error_counter
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,help:budget.field_budget_budget__message_needaction_counter
+#: model:ir.model.fields,help:budget.field_budget_planning__message_needaction_counter
+#: model:ir.model.fields,help:budget.field_budget_planning_attachement__message_needaction_counter
+#: model:ir.model.fields,help:budget.field_budget_type__message_needaction_counter
+#: model:ir.model.fields,help:budget.field_work_activity_stream__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,help:budget.field_budget_budget__message_has_error_counter
+#: model:ir.model.fields,help:budget.field_budget_planning__message_has_error_counter
+#: model:ir.model.fields,help:budget.field_budget_planning_attachement__message_has_error_counter
+#: model:ir.model.fields,help:budget.field_budget_type__message_has_error_counter
+#: model:ir.model.fields,help:budget.field_work_activity_stream__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,help:budget.field_budget_budget__message_unread_counter
+#: model:ir.model.fields,help:budget.field_budget_planning__message_unread_counter
+#: model:ir.model.fields,help:budget.field_budget_planning_attachement__message_unread_counter
+#: model:ir.model.fields,help:budget.field_budget_type__message_unread_counter
+#: model:ir.model.fields,help:budget.field_work_activity_stream__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_lines__original_planned_amount
+msgid "Original Planned Amount"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__output
+msgid "Out Put"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_lines__paid_date
+msgid "Paid Date"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.crossovered_budget_view_form
+msgid "Period"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__partner_phone
+msgid "Phone"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_project_task__budget_amount
+msgid "Plan Amount"
+msgstr "የታቀደ መጠን"
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__budget_amount
+msgid "Plane amount"
+msgstr "የታቀደ መጠን"
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Planed Amount"
+msgstr "የታቀደ መጠን"
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_lines__planned_amount
+#: model:ir.model.fields,field_description:budget.field_budget_planning__planned_amount
+#: model_terms:ir.ui.view,arch_db:budget.crossovered_budget_view_form
+msgid "Planned Amount"
+msgstr "የታቀደ መጠን"
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__access_url
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__access_url
+#: model:ir.model.fields,field_description:budget.field_budget_type__access_url
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__access_url
+msgid "Portal Access URL"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_lines__practical_amount
+#: model_terms:ir.ui.view,arch_db:budget.crossovered_budget_view_form
+#: model_terms:ir.ui.view,arch_db:budget.view_account_analytic_account_form_inherit_budget
+msgid "Practical Amount"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__budget_planner
+msgid "Project Leader"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__quantity
+msgid "Quantity"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields.selection,name:budget.selection__budget_planning__kanban_state__done
+msgid "Ready"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_tree
+msgid "Reference"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Reject Request"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields.selection,name:budget.selection__budget_planning__state__rejected
+msgid "Rejected"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,help:budget.field_budget_planning_attachement__budget_attachement_id
+#: model:ir.model.fields,help:budget.field_work_activity_stream__activity_id
+msgid "Relation field"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields.selection,name:budget.selection__budget_planning__state__requested
+msgid "Requested"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_lines__reserved_amount
+#: model_terms:ir.ui.view,arch_db:budget.crossovered_budget_view_form
+msgid "Reserved Amount"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.crossovered_budget_view_form
+msgid "Reset to Draft"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__creating_user_id
+msgid "Responsible"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__activity_user_id
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__activity_user_id
+#: model:ir.model.fields,field_description:budget.field_budget_type__activity_user_id
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_account_analytic_account__unused_percentage
+msgid "Rest Budget"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__message_has_sms_error
+#: model:ir.model.fields,field_description:budget.field_budget_planning__message_has_sms_error
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__message_has_sms_error
+#: model:ir.model.fields,field_description:budget.field_budget_type__message_has_sms_error
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__access_token
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__access_token
+#: model:ir.model.fields,field_description:budget.field_budget_type__access_token
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__access_token
+msgid "Security Token"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Set To Draft"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__source_id
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__source_id
+#: model:ir.model.fields,field_description:budget.field_budget_type__source_id
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__source_id
+msgid "Source"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__date_from
+#: model:ir.model.fields,field_description:budget.field_budget_lines__date_from
+#: model:ir.model.fields,field_description:budget.field_budget_type__date_from
+msgid "Start Date"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__state
+#: model:ir.model.fields,field_description:budget.field_budget_planning__state
+msgid "Status"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,help:budget.field_budget_planning__activity_state
+#: model:ir.model.fields,help:budget.field_budget_planning_attachement__activity_state
+#: model:ir.model.fields,help:budget.field_budget_type__activity_state
+#: model:ir.model.fields,help:budget.field_work_activity_stream__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_project_task__target_area
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__target_point
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Target Area"
+msgstr "ዒላማ አካባቢ"
+
+#. module: budget
+#: model:ir.model,name:budget.model_project_task
+msgid "Task"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__teams
+msgid "Team Members"
+msgstr ""
+
+#. module: budget
+#: code:addons/budget/models/account_budget.py:0
+#, python-format
+msgid "The budget must have at least one account."
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_lines__theoretical_amount
+msgid "Theoretical Amount"
+msgstr ""
+
+#. module: budget
+#: code:addons/budget/models/account_analytic_account.py:0
+#, python-format
+msgid "This Account are not Approved."
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,help:budget.field_budget_planning__campaign_id
+#: model:ir.model.fields,help:budget.field_budget_planning_attachement__campaign_id
+#: model:ir.model.fields,help:budget.field_budget_type__campaign_id
+#: model:ir.model.fields,help:budget.field_work_activity_stream__campaign_id
+msgid ""
+"This is a name that helps you keep track of your different campaign efforts,"
+" e.g. Fall_Drive, Christmas_Special"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,help:budget.field_budget_planning__medium_id
+#: model:ir.model.fields,help:budget.field_budget_planning_attachement__medium_id
+#: model:ir.model.fields,help:budget.field_budget_type__medium_id
+#: model:ir.model.fields,help:budget.field_work_activity_stream__medium_id
+msgid "This is the method of delivery, e.g. Postcard, Email, or Banner Ad"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,help:budget.field_budget_planning__source_id
+#: model:ir.model.fields,help:budget.field_budget_planning_attachement__source_id
+#: model:ir.model.fields,help:budget.field_budget_type__source_id
+#: model:ir.model.fields,help:budget.field_work_activity_stream__source_id
+msgid ""
+"This is the source of the link, e.g. Search Engine, another domain, or name "
+"of email list"
+msgstr ""
+
+#. module: budget
+#: model:ir.model,name:budget.model_budget_attachment_type
+msgid ""
+"This will handle the different types of budget planning related attachments"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.crossovered_budget_view_form
+msgid "To"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields.selection,name:budget.selection__budget_planning__state__dep_approved
+msgid "To be approve"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__planned_amount
+#: model:ir.model.fields,field_description:budget.field_budget_planning__amount_total
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__amount_total
+msgid "Total Planned Amount"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Total Planned Amount:"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,help:budget.field_budget_planning__activity_exception_decoration
+#: model:ir.model.fields,help:budget.field_budget_planning_attachement__activity_exception_decoration
+#: model:ir.model.fields,help:budget.field_budget_type__activity_exception_decoration
+#: model:ir.model.fields,help:budget.field_work_activity_stream__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__message_unread
+#: model:ir.model.fields,field_description:budget.field_budget_planning__message_unread
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__message_unread
+#: model:ir.model.fields,field_description:budget.field_budget_type__message_unread
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__message_unread_counter
+#: model:ir.model.fields,field_description:budget.field_budget_planning__message_unread_counter
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__message_unread_counter
+#: model:ir.model.fields,field_description:budget.field_budget_type__message_unread_counter
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__alias_enabled
+msgid "Use email alias"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields.selection,name:budget.selection__budget_budget__state__validate
+msgid "Validated"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields.selection,name:budget.selection__budget_planning__budget_methods__value_proposition_budgeting
+msgid "Value proposition budgeting"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_budget__website_message_ids
+#: model:ir.model.fields,field_description:budget.field_budget_planning__website_message_ids
+#: model:ir.model.fields,field_description:budget.field_budget_planning_attachement__website_message_ids
+#: model:ir.model.fields,field_description:budget.field_budget_type__website_message_ids
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,help:budget.field_budget_budget__website_message_ids
+#: model:ir.model.fields,help:budget.field_budget_planning__website_message_ids
+#: model:ir.model.fields,help:budget.field_budget_planning_attachement__website_message_ids
+#: model:ir.model.fields,help:budget.field_budget_type__website_message_ids
+#: model:ir.model.fields,help:budget.field_work_activity_stream__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Work Stream"
+msgstr ""
+
+#. module: budget
+#: model:ir.model,name:budget.model_work_activity_stream
+msgid "Work Stream Activity"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.view_budget_planning_form
+msgid "Work Stream Break Down/ Budget Line"
+msgstr "የስራ ፍሰት እንቅስቃሴ/በጀት መስመር"
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__work_stream_line
+msgid "Work Stream Line"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,help:budget.field_budget_planning__work_stream_line
+msgid "Work stream budget breakdown"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_work_activity_stream__activity_id
+msgid "WorkStreamActivity Reference"
+msgstr ""
+
+#. module: budget
+#: code:addons/budget/models/account_analytic_account.py:0
+#, python-format
+msgid "You are not authorized to use this budget account."
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields.selection,name:budget.selection__budget_planning__budget_methods__zero_based_budgeting
+msgid "Zero based budgeting"
+msgstr ""
+
+#. module: budget
+#: model_terms:ir.ui.view,arch_db:budget.view_account_analytic_account_form_inherit_budget
+msgid "budget Items"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__compute_field
+msgid "check field"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__employee_id
+msgid "employee"
+msgstr ""
+
+#. module: budget
+#: model:ir.model.fields,field_description:budget.field_budget_planning__partner_id
+msgid "partner"
+msgstr ""

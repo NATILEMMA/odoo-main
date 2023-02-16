@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="vendor_t_inherit_form_view">
+        <field name="name">res.partner.view</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+              <page string="Tender Information">
+                <group><field name="agreement"/></group>
+                  <field name="rule" option="{'no_create': True}">
+                    <tree string="Tender Information" create="false" delete="false">
+                      <field name="name"/>
+                      <field name="input_type"/>
+                      <field name="value"/>
+                    </tree>
+                    <form create="false">
+                      <group>
+                        <field name="name" readonly="1" force_save="1"/>
+                        <field name="input_type" readonly="1" force_save="1"/>
+                      </group>
+                      <group>
+                        <field name="rule" invisible="1"/>
+                        <field name="amount" attrs="{'invisible': [('input_type', '!=', 'amount')]}"/>
+                        <field name="selection" options="{'no_create': True, 'no_create_edit': True}" attrs="{'invisible': [('input_type', '!=', 'selection')]}"/>
+                        <field name="attach_id" attrs="{'invisible': [('input_type', '!=', 'attach')]}" widget="many2many_binary"/>
+                        <field name="is_pass" attrs="{'invisible': [('input_type', '!=', 'tick')]}"/>
+                        <field name="amount" attrs="{'invisible': [('input_type', '!=', 'number')]}"/>
+                      </group>
+                    </form>
+                  </field>
+	      </page>
+              <page string="Financial Information">
+                <group><field name="value"/></group>
+                <field name="rule_2">
+                  <tree string="Financial Information" editable="bottom">
+                    <field name="name"/>
+                    <field name="amount"/>
+                    <field name="amount_2"/>
+                    <field name="amount_3"/>
+                    <field name="amount_4"/>
+                    <field name="vendor_2" invisible="1"/>
+                  </tree>
+                </field>
+              </page>
+              <page string="Man power Information">
+                <group><field name="value_2"/></group>
+                <field name="rule_3">
+                  <tree string="Man power Information">
+                    <field name="name"/>
+                    <field name="selection"/>
+                    <field name="vendor_3" invisible="1"/>
+                  </tree>
+                  <form string="Man power Information">
+                    <field name="name"/>
+                    <field name="selection"/>
+                    <field name="vendor_3" invisible="1"/>
+                  </form>
+                </field>
+              </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

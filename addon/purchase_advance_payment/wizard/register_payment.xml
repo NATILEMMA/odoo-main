@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="advance_purchase_payment_wizard_register_payment_view_form" model="ir.ui.view">
+            <field name="name">advance.purchase.payment.wizard.form</field>
+            <field name="model">advance.purchase.payment.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Register Payment">
+                    <sheet>
+                        <field name="id" invisible="1"/>
+                        <div class="oe_title">
+                            <h1>Register Payment</h1>
+                        </div>
+                        <group>
+                            <group>
+
+                                <field name="company_id" invisible="1"/>
+                                <field name="journal_id" widget="selection"/>
+                                <field name="purchase_id" force_save="1" readonly="1"/>
+                                <field name="partner_id"  force_save="1" readonly="1"/>
+                                <field name="expense_account" widget="many2many_tags" readonly="1"/>
+                                <separator/>
+
+                                <field name="before_tax_amount" force_save="1" readonly="1"/>
+                                <field name="tax_ids" widget="many2many_tags" context="{'default_company_id': company_id}" readonly="1"/>
+                                <field name="tax_amount" force_save="1" readonly="1"/>
+                                <field name="withhold_amount" force_save="1" readonly="1"/>
+                                <div class="oe_subtotal_footer_separator oe_inline ">
+
+                                    </div>
+
+                          <field name="total_amount" force_save="1" readonly="1"/>
+                          <field name="withholding_account" invisible="1" force_save="1"/>
+                          <field name="fiscal_year" invisible="1" force_save="1"/>
+                          <field name="time_frame" invisible="1" force_save="1"/>
+                          <field name="taxed_account" invisible="1" force_save="1"/>
+
+                          </group>
+
+                           
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string='Validate' name="post_advance_payment" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="advance_purchase_payment_wizard_register_payment_wizard_action" model="ir.actions.act_window">
+            <field name="name">Register Payment</field>
+            <field name="res_model">advance.purchase.payment.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+
+</odoo>

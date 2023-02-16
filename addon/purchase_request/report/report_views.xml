@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <report id="purchase_request_report_view" 
+                model="sprogroup.purchase.request"
+                string="purchase request Report"
+                report_type="qweb-pdf" 
+                name="sprogroup_purchase_request.purchase_request_report" 
+                file="sprogroup_purchase_request.purchase_request_report" />
+
+   
+</odoo>

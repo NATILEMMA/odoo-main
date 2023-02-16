@@ -1,0 +1,2035 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+   
+<template id="assets_frontend" name="Module name frontend assets" inherit_id="website.assets_frontend">
+  <xpath expr=".">
+          <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/> -->
+          <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+          <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+          <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+          <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
+          <link   rel="icon" href="https://codingbirdsonline.com/wp-content/uploads/2019/12/cropped-coding-birds-favicon-2-1-192x192.png" type="image/x-icon"/>
+  </xpath>
+</template>
+
+<template id="my_account_link" name="Link to frontend portal" inherit_id="portal.frontend_layout">
+    <xpath expr="//a[@id='o_logout']" position="before">
+        <a href="/my/event  " role="menuitem" class="dropdown-item">My Dashboard</a>
+    </xpath>
+</template>
+
+<template id="assets_frontend" inherit_id="website.assets_frontend">
+  <xpath expr="." position="inside">
+    <script type="text/javascript" src="/opt/odoo13/odoo-custom-addons/auth_signup_verify_email/static/main.js"></script>
+    <script type="text/javascript" src="/opt/odoo13/odoo-custom-addons/auth_signup_verify_email/static/product_new.js"></script>
+  </xpath>
+</template>
+
+<template id="my_dashboard" name="My Dashboard">
+  <t t-call="website.layout">
+    <div id="wrap" class="o_wevent_index">
+        <div id="wrap" class="o_wevent_index">
+          <t t-set="opt_events_list_cards" t-value="request.website.viewref('website_event.opt_events_list_cards').active"/>
+          <t t-set="opt_events_list_columns" t-value="request.website.viewref('website_event.opt_events_list_columns').active"/>
+          <t t-call="website_event.index_topbar"/>
+          <div id="oe_structure_we_index_1" class="oe_structure"/>
+          <div id="oe_structure_we_index_2" class="oe_structure"/>
+        </div>
+          <div class="oe_structure">
+              <xpath expr="." position="inside">
+                <!--These links will be called when loading your Odoo -->
+                <link rel="stylesheet" href="/member_dashboard/static/src/css/style.css"/>
+                <link rel="stylesheet" href="/static_resources_demo/static/src/css/vendor.bundle.base.css"/>
+                <link rel="stylesheet" href="/static_resources_demo/static/src/materialdesignicons.min.css"/>
+                </xpath>
+                  <div class="container-scroller">
+
+                    <body>
+                      <div class="container-scroller">
+                        <div class="container-fluid page-body-wrapper">
+                          <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                              <ul class="nav">
+                              <t t-foreach="users" t-as="user">
+
+                                <li class="nav-item active">
+                                  <a class="nav-link" href="/my/event">
+                                    <span class="menu-title">Dashboard</span>
+                                    <i class="menu-arrow"></i>
+                                    <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                                  </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/my/create_complaint">
+                                    <span class="menu-title">Add Complaint</span>
+                                    <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                  </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/my/complaint">
+                                    <span class="menu-title">My Complaint</span>
+                                    <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                  </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/my/add_attachments">
+                                    <span class="menu-title">Add Attachment</span>
+                                    <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                  </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/my/profileacc">
+                                    <span class="menu-title">My Profile</span>
+                                    <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                  </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/report/feedback">
+                                    <span class="menu-title">Report FeedBack</span>
+                                    <i class="mdi mdi-chart-bar menu-icon"></i>
+                                  </a>
+                                </li>
+                                </t>
+                              </ul>
+                            </nav>
+                          <div class="main-panel" style="background-color: #eee;">
+
+                            <!-- <div class="content-wrapper">
+                            </div> -->
+                        </div>
+                      </div>
+                      </div>
+                    </body>
+
+                  <xpath expr="." position="inside">
+                    <!--These links will be called when loading your Odoo -->
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/todolist.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/dashboard.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/misc.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/hoverable-collapse.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/off-canvas.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/jquery.cookie.js"></script>
+
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/chart.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/Chart.min.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/vendor.bundle.base.js"></script>
+                  </xpath>
+
+            </div>
+        </div>
+      </div>
+      </t>
+    </template>
+
+<template id="attachment_form" name="Attachment Form">
+  <t t-call="website.layout">
+    <div id="wrap" class="o_wevent_index">
+        <div id="wrap" class="o_wevent_index">
+          <t t-set="opt_events_list_cards" t-value="request.website.viewref('website_event.opt_events_list_cards').active"/>
+          <t t-set="opt_events_list_columns" t-value="request.website.viewref('website_event.opt_events_list_columns').active"/>
+          <t t-call="website_event.index_topbar"/>
+          <div id="oe_structure_we_index_1" class="oe_structure"/>
+          <div id="oe_structure_we_index_2" class="oe_structure"/>
+        </div>
+          <div class="oe_structure">
+              <xpath expr="." position="inside">
+                <!--These links will be called when loading your Odoo -->
+                <link rel="stylesheet" href="/member_dashboard/static/src/css/style.css"/>
+                <link rel="stylesheet" href="/static_resources_demo/static/src/css/vendor.bundle.base.css"/>
+                <link rel="stylesheet" href="/static_resources_demo/static/src/materialdesignicons.min.css"/>
+                </xpath>
+                  <div class="container-scroller">
+      
+                    <body>
+                      <div class="container-scroller">
+                        <div class="container-fluid page-body-wrapper">
+                          <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                              <ul class="nav">
+                              <t t-foreach="users" t-as="user">
+                                
+                                <li class="nav-item active">
+                                  <a class="nav-link" href="/my/event">
+                                    <span class="menu-title">Dashboard</span>
+                                    <i class="menu-arrow"></i>
+                                    <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                                  </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/my/create_complaint">
+                                    <span class="menu-title">Add Complaint</span>
+                                    <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                  </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/my/complaint">
+                                    <span class="menu-title">My Complaint</span>
+                                    <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                  </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/my/add_attachments">
+                                    <span class="menu-title">Add Attachment</span>
+                                    <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                  </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/my/profileacc">
+                                    <span class="menu-title">My Profile</span>
+                                    <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                  </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/report/feedback">
+                                    <span class="menu-title">Report FeedBack</span>
+                                    <i class="mdi mdi-chart-bar menu-icon"></i>
+                                  </a>
+                                </li>
+                                </t>
+                              </ul>
+                            </nav>
+                          <div class="main-panel" style="background-color: #eee;">
+                          
+                            <!-- <div class="content-wrapper">
+                            </div> -->
+
+                          <div class="attach-container mx-5 my-3">
+                          <h2 class='attach-title'>Attachments</h2>
+                          <form class="form-inline" action="/my/add_attachments" enctype="multipart/form-data" method="POST">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <input type="hidden" name="attach_id" t-att-value="object['id']" />
+                            <div class="form-group mx-3">
+                              <label class="mx-3" for="description">Description</label>
+                              <input type="text" t-att-value="object['description']" class="form-control" id="description" name="description" placeholder="File description..."/>
+                            </div>
+                <div class="form-group mx-3">
+                  <label class="mx-3" for="attachment_type">Type</label>
+                  <select name="attachment_type" class="form-control">
+                    <option value="">Select an Attachment Type</option>
+                    <t t-foreach="attachment_type" t-as="type">
+                      <option t-att-value="type.id" t-att-selected="type.id == object['attachment_type']['id']">
+                        <t t-esc="type.name" />
+                      </option>
+                    </t>
+                  </select>
+                </div>
+                <div class="form-group mx-3">
+                  <label for="attachment_ids" class="mx-3">File</label>
+                  <input type="file" name="attachment_ids" class="form-control my-3" multiple="true" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true"/>
+                </div>
+                <t t-if="object['id']">
+                  <button type="submit" class="btn btn-primary ">Update</button>
+                </t>
+                <t t-if="not object['id']">
+                  <button type="submit" class="btn btn-primary ">Add</button>
+                </t>
+                <a t-attf-href="#{root}/" class="ml-2 btn btn-default">
+                    Cancel
+                </a>
+              </form>
+              <table class="table table-striped">
+                <thead class="thead-light">
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>File</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <t t-set="id" t-value="0"/>
+                  <t t-foreach="attachment" t-as="attach">
+                    <t t-set="id" t-value = "id + 1"/>
+
+                    <tr>
+
+                        <td><span t-esc="id"/></td>
+
+                        <t t-if="attach.description == ''">
+                          <td><span t-esc="attach.attachment_type.name"/></td>
+                        </t>
+                        <t t-else="">
+                          <td><span t-esc="attach.attachment_type.name"/>/<span t-esc="attach.description"/></td>
+                        </t>
+
+                        <td>
+                           <a t-attf-href="/web/content/#{attach.id}?download=true&amp;">
+                              <span t-esc="attach.name" class="fa fa-download"/>
+                           </a>
+                        </td>
+
+                        <td>
+                          <a t-attf-href="#{ root }/#{attach.id }/edit">
+                            <button type="button" class="btn btn-sm btn-primary">Edit</button>
+                          </a>
+                          <a t-attf-href="#{ root }/#{ attach.id }/delete">
+                            <button type="object" class="btn btn-sm btn-danger" name="deleteAttachment">
+                              Delete
+                            </button>
+                          </a>
+                        </td>
+
+                    </tr>
+
+                  </t>
+                </tbody>
+              </table>
+            </div>
+
+
+                        </div>
+                      </div>
+                      </div>
+                    </body>
+                  
+                  <xpath expr="." position="inside">
+                    <!--These links will be called when loading your Odoo -->
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/todolist.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/dashboard.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/misc.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/hoverable-collapse.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/off-canvas.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/jquery.cookie.js"></script>
+
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/chart.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/Chart.min.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/vendor.bundle.base.js"></script>
+                  </xpath>
+                
+            </div>
+        </div>
+      </div>
+      </t>
+    </template>
+
+        <template id="object">
+          <t t-call="website.layout">
+            <h1><t t-esc="object.display_name"/></h1>
+            <dl>
+              <t t-foreach="object._fields" t-as="field">
+                <dt><t t-esc="field"/></dt>
+                <dd><t t-esc="object[field]"/></dd>
+              </t>
+            </dl>
+          </t>
+        </template>
+    
+    <template id="portal_layout" name="Portal Layout">
+      <t t-call="portal.frontend_layout">
+          <t t-set="is_portal" t-value="True"/>
+
+          <div t-if="not no_breadcrumbs and not my_details and not breadcrumbs_searchbar" class="o_portal container mt-3">
+              <div class="row align-items-center bg-white no-gutters border rounded">
+                  <div class="col">
+                      <t t-call="portal.portal_breadcrumbs"></t>
+                  </div>
+                  <div t-if="prev_record or next_record" class="col flex-grow-0">
+                      <t t-call='portal.record_pager'/>
+                  </div>
+              </div>
+          </div>
+          <div id="wrap" class='o_portal_wrap'>
+              <div class="container mb64">
+                  <t t-if="my_details">
+                      <div class="row justify-content-between mt-4">
+                          <div t-attf-class="col-12 col-md col-lg-6">
+                              <t t-raw="0"/>
+                          </div>
+                          <div id="o_my_sidebar" class="col-12 col-md col-lg-4 col-xl-3 o_my_sidebar">
+                              <div class="o_my_contact" t-if="sales_user">
+                                  <t t-call="portal.portal_contact"/>
+                              </div>
+                              <div class="o_portal_my_details">
+                                  <h4>Details <a role="button" href="/my/profileacc" class="btn btn-sm btn-link"><i class="fa fa-pencil"/> Edit</a></h4>
+                                  <hr class="mt-1 mb-0"/>
+                                  <div t-field="user_id.partner_id" t-options='{"widget": "contact", "fields": ["email", "phone", "address", "name"]}'/>
+                              </div>
+                              <div class="o_my_archives" t-if="archive_groups">
+                                  <t t-call="portal.portal_archive_groups"/>
+                              </div>
+                          </div>
+                      </div>
+                  </t>
+                  <t t-else="">
+                      <t t-raw="0"/>
+                  </t>
+              </div>
+          </div>
+      </t>
+  </template>
+    <template id="new_portal_my_details" name="My Profile">
+      <t t-call="website.layout">
+        <div id="wrap" class="o_wevent_index">
+            <div id="wrap" class="o_wevent_index">
+              <t t-set="opt_events_list_cards" t-value="request.website.viewref('website_event.opt_events_list_cards').active"/>
+              <t t-set="opt_events_list_columns" t-value="request.website.viewref('website_event.opt_events_list_columns').active"/>
+              <t t-call="website_event.index_topbar"/>
+              <div id="oe_structure_we_index_1" class="oe_structure"/>
+              <div id="oe_structure_we_index_2" class="oe_structure"/>
+            </div>
+              <div class="oe_structure">
+                  <xpath expr="." position="inside">
+                    <!--These links will be called when loading your Odoo -->
+                    <link rel="stylesheet" href="/member_dashboard/static/src/css/style.css"/>
+                    <link rel="stylesheet" href="/static_resources_demo/static/src/css/vendor.bundle.base.css"/>
+                    <link rel="stylesheet" href="/static_resources_demo/static/src/materialdesignicons.min.css"/>
+                    </xpath>
+                      <div class="container-scroller">
+          
+                        <body>
+                          <div class="container-scroller">
+                            <div class="container-fluid page-body-wrapper">
+                              <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                                  <ul class="nav">
+                                  <t t-foreach="users" t-as="user">
+                                    
+                                    <li class="nav-item ">
+                                      <a class="nav-link" href="/my/event">
+                                        <span class="menu-title">Dashboard</span>
+                                        <i class="menu-arrow"></i>
+                                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="/my/create_complaint">
+                                        <span class="menu-title">Add Complaint</span>
+                                        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="/my/complaint">
+                                        <span class="menu-title">My Complaint</span>
+                                        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="/my/add_attachments">
+                                        <span class="menu-title">Add Attachment</span>
+                                        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item active">
+                                      <a class="nav-link" href="/my/profileacc">
+                                        <span class="menu-title">My Profile</span>
+                                        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="/report/feedback">
+                                        <span class="menu-title">Report FeedBack</span>
+                                        <i class="mdi mdi-chart-bar menu-icon"></i>
+                                      </a>
+                                    </li>
+                                    </t>
+                                  </ul>
+                                </nav>
+                                <div class="main-panel" style="background-color: #eee;">
+                                  <div class="container py-5">
+			          <!-- <t t-call="portal.portal_my_details"/> -->
+                                  <t t-set="additional_title">Contact Details</t>
+                                  <form action="/my/profileacc" enctype="multipart/form-data" method="post"> 
+                                     <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                     <div class="row o_portal_details">
+                                       <div class="col-lg-8">
+                                         <div class="row">
+                                             <div class="col-lg-12" id="s2u_portal_avatar">
+                                               <input type="file" class="d-none s2u_portal_avatar_upload" name="image_1920" accept="image/*"/>
+                                               <img class="mb-3 s2u_portal_avatar_img" t-att-src="website.image_url(partner, 'image_1920')" style="object-fit: cover; border-radius: 50%; width: 128px; height: 128px;"/>
+                                               <div class="text-left">
+                                                 <a href="#" class="btn btn-primary s2u_portal_avatar_edit" aria-label="Edit">
+                                                   <i class="fa fa-pencil fa-1g float-sm-none float-md-left" title="Edit"></i>
+                                                 </a>
+                                                 <a href="#" title="Clear" aria-label="Clear" class="btn border-primary s2u_portal_avatar_clear">
+                                                   <i class="fa fa-trash-o float-sm-none float-md-right"></i>
+                                                 </a>
+                                               </div>
+                                             </div>
+                                             <div t-attf-class="form-group col-xl-6">
+                                               <label class="col-form-label" for="name">Name</label>
+                                               <input type="text" name="name" t-attf-class="form-control" t-att-value="partner.name" />
+                                             </div>
+                                             <div t-attf-class="form-group col-xl-6">
+                                               <label class="col-form-label" for="age">Age</label>
+                                               <input type="text" name="age" t-attf-class="form-control" t-att-value="partner.age" />
+                                             </div>
+                                             <div t-attf-class="form-group col-xl-6">
+                                               <label class="col-form-label" for="gender">Gender</label>
+                                               <select name="gender" t-attf-class="form-control">
+                                                 <option value="">Select a gender</option>
+                                                 <option t-att-selected="'Male' == partner.gender">Male</option>
+                                                 <option t-att-selected="'Female' == partner.gender">Female</option>
+                                               </select>
+                                             </div>
+                                             <div t-attf-class="form-group col-xl-6">
+                                               <label class="col-form-label" for="education_level">Education Level</label>
+                                               <select name="education_level" t-attf-class="form-control" required="required">
+                                                 <option value="">Education Level....</option>
+                                                 <t t-foreach="ed_levels" t-as="ed">
+                                                   <option t-att-value="ed.id" t-att-selected="ed.id == partner.education_level.id">
+                                                     <t t-esc="ed.name"/>
+                                                   </option>
+                                                 </t>
+                                               </select>
+                                             </div>
+                                             <div t-attf-class="form-group col-xl-6">
+                                               <label class="col-form-label label-optional" for="company_name">Company Name</label>
+                                               <input type="text" name="company_name" t-attf-class="form-control" t-att-value="place"/>
+                                             </div>
+                                             <div t-attf-class="form-group col-xl-6">
+                                               <label class="col-form-label label-optional" for="function">Job Position</label>
+                                               <input type="text" name="function" t-attf-class="form-control" t-att-value="job"/>
+                                             </div>
+                                             <div t-attf-class="form-group col-xl-6">
+                                               <label class="col-form-label label-optional" for="years_of_service">Year of Service</label>
+                                               <input type="text" name="years_of_service" t-attf-class="form-control" t-att-value="year"/>
+                                             </div>
+                                             <div t-attf-class="form-group col-xl-6">
+                                               <label class="col-form-label label-optional" for="income">Income</label>
+                                               <input type="text" name="income" t-attf-class="form-control" t-att-value="partner.income"/>
+                                             </div>
+                                             <div t-attf-class="form-group col-xl-6">
+                                               <label class="col-form-label" for="region">Region</label>
+                                               <select name="region" t-attf-class="form-control" required="required">
+                                               <option value="">Region...</option>
+                                                 <t t-foreach="regions" t-as="region">
+                                                   <option t-att-value="region.id" t-att-selected="region.id == partner.region.id">
+                                                     <t t-esc="region.name"/>
+                                                   </option>
+                                                 </t>
+                                               </select>
+                                             </div>
+                                             <div t-attf-class="form-group col-xl-6">
+                                               <label class="col-form-label" for="subcity_id">Subcity</label>
+                                               <select name="subcity_id" t-attf-class="form-control" required="required">
+                                               <option value="">Subcity...</option>
+                                                 <t t-foreach="subcities" t-as="subcity">
+                                                   <option t-att-value="subcity.id" t-att-selected="subcity.id == partner.subcity_id.id">
+                                                     <t t-esc="subcity.name"/>
+                                                   </option>
+                                                 </t>
+                                               </select>
+                                             </div>
+                                             <div t-attf-class="form-group col-xl-6">
+                                               <label class="col-form-label label-optional" for="wereda_id">Woreda</label>
+                                               <select name="wereda_id" t-attf-class="form-control" required="required">
+                                               <option value="">Select your Woreda..</option>
+                                                 <t t-foreach="weredas" t-as="wereda">
+                                                   <option t-att-value="wereda.id" style="display:none;" t-att-data-parent_id="wereda.parent_id.id" t-att-selected="wereda.id == partner.wereda_id.id">
+                                                     <t t-esc="wereda.name"/>
+                                                   </option>
+                                                 </t>
+                                               </select>
+                                             </div>
+                                             <div t-attf-class="form-group col-xl-6">
+                                               <label class="col-form-label" for="phone">Phone</label>
+                                               <input type="tel" name="phone" t-attf-class="form-control" required="required" t-att-value="partner.phone"/>
+                                             </div>
+                                           </div>
+                                           <div t-attf-class="form-group col-xl-6">
+                                              <a t-attf-href="/report/pdf/members_custom.certificate_template/#{partner.id}">
+                                                <button class="fa fa-edit btn btn-sm btn-primary">Certificate</button>
+                                              </a>
+                                          </div>
+                                           <div class="clearfix">
+                                             <button type="submit" class="btn btn-primary">Update</button>
+                                           </div>
+                                       </div>
+                                    </div>
+                                  </form>
+                                 </div>
+                                </div>
+                            </div>
+                          </div>
+                        </body>
+                      
+                      <xpath expr="." position="inside">
+                        <!--These links will be called when loading your Odoo -->
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/todolist.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/dashboard.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/misc.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/hoverable-collapse.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/off-canvas.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/jquery.cookie.js"></script>
+    
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/chart.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/Chart.min.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/vendor.bundle.base.js"></script>
+                      </xpath>
+                    
+                </div>
+            </div>
+          </div> 
+       </t>
+     </template>
+    
+
+
+
+    <template id="complaint_list" name="My Compliant List">
+      <t t-call="website.layout">
+        <div id="wrap" class="o_wevent_index">
+          <div id="wrap" class="o_wevent_index">
+            <t t-set="opt_events_list_cards" t-value="request.website.viewref('website_event.opt_events_list_cards').active"/>
+            <t t-set="opt_events_list_columns" t-value="request.website.viewref('website_event.opt_events_list_columns').active"/>
+            <t t-call="website_event.index_topbar"/>
+            <div id="oe_structure_we_index_1" class="oe_structure"/>
+            <div id="oe_structure_we_index_2" class="oe_structure"/>
+          </div>
+              <div class="oe_structure">
+                  <xpath expr="." position="inside">
+                    <link rel="stylesheet" href="/member_dashboard/static/src/css/style.css"/>
+                    <link rel="stylesheet" href="/static_resources_demo/static/src/css/vendor.bundle.base.css"/>
+                    <link rel="stylesheet" href="/static_resources_demo/static/src/materialdesignicons.min.css"/>
+                    </xpath>
+                      <div class="container-scroller">
+                          
+                        <body>
+                          <div class="container-scroller">
+                            <div class="container-fluid page-body-wrapper">
+                              <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                                <ul class="nav">
+                                <t t-foreach="users" t-as="user">
+                                 
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="/my/event">
+                                      <span class="menu-title">Dashboard</span>
+                                      <i class="menu-arrow"></i>
+                                      <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                                    </a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="/my/create_complaint">
+                                      <span class="menu-title">Add Complaint</span>
+                                      <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                    </a>
+                                  </li>
+                                  <li class="nav-item active">
+                                    <a class="nav-link" href="/my/complaint">
+                                      <span class="menu-title">My Complaint</span>
+                                      <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                    </a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="/my/add_attachments">
+                                      <span class="menu-title">Add Attachment</span>
+                                      <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                    </a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="/my/profileacc">
+                                      <span class="menu-title">My Profile</span>
+                                      <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                    </a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="/report/feedback">
+                                      <span class="menu-title">Report FeedBack</span>
+                                      <i class="mdi mdi-chart-bar menu-icon"></i>
+                                    </a>
+                                  </li>
+                                 </t>
+                                </ul>
+                              </nav>
+                              <div class="main-panel" style="background-color: #eee;">
+                                <div class="container py-5">
+                              
+                                <!-- <div class="content-wrapper"> -->
+                                  <br/>
+                                  <h3>Complaint List</h3>
+                                <br/>
+                                <table id="complaint_list" class="table table-striped table-bordered" style="width: 80%">
+                                    <thead id="thead">
+                                      <tr>
+                                        <th>Date of Complaint</th>
+                                        <th>Subject</th>
+                                        <th>Status</th>
+                                        <th></th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <t t-foreach="record" t-as="complaint">
+                                        <t t-if="complaint.state == 'resolved'">
+                                          <tr style="color: green;">
+                                            <td><span t-esc="complaint.create_date.strftime('%b %d, %Y')"/></td>
+                                            <td><span t-esc="complaint.subject"/></td>
+                                            <td><span t-esc="complaint.state"/></td>
+                                            <td>
+                                              <a t-attf-href="/report/pdf/members_custom.complaint_report_templates/#{complaint.id}">
+                                                <button class="fa fa-edit btn btn-sm btn-primary">Download</button>
+                                              </a>
+                                              <a t-attf-href="/complaint/#{complaint.id}/delete">
+                                                <button class="fa fa-trash btn btn-sm btn-danger">Delete</button>
+                                              </a>
+                                            </td>
+                                          </tr>
+                                        </t>
+                                        <t t-elif="complaint.state == 'rejected'">
+                                          <tr style="color: red;">
+                                            <td><span t-esc="complaint.create_date.strftime('%b %d, %Y')"/></td>
+                                            <td><span t-esc="complaint.subject"/></td>
+                                           
+                                            <td><span t-esc="complaint.state"/></td>
+                                            <td>
+                                              <a t-attf-href="/report/pdf/members_custom.complaint_report_templates/#{complaint.id}">
+                                                <button class="fa fa-edit btn btn-sm btn-primary">Download</button>
+                                              </a>
+                                              <a t-attf-href="/complaint/#{complaint.id}/delete">
+                                                <button class="fa fa-trash btn btn-sm btn-danger">Delete</button>
+                                              </a>
+                                            </td>
+                                          </tr>
+                                        </t>
+                                        <t t-elif="complaint.state == 'waiting for approval'">
+                                          <tr style="color: blue;">
+                                            <td><span t-esc="complaint.create_date.strftime('%b %d, %Y')"/></td>
+                                            <td><span t-esc="complaint.subject"/></td>
+
+                                            <td><span t-esc="complaint.state"/></td>
+                                            <td>
+                                              <a t-attf-href="/complaint/#{complaint.id}/edit">
+                                                <button class="fa fa-edit btn btn-sm btn-primary">Edit</button>
+                                              </a>
+                                              <a t-attf-href="/complaint/#{complaint.id}/delete">
+                                                <button class="fa fa-trash btn btn-sm btn-danger">Delete</button>
+                                              </a>
+                                            </td>
+                                          </tr>
+                                        </t>
+                                        <t t-else="">
+                                          <tr>
+                                            <td><span t-esc="complaint.create_date.strftime('%b %d, %Y')"/></td>
+                                            <td><span t-esc="complaint.subject"/></td>
+
+                                            <td><span t-esc="complaint.state"/></td>
+                                            <td>
+                                              <a t-attf-href="/complaint/#{complaint.id}/edit">
+                                                <button class="fa fa-edit btn btn-sm btn-primary">Edit</button>
+                                              </a>
+                                              <a t-attf-href="/complaint/#{complaint.id}/delete">
+                                                <button class="fa fa-trash btn btn-sm btn-danger">Delete</button>
+                                              </a>
+                                            </td>
+                                          </tr>
+                                        </t>
+                                      </t>
+                                    </tbody>
+                                  </table>  
+                                <!-- </div> -->
+                                </div>
+                            </div>
+                          </div>
+                         </div>
+                        </body>
+                     
+                      <xpath expr="." position="inside">
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/todolist.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/dashboard.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/misc.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/hoverable-collapse.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/off-canvas.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/jquery.cookie.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/chart.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/Chart.min.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/vendor.bundle.base.js"></script>
+                      </xpath>
+                   
+                </div>
+            </div>
+          </div>
+        </t>
+    </template>
+
+
+    <template id="my_report" name="My Reports">
+      <t t-call="website.layout">
+          <div id="wrap">
+              <div class="oe_structure">
+                <div id="wrap" class="o_wevent_index">
+                  <t t-set="opt_events_list_cards" t-value="request.website.viewref('website_event.opt_events_list_cards').active"/>
+                  <t t-set="opt_events_list_columns" t-value="request.website.viewref('website_event.opt_events_list_columns').active"/>
+                  <t t-call="website_event.index_topbar"/>
+                  <div id="oe_structure_we_index_1" class="oe_structure"/>
+                  <div id="oe_structure_we_index_2" class="oe_structure"/>
+                </div>
+                  <xpath expr="." position="inside">
+                          <!--These links will be called when loading your Odoo -->
+                                  <link rel="stylesheet" href="/member_dashboard/static/src/css/style.css"/>
+                                  <link rel="stylesheet" href="/static_resources_demo/static/src/css/vendor.bundle.base.css"/>
+                                  <link rel="stylesheet" href="/static_resources_demo/static/src/materialdesignicons.min.css"/>
+                          </xpath>
+                            <div class="container-scroller">
+                             
+                              <body>
+                                <div class="container-scroller">
+                                  <div class="container-fluid page-body-wrapper">
+                                    <!-- partial:../../partials/_sidebar.html -->
+                                    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                                      <ul class="nav">
+                                      <t t-foreach="users" t-as="user">
+                                        
+                                        <li class="nav-item ">
+                                          <a class="nav-link" href="/my/event">
+                                            <span class="menu-title">Dashboard</span>
+                                            <i class="menu-arrow"></i>
+                                            <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                                          </a>
+                                        </li>
+                                        <li class="nav-item">
+                                          <a class="nav-link" href="/my/create_complaint">
+                                            <span class="menu-title">Add Complaint</span>
+                                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                          </a>
+                                        </li>
+                                        <li class="nav-item">
+                                          <a class="nav-link" href="/my/complaint">
+                                            <span class="menu-title">My Complaint</span>
+                                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                          </a>
+                                        </li>
+                                        <li class="nav-item">
+                                          <a class="nav-link" href="/my/add_attachments">
+                                            <span class="menu-title">Add Attachment</span>
+                                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                          </a>
+                                        </li>
+                                        <li class="nav-item">
+                                          <a class="nav-link" href="/my/profileacc">
+                                            <span class="menu-title">My Profile</span>
+                                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                          </a>
+                                        </li>
+                                        <li class="nav-item">
+                                          <a class="nav-link" href="/report/feedback">
+                                            <span class="menu-title">Report FeedBack</span>
+                                            <i class="mdi mdi-chart-bar menu-icon"></i>
+                                          </a>
+                                        </li>
+                                        </t>
+                                      </ul>
+                                    </nav>
+                                    <div class="main-panel" style="background-color: #eee;">
+                                      <!-- <div class="content-wrapper"> -->
+                                        <section style="background-color: #eee;">
+                                          
+                                        </section>
+                                    </div>
+                                  
+                                  </div>
+                                </div>
+                             
+                              </body>
+                           
+                            <xpath expr="." position="inside">
+                              <!--These links will be called when loading your Odoo -->
+                                  <script type="text/javascript" src="/member_dashboard/static/src/js/todolist.js"></script>
+                                  <script type="text/javascript" src="/member_dashboard/static/src/js/dashboard.js"></script>
+                                  <script type="text/javascript" src="/member_dashboard/static/src/js/misc.js"></script>
+                                  <script type="text/javascript" src="/member_dashboard/static/src/js/hoverable-collapse.js"></script>
+                                  <script type="text/javascript" src="/member_dashboard/static/src/js/off-canvas.js"></script>
+                                  <script type="text/javascript" src="/member_dashboard/static/src/js/jquery.cookie.js"></script>
+    
+                                  <script type="text/javascript" src="/member_dashboard/static/src/js/chart.js"></script>
+                                  <script type="text/javascript" src="/member_dashboard/static/src/js/vendor.bundle.base.js"></script>
+      
+                            </xpath>
+                         
+                    </div>
+                  </div>
+            </div>
+          </t>
+    </template>
+
+
+
+    <template id="complaint_form_add" name="My Complaint">
+      <t t-call="website.layout">
+          <div id="wrap">
+              <div class="oe_structure">
+                <div id="wrap" class="o_wevent_index">
+                  <t t-set="opt_events_list_cards" t-value="request.website.viewref('website_event.opt_events_list_cards').active"/>
+                  <t t-set="opt_events_list_columns" t-value="request.website.viewref('website_event.opt_events_list_columns').active"/>
+                  <t t-call="website_event.index_topbar"/>
+                  <div id="oe_structure_we_index_1" class="oe_structure"/>
+                  <div id="oe_structure_we_index_2" class="oe_structure"/>
+                </div>
+                  <xpath expr="." position="inside">
+                          <!--These links will be called when loading your Odoo -->
+                                  <link rel="stylesheet" href="/member_dashboard/static/src/css/style.css"/>
+                                  <link rel="stylesheet" href="/static_resources_demo/static/src/css/vendor.bundle.base.css"/>
+                                  <link rel="stylesheet" href="/static_resources_demo/static/src/materialdesignicons.min.css"/>
+                          </xpath>
+                            <div class="container-scroller">
+                              <body>
+                                <div class="container-scroller">
+                                  <div class="container-fluid page-body-wrapper">
+                                    <!-- partial:../../partials/_sidebar.html -->
+                                    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                                      <ul class="nav">
+                                      <t t-foreach="users" t-as="user">
+                                        
+                                        <li class="nav-item ">
+                                          <a class="nav-link" href="/my/event">
+                                            <span class="menu-title">Dashboard</span>
+                                            <i class="menu-arrow"></i>
+                                            <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                                          </a>
+                                        </li>
+                                        <li class="nav-item active">
+                                          <a class="nav-link" href="/my/create_complaint">
+                                            <span class="menu-title">Add Complaint</span>
+                                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                          </a>
+                                        </li>
+                                        <li class="nav-item">
+                                          <a class="nav-link" href="/my/complaint">
+                                            <span class="menu-title">My Complaint</span>
+                                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                          </a>
+                                        </li>
+                                        <li class="nav-item">
+                                          <a class="nav-link" href="/my/add_attachments">
+                                            <span class="menu-title">Add Attachment</span>
+                                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                          </a>
+                                        </li>
+                                        <li class="nav-item">
+                                          <a class="nav-link" href="/my/profileacc">
+                                            <span class="menu-title">My Profile</span>
+                                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                          </a>
+                                        </li>
+                                        <li class="nav-item">
+                                          <a class="nav-link" href="/report/feedback">
+                                            <span class="menu-title">Report FeedBack</span>
+                                            <i class="mdi mdi-chart-bar menu-icon"></i>
+                                          </a>
+                                        </li>
+                                        </t>
+                                      </ul>
+                                    </nav>
+                                    <div class="main-panel" style="background-color: #eee;">
+                                      <div class="container py-5">
+
+                                      <!-- <div class="content-wrapper"> -->
+                                        <section style="background-color: #eee;">
+                                          <!-- <div class="content-wrapper"> -->
+                                            <div class="col d-flex justify-content-center">
+                                              <div class="card m-5 w-50">
+                                                <h5 class="card-header">Complaint Form</h5>
+                                                <div class="card-body">
+                                                  <form role="form" action="/add_complaint" method="POST">
+                                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                    <input type="hidden" name="complaint" t-att-value="complaint['id']"/>
+                                                    <br/>
+                                                    <div class="form-group w-75">
+                                                      <label class="control-label">Subject</label>
+                                                      <input type="text" name="subject" placeholder="Brief Subject" class="form-control" t-att-value="complaint['subject']"/>
+                                                    </div>
+                                                    <div class="form-group w-75">
+                                                      <label class="control-label">Perpetrators</label>
+                                                      <select name="perpertrators" class="form-control" multiple="multiple">
+                                                          <t t-foreach="perpertrators" t-as="perp">
+                                                            <option t-att-value="perp.id" t-att-selected="perp.id == perp.id if complaint['perpertrators'] != None and perp in complaint['perpertrators'] else perp.id == None">
+                                                              <t t-esc="perp.name"/>
+                                                            </option>
+                                                          </t>
+                                                      </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                      <label class="control-label">Circumstance</label>
+                                                      <textarea name="circumstances" cols="15" rows="8" placeholder="Circumstance" class="form-control"><t t-esc="complaint['circumstances']"/></textarea>
+                                                    </div>
+                                                    <t t-if="complaint['id']">
+                                                      <div>
+                                                        <button type="submit" class="btn btn-primary pull-left">Update</button>
+                                                      </div>
+                                                    </t>
+                                                    <t t-else="">
+                                                      <div>
+                                                        <button type="submit" class="btn btn-primary pull-left">Submit</button>
+                                                      </div>
+                                                    </t>
+                                                    <br/>
+                                                  </form>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          <!-- </div> -->
+                                          
+                                        </section>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </body>
+                            <xpath expr="." position="inside">
+                              <!--These links will be called when loading your Odoo -->
+                                  <script type="text/javascript" src="/member_dashboard/static/src/js/todolist.js"></script>
+                                  <script type="text/javascript" src="/member_dashboard/static/src/js/dashboard.js"></script>
+                                  <script type="text/javascript" src="/member_dashboard/static/src/js/misc.js"></script>
+                                  <script type="text/javascript" src="/member_dashboard/static/src/js/hoverable-collapse.js"></script>
+                                  <script type="text/javascript" src="/member_dashboard/static/src/js/off-canvas.js"></script>
+                                  <script type="text/javascript" src="/member_dashboard/static/src/js/jquery.cookie.js"></script>
+    
+                                  <script type="text/javascript" src="/member_dashboard/static/src/js/chart.js"></script>
+                                  <script type="text/javascript" src="/member_dashboard/static/src/js/vendor.bundle.base.js"></script>
+      
+                            </xpath>
+                         
+                    </div>
+                  </div>
+            </div>
+        </t>
+    </template>
+
+    
+    <template id="complaint_form" name="My Complaint">
+      <t t-call="website.layout">
+        <div id="wrap" class="o_wevent_index">
+          <div id="wrap" class="o_wevent_index">
+            <t t-set="opt_events_list_cards" t-value="request.website.viewref('website_event.opt_events_list_cards').active"/>
+            <t t-set="opt_events_list_columns" t-value="request.website.viewref('website_event.opt_events_list_columns').active"/>
+            <t t-call="website_event.index_topbar"/>
+            <div id="oe_structure_we_index_1" class="oe_structure"/>
+            <div id="oe_structure_we_index_2" class="oe_structure"/>
+          </div>
+              <div class="oe_structure">
+                  <xpath expr="." position="inside">
+                    <!--These links will be called when loading your Odoo -->
+                    <link rel="stylesheet" href="/member_dashboard/static/src/css/style.css"/>
+                    <link rel="stylesheet" href="/static_resources_demo/static/src/css/vendor.bundle.base.css"/>
+                    <link rel="stylesheet" href="/static_resources_demo/static/src/materialdesignicons.min.css"/>
+                    </xpath>
+                      <div class="container-scroller">
+                     
+                        <body>
+                          <div class="container-scroller">
+                            <div class="container-fluid page-body-wrapper">
+                             <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                                  <ul class="nav">
+                                  <t t-foreach="users" t-as="user">
+                                   
+                                    <li class="nav-item ">
+                                      <a class="nav-link" href="/my/event">
+                                        <span class="menu-title">Dashboard</span>
+                                        <i class="menu-arrow"></i>
+                                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="/my/create_complaint">
+                                        <span class="menu-title">Add Complaint</span>
+                                        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item active">
+                                      <a class="nav-link" href="/my/complaint">
+                                        <span class="menu-title">My Complaint</span>
+                                        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="/my/add_attachments">
+                                        <span class="menu-title">Add Attachment</span>
+                                        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="/my/profileacc">
+                                        <span class="menu-title">My Profile</span>
+                                        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="/report/feedback">
+                                        <span class="menu-title">Report FeedBack</span>
+                                        <i class="mdi mdi-chart-bar menu-icon"></i>
+                                      </a>
+                                    </li>
+                                   </t>
+                                  </ul>
+                                </nav>
+                              <div class="main-panel" style="background-color: #eee;">
+                                <div class="container py-5">
+                              
+                                <!-- <div class="content-wrapper"> -->
+                                  <div class="col d-flex justify-content-center">
+                                    <div class="card m-5 w-50">
+                                      <h5 class="card-header">Complaint Form</h5>
+                                      <div class="card-body">
+                                        <form role="form" action="/add_complaint" method="POST">
+                                          <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                          <input type="hidden" name="complaint" t-att-value="complaint['id']"/>
+                                          <br/>
+                                          <div class="form-group w-75">
+                                            <label class="control-label">Subject</label>
+                                            <input type="text" name="subject" placeholder="Brief Subject" class="form-control" t-att-value="complaint['subject']"/>
+                                          </div>
+                                          <!-- <div class="form-group w-75">
+                                            <label class="control-label">Category</label>
+                                            <select name="complaint_category" class="form-control link-style">
+                                              <option value="">Select your option</option>
+                                              <t t-foreach="complaint_category" t-as="categ">
+                                                <option t-att-value="categ.id" t-att-selected="categ.id == complaint['complaint_category']['id']">
+                                                  <t t-esc="categ.name"/>
+                                                </option>
+                                              </t>
+                                            </select>
+                                          </div> -->
+                                          <div class="form-group w-75">
+                                            <label class="control-label">Perpetrators</label>
+                                            <select name="perpertrators" class="form-control" multiple="multiple">
+                                                <t t-foreach="perpertrators" t-as="perp">
+                                                  <option t-att-value="perp.id" t-att-selected="perp.id == perp.id if complaint['perpertrators'] != None and perp in complaint['perpertrators'] else perp.id == None">
+                                                    <t t-esc="perp.name"/>
+                                                  </option>
+                                                </t>
+                                            </select>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="control-label">Circumstance</label>
+                                            <textarea name="circumstances" cols="15" rows="8" placeholder="Circumstance" class="form-control"><t t-esc="complaint['circumstances']"/></textarea>
+                                          </div>
+                                          <t t-if="complaint['id']">
+                                            <div>
+                                              <button type="submit" class="btn btn-primary pull-left">Update</button>
+                                            </div>
+                                          </t>
+                                          <t t-else="">
+                                            <div>
+                                              <button type="submit" class="btn btn-primary pull-left">Submit</button>
+                                            </div>
+                                          </t>
+                                          <br/>
+                                        </form>
+                                      </div>
+                                    </div>
+                                  </div>
+                                <!-- </div> -->
+                                </div>
+                            </div>
+                          </div>
+                         </div>
+                        </body>
+                     
+                      <xpath expr="." position="inside">
+                        <!--These links will be called when loading your Odoo -->
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/todolist.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/dashboard.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/misc.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/hoverable-collapse.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/off-canvas.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/jquery.cookie.js"></script>
+
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/chart.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/Chart.min.js"></script>
+                        <script type="text/javascript" src="/member_dashboard/static/src/js/vendor.bundle.base.js"></script>
+                      </xpath>
+                   
+                </div>
+            </div>
+          </div>
+      </t>
+    </template>
+
+
+ 
+    <template id="index" name="MyEvents">
+      <t t-call="website.layout">
+        <div id="wrap" class="o_wevent_index">
+          <div id="wrap" class="o_wevent_index">
+            <t t-set="opt_events_list_cards" t-value="request.website.viewref('website_event.opt_events_list_cards').active"/>
+            <t t-set="opt_events_list_columns" t-value="request.website.viewref('website_event.opt_events_list_columns').active"/>
+            <t t-call="website_event.index_topbar"/>
+            <div id="oe_structure_we_index_1" class="oe_structure"/>
+            <div id="oe_structure_we_index_2" class="oe_structure"/>
+          </div>
+            <!-- Options -->
+            <xpath expr="." position="inside">
+              <!--These links will be called when loading your Odoo -->
+                      <link rel="stylesheet" href="/member_dashboard/static/src/css/style.css"/>
+                      <!-- <link rel="stylesheet" href="/member_dashboard/static/src/css/vendor.bundle.base.css"/>
+                      <link rel="stylesheet" href="/member_dashboard/static/src/materialdesignicons.min.css"/> -->
+              </xpath>
+              <body>
+                <div class="container-scroller">
+                
+                  <div class="container-fluid page-body-wrapper">
+                    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                      <ul class="nav">
+                      <t t-foreach="users" t-as="user">
+                       
+                        <li class="nav-item active">
+                          <a class="nav-link" href="/my/event">
+                            <span class="menu-title">Dashboard</span>
+                            <i class="menu-arrow"></i>
+                            <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/my/create_complaint">
+                            <span class="menu-title">Add Complaint</span>
+                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/my/complaint">
+                            <span class="menu-title">My Complaint</span>
+                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/my/add_attachments">
+                            <span class="menu-title">Add Attachment</span>
+                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/my/profileacc">
+                            <span class="menu-title">My Profile</span>
+                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/report/feedback">
+                            <span class="menu-title">Report FeedBack</span>
+                            <i class="mdi mdi-chart-bar menu-icon"></i>
+                          </a>
+                        </li>
+                       </t>
+                      </ul>
+                    </nav>
+                    <div class="main-panel" style="background-color: #eee;">
+                      <div class="container py-8">
+
+                      <!-- <div class="content-wrapper"> -->
+                        <div class="page-header">
+                          <div t-attf-class="o_wevent_events_list #{opt_events_list_cards and 'opt_event_list_cards_bg'}">
+                              <!-- <div class="container"> -->
+                                
+                                  <div class="row">
+                                      <div id="o_wevent_index_main_col" t-attf-class="col-md my-5 #{opt_events_list_columns and 'opt_events_list_columns' or 'opt_events_list_rows'}">
+                                          <div class="row">
+                                              <!-- Events List -->
+                                              <t t-call="member_dashboard.events_list"/>
+                                          </div>
+                                      </div>
+                                  </div>
+                              <!-- </div> -->
+                          </div>
+                        </div>
+                    <!-- </div> -->
+                    </div>
+                  </div>     
+                </div>
+                </div>
+              </body>
+                   
+              <xpath expr="." position="inside">
+                <!--These links will be called when loading your Odoo -->
+                <script type="text/javascript" src="/member_dashboard/static/src/js/todolist.js"></script>
+                <script type="text/javascript" src="/member_dashboard/static/src/js/dashboard.js"></script>
+                <script type="text/javascript" src="/member_dashboard/static/src/js/misc.js"></script>
+                <script type="text/javascript" src="/member_dashboard/static/src/js/hoverable-collapse.js"></script>
+                <script type="text/javascript" src="/member_dashboard/static/src/js/off-canvas.js"></script>
+                <script type="text/javascript" src="/member_dashboard/static/src/js/jquery.cookie.js"></script>
+
+                <script type="text/javascript" src="/member_dashboard/static/src/js/chart.js"></script>
+                <script type="text/javascript" src="/member_dashboard/static/src/js/Chart.min.js"></script>
+                <script type="text/javascript" src="/member_dashboard/static/src/js/vendor.bundle.base.js"></script>
+              </xpath>
+            </div>
+          </t>    
+    </template>
+
+    
+<!-- Search Box -->
+<template id="events_search_box" inherit_id="website.website_search_box" primary="True">
+  <xpath expr="//div[@role='search']" position="replace">
+      <form t-attf-class="o_wevent_event_searchbar_form o_wait_lazy_js my-1 my-lg-0 #{_classes}"
+            t-att-action="action if action else '/event'" method="get">
+          <t t-set="search" t-value="search or _searches and _searches['search']"/>
+          <t>$0</t>
+          <t t-foreach="_searches" t-as="search">
+              <input t-if="search != 'search' and search_value != 'all'" type="hidden"
+                  t-att-name="search" t-att-value="search_value"/>
+          </t>
+          <t t-raw="0"/>
+      </form>
+  </xpath>
+</template>
+
+<!-- Index - Events list -->
+<template id="events_list" name="Events list">
+  <!-- Options -->
+  <t t-set="opt_index_sidebar" t-value="request.website.viewref('website_event.opt_index_sidebar').active"/>
+  <t t-if="opt_events_list_columns" t-set="opt_event_size" t-value="opt_index_sidebar and 'col-md-6' or 'col-md-6 col-lg-4'"/>
+  <t t-else="" t-set="opt_event_size" t-value="opt_index_sidebar and 'col-12' or 'col-xl-10 offset-xl-1'"/>
+  <!-- No events -->
+  <t t-if="not event_ids">
+      <div class="col-12">
+          <div class="h2 mb-3">No events found.</div>
+          <div class="alert alert-info text-center" groups="event.group_event_manager">
+              <p class="m-0">Use the top button '<b>+ New</b>' to create an event.</p>
+          </div>
+      </div>
+  </t>
+  <!-- List -->
+  <div t-foreach="event_ids" t-as="event" t-attf-class=" #{opt_event_size} mb-4">
+      <article t-attf-class="#{opt_events_list_cards and 'card border-0 shadow-sm'}" itemscope="itemscope" itemtype="http://schema.org/Event">
+          <div class="row no-gutters">
+              <!-- Header -->
+              <header t-attf-class="overflow-hidden bg-secondary #{opt_events_list_columns and 'col-12 rounded-top' or 'col-sm-4 col-lg-3 rounded-left'} #{(not opt_events_list_cards) and 'rounded shadow'} #{(not opt_events_list_cards and not opt_events_list_columns) and 'rounded-top'}">
+                  <!-- Image + Link -->
+                  <a t-attf-href="/event/#{ slug(event) }/#{(not event.menu_id) and 'register'}" class="d-block h-100 w-100">
+                      <t t-call="website.record_cover">
+                          <t t-set="_record" t-value="event"/>
+
+                          <!-- Short Date -->
+                          <div class="o_wevent_event_date position-absolute bg-white shadow-sm">
+                              <span t-field="event.with_context(tz=event.date_tz).date_begin" t-options="{'format': 'LLL'}" class="o_wevent_event_month"/>
+                              <span t-field="event.with_context(tz=event.date_tz).date_begin" t-options="{'format': 'dd'}" class="o_wevent_event_day"/>
+                          </div>
+                          <!-- Participating -->
+                          <small t-if="event.is_participating" class="o_wevent_participating bg-success">
+                              <i class="fa fa-check mr-2"/>Registered
+                          </small>
+                          <!-- Unpublished -->
+                          <small t-if="not event.website_published" class="o_wevent_unpublished bg-danger">
+                              <i class="fa fa-ban mr-2"/>Unpublished
+                          </small>
+                      </t>
+                  </a>
+              </header>
+              <div t-attf-class="#{opt_events_list_columns and 'col-12' or 'col'}">
+                  <!-- Body -->
+                  <main t-attf-class="#{opt_events_list_cards and 'card-body' or (opt_events_list_columns and 'py-3' or 'px-4')}">
+                      <!-- Title -->
+                      <h5 t-attf-class="card-title mt-2 mb-0 text-truncate #{(not event.website_published) and 'text-danger'}">
+                          <a t-attf-href="/event/#{ slug(event) }/#{(not event.menu_id) and 'register'}" class="text-reset text-decoration-none" itemprop="url">
+                              <span t-field="event.name" itemprop="name"/>
+                          </a>
+                      </h5>
+                      <!-- Organizer -->
+                      <div t-if="event.organizer_id" class="mb-3">
+                          <small class="text-muted text-truncate">Organizer: <span t-field="event.organizer_id" itemprop="organizer"/></small>
+                      </div>
+                      <!-- Location -->
+                      <div t-if="event.is_online">Online</div>
+                      <div t-else="" itemprop="location" t-field="event.address_id" t-options="{'widget': 'contact', 'fields': ['city'], 'no_marker': 'true'}"/>
+                      <!-- Start Date & Time -->
+                      <time itemprop="startDate" t-att-datetime="event.date_begin">
+                          <span t-field="event.with_context(tz=event.date_tz).date_begin" t-options="{'date_only': 'true', 'format': 'long'}"/> -
+                          <span t-field="event.with_context(tz=event.date_tz).date_begin" t-options="{'time_only': 'true', 'format': 'short'}"/>
+                      </time>
+                  </main>
+                  <!-- Footer -->
+                  <footer t-attf-class="small #{opt_events_list_cards and 'card-footer' or ((not opt_events_list_columns) and 'border-top mx-4 mt-auto pt-2' or 'border-top py-2')}">
+                      <div itemprop="price"><span content="0" class="font-weight-bold text-uppercase"></span></div>
+                  </footer>
+              </div>
+          </div>
+      </article>
+  </div>
+  <!-- Pager -->
+  <div class="form-inline justify-content-center my-3">
+      <t t-call="website.pager"/>
+  </div>
+</template>
+
+
+
+
+<template id="complaint_end" name="Created Successfully">
+  <t t-call="website.layout">
+    <div id="wrap" class="o_wevent_index">
+      <div id="wrap" class="o_wevent_index">
+        <t t-set="opt_events_list_cards" t-value="request.website.viewref('website_event.opt_events_list_cards').active"/>
+        <t t-set="opt_events_list_columns" t-value="request.website.viewref('website_event.opt_events_list_columns').active"/>
+        <t t-call="website_event.index_topbar"/>
+        <div id="oe_structure_we_index_1" class="oe_structure"/>
+        <div id="oe_structure_we_index_2" class="oe_structure"/>
+      </div>
+          <div class="oe_structure">
+              <xpath expr="." position="inside">
+                <!--These links will be called when loading your Odoo -->
+                <link rel="stylesheet" href="/member_dashboard/static/src/css/style.css"/>
+                <link rel="stylesheet" href="/static_resources_demo/static/src/css/vendor.bundle.base.css"/>
+                <link rel="stylesheet" href="/static_resources_demo/static/src/materialdesignicons.min.css"/>
+                </xpath>
+                  <div class="container-scroller">
+                 
+                    <body>
+                      <div class="container-scroller">
+                        <div class="container-fluid page-body-wrapper">
+                         <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                              <ul class="nav">
+                              <!-- <t t-foreach="users" t-as="user"> -->
+                               
+                                <li class="nav-item ">
+                                  <a class="nav-link" href="/my/event">
+                                    <span class="menu-title">Dashboard</span>
+                                    <i class="menu-arrow"></i>
+                                    <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                                  </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/my/create_complaint">
+                                    <span class="menu-title">Add Complaint</span>
+                                    <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                  </a>
+                                </li>
+                                <li class="nav-item active">
+                                  <a class="nav-link" href="/my/complaint">
+                                    <span class="menu-title">My Complaint</span>
+                                    <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                  </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/my/add_attachments">
+                                    <span class="menu-title">Add Attachment</span>
+                                    <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                  </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/my/profileacc">
+                                    <span class="menu-title">My Profile</span>
+                                    <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                  </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/report/feedback">
+                                    <span class="menu-title">Report FeedBack</span>
+                                    <i class="mdi mdi-chart-bar menu-icon"></i>
+                                  </a>
+                                </li>
+                               <!-- </t> -->
+                              </ul>
+                            </nav>
+                          <div class="main-panel" style="background-color: #eee;">
+                          
+                            <!-- <div class="content-wrapper"> -->
+                              <div class="col d-flex justify-content-center">
+                                <div class="container">
+                                  <h1>Thank you!</h1>
+                                  <div class="row">
+                                    <div class="col-lg-8">
+                                      <div class="alert alert-success">
+                                        Complaint Has Been Created Successfully!
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                               
+                            <!-- </div> -->
+                        </div>
+                      </div>
+                     </div>
+                    </body>
+                 
+                  <xpath expr="." position="inside">
+                    <!--These links will be called when loading your Odoo -->
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/todolist.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/dashboard.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/misc.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/hoverable-collapse.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/off-canvas.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/jquery.cookie.js"></script>
+
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/chart.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/Chart.min.js"></script>
+                    <script type="text/javascript" src="/member_dashboard/static/src/js/vendor.bundle.base.js"></script>
+                  </xpath>
+               
+            </div>
+        </div>
+      </div>
+  </t>
+</template>
+
+
+
+<!-- Portal User  Reset password Template -->
+<template id="confirm_reset_password" name="Confirm Reset password">
+  <t t-call="web.login_layout">
+      <div t-if="message" class="oe_login_form clearfix">
+          <p class="alert alert-success" t-if="message" role="status">
+              <t t-esc="message"/>
+          </p>
+          <a href="/web/signin" class="btn btn-link btn-sm float-right" role="button">Back to Login</a>
+      </div>
+
+      <form class="oe_reset_password_form"  action="/web/confirm_reset_password" role="form" method="post" onsubmit="this.action = '/web/confirm_reset_password'" t-if="not message">
+        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+        <h4 style="color:gray; font-style:bold;"> Reset Your Password</h4><br/>
+          <t t-if="token and not invalid_token">
+              <t t-call="auth_signup.fields">
+                  <t t-set="only_passwords" t-value="1"/>
+              </t>
+          </t>
+          <t t-foreach="user" t-as="users">
+           
+            <t t-if="not token">
+           
+                  <input type="hidden" name="user_id" t-att-value="users.id" value = 't-esc="users.id"' id="password" 
+                  invisible="1"
+                   class="form-control"
+                      autofocus="autofocus" required="required" autocapitalize="off"/>
+          
+          <t t-if="not token">
+            <div class="form-group field-login">
+              <label for="login">Your Email</label>
+              <input type="text" name="login" t-att-value="users.login" id="login" class="form-control form-control-sm" 
+                  autocapitalize="off"   t-att-readonly="'readonly'"/>
+          </div>
+                
+              </t>
+            </t>
+          </t>
+       
+          <t t-if="not token">
+            <div class="form-group field-login">
+                <label for="login" class="col-form-label">New Password</label>
+                <input type="password" name="password" t-att-value="password" id="password" class="form-control"
+                    autofocus="autofocus" required="required" autocapitalize="off"/>
+            </div>
+        </t>
+        <t t-if="not token">
+            <div class="form-group field-login">
+                <label for="login" class="col-form-label">Confirm Password</label>
+                <input type="password" name="cpassword" t-att-value="cpassword" id="cpassword" class="form-control"
+                    autofocus="autofocus" required="required" autocapitalize="off"/>
+            </div>
+        </t>
+
+          <p class="alert alert-danger" t-if="error" role="alert">
+              <t t-esc="error"/>
+          </p>
+          <input type="hidden" name="redirect" t-att-value="redirect"/>
+          <input type="hidden" name="token" t-att-value="token"/>
+          <div class="clearfix oe_login_buttons">
+            <button type="submit" class="btn btn-primary btn-block">Confirm</button>
+              <!-- <button type="submit" class="btn btn-primary btn-lg"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;">Confirm</button> -->
+              <div class="d-flex justify-content-between align-items-center small mt-2">
+                  <a t-if="not token" t-attf-href="/web/login?{{ keep_query() }}">Back to Login</a>
+                  <a t-if="invalid_token" href="/web/login">Back to Login</a>
+              </div>
+              <div class="o_login_auth"/>
+          </div>
+
+      </form>
+
+  </t>
+</template>
+
+
+
+<template id="my_report" name="My Reports">
+    <t t-call="website.layout">
+        <div id="wrap">
+            <div class="oe_structure">
+              <div id="wrap" class="o_wevent_index">
+                <t t-set="opt_events_list_cards" t-value="request.website.viewref('website_event.opt_events_list_cards').active"/>
+                <t t-set="opt_events_list_columns" t-value="request.website.viewref('website_event.opt_events_list_columns').active"/>
+                <t t-call="website_event.index_topbar"/>
+                <div id="oe_structure_we_index_1" class="oe_structure"/>
+                <div id="oe_structure_we_index_2" class="oe_structure"/>
+              </div>
+                <xpath expr="." position="inside">
+                        <!--These links will be called when loading your Odoo -->
+                                <link rel="stylesheet" href="/member_dashboard/static/src/css/style.css"/>
+                                <link rel="stylesheet" href="/static_resources_demo/static/src/css/vendor.bundle.base.css"/>
+                                <link rel="stylesheet" href="/static_resources_demo/static/src/materialdesignicons.min.css"/>
+                        </xpath>
+                          <div class="container-scroller">
+                           
+                            <body>
+                              <div class="container-scroller">
+                                <div class="container-fluid page-body-wrapper">
+                                  <!-- partial:../../partials/_sidebar.html -->
+                                  <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                                    <ul class="nav">
+                                    <t t-foreach="users" t-as="user">
+                                      
+                                      <li class="nav-item ">
+                                        <a class="nav-link" href="/my/event">
+                                          <span class="menu-title">Dashboard</span>
+                                          <i class="menu-arrow"></i>
+                                          <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                                        </a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a class="nav-link" href="/my/create_complaint">
+                                          <span class="menu-title">Add Complaint</span>
+                                          <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                        </a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a class="nav-link" href="/my/complaint">
+                                          <span class="menu-title">My Complaint</span>
+                                          <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                        </a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a class="nav-link" href="/my/add_attachments">
+                                          <span class="menu-title">Add Attachment</span>
+                                          <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                        </a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a class="nav-link" href="/my/profileacc">
+                                          <span class="menu-title">My Profile</span>
+                                          <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                        </a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a class="nav-link" href="/report/feedback">
+                                          <span class="menu-title">Report FeedBack</span>
+                                          <i class="mdi mdi-chart-bar menu-icon"></i>
+                                        </a>
+                                      </li>
+                                      </t>
+                                    </ul>
+                                  </nav>
+                                  <div class="main-panel" style="background-color: #eee;">
+                                    <!-- <div class="content-wrapper"> -->
+                                      <section style="background-color: #eee;">
+                                        <div class="container py-5">
+                                              <div class="row">
+                                                <div class="col">
+                                                  <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                                                   
+                                                    <h3 style="font-style: bold;">
+                                                    Feedback<br/>
+                                                    </h3>
+                                                  </nav>
+                                                </div>
+                                              </div>
+                                              <form  t-attf-action="/feedback_submit" method="POST" onsubmit="this.action = '/feedback_submit'" enctype="multipart/form-data">
+                                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                              <div class="row">
+                                                <div class="col-lg-12">
+                                                  <div class="card mb-4">
+                                                    <div class="card-body">
+                                                       <t t-foreach="users" t-as="current_user">
+                                                      <input type="hidden" t-att-value="current_user.id" name="user_id"/>
+                                                      </t>
+                                                       <div class="row">
+                                                        <div class="col-sm-3">
+                                                          <p class="mb-0">How did you find out about As?</p>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                        <select name="how_did_you_find">
+                                                          <option value="Internet/search engine"> 🖵Internet/search engine</option>
+                                                          <option value="Email">🖵Email</option>
+                                                          <option value="Social media " > 🖵Social media </option>
+                                                          <option value="TV and radio ad" >🖵TV and radio ad</option>
+                                                          <option value="Promotional events ">🖵Promotional events </option>
+                                                          <option value="Word of mouth "> 🖵Word of mouth </option>
+                                                          <option value="Our website" >🖵Our website</option>
+                                                          <option value="Others" >🖵Others</option>
+                                                        </select>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                          <p class="mb-0">How often do you use or access the system? </p>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                        <select name="how_often_do_you">
+                                                          <option value="More than once a week"> 🖵More than once a week</option>
+                                                          <option value="Once a week ">🖵Once a week </option>
+                                                          <option value="Once a month " > 🖵Once a month</option>
+                                                          <option value="None" >🖵None</option>
+                                                        </select>
+                                                        </div>
+                                                      </div>
+                                                       <hr/>
+                                                      <div class="row">
+                                                        <div class="col-sm-3">
+                                                          <p class="mb-0">What was your participation?</p>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                        <select name="your_participation" required="required">
+                                                          <option value="As a mentor "> 🖵As a membership </option>
+                                                          <option value="As a Mentee">🖵As a Volunter</option>
+                                                          <option value="As a one-time donor">🖵As a one-time donor</option>
+                                                          <option value="As a constant donor" >🖵As a constant donor</option>
+                                                          
+                                                        </select>
+                                                        </div>
+                                                      
+                                                        <div class="col-sm-3">
+                                                          <p class="mb-0">Please rate your level of satisfaction with the project</p>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                        <select name="rate_your_level">
+                                                          <option value="Very satisfied">🖵Very satisfied</option>
+                                                          <option value="Satisfied " >🖵Satisfied </option>
+                                                          <option value="Neutral">🖵Neutral</option>
+                                                          <option value="Dissatisfied" >🖵Dissatisfied</option>
+                                                        </select>
+                                                        </div>
+                                                      </div>
+                                                      <hr/>
+                                                      <div class="row">
+                                                       
+                                                        <div class="col-sm-6">
+                                                          <p class="mb-0">Do you have any suggestions to improve this activity?</p>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                          <p class="text-muted mb-0"><textarea id="w3review" name="suggestions" rows="4" cols="50" required="required"></textarea></p>
+                                                        </div>
+                                                      </div>
+                                                      <hr/>
+                                                      <hr/>
+                                                      <p>Thank you for your time.</p>
+                                                      
+                                                      <div class="d-flex justify-content-center mb-2">
+                                                        <button type="button" class="btn btn-info">Submit</button>
+                                                        <!-- <button type="button" class="btn btn-outline-primary ms-1">Message</button> -->
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <!-- </form> -->
+                                               
+                                              </div>
+                                              </form>
+                                            </div>
+                                      </section>
+                                  </div>
+                                
+                                </div>
+                              </div>
+                           
+                            </body>
+                         
+                          <xpath expr="." position="inside">
+                            <!--These links will be called when loading your Odoo -->
+                                <script type="text/javascript" src="/member_dashboard/static/src/js/todolist.js"></script>
+                                <script type="text/javascript" src="/member_dashboard/static/src/js/dashboard.js"></script>
+                                <script type="text/javascript" src="/member_dashboard/static/src/js/misc.js"></script>
+                                <script type="text/javascript" src="/member_dashboard/static/src/js/hoverable-collapse.js"></script>
+                                <script type="text/javascript" src="/member_dashboard/static/src/js/off-canvas.js"></script>
+                                <script type="text/javascript" src="/member_dashboard/static/src/js/jquery.cookie.js"></script>
+
+                                <script type="text/javascript" src="/member_dashboard/static/src/js/chart.js"></script>
+                                <script type="text/javascript" src="/member_dashboard/static/src/js/vendor.bundle.base.js"></script>
+    
+                          </xpath>
+                       
+                  </div>
+                </div>
+          </div>
+          </t>
+          </template>
+
+
+
+
+
+
+<template id="contact_us" name="contact us">
+  <!-- <t t-call="website.layout"> -->
+      <div id="wrap">
+          <div class="oe_structure">
+              <div class="container">
+
+                    <div class="container">
+                      <body>
+                    <link rel="stylesheet" href="/member_dashboard/static/src/bootstrap.min.css"/>
+                    <link rel="stylesheet" href="/member_dashboard/static/src/tooplate-clean.css"/>
+
+                      
+                        <main>
+                
+                            <section  class="banner-section1 d-flex justify-content-center align-items-end">
+                               
+                            </section>
+                         
+                
+                            <section class="contact-section section-padding">
+                                <div class="container">
+                                    <!-- <div class="row"> -->
+                
+                                        <div class="col-lg-12 col-12">
+                                          <form id="msform"  role="form" t-attf-action="/api/contact_us" method="POST" onsubmit="this.action = '/api/contact_us'">
+                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                          
+                                            <section class="contact-section ">
+                                              <div class="container">
+                                                  <div class="row">
+                              
+                                                      <div class="col-lg-5 col-12 me-auto mb-lg-0 mb-5">
+                                                          <h4 class="my-3">We're happy to help</h4>
+                                                          <h5 class="mb-4">Contact Information</h5>
+                                                          <div class="contact-info bg-white shadow-lg">
+                                                             
+                                                             <t t-foreach='company' t-as='companys'>
+                                                              <h5 class="d-flex mt-3 mb-3">
+                                                                  <i class="bi-geo-alt-fill custom-icon me-3"></i>
+                                                                  
+                                                                  <span t-esc='companys.partner_id.name'/>
+                                                              </h5>
+                              
+                                                              <h5 class="d-flex mb-3">
+                                                                  <i class="bi-telephone-fill custom-icon me-3"></i>
+                              
+                                                                  <a href="tel: 110-220-9800">
+                                                                    <span t-esc='companys.phone'/>
+                                                                  </a>
+                                                              </h5>
+                                                             <br/>
+                                                              <h5 class="d-flex">
+                                                                  <i class="bi-envelope-fill custom-icon me-3"></i>
+                              
+                                                                  <a href="mailto:info@company.com">
+                                                                     
+                                                                      <span t-esc='companys.email'/>
+                                                                  </a>
+                                                              </h5>
+                                                            </t>
+                                                          </div>
+                                                      </div>
+                              
+                                                      <div class="col-lg-6 col-12">
+                                                          <form class="custom-form consulting-form bg-white shadow-lg mb-5 mb-lg-0" action="#" method="post" role="form">
+                                                            
+                              
+                                                              <div class="consulting-form-body">
+                                                                  <div class="row">
+
+                                                                      <div class="col-lg-6 col-md-6 col-12">
+                                                                         <label>Your Name</label>
+                                                                          <input type="text" name="name" id="volunteer-name" class="form-control" placeholder="John Walker" />
+                                                                      </div>
+                              
+                                                                      <div class="col-lg-6 col-md-6 col-12">
+                                                                         <label>Email</label>
+                                                                          <input type="email" name="email" id="volunteer-email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="yours@gmail.com" />
+                                                                      </div>
+                                                                  </div>
+                                                                  <br/>
+                                                                  <div class="row">
+                                                                    <div class="col-lg-12 col-md-12 col-12">
+                                                                      <label>Phone Number</label>
+                                                                      <input type="text" name="phone"   class="form-control" placeholder="+251-911223344" />
+                                                                  </div>
+                                                                  </div>
+                                                                  
+                                                                <br/>
+                                                                <div class="row">
+                                                                  <div class="col-lg-12 col-md-12 col-12">
+                                                                    <label>Subject</label>
+                                                                    <input type="text" name="subject"  class="form-control"  />
+                                                                </div>
+                                                                </div>
+                                                                
+                                                              <br/>
+                                                                <div class="row">
+                                                                <label>Message</label>
+                                                                  <textarea name="message" rows="3" class="form-control" id="volunteer-message" placeholder=""></textarea>
+                                                                </div>
+                                                                  <br/>
+                                                                  <div class="col-lg-6 col-md-10 col-8 mx-auto">
+                                                                      <button type="submit" class="btn btn-outline-primary ms-1">Submit Request</button>
+                                                                  </div>
+                                                              </div>
+                                                          </form>
+                                                      </div>
+                              
+                                                  </div>
+                                              </div>
+                                          </section>
+                                          
+                                          </form>
+                                        </div>
+                
+                                    </div>
+                                <!-- </div> -->
+                            </section>
+                        </main>
+                
+                        
+                     
+                    </body>
+                      </div>
+
+
+              </div>
+
+          </div>
+      </div>
+  <!-- </t> -->
+  
+</template>
+
+
+
+<template id="feedback_submitted" name="Thanks Submitted">
+          <!-- <t t-call="website.layout"> -->
+              <div id="wrap">
+                  <div class="oe_structure">
+                      <xpath expr="." position="inside">
+                        <!--These links will be called when loading your Odoo -->
+                                <link rel="stylesheet" href="/member_dashboard/static/src/css/style.css"/>
+                                <link rel="stylesheet" href="/static_resources_demo/static/src/css/vendor.bundle.base.css"/>
+                                <link rel="stylesheet" href="/static_resources_demo/static/src/materialdesignicons.min.css"/>
+                        </xpath>
+                          <div class="container-scroller">
+                            <t t-set="opt_events_list_cards" t-value="is_view_active('website_event.opt_events_list_cards')"/>
+                            <t t-set="opt_events_list_columns" t-value="is_view_active('website_event.opt_events_list_columns')"/>
+                            <!-- Topbar -->
+                            <t t-call="website_event.index_topbar"/>
+                            <!-- Drag/Drop Area -->
+                            <div id="oe_structure_we_index_1" class="oe_structure oe_empty"/>
+    
+                            <!-- partial:partials/_navbar.html -->
+                            
+                            <!-- partial -->
+                            <body>
+                              <div class="container-scroller">
+                                <!-- partial:../../partials/_navbar.html -->
+                               
+                                <!-- partial -->
+                                <div class="container-fluid page-body-wrapper">
+                                  <!-- partial:../../partials/_sidebar.html -->
+                                 <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                                  <ul class="nav">
+                                  
+                                  <t t-foreach="users" t-as="user">
+                                    <t t-if="user.member_type == 'mentee'">
+                                 
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="/my/dashboard">
+                                        <span class="menu-title">Dashboard</span>
+                                        <i class="menu-arrow"></i>
+                                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item ">
+                                      <a class="nav-link" href="/mentor/info">
+                                        <span class="menu-title">Mentee Inforamaion</span>
+                                        <i class="mdi mdi-contacts menu-icon"></i>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="/my/complian">
+                                        <span class="menu-title">Mentee Complian</span>
+                                        <i class="mdi mdi-contacts menu-icon"></i>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="/my/event">
+                                        <span class="menu-title">Events</span>
+                                        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item ">
+                                      <a class="nav-link" href="/report/feedback">
+                                        <span class="menu-title">Report FeedBack</span>
+                                        <i class="mdi mdi-chart-bar menu-icon"></i>
+                                      </a>
+                                    </li>
+                                   
+                                   </t>
+                                   </t>
+                                   <t t-foreach="users_mentor" t-as="user">
+                                    <t t-if="user.member_type == 'mentor'">
+                                 
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="/my/dashboard">
+                                        <span class="menu-title">Dashboard</span>
+                                        <i class="menu-arrow"></i>
+                                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item ">
+                                      <a class="nav-link" href="/mentor/info">
+                                        <span class="menu-title">Mentor Inforamaion</span>
+                                        <i class="mdi mdi-contacts menu-icon"></i>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="/my/complian">
+                                        <span class="menu-title">Mentor Complian</span>
+                                        <i class="mdi mdi-contacts menu-icon"></i>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="/my/event">
+                                        <span class="menu-title">Events</span>
+                                        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                      </a>
+                                    </li>
+                                    <li class="nav-item ">
+                                      <a class="nav-link" href="/report/feedback">
+                                        <span class="menu-title">Report FeedBack</span>
+                                        <i class="mdi mdi-chart-bar menu-icon"></i>
+                                      </a>
+                                    </li>
+                                   
+                                   </t>
+                                   </t>
+                                  </ul>
+                                </nav>
+                                  <!-- partial -->
+                                  <div class="main-panel">
+                                    <!-- <div class="content-wrapper"> -->
+                                      <section style="background-color: #eee;">
+                                        <div class="container py-5">
+                                          <div class="row">
+                                            <div class="container">
+                                               <div class="row">
+                                                  <div class="col-lg-8">
+                                                      <div class="alert alert-success" role="status">
+                                                        <h5> Thank you for your time. We have received your feedback.
+                                                          <p class="small fw-bold mt-2 pt-1 mb-0"> <a href="/my/dashboard"
+                                                            class="link-danger">back</a></p>
+                                                        </h5>
+
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                             
+                                        </div>
+                                      
+                                         
+                                      </section>
+                                     
+                                  </div>
+                                  <!-- main-panel ends -->
+                                </div>
+                                <!-- page-body-wrapper ends -->
+                              </div>
+                           
+                            </body>
+                         
+                          <xpath expr="." position="inside">
+                            <!--These links will be called when loading your Odoo -->
+                                <script type="text/javascript" src="/member_dashboard/static/src/js/todolist.js"></script>
+                                <script type="text/javascript" src="/member_dashboard/static/src/js/dashboard.js"></script>
+                                <script type="text/javascript" src="/member_dashboard/static/src/js/misc.js"></script>
+                                <script type="text/javascript" src="/member_dashboard/static/src/js/hoverable-collapse.js"></script>
+                                <script type="text/javascript" src="/member_dashboard/static/src/js/off-canvas.js"></script>
+                                <script type="text/javascript" src="/member_dashboard/static/src/js/jquery.cookie.js"></script>
+
+                                <script type="text/javascript" src="/member_dashboard/static/src/js/chart.js"></script>
+                                <script type="text/javascript" src="/member_dashboard/static/src/js/vendor.bundle.base.js"></script>
+    
+                          </xpath>
+                  </div>
+                </div>
+          </div>
+          <!-- </t> -->
+    </template>
+
+
+          
+
+
+
+</odoo>

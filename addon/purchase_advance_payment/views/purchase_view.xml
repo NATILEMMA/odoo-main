@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="purchase_order_form_change_button" model="ir.ui.view">
+            <field name="name">purchase.order.form.change_button</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <button name="button_draft" position="before">
+                    <button name="%(action_view_account_purchase_voucher_wizard)d" string="Create Bill"
+                        type="action" groups="account.group_account_invoice" attrs="{'invisible': [('state', 'not in', ['purchase','to_approve'])]}"/>
+                </button>
+                <button name="action_view_invoice" position="attributes">
+                     <attribute name="invisible">1</attribute>
+                </button>
+                <xpath expr="//button[@name='action_view_invoice'][1]" position="attributes">
+                <attribute name="invisible">1</attribute>
+              </xpath>
+                <xpath expr="//button[@name='action_view_invoice'][2]" position="attributes">
+                <attribute name="invisible">1</attribute>
+              </xpath>
+                <xpath expr="//field[@name='company_id']" position="after">
+                        <field name="payment_agreement"/>
+                        <field name="adv" attrs="{'invisible': [('payment_agreement', '=', 'full')]}"/>
+                  </xpath>
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                        <attribute name="required">1</attribute>
+                  </xpath>
+                <notebook position="inside">
+                    <page string="Payment advances" groups="account.group_account_invoice">
+                        <field name="account_payment_ids" options="{'no_create': True}"  nolabel="1" colspan="4" context="{'form_view_ref': 'account.view_account_payment_form','tree_view_ref': 'account.view_account_supplier_payment_tree'}"/>
+                    </page>
+                </notebook>
+
+            </field>
+        </record>
+
+</odoo>

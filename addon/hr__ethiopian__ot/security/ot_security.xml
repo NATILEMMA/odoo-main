@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- <record id="rules_for_overtome" model="ir.rule">-->
+<!--            <field name="name">overtime Record Rules</field>-->
+<!--            <field name="model_id" ref="model_hr_ethiopian_ot_request"/>-->
+<!--            <field name="domain_force">[('manager_id.id','=',user.id)]</field>-->
+<!--            <field name="groups" eval="[(4, ref('hr.group_hr_manager'))]"/>-->
+
+<!--        </record>-->
+<!-- <record id="rules_for_overtime" model="ir.rule">-->
+<!--            <field name="name">overtime Record Rules</field>-->
+<!--            <field name="model_id" ref="model_hr_ethiopian_ot_request"/>-->
+<!--            <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>-->
+<!--            <field name="groups" eval="[(4, ref('hr.group_hr_manager'))]"/>-->
+<!--        </record>-->
+    <record model="ir.module.category" id="module_category_overtime">
+        <field name="name">OverTime</field>
+        <field name="description">Category For over time</field>
+        <field name="sequence">45</field>
+    </record>
+
+    <record id="group_overtime_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="module_category_overtime"/>
+    </record>
+
+    <record id="group_overtime_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_overtime"/>
+        <field name="implied_ids" eval="[(4, ref('group_overtime_user'))]"/>
+    </record>
+
+
+</odoo>

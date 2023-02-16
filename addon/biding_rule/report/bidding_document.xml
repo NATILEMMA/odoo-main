@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="bidding_document">
+      <t t-foreach="docs" t-as="bid">
+        <t t-call="web.html_container">
+          <t t-call="web.basic_layout">
+            <div class="page">
+              <div class="oe_structure">
+                <h1 style="text-align: center; font-weight: bold;">Standard BiddingDocument(SBD)</h1>
+                <h1 style="text-align: center; font-weight: bold;">For Supply and Installation of Information Systems</h1>
+                <h1 style="text-align: center; font-weight: bold;">For National Competitive Biddings (NCB)</h1>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <p style="text-align: left; font-weight: bold;">Subject of Procurement: <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span style="text-align: right; font-weight: bold;">An Implementation of Enterprise Resource Planning (ERP).</span></p>
+                <br/>
+                <p style="text-align: left; font-weight: bold;">Procurement Reference Number: <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span style="text-align: right; font-weight: bold;">AAPPPDS/SA/2014/NCB/PIS/1/09/2014.</span></p>
+                <br/>
+                <p style="text-align: left; font-weight: bold;">Project Name: <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span style="text-align: right; font-weight: bold;">An Implementation of Enterprise Resource Planning (ERP) for Addis Ababa Democracy Building Office.</span></p>
+                <br/>
+                <p style="text-align: left; font-weight: bold;">Date of Issue of Bidding Document: <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span style="text-align: right; font-weight: bold;">june,8,2022</span></p>
+                <br/>
+                <p style="text-align: right; font-weight: bold;">Addis Ababa, Ethiopia</p>
+                <div style="page-break-after: always;"/>
+                <h2 style="text-align: center; font-weight: bold;">Bidding Document</h2>
+                <h3 style="text-align: center; font-weight: bold;">Table of Contents</h3>
+                <br/>
+                <table class="table table-borderless table-sm">
+                  <tr>
+                    <td>
+                      <span style="font-weight: bold; font-size: 20px;">Part 1</span>
+                    </td>
+                    <td>
+                      <span style="font-weight: bold; font-size: 20px;">Bidding Procedures</span>
+                    </td>
+                    <td>
+                      <span style="font-weight: bold; font-size: 20px;">I</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span style="font-weight: bold; font-size: 20px;">Section 1.</span>
+                    </td>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span>Instructions to Bidders</span>
+                    </td>
+                    <td>
+                      <span>I</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span style="font-weight: bold; font-size: 20px;">Section 2.</span>
+                    </td>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span>Bid Data Sheet</span>
+                    </td>
+                    <td>
+                      <span>II</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span style="font-weight: bold; font-size: 20px;">Section 3.</span>
+                    </td>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span>Evaluation Methodology and Criteria</span>
+                    </td>
+                    <td>
+                      <span>III</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span style="font-weight: bold; font-size: 20px;">Section 4.</span>
+                    </td>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span>Bidding Forms</span>
+                    </td>
+                    <td>
+                      <span>IV</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span style="font-weight: bold; font-size: 20px;">Section 5.</span>
+                    </td>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span>Eligible Countries</span>
+                    </td>
+                    <td>
+                      <span>V</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span style="font-weight: bold; font-size: 20px;">Part 2</span>
+                    </td>
+                    <td>
+                      <span style="font-weight: bold; font-size: 20px;">Statement of Requirement</span>
+                    </td>
+                    <td>
+                      <span style="font-weight: bold; font-size: 20px;">VI</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span style="font-weight: bold; font-size: 20px;">Section 6.</span>
+                    </td>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span>Statement of Requirements</span>
+                    </td>
+                    <td>
+                      <span>VI</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span style="font-weight: bold; font-size: 20px;">Part 3</span>
+                    </td>
+                    <td>
+                      <span style="font-weight: bold; font-size: 20px;">Contract</span>
+                    </td>
+                    <td>
+                      <span style="font-weight: bold; font-size: 20px;">VII</span>
+                    </td>
+                  </tr>
+                  <tr>  
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span style="font-weight: bold; font-size: 20px;">Section 7.</span>
+                    </td>
+                    <td>        
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span>General Conditions of Contract</span>
+                    </td>
+                    <td>
+                      <span>VII</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span style="font-weight: bold; font-size: 20px;">Section 8.</span>
+                    </td>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span>Special Conditions of Contract</span>
+                    </td>
+                    <td>
+                      <span>VIII</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span style="font-weight: bold; font-size: 20px;">Section 9.</span>
+                    </td>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span>Contract Forms</span>
+                    </td>
+                    <td>
+                      <span>IX</span>
+                    </td>
+                  </tr>
+                </table>
+                <div style="page-break-after: always;"/>
+              	<h1 style="text-align: center; font-weight: bold;">Section I.  Instructions to Bidders</h1>
+                <h3 style="text-align: center; font-weight: bold;">A. General</h3>
+                <table class="table table-borderless table-sm">
+                  <tr>
+                    <td>
+                      <span style="font-weight: bold; font-size: 20px;">1.</span>
+                    </td>
+                    <td>
+                      <span style="font-weight: bold; font-size: 20px;">Introduction</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>1.1</span>
+                    </td>
+                    <td>
+                      <span>
+                        The Public Body indicated in the Bid Data Sheet (BDS) is the Contracting Authority for this procurement process and it is bound by the rules governing public procurement in the Federal Democratic Republic of Ethiopia. It has the powers and duties to conclude a Contract for the supply and installation of the Information Systems (IS). Accordingly, this procurement process is being conducted in accordance with the recent editions of the Ethiopian Federal Government Procurement and Property Administration Proclamation and Public Procurement Directive under the procurement method indicated in the BDS. 
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>1.2</span>
+                    </td>
+                    <td>
+                      <span>
+                        By the issue of this Bidding Document the Public Body invites interested Candidates to submit their bids with a view to entering into Contract with the Public Body for the supply and installation of the Information Systems (IS) which general description is provided in the BDS. Information Systems (IS) that are subject of this procurement process are more particularly specified in Section 6, Statement of Requirement upon the basis of the information supplied in and in accordance with this Bidding Document.
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>1.3</span>
+                    </td>
+                    <td>
+                      <span>
+                        The procurement reference number and number of lots of this Bidding Document are provided in the BDS. If Bids are being invited for individual contracts (lots) the Bidder may submit a Bid for one lot only, several or all of the lots. Each lot will form a separate contract and the quantities indicated for different lots will be indivisible. The Bidder must offer the whole of the quantity or quantities indicated for each lot.
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>1.4</span>
+                    </td>
+                    <td>
+                      <span>
+                        Each Bidder may only submit one Bid, either individually or as a partner in joint venture. A Bidder who submits or participates in more than one Bid (other than as a subcontractor or in cases of alternatives that have been permitted or requested) will cause all the Bids with the Bidder’s participation to be disqualified.
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>1.5</span>
+                    </td>
+                    <td>
+                      <span>
+                        This Section 1, Instructions to Bidders shall not form a part of the Contract. These instructions are intended to assist prospective Bidders in the preparation of their Bids.
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>1.6</span>
+                    </td>
+                    <td>
+                      <span>
+                        Issuance of this Bidding Document does not in any way obligate the Public Body to award a Contract. 
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>1.7</span>
+                    </td>
+                    <td>
+                      <span>
+                        The Public Body retains ownership of all bids submitted in response to this Bidding Document. Consequently, Bidders have no right to have their bids returned to them except late bids.
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>1.8</span>
+                    </td>
+                    <td>
+                      <span>
+                        In submitting a bid, the Bidder accepts in full and without restriction this Bidding Document as the sole basis of this procurement procedure, whatever his own conditions of sale may be, which he hereby waives. Bidders are expected to examine carefully and comply with all instructions, forms, contract provisions and specifications contained in this Bidding Document. Failure to submit a bid containing all the required information and documentation within the deadline specified may lead to the rejection of the bid. No account can be taken of any reservation in the bid as regards the Bidding Document; any reservation will result in the immediate rejection of the bid without further evaluation.
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>1.9</span>
+                    </td>
+                    <td>
+                      <span>
+                        The permitted method of communication shall be in writing. Throughout these Bidding Documents the term "in writing" means communicated in written form and delivered against receipt.
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span style="font-weight: bold; font-size: 20px;">2.</span>
+                    </td>
+                    <td>
+                      <span style="font-weight: bold; font-size: 20px;">Source of Funds</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>2.1</span>
+                    </td>
+                    <td>
+                      <span>
+                        The Public Body has an approved budget toward the cost of the procurement described in the Section 6, Statement of Requirement. The Public Body intends to use these funds to place a Contract for which these Bidding Documents are issued.
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>2.2</span>
+                    </td>
+                    <td>
+                      <span>
+                        Payments will be made directly by the Public Body and will be subject in all respects to the terms and conditions of the resulting Contract placed by the Public Body.
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>3.</span>
+                    </td>
+                    <td>
+                      <span>
+                        Fraud, Corruption and Complaints Provisions
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>3.1</span>
+                    </td>
+                    <td>
+                      <span>
+                        The Government of the Federal Democratic Republic of Ethiopia (herein after called the Government) represented by the Public Procurement and Property Administration Agency (herein after called the Agency) requires Contracting Authorities, as well as bidders to observe the highest standards of ethics during the procurement and the execution of contracts. In pursuance of this policy, the Government:
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>(a)</span>
+                    </td>
+                    <td>
+                      <span>
+                        Defines, for the purposes of this provision, the terms set forth below as follows:
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span>(i)</span>
+                    </td>
+                    <td>
+                      <span>
+                        “Corrupt practice” is the offering, giving, receiving or soliciting, directly or indirectly, of any thing of value to influence improperly the action of a public official in the procurement process or in contract execution; 
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span>(ii)</span>
+                    </td>
+                    <td>
+                      <span>
+                        “Fraudulent practice” is any act or omission, including misrepresentation, that knowingly or recklessly misleads, or attempts to mislead, a party to obtain financial or other benefit or to avoid an obligation;
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span>(iii)</span>
+                    </td>
+                    <td>
+                      <span>
+                        “Collusive practices” is a scheme or arrangement between two or more Bidders, with or without the knowledge of the Public Body, designed to establish prices at artificial, non-competitive levels; and
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span>(iv)</span>
+                    </td>
+                    <td>
+                      <span>
+                        “Coercive practices” is harming or threatening to harm, directly or indirectly, persons or their property to influence their participation in a procurement process, or affect the execution of a contract. 
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span>(v)</span>
+                    </td>
+                    <td>
+                      <span>
+                        Obstructive practice is
+                      </span>
+                    </td>
+                  </tr>
+                 <!-- <tr>
+                    <td>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span>
+                        <ul>
+                          <li>
+                            deliberately destroying, falsifying, altering or concealing of evidence material to the investigation or making false statements to investigators in order to materially impede the Federal Ethics and Anticorruption Commission, the Federal Auditor General, and the Public Procurement and Property Administration Agency or their auditors' investigation into allegations of a corrupt, fraudulent, coercive or collusive practice; and/or threatening, harassing or intimidating any party to prevent their from disclosing their knowledge of matters relevant to the investigation or from pursuing the investigation, or
+                           </li>
+                        </ul>
+                      </span>
+                      <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]><span>
+                        <ul>
+                          <li>
+                            acts intended to materially impede the exercise of inspection and audit rights provided for under ITB Clause 3.5 below.
+                          </li>
+                        </ul>
+                      </span>
+                    </td>
+                  </tr> -->
+                  <tr>
+                    <td>
+                      <span>(b)</span>
+                    </td>
+                    <td>
+                      <span>
+                        Will reject a recommendation for award if it determines that the Bidder recommended for award has, directly or through an agent, engaged in corrupt, fraudulent, collusive, coercive or obstructive practices in competing for the contract in question;
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>(c)</span>
+                    </td>
+                    <td>
+                      <span>
+                        Will debar a Bidder from participation in public procurement for a specified period of time if it at any time determines the Bidder has engaged in corrupt, fraudulent, collusive, coercive or obstructive practices in competing for, or in executing, a contract. The List of Debarred Bidders is available on the Agency's Website http//www.ppa.gov.et.
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>3.2</span>
+                    </td>
+                    <td>
+                      <span>
+                        In pursuit of the policy defined in Sub-Clause 3.1, the Public Body may terminate a contract for the supply and installation of the Information Systems (IS) if it at any time determines that corrupt or fraudulent practices were engaged in by representatives of the Public Body or of a Bidder during the procurement or the execution of that contract. 
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>3.3</span>
+                    </td>
+                    <td>
+                      <span>
+                        Where it is proved that the bidder has given or has offered to give inducement or bribe to an official or procurement staff of the Public Body to influence the result of the bid in his favor shall be disqualified from the bid, prohibited from participating in any future public procurement and the bid security deposited by them shall be forfeited.
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>3.4</span>
+                    </td>
+                    <td>
+                      <span>
+                        Bidders are required to indicate their acceptance of the provisions on fraud and corruption, as defined in this clause through the statement in the Bid Submission Sheet.
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>3.5</span>
+                    </td>
+                    <td>
+                      <span>
+                          The Agency will have the right to require to inspect the Supplier accounts and records relating to the performance of the contract and to have them audited by auditors appointed by the Agency.
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>3.6</span>
+                    </td>
+                    <td>
+                      <span>
+                        By signing the Bid Submission Sheet Form, the Bidder represents that it either is the owner of the Intellectual Property Rights in the hardware, software or materials offered, or that it has proper authorization and/or license to offer them from the owner of such rights.  For the purpose of this Clause, Intellectual Property Rights shall be as defined in GCC Clause 1.1. Willful misrepresentation of these facts shall be considered a fraudulent practice subject to the provisions of Clauses 3.1 through 3.5 above, without prejudice of other remedies that the Public Body may take.
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>3.7</span>
+                    </td>
+                    <td>
+                      <span>
+                        Subject to the recent editions of the Public Procurement Proclamation and Procurement Directive, a candidate or a bidder aggrieved or is likely to be aggrieved on account of the Public Body inviting a bid not complying with the provisions of the Proclamation or Procurement Directive in conducting a bid proceeding may present complaint to the head of the Public Body to have the bid proceeding reviewed or investigated. Any complaint must be submitted in writing to the head of the Public Body, within five working days from the date the Bidder knew, or should have known, of the circumstances giving rise to the complaint. If the head of the Public Body does not issue a decision within ten working days after submission of complaint, or the candidate or the Bidder is not satisfied with the decision, it may submit a complaint to the Board within five working days from the date on which the decision has been or should have been communicated to the candidate or the Bidder by the Public Body. The Board's decision is binding for both parties.
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span style="font-weight: bold; font-size: 20px;">4.</span>
+                    </td>
+                    <td>
+                      <span style="font-weight: bold; font-size: 20px;">Eligible Bidders</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>4.1</span>
+                    </td>
+                    <td>
+                      <span>
+                        A Bidder may be a natural person, private, public or government-owned legal entity, subject to ITB Sub-Clause 4.5, or any combination of them with a formal intent to enter into an agreement or under an existing agreement in the form of a Joint Venture (JV), consortium, or association. In the case of a Joint Venture, consortium, or association:
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>(a)</span>
+                    </td>
+                    <td>
+                      <span>
+                        All parties to the Joint Venture, consortium or association shall be jointly and severally liable, unless otherwise specified in the BDS; and
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>(b)</span>
+                    </td>
+                    <td>
+                      <span>
+                        A Joint Venture, consortium or association shall nominate a Representative who shall have the authority to conduct all businesses for and on behalf of any and all the parties of the Joint Venture, consortium or association during the bidding process and, in the event the Joint Venture, consortium or association is awarded the Contract, during contract execution.
+                      </span>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </t>
+        </t>
+      </t>
+    </template>
+</odoo>

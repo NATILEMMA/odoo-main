@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2016 Jairo Llopis <jairo.llopis@tecnativa.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template id="signup_fields" inherit_id="auth_signup.fields">
+        <xpath expr="//div[hasclass('field-password')]" position="attributes">
+            <attribute name="t-if">only_passwords</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('field-confirm_password')]" position="attributes">
+            <attribute name="t-if">only_passwords</attribute>
+        </xpath>
+        <xpath expr="//input[@name='login']" position="attributes">
+            <attribute name="type">email</attribute>
+        </xpath>
+    </template>
+
+    <template id="signup_child" inherit_id="auth_signup.signup">
+        <xpath expr="//p[@class='alert alert-danger']" position="before">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox"  id="is_company" name="is_company" />
+                <span class="form-check-label" for="is_company">
+                  Signing up as a Company?
+                </span>
+              </div>
+        </xpath>
+    </template>
+</odoo>

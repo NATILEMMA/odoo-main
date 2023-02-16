@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ot_rate_user,hr_ethiopian_ot.rate,model_hr_ethiopian_ot_rate,hr.group_hr_user,1,0,0,0
+access_ot_rate,hr_ethiopian_ot.rate,model_hr_ethiopian_ot_rate,hr__ethiopian__ot.group_overtime_manager,1,1,1,1
+access_ot_request,hr_ethiopian_ot.request,model_hr_ethiopian_ot_request,hr__ethiopian__ot.group_overtime_user,1,1,1,1
+access_ot_times,hr_ethiopian_ot.times,model_hr_ethiopian_ot_times,hr__ethiopian__ot.group_overtime_user,1,1,1,1
+access_payslip_overtime,payslip.overtime,model_payslip_overtime,hr__ethiopian__ot.group_overtime_user,1,1,1,1
+access_ot_request,hr_ethiopian_ot.request,model_hr_ethiopian_ot_request,hr.group_hr_user,1,1,1,1
+

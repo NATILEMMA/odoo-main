@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!-- Copyright 2016 Eficent Business and IT Consulting Services S.L.
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl-3.0) -->
+<odoo>
+           <record id="purchase_order_form_inherited_2" model="ir.ui.view">
+            <field name="name">purchase.order.form.inherited_2</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <form  position="attributes">
+                     <attribute name="create">false</attribute>
+                </form>
+                 <form  position="attributes">
+                     <attribute name="create">false</attribute>
+                </form>
+
+            </field>
+        </record>
+    <record id="purchase_order_form_inherited" model="ir.ui.view">
+            <field name="name">purchase.order.form.inherited</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+            <field name="arch" type="xml">
+                <tree  position="attributes">
+                     <attribute name="create">false</attribute>
+                </tree>
+            </field>
+        </record>
+
+
+<record model="ir.actions.act_window" id="action_purchase_all_list">
+    <field name="name">Request for Quotations</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">purchase.order.line</field>
+    <field name="view_mode">tree,form</field>
+    <field name="domain">[('tender','=',active_id)]</field>
+
+    <field name="context">{
+      'group_by':'product_id'}</field>
+
+</record>
+     <record id="view_order_line_field_hide_2" model="ir.ui.view">
+        <field name="name">purchase_requisition_view</field>
+        <field name="model">purchase.requisition</field>
+        <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_form" />
+        <field name="arch" type="xml">
+<!--            <xpath expr="//div[@name='button_box']" position="inside">-->
+<!--             <button name="%(action_purchase_all_list)d" type="action" class="oe_stat_button" icon="fa-list-alt"-->
+<!--                attrs="{'invisible': [('state', '=', 'draft')]}">-->
+<!--                <field name="order_two" widget="statinfo" string="RFQ Order Lines"/>-->
+<!--            </button>-->
+<!--            </xpath>-->
+             <xpath expr="//field[@name='vendor_id']" position="after">
+                <field name="request_line_id" string="Purchase Request" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+  <record model="ir.ui.view" id="view_sprogroup_line_tree">
+        <field name="name">purchase.order.line.tree</field>
+        <field name="model">purchase.order.line</field>
+        <field name="arch" type="xml">
+            <tree >
+               <field name="product_id"/>
+               <field name="tender"/>
+            </tree>
+        </field>
+    </record> 
+    
+  <record model="ir.ui.view" id="view_tender_line_tree">
+        <field name="name">purchase.tender.line.form</field>
+        <field name="model">purchase.order.line</field>
+        <field name="arch" type="xml">
+            <form >
+               <field name="tender"/>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="purchase_order_form_inherit" model="ir.ui.view">
+    <field name="name">purchase.order.form.inherit</field>
+    <field name="model">purchase.order</field>
+    <field name="inherit_id" ref="purchase.purchase_order_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='order_line']/tree/field[@name='date_planned']" position="after">
+            <field name="tender"/>
+<!--            <field name="purchase_request_id"/>-->
+        </xpath>
+
+    </field>
+</record>
+
+</odoo>

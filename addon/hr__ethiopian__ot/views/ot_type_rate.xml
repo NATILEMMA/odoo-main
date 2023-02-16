@@ -1,0 +1,61 @@
+<odoo>
+  <data>
+   
+    <record model="ir.ui.view" id="hr__ethiopian__ot_rate_list">
+      <field name="name">Overtime Type Rate</field>
+      <field name="model">hr_ethiopian_ot.rate</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="type"/>
+          <field name="rate"/>
+
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr__ethiopian__ot_rate_form">
+      <field name="name">Overtime Type Rate</field>
+      <field name="model">hr_ethiopian_ot.rate</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+
+                    <field name="name"/>
+
+                    <field name="type"/>
+
+                    <field name="rate"/>
+                    
+                    <field name="start_time" widget="float_time" attrs="{'invisible': [('type', '!=', 'normal')]}"/>
+                    <field name="end_time"   widget="float_time" attrs="{'invisible': [('type', '!=', 'normal')]}"/>
+                                </group>
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="hr__ethiopian__ot_rate_window">
+      <field name="name">Overtime Type Rate window</field>
+      <field name="res_model">hr_ethiopian_ot.rate</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+   
+    <menuitem name="Overtime" id="hr__ethiopian__ot.menu_root" parent="hr.menu_hr_root" />
+
+    <!-- menu categories -->
+
+    <menuitem name="Overtime" id="hr__ethiopian__ot.menu_overtime" parent="hr__ethiopian__ot.menu_root" sequence="0"/>
+    <menuitem name="Configuration" id="hr__ethiopian__ot.menu_Configuration" parent="hr__ethiopian__ot.menu_root"/>
+
+
+    
+    <menuitem name="Overtime Type" id="hr__ethiopian__ot.menu_ot" 
+    parent="hr__ethiopian__ot.menu_Configuration" action="hr__ethiopian__ot_rate_window" groups="hr__ethiopian__ot.group_overtime_manager"/>
+
+
+   
+  </data>
+</odoo>

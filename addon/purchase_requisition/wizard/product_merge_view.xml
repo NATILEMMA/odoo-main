@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="merge_product_wizard_form" model="ir.ui.view">
+        <field name='name'>merge.requisition.wizard.form</field>
+        <field name='model'>merge.requisition.wizard</field>
+        <field name='arch' type='xml'>
+            <form string='Merge Wizard'>
+               <sheet>
+                   <group>
+                   <field name="requisition_id_many"/>
+                   <field name="requisition_id_many_2" widget="many2many_tags"/>
+                   </group>
+                </sheet>
+                  <footer>
+                      <button string='Merge' name="merge" type="object" class="btn-primary"/>
+                  </footer>
+            </form>
+        </field>
+    </record>
+    <act_window
+        id="action_product_merge"
+        res_model="merge.requisition.wizard"
+        binding_model="purchase.requisition"
+        binding_views="list"
+        target="new"
+        view_mode="form"
+        name="Merge"
+    />
+
+</odoo>

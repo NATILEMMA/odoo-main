@@ -39,6 +39,7 @@ class HrEmployeeBase(models.AbstractModel):
         ('to_define', 'To Define')], compute='_compute_presence_state', default='to_define')
     last_activity = fields.Date(compute="_compute_last_activity")
     last_activity_time = fields.Char(compute="_compute_last_activity")
+    tin_number = fields.Char('Tin Number')
 
     @api.depends('user_id.im_status')
     def _compute_presence_state(self):

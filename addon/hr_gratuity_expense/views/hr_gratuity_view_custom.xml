@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="employee_gratuity_form_inherit" model="ir.ui.view">
+        <field name="name">hr.gratuity.form</field>
+        <field name="model">hr.gratuity</field>
+        <field name="inherit_id" ref="hr_gratuity_settlement.employee_gratuity_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='submit_request']" position="before">
+                <button name="create_expense" string="Create an Expense" type="object" class="btn-primary"
+                attrs="{'invisible' : [('state', '!=', 'approve')]}"/>
+            </xpath>
+            <xpath expr="//widget[@name='web_ribbon']" position="before">
+                <widget name="web_ribbon" text="Expensed" bg_color="bg-info"
+                attrs="{'invisible': [('state', '!=', 'expensed')]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

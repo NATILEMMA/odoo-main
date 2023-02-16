@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="sequence_membership_payment" model="ir.sequence">
+            <field name="name">Membership Payment</field>
+            <field name="code">membership.payment</field>
+            <field name="prefix">MBPY</field>
+            <field name="padding">6</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <record id="sequence_supporter_payment" model="ir.sequence">
+            <field name="name">Supporter Payment</field>
+            <field name="code">supporter.members</field>
+            <field name="prefix">SRPY</field>
+            <field name="padding">6</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+    </data>
+</odoo>

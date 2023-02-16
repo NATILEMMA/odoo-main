@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access.report.report,access_report_report,member_dashboard.model_report_report,member_dashboard.member_group_manager,1,1,1,1
+access.report_report.management,access_report_report,member_dashboard.model_report_report,member_dashboard.member_group_complaint_management,1,1,1,1

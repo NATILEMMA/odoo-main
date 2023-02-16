@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<odoo>
+  <template id="tendor_results">
+    <t t-call="web.html_container">
+      <t t-foreach="docs" t-as="tendor">
+        <t t-call="web.external_layout">
+          <div class="page">
+              <br/>
+              <br/>
+              <h1 style="float: left;"><span t-field="tendor.name"/></h1>
+              <table class="table table-bordered" style="border: 3px solid white">
+                <tr>
+                  <td>
+                    <span>Purchase Representative</span>
+                  </td>
+                  <td>
+                    <span>Purchase Request</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span t-field="tendor.user_id"/>
+                  </td>
+                  <td>
+                    <span t-field="tendor.request_line_id"/>
+                  </td>
+                </tr>
+              </table>
+              <br/>
+              <br/>
+              <h3 style="float: left;"><span>Products</span></h3>
+              <table class="table table-bordered" style="border: 3px solid black">
+                <thead>
+                  <tr>
+                    <th name="th_product" class="text-left">
+                      <span style="font-weight: bold; font-size: 20px;">Product</span>
+                    </th>
+                    <th name="th_product_qty" class="text-left">
+                      <span style="font-weight: bold; font-size: 20px;">Product Quantity</span>
+                    </th>
+                  </tr>
+                </thead>
+                <t t-foreach="tendor.line_ids" t-as="product">
+                  <tr>
+                    <td>
+                      <span t-field="product.product_id"/>
+                    </td>
+                    <td>
+                      <span t-field="product.product_qty"/>
+                    </td>
+                  </tr>
+                </t>
+              </table>
+              <div style="page-break-after: always;"/>
+              <h3 style="float: left;"><span>Tendor Results</span></h3>
+              <t t-foreach="tendor.res_one" t-as="result">
+                <div style="page-break-after: always;"/>
+                <br/>
+                <br/>
+                <br/>
+                <h5>Bidding ID: </h5><h5 style="float: left;"><span t-field="result.order_id"/></h5>
+                <table class="table table-bordered" style="border: 3px solid black">
+                  <thead>
+                    <tr style="background-color: #F0F0F0;">
+                      <th name="th_vendor_id" class="text-left">
+                        <span style="font-weight: bold; font-size: 20px;">Vendor</span>
+                      </th>
+                      <th name="th_total_result" class="text-left">
+                      </th>
+                    </tr>
+                  </thead>
+                  <tr>
+                    <td>
+                      <span t-field="result.vendor_id"/>
+                    </td>
+                    <td>
+                    </td>
+                  </tr>
+                  <thead>
+                    <tr style="background-color: #F0F0F0;">
+                      <th name="th_amount" class="text-left">
+                        <span style="font-weight: bold; font-size: 20px;">Product Results</span>
+                      </th>
+                      <th name="th_product_results" class="text-left">
+                        <span style="font-weight: bold; font-size: 20px;">Summary Results</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tr>
+                    <td>
+                      <span t-field="result.amount"/>
+                    </td>
+                    <td>
+                      <t t-set="begin" t-value="0"/>
+                      <t t-set="index" t-value="0"/>
+                      <t t-foreach="result.product_results" t-as="res">
+                        <t t-set="index" t-value="index + 1"/>
+                        <t t-if="res == '\n'">
+                          <span t-esc="result.product_results[begin:index]"/><br/>
+                          <t t-set="begin" t-value="index"/>
+                        </t>
+                      </t>
+                    </td>
+                  </tr>
+                  <thead>
+                    <tr style="background-color: #F0F0F0;">
+                      <th name="th_amount_2" class="text-left">
+                        <span style="font-weight: bold; font-size: 20px;">Professional Results</span>
+                      </th>
+                      <th name="th_professional_results" class="text-left">
+                        <span style="font-weight: bold; font-size: 20px;">Summary Results</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tr>
+                    <td>
+                      <span t-field="result.amount_2"/>
+                    </td>
+                    <td>
+                      <t t-set="begin" t-value="0"/>
+                      <t t-set="index" t-value="0"/>
+                      <t t-foreach="result.professional_results" t-as="res">
+                        <t t-set="index" t-value="index + 1"/>
+                        <t t-if="res == '\n'">
+                          <span t-esc="result.professional_results[begin:index]"/><br/>
+                          <t t-set="begin" t-value="index"/>
+                        </t>
+                      </t>
+                    </td>
+                  </tr>
+                  <thead>
+                    <tr style="background-color: #F0F0F0; font-weight: bold;">
+                      <th name="th_total_result" class="text-left">
+                        <span style="font-weight: bold; font-size: 20px;">Total Results</span>
+                      </th>
+                      <th name="th_status" class="text-left">
+                        <span style="font-weight: bold; font-size: 20px;">Status</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tr>
+                    <td>
+                      <span t-field="result.amount_4"/>
+                    </td>
+                    <td>
+                      <span t-field="result.selection"/>
+                    </td>
+                  </tr>
+                </table>
+              </t>
+          </div>
+        </t>
+      </t>
+    </t>
+  </template>
+</odoo>

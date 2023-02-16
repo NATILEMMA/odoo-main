@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="register_payment_form" model="ir.ui.view">
+        <field name='name'>register.payment.form</field>
+        <field name='model'>register.payment.woreda</field>
+        <field name='arch' type='xml'>
+            <form string='Register Payment Wizard'>
+               <sheet>
+                   <group>
+                   <field name="date"/>
+                       <field name="fiscal_year"/>
+                   <field name="time_frame"/>
+                   <field name="name"/>
+                   <field name="woreda"/>
+                   </group>
+                   <group>
+                   <field name="pull"/>
+                   <field name="ref"/>
+                   <field name="payments" widget="many2many_tags"/>
+                   <field name="amount" force_save="1" readonly="1"/>
+                   <field name="amount_2"/>
+                   <field name="amount_3" force_save="1" readonly="1"/>
+                   </group>
+                </sheet>
+                  <footer>
+                      <button string='Register' name="register" type="object" class="btn-primary"/>
+                      <button string='cancel' name="register" type="object" class="btn-primary"/>
+                  </footer>
+            </form>
+        </field>
+    </record>
+    <act_window
+        id="action_membership_payment"
+        res_model="register.payment.woreda"
+        binding_model="membership.payment"
+        binding_views="list"
+        target="new"
+        view_mode="form"
+        name="Register Payment"
+    />
+
+</odoo>

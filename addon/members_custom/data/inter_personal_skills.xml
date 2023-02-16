@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+
+<odoo>
+
+  <data>
+
+    <record id="ded" model="interpersonal.skills">
+      <field name="name">Dedicated</field>
+      <field name="positive">True</field>
+    </record>
+
+    <record id="cre" model="interpersonal.skills">
+      <field name="name">Creative</field>
+      <field name="positive">True</field>
+    </record>
+
+    <record id="fle" model="interpersonal.skills">
+      <field name="name">Flexible</field>
+      <field name="positive">True</field>
+    </record>
+
+    <record id="res" model="interpersonal.skills">
+      <field name="name">Resourceful</field>
+      <field name="positive">True</field>
+    </record>
+
+    <record id="prs" model="interpersonal.skills">
+      <field name="name">Problem-Solving Skills</field>
+      <field name="positive">True</field>
+    </record>
+
+    <record id="wup" model="interpersonal.skills">
+      <field name="name">Ability to Work Underpressure</field>
+      <field name="positive">True</field>
+    </record>
+
+    <record id="tms" model="interpersonal.skills">
+      <field name="name">Time Management Skills</field>
+      <field name="positive">True</field>
+    </record>
+
+    <record id="tmp" model="interpersonal.skills">
+      <field name="name">Team Player</field>
+      <field name="positive">True</field>
+    </record>
+
+    <record id="fsl" model="interpersonal.skills">
+      <field name="name">Fast Learner</field>
+      <field name="positive">True</field>
+    </record>
+
+    <record id="lsk" model="interpersonal.skills">
+      <field name="name">Leadership Skills</field>
+      <field name="positive">True</field>
+    </record>
+
+    <record id="dtr" model="interpersonal.skills">
+      <field name="name">Determination</field>
+      <field name="positive">True</field>
+    </record>
+
+    <record id="dlg" model="interpersonal.skills">
+      <field name="name">Delegation</field>
+      <field name="positive">True</field>
+    </record>
+
+    <record id="cps" model="interpersonal.skills">
+      <field name="name">Computer Skills</field>
+      <field name="positive">True</field>
+    </record>
+
+    <record id="ded" model="interpersonal.skills">
+      <field name="name">Handling Conflict</field>
+      <field name="positive">True</field>
+    </record>
+
+    <record id="ded" model="interpersonal.skills">
+      <field name="name">Dedicated</field>
+      <field name="positive">True</field>
+    </record>
+
+    <record id="dso" model="interpersonal.skills">
+      <field name="name">Disorganized</field>
+      <field name="positive">False</field>
+    </record>
+
+    <record id="imp" model="interpersonal.skills">
+      <field name="name">Impatient</field>
+      <field name="positive">False</field>
+    </record>
+
+    <record id="ins" model="interpersonal.skills">
+      <field name="name">Insecure</field>
+      <field name="positive">False</field>
+    </record>
+
+    <record id="sfc" model="interpersonal.skills">
+      <field name="name">Self-Criticizing</field>
+      <field name="positive">False</field>
+    </record>
+
+    <record id="mts" model="interpersonal.skills">
+      <field name="name">Multitasking</field>
+      <field name="positive">False</field>
+    </record>
+
+    <record id="blt" model="interpersonal.skills">
+      <field name="name">Blunt</field>
+      <field name="positive">False</field>
+    </record>
+
+    <record id="shy" model="interpersonal.skills">
+      <field name="name">Shy</field>
+      <field name="positive">False</field>
+    </record>
+
+    <record id="syn" model="interpersonal.skills">
+      <field name="name">Saying "No"</field>
+      <field name="positive">False</field>
+    </record>
+
+    <record id="uwl" model="interpersonal.skills">
+      <field name="name">Unhealth Work/Life Balance</field>
+      <field name="positive">False</field>
+    </record>
+
+    <record id="prc" model="interpersonal.skills">
+      <field name="name">Procrastination</field>
+      <field name="positive">False</field>
+    </record>
+
+    <record id="dso" model="interpersonal.skills">
+      <field name="name">Disorganized</field>
+      <field name="positive">False</field>
+    </record>
+
+
+    <record id="ltd" model="interpersonal.skills">
+      <field name="name">Missing Deadlines</field>
+      <field name="positive">False</field>
+    </record>
+
+    <record id="nwt" model="interpersonal.skills">
+      <field name="name">Not Willing To Ask For Clarification</field>
+      <field name="positive">False</field>
+    </record>
+
+    <record id="dso" model="interpersonal.skills">
+      <field name="name">Disorganized</field>
+      <field name="positive">False</field>
+    </record>
+  </data>
+
+    <record id="ptm" model="interpersonal.skills">
+      <field name="name">Poor Time Management</field>
+      <field name="positive">False</field>
+    </record>
+
+    <record id="prs" model="interpersonal.skills">
+      <field name="name">Poor Writing Skills</field>
+      <field name="positive">False</field>
+    </record>
+
+</odoo>

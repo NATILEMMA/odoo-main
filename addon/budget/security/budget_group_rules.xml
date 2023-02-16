@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.module.category" id="module_category_budget_planning_request">
+        <field name="name">Budget Planning Setting</field>
+        <field name="description">Budget Planning Setting</field>
+        <field name="sequence">60</field>
+    </record>
+
+    <record id="group_requester" model="res.groups">
+        <field name="name">Allow to request budget planning</field>
+        <field name="category_id" ref="module_category_budget_planning_request" />
+    </record>
+
+    <record id="group_departmental_approval" model="res.groups">
+        <field name="name">Allow to Department Manager Approval</field>
+        <field name="category_id" ref="module_category_budget_planning_request" />
+    </record>
+    <record id="group_financial_approval" model="res.groups">
+        <field name="name">Allow to Financial Approval</field>
+        <field name="category_id" ref="module_category_budget_planning_request" />
+    </record>
+
+
+      <!-- <record id="budget_planning_rule" model="ir.rule">
+        <field name="name">Departmental Approval Rule</field>
+        <field name="model_id" ref="budget_planning.model_budget_planning"/>
+        <field name="groups" eval="[(4, ref('group_request_departmental_approval'))]"/>
+        <field name="domain_force">['|', ('handler', '=', False), ('handler', '=', user.id)]</field>
+      </record>
+    
+      <record id="finanical_approval_handling" model="ir.rule">
+        <field name="name">Finanical Approval Rule</field>
+        <field name="model_id" ref="budget_planning.model_budget_planning"/>
+        <field name="groups" eval="[(4, ref('group_request_financial_approval'))]"/>
+        <field name="domain_force">['|', ('handler', '=', False), ('handler', '=', user.id)]</field>
+      </record> -->
+</odoo>

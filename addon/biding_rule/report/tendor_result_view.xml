@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <!-- This record holds the action for report -->
+  <record id="tendor_all_results" model="ir.actions.report">
+        <field name="name">Tendor Results</field>
+        <field name="model">purchase.requisition</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">biding_rule.tendor_results</field>
+        <field name="report_file">biding_rule.tendor_results</field>
+        <field name="binding_model_id" ref="model_purchase_requisition"/>
+        <field name="binding_type">report</field>
+   </record>
+
+  <!-- This record holds the action for bidding document -->
+  <record id="bidding_document" model="ir.actions.report">
+        <field name="name">Bidding Document</field>
+        <field name="model">purchase.requisition</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">biding_rule.bidding_document</field>
+        <field name="report_file">biding_rule.bidding_document</field>
+        <field name="binding_model_id" ref="model_purchase_requisition"/>
+        <field name="binding_type">report</field>
+   </record>
+</odoo>

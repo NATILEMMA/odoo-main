@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_budget_budget,budget.budget,model_budget_budget,account.group_account_manager,1,1,1,1
+access_account_budget_post,account.budget.post,model_account_budget_post,account.group_account_manager,1,1,1,1
+access_account_budget_post_accountant,account.budget.post accountant,model_account_budget_post,account.group_account_user,1,1,1,1
+access_budget_budget_accountant,budget.budget accountant,model_budget_budget,account.group_account_user,1,1,1,1
+access_budget_lines_accountant,budget.lines accountant,model_budget_lines,account.group_account_user,1,1,1,1
+access_budget,budget.lines manager,model_budget_lines,base.group_user,1,1,1,0
+access.budget.planning.planner,access_budget_planning,budget.model_budget_planning,budget.group_requester,1,1,1,1
+access.budget.planning.departmental.approval,access_budget_planning,budget.model_budget_planning,budget.group_departmental_approval,1,1,0,1
+access.budget.planning.finanical.approval,access_budget_planning,budget.model_budget_planning,budget.group_financial_approval,1,1,1,1
+
+access_work_activity_stream_request_user,work.activity.stream.request.user,model_work_activity_stream,budget.group_requester,1,1,1,1
+access_work_activity_stream_request_department,work.activity.stream.request.user,model_work_activity_stream,budget.group_departmental_approval,1,1,0,0
+access_work_activity_stream_request_finanice,work.activity.stream.request.user,model_work_activity_stream,budget.group_financial_approval,1,1,0,0
+access_budget_planning_attachement_request_user,budget.planning.attachement,model_budget_planning_attachement,,1,1,1,1
+access_budget_type,budget.budget.type,model_budget_type,,1,1,1,1

@@ -12,20 +12,20 @@
 # Abdullah Onur Uğur <aonurugur@outlook.com>, 2019
 # ANIL TAN SAĞIR <anils@projetgrup.com>, 2019
 # Saban Yildiz <sabany@projetgrup.com>, 2019
-# Martin Trigaux, 2019
 # Levent Karakaş <levent@mektup.at>, 2019
 # Gökhan Erdoğdu <gokhan.erdogdu@mechsoft.com.tr>, 2019
 # Umur Akın <umura@projetgrup.com>, 2019
 # Ediz Duman <neps1192@gmail.com>, 2019
 # Yedigen, 2019
 # abc Def <hdogan1974@gmail.com>, 2020
+# Martin Trigaux, 2020
 # Ertuğrul Güreş <ertugrulg@projetgrup.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-05 12:32+0000\n"
+"POT-Creation-Date: 2020-04-27 09:21+0000\n"
 "PO-Revision-Date: 2019-08-26 09:10+0000\n"
 "Last-Translator: Ertuğrul Güreş <ertugrulg@projetgrup.com>, 2020\n"
 "Language-Team: Turkish (https://www.transifex.com/odoo/teams/41243/tr/)\n"
@@ -433,7 +433,7 @@ msgstr "Gelişmiş Hazır Bulunma Kontrolü"
 #. module: hr
 #: model_terms:ir.ui.view,arch_db:hr.res_config_settings_view_form
 msgid "Advanced presence of employees"
-msgstr "Gelişmiş personellerin hazır bulunma yapısı"
+msgstr "Gelişmiş personel hazır bulunma yapısı"
 
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_mail_alias__alias_contact
@@ -1092,7 +1092,7 @@ msgstr "Personel(ler)"
 #: model_terms:ir.ui.view,arch_db:hr.view_employee_tree
 #: model_terms:ir.ui.view,arch_db:hr.view_partner_tree2
 msgid "Employees"
-msgstr "Personeller"
+msgstr "Personel"
 
 #. module: hr
 #: model:ir.actions.act_window,name:hr.open_view_employee_tree
@@ -1274,7 +1274,7 @@ msgstr "İK Ayarları"
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_job__no_of_hired_employee
 msgid "Hired Employees"
-msgstr "İşe Alınan Personeller"
+msgstr "İşe Alınan Personel"
 
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_employee__hr_presence_state
@@ -1389,7 +1389,7 @@ msgstr "Görsel 512"
 #: code:addons/hr/models/hr_employee.py:0
 #, python-format
 msgid "Import Template for Employees"
-msgstr "Personeller için İçe Şablon Aktar"
+msgstr "Personel için İçe Aktarım Şablonu"
 
 #. module: hr
 #: model_terms:ir.ui.view,arch_db:hr.view_job_filter
@@ -1516,7 +1516,7 @@ msgstr "Son Aktivite Zamanı"
 #: model:ir.model.fields,field_description:hr.field_hr_plan_activity_type____last_update
 #: model:ir.model.fields,field_description:hr.field_hr_plan_wizard____last_update
 msgid "Last Modified on"
-msgstr "Son Güncelleme"
+msgstr "Son Düzenleme"
 
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_department__write_uid
@@ -2198,6 +2198,7 @@ msgstr "Bağlı personel"
 
 #. module: hr
 #: model:ir.model.fields,help:hr.field_hr_employee__user_id
+#: model:ir.model.fields,help:hr.field_resource_resource__user_id
 msgid "Related user name for the resource to manage its access."
 msgstr "Kaynağın erişimini yönetmek için ilişkilendirilmiş kullanıcı"
 
@@ -2241,6 +2242,11 @@ msgstr "Kaynak"
 #: model:ir.model.fields,field_description:hr.field_hr_employee_public__resource_calendar_id
 msgid "Resource Calendar"
 msgstr "Kaynak Takvim"
+
+#. module: hr
+#: model:ir.model,name:hr.model_resource_resource
+msgid "Resources"
+msgstr "Kaynaklar"
 
 #. module: hr
 #: model_terms:hr.job,website_description:hr.job_ceo
@@ -2596,6 +2602,7 @@ msgstr "Okunmamış Mesaj Sayacı"
 #: model:ir.model.fields,field_description:hr.field_hr_employee__user_id
 #: model:ir.model.fields,field_description:hr.field_hr_employee_base__user_id
 #: model:ir.model.fields,field_description:hr.field_hr_employee_public__user_id
+#: model:ir.model.fields,field_description:hr.field_resource_resource__user_id
 msgid "User"
 msgstr "Kullanıcı"
 

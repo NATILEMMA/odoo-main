@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access.mest.mest,access_mest_mest,Mestengido.model_mest_mest,Mestengido.mest_request_group,1,1,1,1
+access.mest.mest.approval,access_mest_mest,Mestengido.model_mest_mest,Mestengido.mest_approval_group,1,1,0,1
+access.mest.mest.finanical.group.controller.group,access_mest_mest,Mestengido.model_mest_mest,Mestengido.mest_purchase_order_group,1,1,0,1
+access.mest.order.finanical.group.controller.group,access_mest_order,Mestengido.model_mest_order,Mestengido.mest_purchase_order_group,1,1,1,1
+
+access.mest.order.line,access_mest_order_line,Mestengido.model_mest_order_line,,1,1,1,1
+access.mest.order.lines,access_mest_order_lines,Mestengido.model_mest_order_lines,,1,1,1,1 
+access.monthly.amount,access_monthly_amount,Mestengido.model_monthly_amount,,1,1,1,1 

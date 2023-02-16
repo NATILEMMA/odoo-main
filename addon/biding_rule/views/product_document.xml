@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model='ir.ui.view' id='product_document_form_view'>
+        <field name="name">product.document.form</field>
+        <field name="model">product.document</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="agreement" readonly="1" force_save="1"/>
+                            <field name="input_type"/>
+                            <field name="selection_view" invisible="1"/>
+                            <field name="value"/>
+                        </group>
+                        <group>
+                            <field name="selection" widget="many2many_tags" attrs="{'invisible': [('input_type', '!=', 'selection')]}"/>
+                            <field name="number" attrs="{'invisible': [('input_type', '!=', 'number')]}">
+                                <tree editable="bottom">
+                                     <field name="amount"/>
+                                    <field name="value"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                    <notebook >
+
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model='ir.ui.view' id='product_document_tree_view'>
+        <field name="name">product.document.tree</field>
+        <field name="model">product.document</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="input_type"/>
+                <field name="value"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_document_action" model="ir.actions.act_window">
+        <field name="name">product.document</field>
+        <field name="res_model">product.document</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

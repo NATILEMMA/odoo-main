@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="sub_city_wizard_form" model="ir.ui.view">
+        <field name='name'>sub.city.wizard.form</field>
+        <field name='model'>sub.city.wizard</field>
+        <field name='arch' type='xml'>
+            <form string='SubCity Register Payment Wizard'>
+               <sheet>
+                   <group>
+                   <field name="name"/>
+                   <field name="date"/>
+                       <field name="fiscal_year"/>
+                   <field name="time_frame"/>
+                   <field name="pull"/>
+
+                   <field name="payments" widget="many2many_tags"/>
+
+                   </group>
+                   <group>
+
+                   <field name="ref"/>
+                   <field name="amount" force_save="1" readonly="1"/>
+                   <field name="amount_2" />
+                   <field name="amount_3" force_save="1" readonly="1"/>
+                   </group>
+                </sheet>
+                  <footer>
+                      <button string='Register' name="register" type="object" class="btn-primary"/>
+                      <button string='cancel' name="register" type="object" class="btn-primary"/>
+                  </footer>
+            </form>
+        </field>
+    </record>
+    <act_window
+        id="action_sub_payment"
+        res_model="sub.city.wizard"
+        binding_model="sub.payment"
+        binding_views="list"
+        target="new"
+        view_mode="form"
+        name="Register Payment"
+    />
+
+</odoo>

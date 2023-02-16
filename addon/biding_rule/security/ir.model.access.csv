@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vendor_selected,access_vendor_selected,model_vendor_selected,base.group_user,1,1,1,1
+access_product_selected,access_product_selected,model_product_selected,base.group_user,1,1,1,1
+access_vendor_document_user,vendor_document,model_vendor_document,base.group_user,1,1,1,1
+access_vendor_partner_user,vendor_partner,model_vendor_partner,base.group_user,1,1,1,1
+access_selection_field_user_1,selection_field,model_selection_field,base.group_user,1,1,1,1
+access_selection_field_user_1_2,selection_field_2,model_selection_field_2,base.group_user,1,1,1,1
+access_selection_field_user,number_document,model_number_document,base.group_user,1,1,1,1
+access_selection_field_user_2,number_document_2,model_number_document_2,base.group_user,1,1,1,1
+access_vendor_statement_user,vendor_statement_user,model_vendor_statement,base.group_user,1,1,1,1
+access_financial_document_user,financial_document_user,model_financial_document,base.group_user,1,1,1,1
+access_vendor_employee_user,financial_vendor_employee_user,model_vendor_employee,base.group_user,1,1,1,1
+access_requisition_result_user,financial_requisition_result_user,model_requisition_result,base.group_user,1,1,1,1
+access_requisition_product_document,product_document_result_user,model_product_document,base.group_user,1,1,1,1
+access_requisition_biding_product,biding_product_result_user,model_biding_product,base.group_user,1,1,1,1

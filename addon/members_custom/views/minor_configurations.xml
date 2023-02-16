@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- This record will create view for education level -->
+    <record id="res_ed_level_tree_view" model="ir.ui.view">
+        <field name="name">Education Level</field>
+        <field name="model">res.edlevel</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- This record will create an action for education level -->
+    <record id="res_ed_level_action" model="ir.actions.act_window">
+        <field name="name">Education Level</field>
+        <field name="res_model">res.edlevel</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- This record will create view for field of study -->
+    <record id="field_study_tree_view" model="ir.ui.view">
+        <field name="name">Field of Study</field>
+        <field name="model">field.study</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- This record will create an action for field of study -->
+    <record id="field_study_action" model="ir.actions.act_window">
+        <field name="name">Field of Study</field>
+        <field name="res_model">field.study</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- This record will create view for Interpersonal Skills -->
+    <record id="interpersonal_skills_tree_view" model="ir.ui.view">
+        <field name="name">Interpersonal Skills</field>
+        <field name="model">interpersonal.skills</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+                <field name="positive"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- This record will create an action for Interpersonal Skills -->
+    <record id="interpersonal_skills_action" model="ir.actions.act_window">
+        <field name="name">Interpersonal Skills</field>
+        <field name="res_model">interpersonal.skills</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem id="res_ed_level_menu"
+              name="Education Level Configuration"
+              parent="members_custom.minor_menus"
+              sequence="1"
+              action="res_ed_level_action"/>
+
+    <menuitem id="field_study_menu"
+              name="Field of Study Configuration"
+              parent="members_custom.minor_menus"
+              sequence="2"
+              action="field_study_action"/>
+
+    <menuitem id="interpersonal_skills_menu"
+              name="Interpersonal Skills Configuration"
+              parent="members_custom.minor_menus"
+              sequence="3"
+              action="interpersonal_skills_action"/>
+
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="sequence_service_payment_order" model="ir.sequence">
+           <field name="name">Advance Purchase Payment Sequence</field>
+           <field name="code">advance.purchase.payment.sequence</field>
+           <field name="prefix">PurPay/%(year)s/</field>
+           <field name="padding">5</field>
+           <field name="implementation">no_gap</field>
+        </record>
+    </data>
+</odoo>

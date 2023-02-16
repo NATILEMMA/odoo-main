@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="fleet_vehicle_writeoff_format" model="report.paperformat">
+        <field name="name">fleet vehicle writeoff format</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">45</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_spacing">45</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <report
+        id="report_fleet_writeoff"
+        model="fleet.wittenoff"
+        string="Fleet Writeoff"
+        report_type="qweb-pdf"
+        name="fleet_operations.write_off_qweb"
+        file="fleet_operations.write_off_qweb"
+        />
+    <record id="report_fleet_writeoff" model="ir.actions.report">
+        <field name="paperformat_id" ref="fleet_operations.fleet_vehicle_writeoff_format"/>
+    </record>
+
+    <template id="write_off_qweb">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+            <!--    <t t-foreach="o.damage_type_ids" t-as="line"> -->
+                <t t-call="web.external_layout">
+                <div>
+                   <div class="page">
+                       <h1><center>Write-off Report</center></h1>
+                   </div>
+                    <div>
+                    <table width="100%" border-style="1px solid black">
+                        <tr>
+                            <td style="padding:5px;border: 1px solid black;" class="text-left">Order.No:</td>
+                            <td style="border: 1px solid black;" class="text-left">
+                                <span t-field="o.name"/>
+                            </td>
+                            <td style="border: 1px solid black;" class="text-left">Vehicle:</td>
+                            <td style="padding:5px;border: 1px solid black;" class="text-left">
+                                <span t-field="o.vehicle_id"/>
+                            </td>
+                        </tr>
+                        <tr>
+                                <td style="padding:5px;border: 1px solid black;" class="text-left">Driver:</td>
+                                <td style="border: 1px solid black;" class="text-left">
+                                    <span t-field="o.driver_id"/>
+                                </td>
+                                <td style="padding:5px;border: 1px solid black;" class="text-left">Odometer:</td>
+                                <td style="border: 1px solid black;" class="text-left">
+                                    <span t-field="o.odometer"/>
+                                </td>
+                         
+                            </tr>
+                        </table><br/>
+                    </div>
+                   <h2><b>Damage Types</b></h2>
+                    <div>
+                     <!--   <t t-foreach="docs" t-as="o.damage_type_ids"> -->
+
+                    <table width="100%"  border-style="1px solid black">
+                            <tr style="background-color:darkgray">
+                                <th style="padding:5px;border: 1px solid black">Name</th>
+                                <th style="padding:5px;border: 1px solid black">Code</th>
+                            </tr>
+                        <t t-foreach="o.damage_type_ids" t-as="line">
+                            <tr>
+                                <td style="padding:5px;border: 1px solid black" ><span t-field="line.name"/></td>
+                                <td style="padding:5px;border: 1px solid black" ><span t-field="line.code"/></td>
+                            </tr>
+                        </t>
+                    </table>
+                    </div>
+                    <br/>
+                    </div>
+                    <h2><b>Repair Type</b></h2>
+                    <table width="100%"  border-style="1px solid black">
+                        <tr style="background-color:darkgray">
+                            <th width="20%" style="padding:5px;border: 1px solid black">Repair Type</th>
+                        </tr>
+                        <t t-foreach="o.repair_type_ids" t-as="line">
+                            <tr>
+                                <td style="padding:5px;border: 1px solid black" ><span t-field="line.name"/></td>
+                            </tr>
+                        </t>
+                    </table>
+                 
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
+       
+                            
+                                

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!-- MEMBERSHIP/CURRENT MEMBERS -->
+<!-- 
+        <record id="crm_lead_view1_form" model="ir.ui.view">
+            <field name="name">crm.lead.form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='internal_notes']" position="after">
+                    <page string="Sheared Ideas">
+                        
+                        <group>
+                            <group>
+                                <field name="volunteer_name"/>
+                                <field name="volunteer_email"/>
+
+                            </group>
+                            <group>
+                                <field name="volunteer_address"/>
+                                <field name="volunteer_country"/>
+
+
+                            </group>
+                        </group>
+                        <group>
+                            <field name="what_do_you_want"/>
+                            <field name="never_again"/>
+
+                            
+                        </group>
+                        
+                    </page>                    
+                </xpath>    
+            </field>
+        </record> -->
+
+        
+        <record model="ir.ui.view" id="view_partner_form">
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+         
+            <xpath expr="//form//sheet" position="before">
+                <header>
+                    <button type="object" name="action_portal_reset_member_password" string="Reset Member Password" class="fa fa-key" icon="fa-key-o" />
+
+                </header>
+            </xpath>
+            
+            </field>
+        </record>
+</odoo>

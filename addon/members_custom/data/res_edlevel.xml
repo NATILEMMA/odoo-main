@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <data>
+
+    <record id="no" model="res.edlevel">
+      <field name="name">No Education</field>
+    </record>
+ 
+    <record id="el" model="res.edlevel">
+      <field name="name">Elementary</field>
+    </record>
+
+    <record id="js" model="res.edlevel">
+      <field name="name">Junior Secondary</field>
+    </record>
+
+    <record id="ss" model="res.edlevel">
+      <field name="name">Senior Secondary</field>
+    </record>
+
+    <record id="tvt" model="res.edlevel">
+      <field name="name">TVET Level III Diploma</field>
+    </record>
+
+    <record id="ba" model="res.edlevel">
+      <field name="name">Bachelor of Arts/Science</field>
+    </record>
+
+    <record id="mst" model="res.edlevel">
+      <field name="name">Master</field>
+    </record>
+
+    <record id="dct" model="res.edlevel">
+      <field name="name">Doctorate</field>
+    </record>
+
+  </data>
+</odoo>

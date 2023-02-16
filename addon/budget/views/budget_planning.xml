@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   <data>
+    <record id="view_budget_planning_attachment_tree" model="ir.ui.view">
+        <field name="name">budget.planning.attachement.tree</field>
+        <field name="model">budget.planning.attachement</field>
+        <field name="arch" type="xml">
+            <tree string="Budget">
+                <field name="file_name"/>
+                <field name="budget_attachment_ids" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_budget_planning_attachment_form" model="ir.ui.view">
+        <field name="name">budget.planning.attachement.form</field>
+        <field name="model">budget.planning.attachement</field>
+        <field name="arch" type="xml">
+        <form string="Budget Documents Attachments">
+            <field name="file_name"/>
+            <field name="budget_attachment_ids" />
+        </form>
+         </field>
+    </record>
+
+    <record id="view_budget_type_tree" model="ir.ui.view">
+        <field name="name">budget.type.tree</field>
+        <field name="model">budget.type</field>
+        <field name="arch" type="xml">
+            <tree string="Budget Type">
+                <field name="name"/>
+                <field name="date_from" />
+                <field name="date_to" />
+
+            </tree>
+        </field>
+    </record>
+    <record id="view_budget_type_form" model="ir.ui.view">
+        <field name="name">budget.type.form</field>
+        <field name="model">budget.type</field>
+        <field name="arch" type="xml">
+        <form string="Budget Type">
+            <group class="col-4">
+                <field name="name"/>
+            </group>
+            <group class="col-4">
+                <field name="date_from" />
+                <field name="date_to" />
+            </group>
+            
+               
+        </form>
+         </field>
+    </record>
+<!-- 
+    <record id="edit_project" model="ir.ui.view">
+        <field name="name">project.project.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='analytic_account_id']" position="before">
+                <field name="budget_account" string="Budget Account"/>
+             </xpath>        
+        </field>
+    </record> -->
+    <record id="view_budget_planning_tree" model="ir.ui.view">
+        <field name="name">budget.planning.tree</field>
+        <field name="model">budget.planning</field>
+        <field name="arch" type="xml">
+            <tree string="Budget">
+                <field name="squ" string="Reference"/>
+                <field name="name" />
+            </tree>
+        </field>
+    </record> 
+
+    
+    <record id="view_budget_planning_form" model="ir.ui.view">
+        <field name="name">budget.planning.form</field>
+        <field name="model">budget.planning</field>
+        <field name="arch" type="xml">
+            <form string="Budget Planning">
+                <header>
+                   
+                    <button name="action_request" states="draft" string="Budget Request" type="object" class="oe_highlight" groups="budget.group_requester"/>
+                    <button name="action_finanical_approve" states="requested" string="Finanical Approve" class="oe_highlight" groups="budget.group_financial_approval" type="object" />
+                    <button name="action_reject" states="requested" string="Reject Request" groups="budget.group_financial_approval" type="object"/>
+                    <button name="action_set_to_draft" states="rejected,done" string="Set To Draft" class="oe_highlight" groups="budget.group_departmental_approval,budget.group_financial_approval" type="object" />
+                    <button name="action_done" states="ceo_approved" string="Done" class="oe_highlight" groups="budget.group_financial_approval" type="object"/>
+                    <button name="action_ceo_approve" states="fin_approved" string="CEO Approve" class="oe_highlight" groups="budget.group_financial_approval" type="object"/>
+                    <field name="state" widget="statusbar" class="oe_highlight" statusbar_visible="draft,requested,fin_approved,ceo_approved,done,rejected"/>
+                    
+                </header>
+
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                      
+                        <!-- <button class="oe_stat_button" name="%(base.action_attachment)d" type="action" icon="fa-files-o">
+                            <field name="attachment_count" string="Files" widget="statinfo"/>
+                        </button> -->
+
+                        <button class="oe_stat_button" name="%(base.action_attachment)d" type="action" icon="fa-files-o">
+                            <field name="attachment_amount" string="Attachments" widget="statinfo"/>
+                        </button>
+                        <button 
+                          class="oe_stat_button"
+                          icon="fa-globe icon">
+                          <div class="o_field_widget o_stat_info">
+                              <span class="o_stat_text">Customer</span>
+                              <span class="o_stat_text">Preview</span>
+                          </div>
+                      </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="squ" string="Reference"/>
+                        </h1>
+                    </div>
+                  
+                    <group class="col-6">
+                        <field name="name"/>
+                      
+                    </group>
+                    <group class="col-6" attrs="{'readonly': [('state', 'in',['requested'])]}">
+                        <field name="date"/>
+                    </group>
+                    <group class="col-6" groups="budget.group_departmental_approval" attrs="{'readonly': [('state', 'in',['fin_approved','done'])]}">
+                        <field name="is_project"/>
+                    </group>
+                    <group class="col-6" groups="budget.group_requester" attrs="{'readonly': [('state', 'in',['fin_approved','done'])]}">
+                        <field name="budget_methods" />
+                    </group>
+                        <newline />
+                        <notebook>
+                            <page string="Budget objective and Descritption"  attrs="{'readonly': [('state', 'in',['fin_approved'])]}">
+                                <field name="description" />
+                            </page>
+                            <page string="Budget Planning Setting" autofocus="autofocus" >
+                            <div attrs="{'readonly': [('state', 'in',['ceo_approved'])]}" autofocus="autofocus">
+                             
+                                <group   attrs="{'readonly': [('state', 'in',['requested','ceo_approved'])]}">
+                                    <group >
+                                        <field name="user_id" string="Budget Planner" widget="many2one_avatar_user"  domain="[('share', '=', False)]"/>
+                                        <field name="teams" string="Allowed Members" widget="many2many_tags"/>
+                                        <field name="analytic_account_id" string="Budget Account" attrs="{'readonly': [('compute_field', '=', True)],'invisible': [('state', 'in', ['draft','requested'])]}" domain="['|', ('company_id', '=', company_id), ('company_id', '=', False)]"  
+                                        
+                                        groups="budget.group_financial_approval"
+                                        /> 
+                                        <!-- attrs="{'invisible': [('group_ids', 'in', [group_requester,group_departmental_approval])]}"  -->
+                                    </group>
+                                    <group colspan="1"> 
+                                        
+                                       <!-- <field name="budget_planner"  /> -->
+                                        <field name="company_id" groups="base.group_multi_company"/>
+                                        <field name="fiscal_year"/>
+                                        <field name="budget_type"/>
+                                        <field name="compute_field" invisible="1"/>
+                                        <field name="budgeted_amount"  groups="budget.group_financial_approval"
+                                        attrs="{'readonly': [('compute_field', '=', True)],'invisible': [('state', 'in', ['draft','requested'])]}" />
+                                    
+
+                                    </group>
+                                   
+
+                                </group>
+
+                            </div>
+                            <newline />
+                            <separator string="Work Stream Break Down/ Budget Line" colspan="4" />
+                       
+                             <field name="work_stream_line" attrs="{'readonly': [('state', 'in',['done','fin_approved'])]}">
+                                 <tree
+                                        string="Work Stream"
+                                        editable="bottom"
+                                    >
+                                        <control>
+                                            <create name="add_product_control" string="Add Work stream"/>
+                                           
+                                        </control>
+                                        <field name="name"/>
+                                        <field name="quantity"/>
+                                        <field name="general_budget_id" groups="budget.group_financial_approval"/>
+                                        <field name="analytic_account_id" groups="budget.group_financial_approval"/>
+                                        <field name="budget_amount" string="Planed Amount"/>
+                                        <field name="target_point" string="Target Area"/>
+                                        
+
+                                </tree>
+
+                                <form>
+                                    <group>
+                                        <field name="name"/>
+                                        <field name="target_point" string="Target Area"/>
+                                    </group>
+                                    <group>
+                                        <field name="general_budget_id" groups="budget.group_financial_approval"/>
+                                        <field name="analytic_account_id" groups="budget.group_financial_approval"/>
+                                        <field name="budget_amount"/>
+                                    </group>
+                                    
+                                </form>
+                            </field>
+                            <group name="note_group" col="6" class="mt-2 mt-md-0">
+                               
+                                <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                                   
+                                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                        <label for="planned_amount" />
+                                    </div> 
+                                    <field name="planned_amount" nolabel="1" string="Total Planned Amount:" class="oe_subtotal_footer_separator"/>
+                                 </group>
+                                <div class="oe_clear"/>
+                            </group>
+                            </page>
+                          
+                            <page string="Document Attachement">
+                                <group>
+                                    <field name="attchement_information">
+                                        
+                                        <tree
+                                            
+                                               editable="bottom"
+                                           >
+                                               <control>
+                                                   <create name="add_product_control" string="Add Attachement"/>
+                                                  
+                                               </control>
+                                               <field name="file_name"/>
+                                                <field name="budget_attachment_ids" string="Attachments" widget="many2many_binary" class="oe_inline"/>
+
+                                              </tree>
+       
+                                       <form>
+                                        <field name="file_name"/>
+                                        <field name="budget_attachment_ids" string="Attachments" widget="many2many_binary" class="oe_inline"/>
+
+                                       </form>
+                                   </field>
+                                </group>
+                                
+                              </page>
+                              <!-- <page string="Attachement">
+                                <field name="attachment_ids" string="Attachmentssss" widget="many2many_binary" class="oe_inline"/>
+                              </page> -->
+                           
+                        </notebook>
+                        <div class="oe_clear" />
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+        </field>
+    </record> 
+
+
+
+
+    <record model="ir.actions.act_window" id="budget_planning_request">
+        <field name="name">Budget Requests</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">budget.planning</field>
+        <field name="view_mode">tree,form</field>
+         <field name="domain">[('state', 'not in', ['draft','fin_approved', 'done'])]</field>
+         <!-- <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Budget Requests
+            </p>
+            <p>
+                Let's go to the <a type="action" class="text-primary" name="%(budget.budget_planning_request)d">new request</a> menu
+            </p>
+        </field> -->
+    </record>
+
+    <record model="ir.actions.act_window" id="action_attachment">
+        <field name="name">Budget Planning Attachments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">budget.planning.attachement</field>
+        <field name="view_mode">tree,form</field> 
+        <field name="domain">[('budget_attachement_id.user_id', 'in', [uid])]</field>
+     
+     </record>
+
+    <record model="ir.actions.act_window" id="budget_financial_approval">
+        <field name="name">Budget Financial Approval</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">budget.planning</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('state', 'in', ['fin_approved','rejected'])]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Budget Requests Yet
+            </p>
+         
+        </field>
+     </record>
+
+    <record model="ir.actions.act_window" id="budget_departmental_approval">
+        <field name="name">Budget Planning Requests for Approval</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">budget.planning</field>
+        <field name="view_mode">tree,form</field> 
+        <field name="domain">[('state', 'in', ['requested','fin_approved','rejected'])]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Budget Requests From Your Derpartment
+            </p>
+         
+        </field>
+     </record>
+     
+     <record model="ir.actions.act_window" id="my_budget_planning_request">
+        <field name="name">My Requests</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">budget.planning</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('user_id','=',uid)]</field>
+        <!-- <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Budget Requests
+            </p>
+            <p>
+                Let's go to the <a type="action" class="text-primary" name="%(budget.budget_planning_request)d">new request</a> menu
+            </p>
+        </field> -->
+     </record>
+     <record model="ir.actions.act_window" id="action_budget_type">
+        <field name="name">Budget Type</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">budget.type</field>
+        <field name="view_mode">tree,form</field>
+     </record>
+
+     <record id="base.action_attachment" model="ir.actions.act_window">
+        <field name="name">Budget Attachments</field>
+        <field name="res_model">ir.attachment</field>
+        <field name="domain">[('res_id', '=', active_id)]</field>
+      </record>
+
+     <menuitem name="Budget Planning"
+        id="budget.menu_root"
+        web_icon="budget,static/description/icon.png"
+        groups="budget.group_requester,budget.group_departmental_approval,budget.group_financial_approval"
+        sequence="25"/>
+
+
+ 
+
+    <menuitem 
+        name="My Request" id="budget.menu_for_my_request"   
+        sequence="1"
+        parent="budget.menu_root" 
+        action="my_budget_planning_request"  
+        groups="budget.group_requester"/>
+   
+    <menuitem 
+        name="Budget Planning" 
+        id="budget.menu_for_budget_planning"   
+        sequence="2"
+        parent="budget.menu_root" 
+        action="budget_planning_request"  
+        groups="budget.group_requester"/>
+
+    <menuitem 
+        name="Budget Approval" 
+        id="budget.menu_for_departmental_approval"   
+        sequence="10"
+        parent="budget.menu_root" 
+        action="budget_departmental_approval"  
+        groups="budget.group_departmental_approval"/>
+
+
+    <menuitem 
+        name="Financial Approval" 
+        id="budget.menu_for_financial_approval"   
+        sequence="11"
+        parent="budget.menu_root" 
+        action="budget_financial_approval"  
+        groups="budget.group_financial_approval"/>
+
+    <menuitem 
+        name="Configuration" 
+        id="budget.menu_budget_configuration"   
+        sequence="40"
+        parent="budget.menu_root" 
+        groups="budget.group_financial_approval"/>
+    
+    <menuitem 
+        name="Budget Type" 
+        id="budget.menu_budget_type"   
+        sequence="4"
+        parent="budget.menu_budget_configuration" 
+        action="action_budget_type"  
+        groups="budget.group_financial_approval"/>
+    
+ 
+  
+  </data>
+
+</odoo>

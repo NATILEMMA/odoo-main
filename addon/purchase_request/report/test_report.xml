@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="purchase_request_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                      
+                            <h2 class="mt16">
+                                <strong>purchase request <span t-field="o.name"/> </strong>
+                            </h2>
+
+                            <div class="row mt32 mb32" id="informations">
+                                <div class="col-auto mw-100 mb-2">
+                                    <strong>purchase reference:</strong>
+                                    <span t-field="o.name"/>
+                                </div>
+                                <div class="col-auto mw-100 mb-2">
+                                    <strong>schedule date:</strong>
+                                    <p class="m-0" t-field="o.end_start"/>
+                                </div>
+                                 <div class="col-auto mw-100 mb-2">
+                                    <strong>Description:</strong>
+                                    <p class="m-0" t-field="o.description"/>
+                                </div>
+                              
+                            </div>
+
+
+
+                            <table class="table table-sm o_main_table">
+                                <thead>
+                                    <tr>
+                                        <th  class="text-left">Description</th>
+                                        <th  class="text-left">QTY</th>
+                                        <th  class="text-left">DeProduct_uom</th>
+                                        <th  class="text-left">Schedule Date</th>
+                                        <!-- <th  class="text-left">Remark</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody class="sale_tbody">
+                                    <t t-foreach="o.line_ids" t-as="line">
+                                        <tr t-att-class="'bg-200 font-weight-bold o_line_section' ">
+                                            <td name="td_name"><span t-field="line.name"/></td>
+                                            <t t-if="line.name">
+                                            <!-- <td name="td_name"><i class="fa fa-check" aria-hidden="true"/></td> -->
+                                            </t>
+                                            <!-- <t t-if="not line.name">
+                                            <td name="td_name"></td>
+                                            </t> -->
+
+                                            <td name="td_name"><span t-field="line.product_qty"/></td>
+                                            <t t-if="line.product_qty">
+                                            <!-- <td name="td_name"><i class="fa fa-check" aria-hidden="true"/></td> -->
+                                            </t>
+                                            <!-- <t t-if="not line.product_qty">
+                                            <td name="td_name"></td>
+                                            </t> -->
+
+                                            <td name="td_name"><span t-field="line.product_uom_id.id"/></td>
+                                             <t t-if="line.product_uom_id.id">
+                                            <!-- <td name="td_name"><i class="fa fa-check" aria-hidden="true"/></td> -->
+                                            </t>
+                                             <!-- <t t-if="not line.product_uom_id.id">
+                                            <td name="td_name"></td>
+                                            </t> -->
+
+                                              <td name="td_name"><span t-field="line.date_required"/></td>
+                                             <t t-if="line.date_required">
+                                            <!-- <td name="td_name"><i class="fa fa-check" aria-hidden="true"/></td> -->
+                                            </t>
+                                             <!-- <t t-if="not line.date_required">
+                                            <td name="td_name"></td>
+                                            </t> -->
+                                            <!-- <td name="td_name"><span t-field="line.remark"/></td> -->
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+
+
+    </data>
+
+</odoo>
+
+
+
+               

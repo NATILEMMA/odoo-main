@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<odoo>
+  <record id="module_category_member_handlers" model="ir.module.category">
+    <field name="name">Member Handlers</field>
+    <field name="description">Helps with handling issues related to memebers</field>
+  </record>
+
+  <record id="member_group_user" model="res.groups">
+    <field name="name">Member</field>
+    <field name="category_id" ref="module_category_member_handlers"/>
+  </record>
+
+  <record id="member_group_agent" model="res.groups">
+    <field name="name">Agent</field>
+    <field name="category_id" ref="module_category_member_handlers"/>
+  </record>
+
+  <record id="member_group_complaint_management" model="res.groups">
+    <field name="name">Complaint Management</field>
+    <field name="category_id" ref="module_category_member_handlers"/>
+  </record>
+
+  <record id="member_group_manager" model="res.groups">
+    <field name="name">Manager</field>
+    <field name="category_id" ref="module_category_member_handlers"/>
+  </record>
+
+  <record id="staff_rules" model="ir.rule">
+    <field name="name">A description of rules for Staff</field>
+    <field name="model_id" ref="model_res_partner"/>
+    <field name="domain_force">['|', ('company_id', '=', False),('company_id', 'in', company_ids)]</field>
+  </record>
+
+  <record id="staff_rules_2" model="ir.rule">
+    <field name="name">A description of rules for Staff amongst companies</field>
+    <field name="model_id" ref="base.model_res_users"/>
+    <field name="domain_force">['|', ('company_id', '=', False),('company_id', 'in', company_ids)]</field>
+  </record>
+
+  <!-- <record id="staff_rules_3" model="ir.rule">
+    <field name="name">A description of rules for Staff amongst complaints</field>
+    <field name="model_id" ref="members_custom.model_member_complaint"/>
+    <field name="domain_force">['|', ('company_id', '=', False),('company_id', 'in', company_ids)]</field>
+  </record> -->
+ 
+  <record id="member_rules" model="ir.rule">
+    <field name="name">A description of rules for members</field>
+    <field name="model_id" ref="model_res_partner"/>
+    <field name="groups" eval="[(6,0, [ref('member_dashboard.member_group_user')])]"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_write" eval="1"/>
+    <field name="perm_create" eval="1"/>
+    <field name="perm_unlink" eval="1"/>
+    <field name="domain_force">['|', ('user_id', '=', False),('user_id', '=', user.id)]</field>
+  </record>
+</odoo>

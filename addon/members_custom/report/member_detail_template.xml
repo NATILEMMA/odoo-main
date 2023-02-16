@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<odoo>
+  <template id="certificate_template">
+    <t t-call="web.html_container">
+      <t t-foreach="docs" t-as="leader">
+        <t t-call="web.external_layout">
+        <t t-lang="am_ET"/>
+          <div class="page">
+            <br/>
+            <table class="table" style="border: 3px solid white">
+              <tr>
+                <td>
+                  <p style="text-align: left; padding-top: 10px;">
+                    <img t-if="not leader.image_1920"
+                      t-att-src="'/web/static/src/img/placeholder.png'" height="140" border="1" width="120"/>
+                    <img t-if="leader.image_1920"
+                      t-att-src="'data:image/jpg;base64,%s' % to_text(leader.image_1920)" height="140" border="1" width="120"/>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <strong>Name: </strong><span t-field="leader.name"/>
+                </td>
+                <td>
+                    <strong>Age: </strong><span t-field="leader.age"/>
+                </td>
+                <td>
+                    <strong>Gender: </strong><span t-field="leader.gender"/>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <strong>Phone: </strong><span t-field="leader.phone"/>
+                </td>
+                <td>
+                    <strong>Email: </strong><span t-field="leader.email_address"/>
+                </td>
+                <td>
+                    <strong>Nation: </strong><span t-field="leader.nation"/>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <strong>Birth Region: </strong><span t-field="leader.region_of_birth"/>
+                </td>
+                <td>
+                    <strong>Birth City/Zone: </strong><span t-field="leader.zone_city_of_birth"/>
+                </td>
+                <td>
+                    <strong>Birth Woreda: </strong><span t-field="leader.wereda_of_birth"/>
+                </td>
+              </tr>   
+              <tr>
+                <td>
+                    <strong>Current Region: </strong><span t-field="leader.region"/>
+                </td>
+                <td>
+                    <strong>Current Subcity: </strong><span t-field="leader.subcity_id"/>
+                </td>
+                <td>
+                    <strong>Current Woreda: </strong><span t-field="leader.wereda_id"/>
+                </td>
+              </tr> 
+              <tr>
+                <td>
+                    <strong>Education Level: </strong><span t-field="leader.education_level"/>
+                </td>
+                <td>
+                    <strong>Field of Study: </strong><span t-field="leader.field_of_study_id"/>
+                </td>
+              </tr>
+              <t t-foreach="leader.work_experience_ids" t-as="work">
+                <t t-if="work.current_job == True">
+                  <tr>
+                    <td>
+                        <strong>Work Experience: </strong><span t-field="work.years_of_service"/>
+                    </td>
+                    <td>
+                        <strong>Place of Work: </strong><span t-field="work.place_of_work"/>
+                    </td>
+                  </tr>
+                </t>
+              </t>
+              <tr>
+                <td>
+                    <strong>Organization Resposibility: </strong><span t-field="leader.member_responsibility"/>
+                </td>
+                <td>
+                    <strong>Government Responsibility: </strong><span t-field="leader.gov_responsibility"/>
+                </td>
+                <td>
+                    <strong>Start of Membership: </strong><span t-field="leader.start_of_membership"/>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <strong>Key Strength: </strong><span t-field="leader.key_strength"/>
+                </td>
+                <td>
+                    <strong>Key Weakness: </strong><span t-field="leader.key_weakness"/>
+                </td>
+                <td>
+                    <strong>Grade: </strong><span t-field="leader.grade"/>
+                </td>
+              </tr>
+              <tr>
+                <t t-if="leader.is_leader == True">
+                  <td>
+                      <strong>Leadership State: </strong><span t-field="leader.leadership_status"/>
+                  </td>
+                </t>
+                <t t-if="leader.is_member == True">
+                  <td>
+                      <strong>Membership State: </strong><span t-field="leader.membership_status"/>
+                  </td> 
+                  <td>
+                      <strong>Stock: </strong><span t-field="leader.stock"/>
+                  </td>                  
+                </t>
+                <t t-if="leader.membership_monthly_fee_cash == 0.00">
+                  <td>
+                      <strong>Membership Fee: </strong><span t-field="leader.membership_monthly_fee_cash_from_percent"/>
+                  </td>
+                </t>
+                <t t-if="leader.membership_monthly_fee_cash_from_percent == 0.00">
+                  <td>
+                    <strong>Membership Fee: </strong><span t-field="leader.membership_monthly_fee_cash"/>
+                  </td>
+                </t>
+              </tr>
+            </table>
+          </div>
+        </t>
+      </t>
+    </t>
+  </template>
+</odoo>

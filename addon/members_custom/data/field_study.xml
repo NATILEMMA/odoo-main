@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <data>
+
+    <record id="acc" model="field.study">
+      <field name="name">Accounting</field>
+    </record>
+
+    <record id="agr" model="field.study">
+      <field name="name">Agriculture</field>
+    </record>
+
+
+    <record id="ant" model="field.study">
+      <field name="name">Anthropology</field>
+    </record>
+
+    <record id="arc" model="field.study">
+      <field name="name">Architecture</field>
+    </record>
+
+    <record id="art" model="field.study">
+      <field name="name">Arts</field>
+    </record>
+
+    <record id="bus" model="field.study">
+      <field name="name">Business</field>
+    </record>
+
+    <record id="eco" model="field.study">
+      <field name="name">Economics</field>
+    </record>
+
+    <record id="edu" model="field.study">
+      <field name="name">Education</field>
+    </record>
+
+    <record id="eng" model="field.study">
+      <field name="name">Engineering</field>
+    </record>
+
+    <record id="ent" model="field.study">
+      <field name="name">Entertainment</field>
+    </record>
+
+    <record id="env" model="field.study">
+      <field name="name">Environmental Studies</field>
+    </record>
+
+    <record id="dnt" model="field.study">
+      <field name="name">Dental</field>
+    </record>
+
+    <record id="geo" model="field.study">
+      <field name="name">Geography</field>
+    </record>
+
+    <record id="hlt" model="field.study">
+      <field name="name">Health</field>
+    </record>
+
+    <record id="hst" model="field.study">
+      <field name="name">History</field>
+    </record>
+
+    <record id="ict" model="field.study">
+      <field name="name">Information Technology and Communication</field>
+    </record>
+
+    <record id="int" model="field.study">
+      <field name="name">Interdisciplinary Studies</field>
+    </record>
+
+    <record id="jou" model="field.study">
+      <field name="name">Communications and Journalism</field>
+    </record>
+
+    <record id="law" model="field.study">
+      <field name="name">Law</field>
+    </record>
+
+    <record id="lbr" model="field.study">
+      <field name="name">Library and Museum Studies</field>
+    </record>
+
+    <record id="lin" model="field.study">
+      <field name="name">Linguistics</field>
+    </record>
+
+    <record id="mng" model="field.study">
+      <field name="name">Management</field>
+    </record>
+
+    <record id="mat" model="field.study">
+      <field name="name">Mathematics</field>
+    </record>
+
+    <record id="med" model="field.study">
+      <field name="name">Medicine</field>
+    </record>
+
+    <record id="phr" model="field.study">
+      <field name="name">Pharmacy</field>
+    </record>
+
+    <record id="phl" model="field.study">
+      <field name="name">Philosophy</field>
+    </record>
+
+    <record id="psy" model="field.study">
+      <field name="name">Psychology</field>
+    </record>
+
+    <record id="pol" model="field.study">
+      <field name="name">Political Science</field>
+    </record>
+
+    <record id="sci" model="field.study">
+      <field name="name">Sciences</field>
+    </record>
+
+    <record id="soc" model="field.study">
+      <field name="name">Sociology</field>
+    </record>
+
+    <record id="scw" model="field.study">
+      <field name="name">Social Work</field>
+    </record>
+
+    <record id="swe" model="field.study">
+      <field name="name">Software Engineering</field>
+    </record>
+
+    <record id="spc" model="field.study">
+      <field name="name">Space Science</field>
+    </record>
+
+  </data>
+
+</odoo>

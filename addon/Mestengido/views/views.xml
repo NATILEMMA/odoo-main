@@ -1,0 +1,324 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="mestengido_tree_view">
+      <field name="name">mest.mest.tree</field>
+      <field name="model">mest.mest</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="squ"/>
+          <field name="department_id"/>
+          <field name="requester_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="setting_tree_view">
+      <field name="name">monthly.amount.tree</field>
+      <field name="model">monthly.amount</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="year"/>
+          <field name="amount"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="setting_form_view">
+      <field name="name">monthly.amount.form</field>
+      <field name="model">monthly.amount</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="year"/>
+              <field  name="is_active"/> 
+            </group>
+            <group>
+              <field name="amount"/>
+            </group>
+            
+            
+          </sheet>
+          </form>
+      </field>
+    </record>
+
+     <!-- Mestengido  Kanban View -->
+     <record id="view_mest_mest_kanban" model="ir.ui.view">
+      <field name="name">mest.mest.kanban</field>
+      <field name="model">mest.mest</field>
+      <field name="arch" type="xml">
+          <kanban class="o_kanban_mobile">
+              <field name="name"/>
+              <field name="department_id"/>
+              <field name="state"/>
+              <templates>
+                  <t t-name="kanban-box">
+                      <div t-attf-class="oe_kanban_global_click">
+                          <div class="row mb4">
+                              <div class="col-8">
+                                  <strong>
+                                      <field name="name"/>
+
+                                  </strong>
+                              </div>
+                              <div class="col-4">
+                                  <span class="float-right">
+                                    
+                                      <field name="state" widget="label_selection"
+                                             options="{'classes': {'draft': 'default', 'done': 'success'}}"/>      
+                                  </span>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-10">
+                                  <i class="fa fa-arrow"/>
+                                  <field name="department_id"/>
+                              </div>
+                              <div class="col-xs-2">
+                                
+                              </div>
+                          </div>
+                      </div>
+                  </t>
+              </templates>
+          </kanban>
+      </field>
+  </record>
+
+     
+    
+
+    <record model="ir.ui.view" id="mest_mest_calendar">
+      <field name="name">mest.mest.calendar</field>
+      <field name="model">mest.mest</field>
+      <field name="priority" eval="2"/>
+      <field name="arch" type="xml">
+          <calendar string="Calendar View" date_start="date_planned" color="partner_id" hide_time="true" event_limit="5">
+              <!-- <field name="currency_id" invisible="1"/> -->
+              <field name="name"/>
+              <!-- <field name="partner_ref"/>
+              <field name="amount_total" widget="monetary"/>
+              <field name="partner_id"/> -->
+          </calendar>
+      </field>
+  </record>
+
+ 
+    <record model="ir.ui.view" id="mestengido_form_view">
+      <field name="name">mest.mest form</field>
+      <field name="model">mest.mest</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button name="action_request"  class="oe_highlight"       groups="Mestengido.mest_request_group"
+            type="object" attrs="{'invisible':[('state','in',['submitted','approved'])]}" string="Request"/>
+            <button name="action_submit" states="requested" string="Submit" class="oe_highlight" groups="Mestengido.mest_approval_group" type="object" />
+            <button name="action_mest_to_purchas_order" states="submitted" string="Approve" class="oe_highlight" groups="Mestengido.mest_purchase_order_group" type="object" />
+            <field name="state" widget="statusbar"/>
+          </header>
+          <sheet>
+       
+            <div class="oe_title">
+              <h1>
+                  <field name="squ" string="Reference"/>
+              </h1>
+          </div>
+        
+            <group>
+            <group>
+                <field name="department_id" attrs="{'readonly':[('state','=','requested')]}"/>
+            <!-- </group>
+            <group class="col-3"> -->
+              <field name="requester_id" string="Requester" widget="many2one_avatar_user"  domain="[('share', '=', False)]" readonly="1"/>
+            </group>
+            <group>        
+              <!-- <field name="quarter" attrs="{'readonly':[('state','=','paid')]}"/>         -->
+              <label for="month" />                
+              <div class="o_address_format">
+                <field name="month" placeholder="Month" class="o_address_city" style="width:124px;" attrs="{'readonly':[('state','=','paid')]}"/>
+                <field name="year" class="o_address_city"  style="width:220px;" placeholder="Year" attrs="{'readonly':[('state','=','paid')]}"/>
+              </div>    
+        </group>
+          </group>
+          <!-- <newline /> -->
+          <notebook>
+            <page>
+               <field name="order_line">
+                   <tree
+                          editable="bottom">
+                          <control>
+                              <create name="add_product" string="Add Product"/>
+                          </control>
+                          <field name="sequence"/>
+                          <field name="product_id"/>
+                          <field name="name"/>
+                          <field name="product_uom"/>
+                          <field name="product_qty"/>
+                          <field name="product_uom_category_id" invisible="1"/>
+                  </tree>
+                  <form>
+                      <group>
+                        <field name="sequence"/>
+                        <field name="product_id"/>
+                        <field name="name"/>
+                        <field name="product_uom"/>
+                        <field name="product_qty"/>
+                        <field name="product_uom_category_id" invisible="1"/>
+                      </group>
+                  </form>
+              </field>
+              </page>
+              </notebook>
+              <group attrs="{'invisible':[('state','in', ['submitted','approved'])]}"  groups="Mestengido.mest_request_group">
+                <field name="requster_signed_by"/>
+                <field name="requster_signed_on"/>
+                <field name="requster_signature" widget="image" width="100px" height="10px"/>
+              </group>
+              <group attrs="{'invisible':[('state','in', ['draft','approved'])]}"  groups="Mestengido.mest_approval_group">
+                <field name="approver_comment" />
+                <field name="approver_signed_by"/>
+                <field name="approver_signed_on"/>
+                <field name="approver_signature"/>
+              </group>
+              <group groups="Mestengido.mest_purchase_order_group">
+                <field name="final_approver_comment" />
+                <field name="final_approver_signed_by"/>
+                <field name="final_approver_signed_on"/>
+                <field name="final_approver_signature"/>
+              </group>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+            <field name="message_ids" widget="mail_thread"/>
+        </div>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- 
+      
+      request collection tree and form view 
+    
+    -->
+
+
+    <record model="ir.ui.view" id="mestengido__order_tree_view">
+      <field name="name">mest.order.tree</field>
+      <field name="model">mest.order</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="squ"/>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="mest_order_calendar">
+      <field name="name">mest.order.calendar</field>
+      <field name="model">mest.order</field>
+      <field name="priority" eval="2"/>
+      <field name="arch" type="xml">
+          <calendar string="Calendar View" date_start="date_planned" color="partner_id" hide_time="true" event_limit="5">
+              <!-- <field name="currency_id" invisible="1"/> -->
+              <field name="name"/>
+              <!-- <field name="partner_ref"/>
+              <field name="amount_total" widget="monetary"/>
+              <field name="partner_id"/> -->
+          </calendar>
+      </field>
+  </record>
+
+ 
+    <record model="ir.ui.view" id="mestengido_order_form_view">
+      <field name="name">mest.order form</field>
+      <field name="model">mest.order</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button name="action_merg" states="request" string="Organize" class="oe_highlight" groups="Mestengido.mest_purchase_order_group" type="object" />
+
+            <button name="action_change_to_purchase_order"  class="oe_highlight"   states="ready"    groups="Mestengido.mest_purchase_order_group"
+            type="object"  string="post to purchase order"/>
+            <field name="state" widget="statusbar"/>
+          </header>
+          <sheet>
+       
+            <div class="oe_title">
+              <h1>
+                  <field name="squ" string="Reference"/>
+              </h1>
+          </div>
+        
+            <group>
+              <group class='col-6'>
+                <field name="month" placeholder="Month" class="o_address_city" required="1" />
+                <field name="year" class="o_address_city"   placeholder="Year" required="1"/>
+                <field name="analytic_account_id" required="1"/>
+              </group>
+            <group class='col=6'>        
+              <field name="requests" string="Requests" widget="many2many_tags" />
+              <field name="is_ture" string="push to Order"/>
+            </group>
+          </group>
+          <!-- <newline /> -->
+          <notebook>
+            <page string="Purchase order">
+               <field name="order_line">
+                   <tree  string="Purchase order"
+                          editable="bottom">
+                          <control>
+                              <create name="add_product" string="Add Product"/>
+                          </control>
+                          <field name="sequence"/>
+                          <field name="product_id"/>
+                          <field name="name"/>
+                          <field name="product_uom"/>
+                          <field name="product_qty"/>
+                          <field name="price_unit"/>
+                          <field name="total_price"/>
+                          <field name="product_uom_category_id" invisible="1"/>
+                  </tree>
+                  <form>
+                      <group>
+                        <field name="sequence"/>
+                        <field name="product_id"/>
+                        <field name="name"/>
+                        <field name="product_uom"/>
+                        <field name="product_qty"/>
+                        <field name="price_unit"/>
+                        <field name="total_price"/>
+
+                        <field name="product_uom_category_id" invisible="1"/>
+                      </group>
+                  </form>
+                 
+              </field>
+              <group name="note_group" col="6" class="mt-2 mt-md-0">
+                               
+                <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                   
+                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                        <label for="total_price" />
+                    </div> 
+                    <field name="total_price" nolabel="1" string="Total  Amount:" class="oe_subtotal_footer_separator"/>
+                 </group>
+                <div class="oe_clear"/>
+            </group>
+              
+              </page>
+              </notebook>
+             
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+            <field name="message_ids" widget="mail_thread"/>
+        </div>
+        </form>
+      </field>
+    </record>
+
+  </data>
+</odoo>

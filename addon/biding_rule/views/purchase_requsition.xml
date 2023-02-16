@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="vendor_document_inherit_form_view">
+        <field name="name">purchase.requisition.view</field>
+        <field name="model">purchase.requisition</field>
+        <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vendor_id']" position="attributes">
+              <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_open']" position="replace">
+              <button name="action_open" string="Validate" type="object" class="btn-primary" attrs="{'invisible': ['|', ('order_count', '=', 0), ('state', '!=', 'in_progress')]}"/>
+            </xpath>
+            <button name="action_open" position="after">
+               <button name="result" states="open,ongoing" string="Compute" type="object" class="btn-primary"/>
+            </button>
+            <div class="oe_button_box" position="inside">
+                <button class="oe_stat_button" name="document_view" type="object" icon="fa-list-ol">
+                    <field string="Professional Rule" name="document_count" widget="statinfo"/>
+                </button>
+                <button class="oe_stat_button" name="document_view_2" type="object" icon="fa-list-ol">
+                    <field string="Product Rule" name="document_count_2" widget="statinfo"/>
+                </button>
+            </div>
+             <notebook position="inside">
+               <page string="Result">
+                 <field name="res_one">
+                   <tree string="Result" editable="bottom">
+                     <field name="order_id"/>
+                     <field name="vendor_id" readonly="1"/>
+                     <field name="req" invisible="1"/>
+                     <field name="amount" readonly="1" force_save="1"/>
+                     <field name="amount_2" readonly="1" force_save="1"/>
+                     <field name="amount_4" readonly="1" force_save="1"/>
+                     <field name="amount_3"/>
+                     <field name="selection"/>
+                     <field name="reason"/>
+                   </tree>
+                   <form>
+                       <sheet>
+                         <h1>
+                           <field name="order_id" string="Purchase Order"/>
+                         </h1>
+                         <group>
+                           <group>
+                             <field name="req" string="Purchase Requisition"/>
+                             <field name="vendor_id"/>
+                           </group>
+                           <group>
+                             <field name="amount_4"/>
+                             <field name="selection"/>
+                           </group>
+                         </group>
+                         <notebook>
+                           <page string="Product Results">
+                             <group>
+                               <separator string="Product Result"/>
+                               <field name="amount" string="Total Product Results"/>
+                               <separator string="Each Product Result"/>
+                               <field name="product_results"/>
+                             </group>
+                           </page>
+                           <page string="Professional Results">
+                             <group>
+                               <separator string="Professional Result"/>
+                               <field name="amount_2" string="Total Professional Results"/>
+                               <separator string="Each Professional Result"/>
+                               <field name="professional_results"/>
+                             </group>
+                           </page>
+                         </notebook>
+                       </sheet>
+                   </form>
+                 </field>
+              </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>
