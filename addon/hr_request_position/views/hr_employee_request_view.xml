@@ -111,7 +111,7 @@
         <field name="groups_id" eval="[(4, ref('hr_request_position.group_request_manager_approval'))]"/>
         <field name="arch" type="xml">                               
             <field name="estimated_salary" position="attributes">
-                   <attribute name="readonly">1</attribute>                   
+                   <attribute name="readonly">0</attribute>                   
             </field>  
             <field name="wage" position="attributes">
                    <attribute name="readonly">1</attribute>                   
@@ -119,6 +119,39 @@
         </field>
     </record>
 
+   <record id="view_employee_form" model="ir.ui.view">
+        <field name="name">hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">  
+             <page name="personal_information" position="inside">                             
+                <field name="salary_request_ids" />        
+            </page>   
+        </field>
+    </record>
+
+    <record id="salary_request_hr_employee_view_form" model="ir.ui.view">
+        <field name="name">salary.request.hr.employee.view.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="%(act_action_employee_requests)d"
+                        class="oe_stat_button"
+                        icon="fa-credit-card"
+                        type="action">
+                        <field name="request_count" widget="statinfo" string="Salary Requests"/>
+                    </button>
+                </xpath>
+        </field>
+    </record>
+
+    <record id="act_action_employee_requests" model="ir.actions.act_window">
+        <field name="res_model">hr.employee.position.request</field>
+        <field name="name">Employee's Requests</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_employee_id': [active_id], 'default_employee_id': active_id}</field>
+    </record>
 
     <record model="ir.actions.act_window" id="action_employee_requests">
         <field name="name">Employee's Requests</field>
@@ -151,8 +184,6 @@
         sequence="1"
         parent="hr_request_position.menu_employee_request"
         action="action_employee_requests" groups="hr_request_position.group_request_hr_approval,hr_request_position.group_request_manager_approval,hr_request_position.group_requester"/>
-      
-      
   </data>
 
 </odoo>

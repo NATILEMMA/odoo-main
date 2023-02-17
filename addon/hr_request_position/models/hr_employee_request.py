@@ -5,6 +5,11 @@ from odoo import api, fields, models
 from odoo.exceptions import UserError
 import os
 
+import logging
+
+_logger = logging.getLogger(__name__)
+
+
 REQUEST_STATES = [
     ('draft', 'Draft'),
     ('in_progress', 'Requested'),
@@ -47,7 +52,7 @@ class HrEmployeeRequest(models.Model):
     user_id = fields.Many2one('res.users')
     requested_position = fields.Many2one('hr.job','Requested Job Position')
     requested_department = fields.Many2one('hr.department', 'Requested Department')
-    attachment = fields.Binary(string="Upload Attachment file", required=True)
+    attachment = fields.Binary(string="Upload Attachment file")
     attachment_name = fields.Char(string='File Name')
     note = fields.Text('Notes')
     period = fields.Char('Period', compute="_compute_period")
@@ -65,7 +70,11 @@ class HrEmployeeRequest(models.Model):
     @api.model
     def create(self, vals):
         contract = self.env['hr.contract'].search([('employee_id', '=', vals['employee_id'])], limit=1)
+        _logger.info("this is from salary request this is contract %s",contract)
+        
+       
         if vals['salary_or_position'] == 'position_request':
+
             if vals['requested_position'] == self.contract_id.job_id or vals['requested_department'] ==  self.department_id:
                 raise UserError(('Already in Position'))
 
@@ -74,18 +83,31 @@ class HrEmployeeRequest(models.Model):
             request = super(HrEmployeeRequest, self).create(vals)
     
         elif vals['salary_or_position'] == 'salary_request':
-            if vals.get('estimated_salary') != None:
-                if vals.get('estimated_salary') <= contract.wage:
-                    raise UserError(('Please correct your estimation on provided salary'))
-                else:
-                    vals['state'] = 'in_progress'
-                    vals['reference_no'] = self.env['ir.sequence'].next_by_code('hr.employee.position.request')
-                    request = super(HrEmployeeRequest, self).create(vals)
-            else:
-                vals['state'] = 'in_progress'
-                vals['reference_no'] = self.env['ir.sequence'].next_by_code('hr.employee.position.request')
-                request = super(HrEmployeeRequest, self).create(vals)
 
+            if(not contract):
+                  raise UserError(('Please setup the employee job contract first!'))
+            
+            if(not contract.wage):
+                  raise UserError(('The employee current job wage is not set!'))
+            
+            if(not contract.grade_id):
+                  raise UserError(('The job grade of the employee is not set!'))
+            
+            if vals.get('estimated_salary') == None:
+                 raise UserError(('Estimated salary must be inserted in the input field'))
+            
+            if vals.get('estimated_salary') <= contract.wage:
+                        raise UserError(('Please correct your estimation on provided salary to be greater than current wage of the employee.'))
+            else:    
+                if(vals.get('estimated_salary') < contract.grade_id.minimum_wage):
+                      raise UserError(('Your estimated salary request is below your current job grade of Birr ',contract.grade_id.minimum_wage))
+                
+                elif (vals.get('estimated_salary') > contract.grade_id.maximum_wage):
+                         raise UserError(('Your estimated salary request is above your current job grade of Birr ' ,contract.grade_id.maximum_wage))     
+                else:
+                      vals['state'] = 'in_progress'
+                      vals['reference_no'] = self.env['ir.sequence'].next_by_code('hr.employee.position.request')
+                      request = super(HrEmployeeRequest, self).create(vals)       
         return request
 
     def button_request(self):
@@ -143,8 +165,14 @@ class HrEmployeeRequest(models.Model):
         else:
             self.period = (d2 - d1).days // 365
 
+class HrEmployeePrivate(models.Model):
+    _inherit = "hr.employee"
+    salary_request_ids = fields.One2many("hr.employee.position.request","employee_id",string="Salary Requests")
+    request_count = fields.Integer(compute='_compute_equipment_count', string='Request Count')
 
-    
+    @api.depends('salary_request_ids')
+    def _compute_equipment_count(self):
+        for request in self:
+            request.request_count = len(request.salary_request_ids)
 
 
-    

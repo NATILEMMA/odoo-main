@@ -3,3 +3,4 @@ access_hr_employee_position_request_user,hr.employee.position.request.user,model
 access_hr_job_request_user,hr.employee.position.request.user,model_hr_job,hr_request_position.group_requester,1,1,0,0
 access_hr_contract_request_user,hr.employee.position.request.user,model_hr_contract,hr_request_position.group_requester,1,1,0,0
 access_hr_contract_request_manager,hr.employee.position.request.user,model_hr_contract,hr_request_position.group_request_manager_approval,1,1,0,0
+access_hr_contract_manager_request,hr.contract.manager,model_hr_contract,hr_contract.group_hr_contract_manager,1,1,1,1
