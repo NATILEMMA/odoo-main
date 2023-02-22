@@ -18,6 +18,7 @@ access.responsible.bodies.admin,access_responsible_bodies,model_responsible_bodi
 
 access.membership.payment.manager,access_membership_payment,model_membership_payment,members_custom.member_group_manager,1,1,1,1
 access.each.member.payment.manager,access_each_member_payment,model_each_member_payment,members_custom.member_group_manager,1,1,1,1
+access.each.league.payment.manager,access_each_league_payment,model_each_league_payment,members_custom.member_group_manager,1,1,1,1
 access.member.cells.manager,access_member_cells,model_member_cells,members_custom.member_group_manager,1,1,1,1
 access_main_office.manager,access_main_office,model_main_office,members_custom.member_group_manager,1,1,1,1
 access.membership.handlers.parent.manager,access_membership_handlers_parent,model_membership_handlers_parent,members_custom.member_group_manager,1,0,0,0
@@ -54,6 +55,7 @@ access.reconciliation.time.fream.agent,bank_statement,reconciliation.model_recon
 access.fiscal.year.agent,fiscal.year,reconciliation.model_fiscal_year,members_custom.member_group_agent,1,0,0,0
 access.membership.payment.agent,access_membership_payment,model_membership_payment,members_custom.member_group_agent,1,0,0,0
 access.each.member.payment.agent,access_each_member_payment,model_each_member_payment,members_custom.member_group_agent,1,0,0,0
+access.each.league.payment.agent,access_each_league_payment,model_each_league_payment,members_custom.member_group_agent,1,0,0,0
 access.membership.city.handlers.agent,access_membership_city_handlers,model_membership_city_handlers,members_custom.member_group_agent,1,0,0,0
 access.leader.transfer.agent,access_leader_transfer,model_leader_transfer,members_custom.member_group_agent,1,0,0,0
 access.responsible.bodies.agent,access_responsible_bodies,model_responsible_bodies,members_custom.member_group_agent,1,0,0,0
@@ -64,6 +66,7 @@ access.member.cells.handler,access_member_cells,model_member_cells,members_custo
 access_main.office.handler,access_main_office,model_main_office,members_custom.member_group_complaint_management,1,0,0,0
 access.membership.payment.handler,access_membership_payment,model_membership_payment,members_custom.member_group_complaint_management,1,0,0,0
 access.each.member.payment.handler,access_each_member_payment,model_each_member_payment,members_custom.member_group_complaint_management,1,0,0,0
+access.each.league.payment.handler,access_each_league_payment,model_each_league_payment,members_custom.member_group_complaint_management,1,0,0,0
 access.res.edlevel.handler,access_res_edlevel,model_res_edlevel,members_custom.member_group_complaint_management,1,0,0,0
 access_field_study.handler,access_field_study,model_field_study,members_custom.member_group_complaint_management,1,0,0,0
 access.interpersonal.skills.handler,access_interpersonal_skills,model_interpersonal_skills,members_custom.member_group_complaint_management,1,0,0,0

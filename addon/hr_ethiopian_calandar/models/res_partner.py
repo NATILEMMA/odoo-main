@@ -29,7 +29,6 @@ class Contract(models.Model):
     @api.model
     def create(self, vals):
         for i in range(0, len(pick1)):
-  
             if i == (len(pick1)-1):
                 date1 = EthiopianDateConverter.to_gregorian(pick1[i]['year'],pick1[i]['month'],pick1[i]['day'])
                 Edate1 = EthiopianDateConverter.to_ethiopian(date1.year,date1.month,date1.day)

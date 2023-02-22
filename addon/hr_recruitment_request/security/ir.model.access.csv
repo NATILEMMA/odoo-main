@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_recruitment_request_departement,hr.recruitment.request.department,model_hr_recruitment_request,hr_recruitment_request.group_request_recruitment,1,1,1,1
+access_hr_recruitment_request_hr,hr.recruitment.hr,model_hr_recruitment_request,hr_recruitment_request.group_recruitment_hr_approval,1,1,0,0

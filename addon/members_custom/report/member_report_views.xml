@@ -23,6 +23,28 @@
      <field name="binding_type">report</field>
    </record>
 
+   <!-- This record will hold the action to the report of league payment -->
+   <record id="create_league_payment_report" model="ir.actions.report">
+     <field name="name">League Payment Report</field>
+     <field name="model">each.league.payment</field>
+     <field name="report_type">qweb-pdf</field>
+     <field name="report_name">members_custom.league_payment_report</field>
+     <field name="report_file">members_custom.league_payment_report</field>
+     <field name="binding_model_id" ref="model_each_league_payment"/>
+     <field name="binding_type">report</field>
+   </record>
+
+   <!-- This record will hold the action to the report of league payment -->
+   <record id="create_supporter_payment_report" model="ir.actions.report">
+     <field name="name">Supporter Payment Report</field>
+     <field name="model">membership.payment</field>
+     <field name="report_type">qweb-pdf</field>
+     <field name="report_name">members_custom.supporter_payment_report</field>
+     <field name="report_file">members_custom.supporter_payment_report</field>
+     <field name="binding_model_id" ref="model_membership_payment"/>
+     <field name="binding_type">report</field>
+   </record>
+
    <!-- This record will hold the action to the report of subcity -->
    <record id="report_for_subcity" model="ir.actions.report">
      <field name="name">Subcity Report</field>

@@ -29,11 +29,12 @@
        <field name="model">member.cells</field>
        <field name="arch" type="xml">
            <tree>
-               <field name="name"/>
-               <field name="cell_type_id"/>
-               <field name="main_office"/>
-               <field name="subcity_id"/>
-               <field name="wereda_id"/>
+                <field name="user_id" invisible="1"/>
+                <field name="name"/>
+                <field name="cell_type_id"/>
+                <field name="main_office"/>
+                <field name="subcity_id"/>
+                <field name="wereda_id"/>
            </tree>
        </field>
    </record>
@@ -49,12 +50,14 @@
                   </h1>
                   <group>
                      <group>
+                        <field name="user_id" invisible="1"/>
                         <field name="subcity_id"/>
                         <field name="wereda_id"/>
                      </group>
                      <group>
                         <field name="main_office"/>
                         <field name="cell_type_id"/>
+                        <field name="total_membership_fee" widget="monetary" force_save="1" readonly="1"/>
                         <!-- <field name="all_partners" invisible="1" force_save="1"/> -->
                      </group>
                   </group>
@@ -68,12 +71,7 @@
                             </tree>
                         </field>
                         <group class="oe_subtotal_footer oe_right">
-                            <field name="total_member_fee" widget="monetary" force_save="1"/>
-                            <field name="total_leader_fee" widget="monetary" force_save="1"/>
-                            <div class="oe_subtotal_footer_separator oe_inline">
-                                <label for="total_membership_fee"/>
-                            </div>
-                            <field name="total_membership_fee" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" force_save="1"/>
+                            <field name="total_member_fee" widget="monetary" force_save="1" readonly="1"/>
                         </group>
                       </page>
                       <page string="Leaders" name="leaders_ids">
@@ -84,6 +82,22 @@
                                 <field name="phone"/>
                             </tree>
                         </field>
+                        <group class="oe_subtotal_footer oe_right">
+                            <field name="total_leader_fee" widget="monetary" force_save="1" readonly="1"/>
+                        </group>
+                      </page>
+                      <page string="Leagues" name="leagues_ids">
+                        <field name="leagues_ids">
+                            <tree>
+                                <field name="name"/>
+                                <field name="league_type"/>
+                                <field name="league_status"/>
+                                <field name="phone"/>
+                            </tree>
+                        </field>
+                        <group class="oe_subtotal_footer oe_right">
+                            <field name="total_league_fee" widget="monetary" force_save="1" readonly="1"/>
+                        </group>
                       </page>
                       <page string="Schedules">
                           <group>
@@ -143,11 +157,12 @@
        <field name="model">main.office</field>
        <field name="arch" type="xml">
            <tree>
-               <field name="name"/>
-               <field name="main_type_id"/>
-               <field name="subcity_id"/>
-               <field name="wereda_id"/>
-               <field name="total_cell"/>
+                <field name="user_id" invisible="1"/>
+                <field name="name"/>
+                <field name="main_type_id"/>
+                <field name="subcity_id"/>
+                <field name="wereda_id"/>
+                <field name="total_cell"/>
            </tree>
        </field>
    </record>
@@ -163,9 +178,10 @@
                   </h1>
                   <group>
                      <group>
-                         <field name="main_type_id"/>
-                         <field name="subcity_id" force_save="1"/>
-                         <field name="wereda_id" force_save="1"/>
+                        <field name="user_id" invisible="1"/>
+                        <field name="main_type_id"/>
+                        <field name="subcity_id" force_save="1"/>
+                        <field name="wereda_id" force_save="1"/>
                      </group>
                      <group>
                          <field name="total_cell"/>

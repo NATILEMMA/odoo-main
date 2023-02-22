@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<template id="report_application_request">
+    <t  t-call="web.html_container">
+        <t t-foreach="docs" t-as="doc">
+          <t t-call="web.external_layout">
+            <h2>Application Request</h2>
+
+            <t t-if="doc.state in ['draft','in_progress','hr_approval']">
+
+                Date : <t t-esc="datetime.datetime.now().strftime('%Y-%m-%d')" t-options="{'widget': 'date'}" class="m-0"/>
+                <p>Subject : Promotion Request</p>
+                <p>From: <t t-esc="doc.employee_id.name" /></p>
+                <p>To: <t t-esc="doc.employee_parent_id.name" /></p>
+
+                <p>I would like to bring to your notice that I have been working at your firm for the past <t t-esc="doc.period" /> years as the <t t-esc="doc.job_title" /> in <t t-esc="doc.department_id.name" /> Department. 
+                During this time, I have worked earnestly and passionately for achieving the highest profits for our firm. </p>
+                <br/>
+                <p>With all the knowledge, experience, and know-how-of how things work here at <t t-esc="doc.company_id.name" />, I request you to kindly promote me to the position of <t t-esc="doc.requested_position.name" /> in <t t-esc="doc.department_id.name" /> Department.
+                I assure you, I completely understand the responsibilities with this post and I promise that I will prove to be the righteous choice for our firm.</p>
+
+
+                <p>Looking forward to a positive response!</p>
+                <p>Thanking you in anticipation.</p>
+
+            </t>
+            <t t-if="doc.state=='manager_approval'">
+
+                Date : <t t-esc="datetime.datetime.now().strftime('%Y-%m-%d')" t-options="{'widget': 'date'}" class="m-0"/>
+                <p>Subject : Promotion Request</p>
+                <p>From: <t t-esc="doc.employee_id.name" /></p>
+                <p>To: <t t-esc="doc.employee_parent_id.name" /></p>
+
+                <p>Good Day!</p>
+                <br/>
+
+                <p>
+                On behalf of the management, i congratulate you on your performance for tis year. Your performance and the attached resume clearly speaks for itself and the whole board acknowledges the contributions you have made this year. 
+                They have anonimously voted to approve your promotion request to the position of <t t-esc="doc.requested_position.name" /> in <t t-esc="doc.department_id.name" /> Department.
+                </p>
+
+                <br/>
+
+                <p>Managment is expecting good things and more contribution from you. We believe you have what it takes to take the challenges of this new job and bring about a great success to the business. </p>
+            </t>
+
+            <t t-if="doc.state=='rejected'">
+
+                Date : <t t-esc="datetime.datetime.now().strftime('%Y-%m-%d')" t-options="{'widget': 'date'}" class="m-0"/>
+                <p>Subject : Promotion Request</p>
+                <p>From: <t t-esc="doc.employee_id.name" /></p>
+                <p>To: <t t-esc="doc.employee_parent_id.name" /></p>
+
+                <p>Good Day!</p>
+                <br/>
+
+                <p>
+                Thank you for throwing your hat into the ring for the promotion to <t t-esc="doc.requested_position.name" />. I wanted to let you know that we've decided to offer the position to another colleague/new hire.
+
+While your work and dedication are appreciated,Please keep up the good work and don't lose your competitive spirit. I expect that more opportunities will come up.
+</p>
+
+                <br/>
+
+             </t>
+            
+
+        </t>
+    </t>
+    </t>
+</template>
+</data>
+</odoo>

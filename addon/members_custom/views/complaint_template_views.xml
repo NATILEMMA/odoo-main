@@ -139,7 +139,7 @@
                   </t>
                 </select>
               </div> -->
-              <div class="form-group w-75">
+              <!-- <div class="form-group w-75">
                 <label class="control-label">Perpetrators</label>
                 <select name="perpertrators" class="form-control" multiple="multiple">
                     <t t-foreach="perpertrators" t-as="perp">
@@ -148,7 +148,7 @@
                       </option>
                     </t>
                 </select>
-              </div>
+              </div> -->
               <div class="form-group">
                 <label class="control-label">Circumstance</label>
                 <textarea name="circumstances" cols="15" rows="8" placeholder="Circumstance" class="form-control"><t t-esc="complaint['circumstances']"/></textarea>

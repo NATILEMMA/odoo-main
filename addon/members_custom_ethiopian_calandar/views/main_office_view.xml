@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data> 
+     
+                <!-- 
+                    
+                    Adding Ethiopian Calander Date to Time Fream 
+
+                    step 1: Inherit the View of the model to which you wish to add the Ethiopian calendar extension.
+
+                    step 2, xpath your exact location of converting date fields if your date fields are located within a form sheet, use col and colspan to adjust CSS
+                
+                    Ethiopian Date Picker Widget
+
+                    - ethiopian_calander_widget
+                    - ethiopian_calander_widget_two
+                    - ethiopian_calander_widget_three
+                    - ethiopian_calander_widget_four
+                
+                
+                -->
+
+        
+        <record id="member_office_inherited_view" model="ir.ui.view">
+           <field name="name">Member's Office</field>
+             <field name="model">main.office</field>
+            <field name="inherit_id" ref="members_custom.member_office_form"/>
+            <field name="arch" type="xml">
+                    <xpath expr="//field[@name='date_of_meeting_eachother']" position="replace">
+                        <field  name="date_of_meeting_eachother"  class="col-50" colspan="3"/>
+                        <field  name="ethiopian_date_of_meeting_eachother" class="oe_read_only" style=" float:left" />
+                         <div>
+                         </div>
+                        <div style="margin-bottom:40px;margin-top:-15px;margin-left:10px;margin-right:0px">
+                        <widget name="ethiopian_calander_widget"  style=" float:left;width:226px;" class="oe_edit_only"/>
+                        </div>
+                    </xpath>
+                    <xpath expr="//field[@name='date_of_meeting_cells']" position="replace">
+                        <field  name="date_of_meeting_cells"  class="col-50" colspan="3"/>
+                        <field  name="ethiopian_date_of_meeting_cells" class="oe_read_only" style=" float:left" />
+                        <div>
+                        </div>
+                        <div style="margin-bottom:40px;margin-top:-15px;margin-left:10px;margin-right:0px">
+                        <widget name="ethiopian_calander_widget_two"  style=" float:left;width:226px;" class="oe_edit_only"/>
+                        </div>
+                    </xpath>
+            </field>
+        </record>  
+
+    </data>
+    </odoo>
+    
+
+       

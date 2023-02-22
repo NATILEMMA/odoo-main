@@ -145,6 +145,7 @@ class ResPartner(models.Model):
     demote_to_member = fields.Boolean(default=False)
     year_of_payment = fields.Many2one("fiscal.year", string='Year', store=True)
     membership_payments = fields.One2many('each.member.payment', 'member_id')
+    league_payments = fields.One2many('each.league.payment', 'league_id')
     is_leader = fields.Boolean(string="Is Leader", default=False)
     is_league = fields.Boolean(default=False)
     is_member = fields.Boolean(default=False)
@@ -158,12 +159,16 @@ class ResPartner(models.Model):
     email_address = fields.Char()
     candidate_id = fields.Many2one('candidate.members')
     supporter_id = fields.Many2one('supporter.members')
-    evaluation_main_points = fields.Text(string='Evaluation Main Points')
-    decision = fields.Text(string="Decision")
+    evaluation_main_points = fields.Text(string='Evaluation Main Points', translate=True)
+    decision = fields.Text(string="Decision", translate=True)
     evaluated = fields.Boolean(default=False)
     leadership_status = fields.Selection(selection=[('active', 'Active'), ('inactive', 'Inactive')], default='inactive')
     leader_transfer = fields.One2many('leader.transfer', 'partner_id')
     experience = fields.Char(translate=True)
+    pay_for_league = fields.Boolean(default=False)
+    league_payment = fields.Float(store=True)
+    track_member_fee = fields.Float(store=True, readonly=True)
+    track_league_fee = fields.Float(store=True, readonly=True)
 
 
     @api.model
@@ -180,24 +185,95 @@ class ResPartner(models.Model):
         for record in self:
             record.evaluated = True
 
+    @api.onchange('pay_for_league')
+    def _dont_pay_league(self):
+        """This function will make league payment 0"""
+        for record in self:
+            if record.pay_for_league == False:
+                record.league_payment = 0.00
+
+    @api.onchange('league_payment')
+    def _assign_league_fee(self):
+        """This function will modify league payment chnage in cells"""
+        for record in self:
+            if record.member_cells and record.is_league:
+                leagues = self.env['member.cells'].search([('id', '=', record.member_cells.id)]).leagues_ids.ids
+                if record._origin.id in leagues:
+                    cell = self.env['member.cells'].search([('id', '=', record.member_cells.id)])
+                    league = self.env['member.cells'].search([('id', '=', record.member_cells.id)]).leagues_ids.filtered(lambda rec: rec.id == record._origin.id)
+                    new_fee = cell.total_league_fee - league.league_payment
+                    cell.total_league_fee = new_fee + record.league_payment
+
+    @api.onchange('membership_monthly_fee_cash', 'membership_monthly_fee_cash_from_percent')
+    def _assign_membership_fee_to_leader(self):
+        """This function will modify membership payment of leaders change in cells"""
+        for record in self:
+            if record.member_cells and record.is_leader:
+                leaders = self.env['member.cells'].search([('id', '=', record.member_cells.id)]).leaders_ids.ids
+                if record._origin.id in leaders:
+                    cell = self.env['member.cells'].search([('id', '=', record.member_cells.id)])
+                    leader = self.env['member.cells'].search([('id', '=', record.member_cells.id)]).leaders_ids.filtered(lambda rec: rec.id == record._origin.id)
+                    new_fee = cell.total_leader_fee - (leader.membership_monthly_fee_cash + leader.membership_monthly_fee_cash_from_percent)
+                    cell.total_leader_fee = new_fee + record.membership_monthly_fee_cash + record.membership_monthly_fee_cash_from_percent
+
+    @api.onchange('membership_monthly_fee_cash', 'membership_monthly_fee_cash_from_percent')
+    def _assign_membership_fee_to_member(self):
+        """This function will modify membership payment of members change in cells"""
+        for record in self:
+            if record.member_cells and record.is_member:
+                members = self.env['member.cells'].search([('id', '=', record.member_cells.id)]).members_ids.ids
+                if record._origin.id in members:
+                    cell = self.env['member.cells'].search([('id', '=', record.member_cells.id)])
+                    member = self.env['member.cells'].search([('id', '=', record.member_cells.id)]).members_ids.filtered(lambda rec: rec.id == record._origin.id)
+                    new_fee = cell.total_member_fee - (member.membership_monthly_fee_cash + member.membership_monthly_fee_cash_from_percent)
+                    cell.total_member_fee = new_fee + record.membership_monthly_fee_cash + record.membership_monthly_fee_cash_from_percent
+
     @api.onchange('member_cells')
     def _assign_cells_a_member(self):
         """This function will assign cells a member"""
         for record in self:
+            cell = self.env['member.cells'].search([('id', '=', record.member_cells.id)])
+            new_fee = 0.00
             if record.is_leader:
                 remove = self.env['member.cells'].search([]).leaders_ids.ids
+                remove_member = self.env['member.cells'].search([]).members_ids.ids
+                remove_league = self.env['member.cells'].search([]).leagues_ids.ids
+                if record._origin.id in remove_member:
+                    self.env['member.cells'].search([]).members_ids = [(3, int(record._origin.id))]
+                    member = self.env['member.cells'].search([('id', '=', record.member_cells.id)]).members_ids.filtered(lambda rec: rec.id == record._origin.id)
+                    new_fee = cell.total_member_fee - (member.membership_monthly_fee_cash + member.membership_monthly_fee_cash_from_percent)                
+                if record._origin.id in remove_league:
+                    self.env['member.cells'].search([]).leagues_ids = [(3, int(record._origin.id))]
+                    league = self.env['member.cells'].search([('id', '=', record.member_cells.id)]).leagues_ids.filtered(lambda rec: rec.id == record._origin.id)
+                    new_fee = cell.total_league_fee - league.league_payment
                 if record._origin.id in remove:
                     self.env['member.cells'].search([]).leaders_ids = [(3, int(record._origin.id))]
+                    leader = self.env['member.cells'].search([('id', '=', record.member_cells.id)]).leaders_ids.filtered(lambda rec: rec.id == record._origin.id)
+                    new_fee = cell.total_leader_fee - (leader.membership_monthly_fee_cash + leader.membership_monthly_fee_cash_from_percent)
                 all_leaders = record.member_cells.leaders_ids.ids + [record._origin.id]
                 record.member_cells.leaders_ids = [(5, 0, 0)]
                 record.member_cells.leaders_ids = [(6, 0, all_leaders)]
+                cell.total_leader_fee = new_fee + record.membership_monthly_fee_cash + record.membership_monthly_fee_cash_from_percent
             if record.is_member:
                 remove = self.env['member.cells'].search([]).members_ids.ids
                 if record._origin.id in remove:
                     self.env['member.cells'].search([]).members_ids = [(3, int(record._origin.id))]
+                    member = self.env['member.cells'].search([('id', '=', record.member_cells.id)]).members_ids.filtered(lambda rec: rec.id == record._origin.id)
+                    new_fee = cell.total_member_fee - (member.membership_monthly_fee_cash + member.membership_monthly_fee_cash_from_percent)
                 all_members = record.member_cells.members_ids.ids + [record._origin.id]
                 record.member_cells.members_ids = [(5, 0, 0)]
                 record.member_cells.members_ids = [(6, 0, all_members)]
+                cell.total_member_fee = new_fee + record.membership_monthly_fee_cash + record.membership_monthly_fee_cash_from_percent 
+            if record.is_league:
+                remove = self.env['member.cells'].search([]).leagues_ids.ids
+                if record._origin.id in remove:
+                    self.env['member.cells'].search([]).leagues_ids = [(3, int(record._origin.id))]
+                    league = self.env['member.cells'].search([('id', '=', record.member_cells.id)]).leagues_ids.filtered(lambda rec: rec.id == record._origin.id)
+                    new_fee = cell.total_league_fee - league.league_payment
+                all_leagues = record.member_cells.leagues_ids.ids + [record._origin.id]
+                record.member_cells.leagues_ids = [(5, 0, 0)]
+                record.member_cells.leagues_ids = [(6, 0, all_leagues)]
+                cell.total_league_fee = new_fee + record.league_payment
 
 
     @api.onchange('year_of_payment')

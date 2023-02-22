@@ -14,6 +14,7 @@ class CandidateMembers(models.Model):
     name = fields.Char(required=True, translate=True)
     age = fields.Integer(required=True)
     date = fields.Date(index=True)
+#    ethiopian_date = fields.Date('Ethiopian Birth Date', store=True)
     gender = fields.Selection(selection=[('Male', 'Male'), ('Female', 'Female')], copy=False, required=True)
     region = fields.Many2one('res.country.state', domain="[('country_id', '=', 69)]")
     education_level = fields.Many2one('res.edlevel', required=True)
@@ -37,6 +38,7 @@ class CandidateMembers(models.Model):
     x_css = fields.Html(sanitize=False, compute="_compute_css", store=False)
     becomes_member_on = fields.Date(string="Becomes Member On")
     new_member = fields.Boolean(default=False)
+#    ethiopian_date_two = fields.Date('Becomes Member On In Ethiopian', store=True)
 
 
     @api.model
@@ -149,7 +151,7 @@ class CandidateMembers(models.Model):
                 'name': record.name,
                 'gender': record.gender,
                 'age': record.age,
-                'region': record.region.id,
+                'region_of_birth': record.region.id,
                 'education_level': record.education_level.id,
                 'income': record.income,
                 'subcity_id': record.subcity_id.id,

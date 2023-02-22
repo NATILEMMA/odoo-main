@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0-20221005\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-15 05:23+0000\n"
-"PO-Revision-Date: 2023-02-15 05:23+0000\n"
+"POT-Creation-Date: 2023-02-18 07:47+0000\n"
+"PO-Revision-Date: 2023-02-18 07:47+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -884,22 +884,24 @@ msgid "2023"
 msgstr ""
 
 #. module: members_custom
+#: model_terms:ir.ui.view,arch_db:members_custom.league_payment_report
 #: model_terms:ir.ui.view,arch_db:members_custom.member_payment_report
+#: model_terms:ir.ui.view,arch_db:members_custom.supporter_payment_report
 msgid "<span style=\"font-weight: bold; font-size: 20px;\"> Payment Date</span>"
 msgstr "<span style=\"font-weight: bold; font-size: 20px;\"> የክፍያ ቀን</span>"
 
 #. module: members_custom
+#: model_terms:ir.ui.view,arch_db:members_custom.league_payment_report
+msgid "<span style=\"font-weight: bold; font-size: 20px;\">League Name: </span>"
+msgstr "<span style=\"font-weight: bold; font-size: 20px;\">የሊግ ስም: </span>"
+
+#. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.member_payment_report
 msgid "<span style=\"font-weight: bold; font-size: 20px;\">Member Name: </span>"
-msgstr "<span style=\"font-weight: bold; font-size: 20px;\">የከፋይ ስም: </span>"
+msgstr "<span style=\"font-weight: bold; font-size: 20px;\">የአባል ስም: </span>"
 
 #. module: members_custom
-#: model_terms:ir.ui.view,arch_db:members_custom.member_payment_report
-msgid ""
-"<span style=\"font-weight: bold; font-size: 20px;\">Member Payment: </span>"
-msgstr "<span style=\"font-weight: bold; font-size: 20px;\">የመዋጮ መጠን: </span>"
-
-#. module: members_custom
+#: model_terms:ir.ui.view,arch_db:members_custom.league_payment_report
 #: model_terms:ir.ui.view,arch_db:members_custom.member_payment_report
 msgid ""
 "<span style=\"font-weight: bold; font-size: 20px;\">Method of Payment: "
@@ -907,16 +909,53 @@ msgid ""
 msgstr "<span style=\"font-weight: bold; font-size: 20px;\">የመክፈያ ዘዴ: </span>"
 
 #. module: members_custom
+#: model_terms:ir.ui.view,arch_db:members_custom.league_payment_report
 #: model_terms:ir.ui.view,arch_db:members_custom.member_payment_report
+#: model_terms:ir.ui.view,arch_db:members_custom.supporter_payment_report
+msgid "<span style=\"font-weight: bold; font-size: 20px;\">Paid Amount: </span>"
+msgstr "<span style=\"font-weight: bold; font-size: 20px;\">የተከፈለው መጠን: </span>"
+
+#. module: members_custom
+#: model_terms:ir.ui.view,arch_db:members_custom.league_payment_report
+#: model_terms:ir.ui.view,arch_db:members_custom.member_payment_report
+#: model_terms:ir.ui.view,arch_db:members_custom.supporter_payment_report
 msgid "<span style=\"font-weight: bold; font-size: 20px;\">Payment ID</span>"
 msgstr "<span style=\"font-weight: bold; font-size: 20px;\">የክፍያ መለያ ቁጥር</span>"
+
+#. module: members_custom
+#: model_terms:ir.ui.view,arch_db:members_custom.league_payment_report
+msgid ""
+"<span style=\"font-weight: bold; font-size: 20px;\">Reason For Payment: "
+"</span><span>League Payment</span>"
+msgstr "<span style=\"font-weight: bold; font-size: 20px;\">የክፍያ ምክንያት: </span><span>የሊጎች መዋጮ</span>"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.member_payment_report
 msgid ""
 "<span style=\"font-weight: bold; font-size: 20px;\">Reason For Payment: "
 "</span><span>Membership Payment</span>"
-msgstr "<span style=\"font-weight: bold; font-size: 20px;\">የክፍያ ምክንያት: </span><span>የአባላት መዋጮ</span>"
+msgstr ""
+"<span style=\"font-weight: bold; font-size: 20px;\">የክፍያ ምክንያት: "
+"</span><span>የአባላት መዋጮ</span>"
+
+#. module: members_custom
+#: model_terms:ir.ui.view,arch_db:members_custom.supporter_payment_report
+msgid ""
+"<span style=\"font-weight: bold; font-size: 20px;\">Reason For Payment: "
+"</span><span>Supporter Payment</span>"
+msgstr "<span style=\"font-weight: bold; font-size: 20px;\">የክፍያ ምክንያት: </span><span>የደጋፊ ክፍያ</span>"
+
+#. module: members_custom
+#: model_terms:ir.ui.view,arch_db:members_custom.supporter_payment_report
+msgid ""
+"<span style=\"font-weight: bold; font-size: 20px;\">Supporter Name: </span>"
+msgstr "<span style=\"font-weight: bold; font-size: 20px;\">የደጋፊ ስም: </span>"
+
+#. module: members_custom
+#: model_terms:ir.ui.view,arch_db:members_custom.league_payment_report
+#: model_terms:ir.ui.view,arch_db:members_custom.member_payment_report
+msgid "<span style=\"font-weight: bold; font-size: 20px;\">Unpaid Amount: </span>"
+msgstr "<span style=\"font-weight: bold; font-size: 20px;\">ያልተከፈለ መጠን: </span>"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.member_report_templates
@@ -924,7 +963,10 @@ msgid ""
 "<span>\n"
 "                                  <strong>Cell: </strong>\n"
 "                                </span>"
-msgstr "<span>\n<strong>ሕዋስ: </strong>\n</span>"
+msgstr ""
+"<span>\n"
+"<strong>ሕዋስ: </strong>\n"
+"</span>"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.member_report_templates
@@ -943,7 +985,10 @@ msgid ""
 "<span>\n"
 "                                  <strong>Name: </strong>\n"
 "                                </span>"
-msgstr "<span>\n<strong>ስም: </strong>\n</span>"
+msgstr ""
+"<span>\n"
+"<strong>ስም: </strong>\n"
+"</span>"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.member_report_templates
@@ -951,7 +996,10 @@ msgid ""
 "<span>\n"
 "                                  <strong>Responsibility: </strong>\n"
 "                                </span>"
-msgstr "<span>\n<strong>በድርጅት ያለው ሃላፊነት: </strong>\n</span>"
+msgstr ""
+"<span>\n"
+"<strong>በድርጅት ያለው ሃላፊነት: </strong>\n"
+"</span>"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.member_report_templates
@@ -959,7 +1007,10 @@ msgid ""
 "<span>\n"
 "                                  <strong>Subcity: </strong>\n"
 "                                </span>"
-msgstr "<span>\n<strong>ክፍለ ከተማ: </strong>\n</span>"
+msgstr ""
+"<span>\n"
+"<strong>ክፍለ ከተማ: </strong>\n"
+"</span>"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.member_demo_report_templates
@@ -967,7 +1018,10 @@ msgid ""
 "<span>\n"
 "                                <strong>Age: </strong>\n"
 "                              </span>"
-msgstr "<span>\n<strong>ዕድሜ: </strong>\n</span>"
+msgstr ""
+"<span>\n"
+"<strong>ዕድሜ: </strong>\n"
+"</span>"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.member_demo_report_templates
@@ -975,7 +1029,10 @@ msgid ""
 "<span>\n"
 "                                <strong>Cell: </strong>\n"
 "                              </span>"
-msgstr "<span>\n<strong>ሕዋስ: </strong>\n</span>"
+msgstr ""
+"<span>\n"
+"<strong>ሕዋስ: </strong>\n"
+"</span>"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.member_demo_report_templates
@@ -983,7 +1040,10 @@ msgid ""
 "<span>\n"
 "                                <strong>Gender: </strong>\n"
 "                              </span>"
-msgstr "<span>\n<strong>ጾታ: </strong>\n</span>"
+msgstr ""
+"<span>\n"
+"<strong>ጾታ: </strong>\n"
+"</span>"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.member_demo_report_templates
@@ -991,7 +1051,10 @@ msgid ""
 "<span>\n"
 "                                <strong>Main Office: </strong>\n"
 "                              </span>"
-msgstr "<span>\n<strong>መሰረታዊ ድርጅት: </strong>\n</span>"
+msgstr ""
+"<span>\n"
+"<strong>መሰረታዊ ድርጅት: </strong>\n"
+"</span>"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.member_demo_report_templates
@@ -999,10 +1062,15 @@ msgid ""
 "<span>\n"
 "                                <strong>Name: </strong>\n"
 "                              </span>"
-msgstr "<span>\n<strong>ስም: </strong>\n</span>"
+msgstr ""
+"<span>\n"
+"<strong>ስም: </strong>\n"
+"</span>"
 
 #. module: members_custom
+#: model_terms:ir.ui.view,arch_db:members_custom.league_payment_report
 #: model_terms:ir.ui.view,arch_db:members_custom.member_payment_report
+#: model_terms:ir.ui.view,arch_db:members_custom.supporter_payment_report
 msgid "<span> Birr</span>"
 msgstr "<span> ብር</span>"
 
@@ -1046,7 +1114,9 @@ msgid "<span>Members</span>"
 msgstr "<span>አባላት</span>"
 
 #. module: members_custom
+#: model_terms:ir.ui.view,arch_db:members_custom.league_payment_report
 #: model_terms:ir.ui.view,arch_db:members_custom.member_payment_report
+#: model_terms:ir.ui.view,arch_db:members_custom.supporter_payment_report
 msgid "<span>Signature</span>"
 msgstr "<span>ፊርማ</span>"
 
@@ -1119,8 +1189,8 @@ msgstr "<strong>የሚኖሩበት ክፍለ ከተማ: </strong>"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.certificate_template
-msgid "<strong>የሚኖሩበት ወረዳ: </strong>"
-msgstr ""
+msgid "<strong>Current Woreda: </strong>"
+msgstr "<strong>የሚኖሩበት ወረዳ: </strong>"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.certificate_template
@@ -1490,9 +1560,14 @@ msgid ""
 msgstr "በዚ ስም ፣ ጾታ እና ስልክ ቁጥር የተመዘገበ ደጋፊ አለ:: የሚያስገቡት መረጃ እንዳይደጋገም ይጠንቀቁ::"
 
 #. module: members_custom
+#: model:responsible.bodies,name:members_custom.aadbo
+msgid "AADBO"
+msgstr "አ.አ.ዲ.ግ.ቢ"
+
+#. module: members_custom
 #: model:interpersonal.skills,name:members_custom.wup
 msgid "Ability to Work Underpressure"
-msgstr "ጫና በበዛበት ሁነታ የመስራት አቅም::"
+msgstr "ጫና በበዛበት ሁነታ የመስራት አቅም"
 
 #. module: members_custom
 #: model:field.study,name:members_custom.acc
@@ -1503,6 +1578,11 @@ msgstr "ሂሳብ አያያዝ"
 #: model:ir.model.fields.selection,name:members_custom.selection__res_partner__leadership_status__active
 msgid "Active"
 msgstr "እየሰራ ያለ"
+
+#. module: members_custom
+#: model:membership.city.handlers,name:members_custom.city
+msgid "Addis Ababa"
+msgstr "አዲስ አበባ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_supporter_members__address
@@ -1545,6 +1625,12 @@ msgid "All Partners"
 msgstr "ሁሉም አጋሮች"
 
 #. module: members_custom
+#: model:ir.ui.menu,name:members_custom.payment_reporting
+msgid "All Payment Reporting"
+msgstr "የሁሉም ክፍያ ሪፖርት"
+
+#. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__amount_paid
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__amount_paid
 msgid "Amount Paid"
 msgstr "የተከፈለ መጠን"
@@ -1555,7 +1641,9 @@ msgid "Amount Received"
 msgstr "የተቀበለው መጠን"
 
 #. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__amount_remaining
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__amount_remaining
+#: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "Amount Remaining"
 msgstr "የተቀረው መጠን"
 
@@ -1563,6 +1651,11 @@ msgstr "የተቀረው መጠን"
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__annual_fee
 msgid "Annual Fee"
 msgstr "ዓመታዊ ክፍያ"
+
+#. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__annual_league_fee
+msgid "Annual League Fee"
+msgstr "ዓመታዊ የሊግ ክፍያ"
 
 #. module: members_custom
 #: model:field.study,name:members_custom.ant
@@ -1577,12 +1670,12 @@ msgstr "አልፏል"
 #. module: members_custom
 #: model:field.study,name:members_custom.arc
 msgid "Architecture"
-msgstr "ሥነ- ሕንፃ ጥናት"
+msgstr "ሥነ-ሕንፃ ጥናት"
 
 #. module: members_custom
 #: model:field.study,name:members_custom.art
 msgid "Arts"
-msgstr "ኪነ- ጥበብ"
+msgstr "ኪነ-ጥበብ"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.add_attachment
@@ -1598,7 +1691,7 @@ msgstr "ተያያዝ"
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__attachment_amount
 #: model:ir.model.fields,field_description:members_custom.field_res_users__attachment_amount
 msgid "Attachment Amount"
-msgstr "ተያያዥ ብዛት"
+msgstr "የተያያዥ ብዛት"
 
 #. module: members_custom
 #: model:ir.actions.act_window,name:members_custom.attachment_types
@@ -1623,10 +1716,9 @@ msgstr "ተያያዦች"
 #. module: members_custom
 #: model:res.edlevel,name:members_custom.ba
 msgid "Bachelor of Arts/Science"
-msgstr "ስዕልና ሳይንስ"
+msgstr "የመጀመሪያ ዲግሪ በኪነ-ጥበብ ወይም በሳይንስ"
 
 #. module: members_custom
-#: model:ir.model.fields.selection,name:members_custom.selection__each_member_payment__type_of_payment__bank
 #: model:ir.model.fields.selection,name:members_custom.selection__res_partner__type_of_payment__bank
 #: model:ir.model.fields.selection,name:members_custom.selection__supporter_members__type_of_payment__bank
 msgid "Bank"
@@ -1635,24 +1727,24 @@ msgstr "ባንክ"
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__becomes_member_on
 msgid "Becomes Member On"
-msgstr "አባል ሆነ በ"
+msgstr "አባል የሚሆነው በ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__region_of_birth
 #: model:ir.model.fields,field_description:members_custom.field_res_users__region_of_birth
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "Birth Place Region"
-msgstr "የልደት ቦታ ክልል"
+msgstr "የትውልድ ክልል"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "Birth Place Woreda"
-msgstr "የልደት ቦታ ወረዳ"
+msgstr "የትውልድ ወረዳ"
 
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.blt
 msgid "Blunt"
-msgstr "ብለንት"
+msgstr "ድፍረት ያለው"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_membership_handlers_parent__branch_ids
@@ -1672,12 +1764,12 @@ msgstr "ንግድ"
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.candidate_members_form_view
 msgid "Can Become A Member On"
-msgstr "አባል መሆን ይችላል በ ቀን"
+msgstr "አባል ሊሆን የሚችለው በ"
 
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__member_complaint__state__cancelled
 msgid "Cancelled"
-msgstr "የተሻረ"
+msgstr "የተሰረዘ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__candidate_id
@@ -1696,7 +1788,7 @@ msgstr "የእጩዎች አባላት"
 #. module: members_custom
 #: model:ir.ui.menu,name:members_custom.candidate_members
 msgid "Candidates"
-msgstr "የእጩዎች አባላት"
+msgstr "እጩዎች"
 
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__res_partner__payment_method__cash
@@ -1704,15 +1796,17 @@ msgid "Cash"
 msgstr "ጥሬ ገንዘብ"
 
 #. module: members_custom
+#: model_terms:ir.ui.view,arch_db:members_custom.league_payment_report
 #: model_terms:ir.ui.view,arch_db:members_custom.member_payment_report
+#: model_terms:ir.ui.view,arch_db:members_custom.supporter_payment_report
 msgid "Cashier:"
-msgstr "ገንዘብ ተቀባይ"
+msgstr "ገንዘብ ተቀባይ:"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_main_office__cell_ids
 #: model_terms:ir.ui.view,arch_db:members_custom.membership_reporting_tree_view
 msgid "Cell"
-msgstr "ህዋስ"
+msgstr "ሕዋስ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_member_cells__cell_type_id
@@ -1722,7 +1816,7 @@ msgstr "የሕዋስ ዓይነት"
 #. module: members_custom
 #: model:ir.actions.report,name:members_custom.create_certificate
 msgid "Certificate"
-msgstr ""
+msgstr "የምስክር ወረቀት"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.complaint_form
@@ -1737,7 +1831,7 @@ msgstr "የነበሩት ሁኔቶች"
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.responsible_body_form_view
 msgid "Cities"
-msgstr ""
+msgstr "ከተሞች"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__city
@@ -1752,17 +1846,17 @@ msgstr "ከተማ"
 #: model:ir.model.fields,field_description:members_custom.field_membership_city_handlers__city_manager
 #: model:res.groups,name:members_custom.member_group_city_admin
 msgid "City Administrator"
-msgstr "የሁሉም አስተዳዳሪ"
+msgstr "የከተማ አስተዳዳሪ"
 
 #. module: members_custom
 #: model:ir.ui.menu,name:members_custom.city_membership_handler_menu
 msgid "City Membership Handlers"
-msgstr "ከተማ አባልነት ተቆጣጣሪ"
+msgstr "የከተማ አባልነት ተቆጣጣሪ"
 
 #. module: members_custom
 #: model:ir.actions.report,name:members_custom.report_for_city
 msgid "City Report"
-msgstr "ከተማ ረፖርት"
+msgstr "የከተማ ሪፖርት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_membership_stage__color
@@ -1801,14 +1895,14 @@ msgstr "የቅሬታ ኣመዳደብ"
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.complaint_form
 msgid "Complaint Form"
-msgstr "ቅሬታ ቅጽ"
+msgstr "የቅሬታ ቅጽ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_member_complaint__handler
 #: model:ir.model.fields,field_description:members_custom.field_membership_handlers_branch__complaint_handler
 #: model_terms:ir.ui.view,arch_db:members_custom.membership_handlers_branch_tree_view
 msgid "Complaint Handler"
-msgstr "ቅሬታ ተቆጣጣሪ"
+msgstr "የቅሬታ ፈቺ"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.complaint_end
@@ -1823,7 +1917,7 @@ msgstr "የቅሬታ ዝርዝር"
 #. module: members_custom
 #: model:res.groups,name:members_custom.member_group_complaint_management
 msgid "Complaint Management"
-msgstr "ቅሬታ ገምጋሚ"
+msgstr "የቅሬታ ፈቺ"
 
 #. module: members_custom
 #: model:ir.actions.report,name:members_custom.complaint_report
@@ -1853,7 +1947,7 @@ msgstr "ቅሬታዎች"
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.cps
 msgid "Computer Skills"
-msgstr "የ ኮምፒውተር እውቀት"
+msgstr "የኮምፒውተር እውቀት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_member_complaint__conclusion_report
@@ -1884,6 +1978,7 @@ msgstr "አባል ፍጠር"
 #: model:ir.model.fields,field_description:members_custom.field_attachment_type__create_uid
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__create_uid
 #: model:ir.model.fields,field_description:members_custom.field_complaint_category__create_uid
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__create_uid
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__create_uid
 #: model:ir.model.fields,field_description:members_custom.field_field_study__create_uid
 #: model:ir.model.fields,field_description:members_custom.field_interpersonal_skills__create_uid
@@ -1902,12 +1997,13 @@ msgstr "አባል ፍጠር"
 #: model:ir.model.fields,field_description:members_custom.field_supporter_members__create_uid
 #: model:ir.model.fields,field_description:members_custom.field_work_experience__create_uid
 msgid "Created by"
-msgstr "የተፈጠረ በ"
+msgstr "የተፈጠረው በ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_attachment_type__create_date
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__create_date
 #: model:ir.model.fields,field_description:members_custom.field_complaint_category__create_date
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__create_date
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__create_date
 #: model:ir.model.fields,field_description:members_custom.field_field_study__create_date
 #: model:ir.model.fields,field_description:members_custom.field_interpersonal_skills__create_date
@@ -1926,7 +2022,7 @@ msgstr "የተፈጠረ በ"
 #: model:ir.model.fields,field_description:members_custom.field_supporter_members__create_date
 #: model:ir.model.fields,field_description:members_custom.field_work_experience__create_date
 msgid "Created on"
-msgstr "ተፈጠረ በ ቀን"
+msgstr "ተፈጠረበት ቀን"
 
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.cre
@@ -1936,19 +2032,19 @@ msgstr "የመፍጠር አቅም"
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "Current Address"
-msgstr "ወቅታዊ አድራሻ"
+msgstr "አሁን የሚኖሩበት አድራሻ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_work_experience__current_job
 msgid "Current Job"
-msgstr "የአሁኑ ሥራ"
+msgstr "አሁን የሚሰሩት ሥራ"
 
 #. module: members_custom
 #: model:ir.actions.act_window,name:members_custom.member_dashboard
 #: model:ir.ui.menu,name:members_custom.dashboard_reports
 #: model_terms:ir.ui.view,arch_db:members_custom.dashboard_views
 msgid "Dashboard"
-msgstr "ዳሽቦርድ"
+msgstr "ሪፖርት በስዕላዊ ገለጻ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__date
@@ -1963,12 +2059,12 @@ msgstr "የስብሰባ ቀን"
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_main_office__date_of_meeting_cells
 msgid "Date Of Meeting Cells"
-msgstr "የስብሰባ ሕዋሳት ቀን"
+msgstr "ከህዋስ አመራሮች ጋር የሚደረገው የግንኙነት ቀን"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_main_office__date_of_meeting_eachother
 msgid "Date Of Meeting Eachother"
-msgstr "እርስ በእርስ የሚገናኙበት ቀን"
+msgstr "በራሱ የሚያደርገው የግንኙነት ቀን"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_member_complaint__date_of_remedy
@@ -1990,7 +2086,7 @@ msgstr "ቅሬታ የተሰጠበት ቀን"
 #: model:ir.model.fields,field_description:members_custom.field_res_users__decision
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "Decision"
-msgstr ""
+msgstr "ውሳኔ"
 
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.ded
@@ -2000,7 +2096,7 @@ msgstr "ትጉ"
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.dlg
 msgid "Delegation"
-msgstr "ውክልና"
+msgstr "ስራ ማከፋፈል"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.complaint_list
@@ -2010,7 +2106,7 @@ msgstr "ሰርዝ"
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.candidate_members_form_view
 msgid "Demographic Information"
-msgstr "የስነ ሕዝብ አወቃቀር መረጃ"
+msgstr "ጥሬ ሀቅ መረጃዎች"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
@@ -2021,17 +2117,17 @@ msgstr "ከደረጃ አውርድ"
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__demote_to_member
 #: model:ir.model.fields,field_description:members_custom.field_res_users__demote_to_member
 msgid "Demote To Member"
-msgstr "ወደ አባል ዝቅ አድርግ"
+msgstr "ወደ አባል አውርድ"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "Demote To Member only"
-msgstr "ወደ አባል ብቻ ዝቅ አድርግ"
+msgstr "ወደ አባል ብቻ አውርድ"
 
 #. module: members_custom
 #: model:field.study,name:members_custom.dnt
 msgid "Dental"
-msgstr "የ ጥርስ"
+msgstr "የጥርስ ጥናት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_complaint_category__wereda_id
@@ -2041,17 +2137,18 @@ msgstr "ክፍል"
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.dtr
 msgid "Determination"
-msgstr "ወኔ"
+msgstr "ቆራጥነት"
 
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.dso
 msgid "Disorganized"
-msgstr "የተበተበተ"
+msgstr "ዝርክርክ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_attachment_type__display_name
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__display_name
 #: model:ir.model.fields,field_description:members_custom.field_complaint_category__display_name
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__display_name
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__display_name
 #: model:ir.model.fields,field_description:members_custom.field_field_study__display_name
 #: model:ir.model.fields,field_description:members_custom.field_interpersonal_skills__display_name
@@ -2070,7 +2167,7 @@ msgstr "የተበተበተ"
 #: model:ir.model.fields,field_description:members_custom.field_supporter_members__display_name
 #: model:ir.model.fields,field_description:members_custom.field_work_experience__display_name
 msgid "Display Name"
-msgstr "መጠሪያው ስም"
+msgstr "መጠሪያ ስም"
 
 #. module: members_custom
 #: model:res.edlevel,name:members_custom.dct
@@ -2085,17 +2182,22 @@ msgstr "አውርድ"
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__membership_payment__state__draft
 msgid "Draft"
-msgstr "ረቂቅ"
+msgstr "ንድፍ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_member_complaint__duration_of_remedy
 msgid "Duration Of Remedy"
-msgstr "የመፍትሔ ጊዜ"
+msgstr "መፍትሔ መስጫ ጊዜ"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.complaint_view_search
 msgid "Duration of Remedy"
-msgstr "የ መፍትሔ ቆይታ"
+msgstr "መፍትሔ መስጫ ጊዜ"
+
+#. module: members_custom
+#: model:ir.actions.act_window,name:members_custom.each_league_payment_menu
+msgid "Each League Menu"
+msgstr "የእያንዳንዱ ሊግ ምናሌ"
 
 #. module: members_custom
 #: model:ir.actions.act_window,name:members_custom.each_member_payment_menu
@@ -2106,7 +2208,7 @@ msgstr "የእያንዳንዱ አባል ምናሌ"
 #: model:ir.model.constraint,message:members_custom.constraint_attachment_type_Check
 #: on name
 msgid "Each attachment type must be unique"
-msgstr ""
+msgstr "እያንዳዱ የተያያዥ አይነት ልዩ መሆን አለበት።"
 
 #. module: members_custom
 #: model:ir.model.constraint,message:members_custom.constraint_membership_stage_Check
@@ -2117,12 +2219,12 @@ msgstr ""
 #. module: members_custom
 #: model:field.study,name:members_custom.eco
 msgid "Economics"
-msgstr "ኢኮኖሚክስ"
+msgstr "የምጣኔ ሀብት ጥናት"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.complaint_list
 msgid "Edit"
-msgstr "አርትዕ"
+msgstr "አርም"
 
 #. module: members_custom
 #: model:field.study,name:members_custom.edu
@@ -2144,7 +2246,7 @@ msgstr "የትምህርት ደረጃ"
 #. module: members_custom
 #: model:ir.ui.menu,name:members_custom.res_ed_level_menu
 msgid "Education Level Configuration"
-msgstr ""
+msgstr "የትምህርት ደረጃ ማዋቀርያ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__education_type
@@ -2154,7 +2256,7 @@ msgstr "የትምህርት ዓይነት"
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "Educational Background"
-msgstr "የትምህርት ባግራውንድ"
+msgstr "የትምህርት ሁኔታ"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.candidate_members_form_view
@@ -2176,7 +2278,7 @@ msgstr "ለምሳሌ ዮሴፍ መሰረት አሜን"
 #. module: members_custom
 #: model:res.edlevel,name:members_custom.el
 msgid "Elementary"
-msgstr "ጀማሪ"
+msgstr "አንደኛ ደረጃ ትምህርት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__email_address
@@ -2209,24 +2311,24 @@ msgstr "አካባቢ ጥናት"
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__evaluated
 #: model:ir.model.fields,field_description:members_custom.field_res_users__evaluated
 msgid "Evaluated"
-msgstr ""
+msgstr "ተገምግሟል"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "Evaluation Form"
-msgstr ""
+msgstr "መገምገምያ ቅጽ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__evaluation_main_points
 #: model:ir.model.fields,field_description:members_custom.field_res_users__evaluation_main_points
 msgid "Evaluation Main Points"
-msgstr ""
+msgstr "የግምገማው ዋና ዋና ነጥቦች"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__experience
 #: model:ir.model.fields,field_description:members_custom.field_res_users__experience
 msgid "Experience"
-msgstr ""
+msgstr "ልምድ"
 
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.fsl
@@ -2234,14 +2336,15 @@ msgid "Fast Learner"
 msgstr "ፈጣን ተማሪ"
 
 #. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__fee_amount
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__fee_amount
 msgid "Fee Amount"
-msgstr "የክፍያ መጠን መቶኛ"
+msgstr "የክፍያ መጠን"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_payment_fee_configuration__fee_in_percent
 msgid "Fee in Percent"
-msgstr "ክፍያ መቶኛ ከ 100 በታች መሆን አለበት"
+msgstr "ክፍያ በመቶኛ"
 
 #. module: members_custom
 #: model:ir.model.constraint,message:members_custom.constraint_payment_fee_configuration_check_on_fee_in_percent
@@ -2272,17 +2375,17 @@ msgstr "የጥናት መስክ"
 #. module: members_custom
 #: model:ir.ui.menu,name:members_custom.field_study_menu
 msgid "Field of Study Configuration"
-msgstr ""
+msgstr "የጥናት መስክ ማዋቀርያ"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "Finish Evaluation"
-msgstr ""
+msgstr "ግምገማውን ጨርስ"
 
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.fle
 msgid "Flexible"
-msgstr "ተጣጣፊ"
+msgstr "እንደ አስፈላጊነቱ የሚለዋወጥ"
 
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__candidate_members__education_type__formal
@@ -2292,12 +2395,12 @@ msgstr "መደበኛ"
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.supporter_kanban_view
 msgid "From"
-msgstr ""
+msgstr "ከ"
 
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__res_partner__membership_status__full_member
 msgid "Full Member"
-msgstr ""
+msgstr "ሙሉ አባል"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
@@ -2329,22 +2432,22 @@ msgstr "ጾታ ሪፖርቶች ከትምህርት ደረጃ ጋር"
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.dashboard_views
 msgid "Gender Reports with Start of Membership"
-msgstr "ጾታ ሪፖርቶች ክፍለ ከተማ ውስጥ በ አባልነት ጅማሬ"
+msgstr "ጾታ ሪፖርቶች ከአባልነት ጅማሬ ጋር"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.dashboard_views
 msgid "Gender Reports within Subcities"
-msgstr "ጾታ ሪፖርቶች ክፍለ ከተማ ውስጥ"
+msgstr "ጾታ ሪፖርቶች በክፍለ ከተማ ውስጥ"
 
 #. module: members_custom
 #: model:field.study,name:members_custom.geo
 msgid "Geography"
-msgstr "ጂኦግራፊ"
+msgstr "መልክዓ ምድራዊ ጥናት"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.membership_payment_form
 msgid "Go Back To Draft"
-msgstr ""
+msgstr "ወደ ንድፍ ተመለስ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__gov_responsibility
@@ -2370,14 +2473,16 @@ msgid "Grade"
 msgstr "ደረጃ"
 
 #. module: members_custom
+#: model_terms:ir.ui.view,arch_db:members_custom.each_league_payment_search
 #: model_terms:ir.ui.view,arch_db:members_custom.each_member_payment_search
 #: model_terms:ir.ui.view,arch_db:members_custom.leader_view_search
 #: model_terms:ir.ui.view,arch_db:members_custom.league_view_search
 #: model_terms:ir.ui.view,arch_db:members_custom.member_cell_action_search
 #: model_terms:ir.ui.view,arch_db:members_custom.member_view_search
 #: model_terms:ir.ui.view,arch_db:members_custom.supported_view_search
+#: model_terms:ir.ui.view,arch_db:members_custom.supporter_payment_search
 msgid "Group By"
-msgstr ""
+msgstr "አመዳደብ ዓይነት"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.complaint_report_templates
@@ -2397,12 +2502,12 @@ msgstr "ከአባላት ጋር የተዛመዱ ጉዳዮችን ለማስተና�
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__res_partner__grade__high
 msgid "High"
-msgstr ""
+msgstr "ከፍተኛ"
 
 #. module: members_custom
 #: model:field.study,name:members_custom.hst
 msgid "History"
-msgstr "ታሪክ"
+msgstr "የታሪክ ጥናት"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.candidate_members_form_view
@@ -2424,6 +2529,7 @@ msgstr "የቤት ስልክ ቁጥር"
 #: model:ir.model.fields,field_description:members_custom.field_attachment_type__id
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__id
 #: model:ir.model.fields,field_description:members_custom.field_complaint_category__id
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__id
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__id
 #: model:ir.model.fields,field_description:members_custom.field_field_study__id
 #: model:ir.model.fields,field_description:members_custom.field_interpersonal_skills__id
@@ -2442,7 +2548,7 @@ msgstr "የቤት ስልክ ቁጥር"
 #: model:ir.model.fields,field_description:members_custom.field_supporter_members__id
 #: model:ir.model.fields,field_description:members_custom.field_work_experience__id
 msgid "ID"
-msgstr "መታወቂያ"
+msgstr "መለያ ቁጥር"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__image_1920
@@ -2458,10 +2564,9 @@ msgstr "ያልተረጋጋ"
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__supporter_members__status__in_country
 msgid "In Country"
-msgstr ""
+msgstr "ሀገር ውስጥ"
 
 #. module: members_custom
-#: model:ir.model.fields.selection,name:members_custom.selection__each_member_payment__type_of_payment__in_person
 #: model:ir.model.fields.selection,name:members_custom.selection__res_partner__type_of_payment__in_person
 #: model:ir.model.fields.selection,name:members_custom.selection__supporter_members__type_of_payment__in_person
 msgid "In Person"
@@ -2470,7 +2575,7 @@ msgstr "በአካል"
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__res_partner__leadership_status__inactive
 msgid "Inactive"
-msgstr ""
+msgstr "እየሰራ ያልሆነ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__income
@@ -2479,12 +2584,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:members_custom.candidate_members_form_view
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "Income"
-msgstr "ገቢ"
+msgstr "የገቢ መጠን"
 
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__candidate_members__source_of_livelihood__individual
 msgid "Individual"
-msgstr "ግለሰብ"
+msgstr "በግለሰብ"
 
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__candidate_members__education_type__informal
@@ -2499,27 +2604,27 @@ msgstr "መረጃ"
 #. module: members_custom
 #: model:field.study,name:members_custom.ict
 msgid "Information Technology and Communication"
-msgstr "ኢንፎርሜሽን ግኑኙነት ቴክኖሎጂ"
+msgstr "የኮምፒውተር ትምህርት"
 
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.ins
 msgid "Insecure"
-msgstr "በደንብ ያልተቆለፈ"
+msgstr "የማያስተማምን"
 
 #. module: members_custom
 #: model:field.study,name:members_custom.int
 msgid "Interdisciplinary Studies"
-msgstr ""
+msgstr "የሁለገብ ጥናት"
 
 #. module: members_custom
 #: model:ir.actions.act_window,name:members_custom.interpersonal_skills_action
 msgid "Interpersonal Skills"
-msgstr ""
+msgstr "ግለሰባዊ ግንኙነት ችሎታዎች"
 
 #. module: members_custom
 #: model:ir.ui.menu,name:members_custom.interpersonal_skills_menu
 msgid "Interpersonal Skills Configuration"
-msgstr ""
+msgstr "ግለሰባዊ ግንኙነት ችሎታዎች ማዋቀርያ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__is_leader
@@ -2548,19 +2653,19 @@ msgstr "የሥራ አይነት"
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_work_experience__name
 msgid "Job Title"
-msgstr "የስራ መደቡ መጠሪያ"
+msgstr "የሥራ አይነት"
 
 #. module: members_custom
 #: model:res.edlevel,name:members_custom.js
 msgid "Junior Secondary"
-msgstr "ጀማሪ ሁለተኛ"
+msgstr "መለስተኛ ሁለተኛ ደረጃ ትምህርት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__kebele
 #: model:ir.model.fields,field_description:members_custom.field_res_users__kebele
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "Kebele"
-msgstr ""
+msgstr "ቀበሌ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__key_strength
@@ -2580,12 +2685,13 @@ msgstr "ቁልፍ ድክመት"
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__res_partner__league_org__labourer
 msgid "Labourer"
-msgstr ""
+msgstr "ላብ አደር"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_attachment_type____last_update
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members____last_update
 #: model:ir.model.fields,field_description:members_custom.field_complaint_category____last_update
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment____last_update
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment____last_update
 #: model:ir.model.fields,field_description:members_custom.field_field_study____last_update
 #: model:ir.model.fields,field_description:members_custom.field_interpersonal_skills____last_update
@@ -2604,12 +2710,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:members_custom.field_supporter_members____last_update
 #: model:ir.model.fields,field_description:members_custom.field_work_experience____last_update
 msgid "Last Modified on"
-msgstr "ለመጨረሻ ጊዜ ተሻሽሏል"
+msgstr "ለመጨረሻ ጊዜ የተሻሻለው"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_attachment_type__write_uid
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__write_uid
 #: model:ir.model.fields,field_description:members_custom.field_complaint_category__write_uid
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__write_uid
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__write_uid
 #: model:ir.model.fields,field_description:members_custom.field_field_study__write_uid
 #: model:ir.model.fields,field_description:members_custom.field_interpersonal_skills__write_uid
@@ -2628,12 +2735,13 @@ msgstr "ለመጨረሻ ጊዜ ተሻሽሏል"
 #: model:ir.model.fields,field_description:members_custom.field_supporter_members__write_uid
 #: model:ir.model.fields,field_description:members_custom.field_work_experience__write_uid
 msgid "Last Updated by"
-msgstr "ለመጨረሻ ጊዜ የተዘመነ በ"
+msgstr "ለመጨረሻ ጊዜ ያደሰው"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_attachment_type__write_date
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__write_date
 #: model:ir.model.fields,field_description:members_custom.field_complaint_category__write_date
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__write_date
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__write_date
 #: model:ir.model.fields,field_description:members_custom.field_field_study__write_date
 #: model:ir.model.fields,field_description:members_custom.field_interpersonal_skills__write_date
@@ -2652,7 +2760,7 @@ msgstr "ለመጨረሻ ጊዜ የተዘመነ በ"
 #: model:ir.model.fields,field_description:members_custom.field_supporter_members__write_date
 #: model:ir.model.fields,field_description:members_custom.field_work_experience__write_date
 msgid "Last Updated on"
-msgstr "ለመጨረሻ ጊዜ የተዘመነ"
+msgstr "ለመጨረሻ ጊዜ የታደሰው"
 
 #. module: members_custom
 #: model:field.study,name:members_custom.law
@@ -2668,14 +2776,14 @@ msgstr "መሪ"
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "Leader Experience"
-msgstr ""
+msgstr "የመሪ ልምድ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__leader_transfer
 #: model:ir.model.fields,field_description:members_custom.field_res_users__leader_transfer
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "Leader Transfer"
-msgstr ""
+msgstr "የመሪ ዝውውር"
 
 #. module: members_custom
 #: model:ir.actions.act_window,name:members_custom.leaders_menu
@@ -2689,12 +2797,12 @@ msgstr "መሪዎች"
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_leader_transfer__leadership_experience
 msgid "Leadership Experience"
-msgstr ""
+msgstr "የአመራር ልምድ"
 
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.lsk
 msgid "Leadership Skills"
-msgstr "የመሪነት ጥበብ"
+msgstr "የአመራር ችሎታ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_leader_transfer__leadership_status
@@ -2705,61 +2813,109 @@ msgid "Leadership Status"
 msgstr "የአመራር ሁኔታ"
 
 #. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__league_id
+#: model:ir.model.fields,field_description:members_custom.field_membership_payment__league_ids
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "League"
 msgstr "ሊግ"
 
 #. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_membership_payment__total_estimated_for_leagues
+msgid "League Estimated"
+msgstr "የሊጎች ክፍያ በግምት"
+
+#. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__res_partner__league_status__league_leader
 msgid "League Leader"
-msgstr ""
+msgstr "የሊግ መሪ"
 
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__res_partner__league_status__league_member
 msgid "League Member"
-msgstr ""
+msgstr "የሊግ አባል"
 
 #. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__league_org
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__league_org
 #: model:ir.model.fields,field_description:members_custom.field_res_users__league_org
 msgid "League Org"
-msgstr "ሊግ ድርጅት"
+msgstr "ማህበራዊ መሰረት"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
+#: model_terms:ir.ui.view,arch_db:members_custom.each_league_payment_search
 #: model_terms:ir.ui.view,arch_db:members_custom.league_view_search
 msgid "League Organization"
-msgstr "ሊግ ድርጅት"
+msgstr "ማህበራዊ መሰረት"
+
+#. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_membership_payment__total_paid_for_leagues
+msgid "League Paid"
+msgstr "የሊጎች የተከፈለው መጠን"
+
+#. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_res_partner__league_payment
+#: model:ir.model.fields,field_description:members_custom.field_res_users__league_payment
+msgid "League Payment"
+msgstr "የሊግ ክፍያ"
+
+#. module: members_custom
+#: model:ir.actions.report,name:members_custom.create_league_payment_report
+msgid "League Payment Report"
+msgstr "የሊግ ክፍያ ሪፖርት"
+
+#. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_res_partner__league_payments
+#: model:ir.model.fields,field_description:members_custom.field_res_users__league_payments
+#: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
+msgid "League Payments"
+msgstr "የሊግ ክፍያዎች"
+
+#. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_membership_payment__total_remaining_for_leagues
+msgid "League Remaining"
+msgstr "የሊጎች ቀሪ ክፍያ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__league_status
 #: model:ir.model.fields,field_description:members_custom.field_res_users__league_status
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "League Status"
-msgstr ""
+msgstr "የሊግ ሁኔታ"
 
 #. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__league_type
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__league_type
 #: model:ir.model.fields,field_description:members_custom.field_res_users__league_type
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
+#: model_terms:ir.ui.view,arch_db:members_custom.each_league_payment_search
 msgid "League Type"
-msgstr "ሊግ አይነት"
+msgstr "የሊግ አይነት"
 
 #. module: members_custom
 #: model:ir.actions.act_window,name:members_custom.leagues_menu
+#: model:ir.model.fields,field_description:members_custom.field_member_cells__leagues_ids
 #: model:ir.ui.menu,name:members_custom.league_views
+#: model_terms:ir.ui.view,arch_db:members_custom.member_cell_form
+#: model_terms:ir.ui.view,arch_db:members_custom.membership_payment_form
 msgid "Leagues"
-msgstr "ሊግ"
+msgstr "ሊጎች"
+
+#. module: members_custom
+#: model:ir.ui.menu,name:members_custom.league_payment_detail_menu
+#: model_terms:ir.ui.view,arch_db:members_custom.each_league_payment_search
+msgid "Leagues' Payment"
+msgstr "የሁሉም ሊጎች ክፍያ"
 
 #. module: members_custom
 #: model:field.study,name:members_custom.lbr
 msgid "Library and Museum Studies"
-msgstr "ቤተመጽሃፍት እና ሙዚየም"
+msgstr "የቤተመጽሃፍት እና የሙዚየም ጥናት"
 
 #. module: members_custom
 #: model:field.study,name:members_custom.lin
 msgid "Linguistics"
-msgstr "ግብአቶች"
+msgstr "ስነ-ቋንቋ"
 
 #. module: members_custom
 #: model:ir.ui.menu,name:members_custom.complaint_list_view
@@ -2769,40 +2925,43 @@ msgstr "ቅሬታዎች ዝርዝር"
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.candidate_members_form_view
 msgid "Livelihood"
-msgstr "አኗኗር"
+msgstr "መተዳደሪያ"
 
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__res_partner__grade__low
 msgid "Low"
-msgstr ""
+msgstr "ዝቅተኛ"
 
 #. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__main_office_id
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__main_office_id
 #: model:ir.model.fields,field_description:members_custom.field_member_cells__main_office
 #: model:ir.model.fields,field_description:members_custom.field_membership_handlers_branch__main_office_ids
 #: model:ir.model.fields,field_description:members_custom.field_membership_payment__main_office
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__main_office
 #: model:ir.model.fields,field_description:members_custom.field_res_users__main_office
+#: model_terms:ir.ui.view,arch_db:members_custom.each_league_payment_search
 #: model_terms:ir.ui.view,arch_db:members_custom.each_member_payment_search
+#: model_terms:ir.ui.view,arch_db:members_custom.league_payment_report
 #: model_terms:ir.ui.view,arch_db:members_custom.member_cell_action_search
 #: model_terms:ir.ui.view,arch_db:members_custom.member_payment_report
 msgid "Main Office"
-msgstr "መሰረታዊ አድረጃጀት"
+msgstr "መሰረታዊ ድርጅት"
 
 #. module: members_custom
 #: model:ir.ui.menu,name:members_custom.membership_wereda_menu
 msgid "Main Office Payment"
-msgstr "የመሰረታዊ አድረጃጀት ክፍያ"
+msgstr "የመሰረታዊ ድርጅት ክፍያ"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.membership_handlers_branch_form_view
 msgid "Main Offices"
-msgstr "ዋና መስሪያ ቤቶች"
+msgstr "መሰረታዊ ድርጅቶች"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_main_office__main_type_id
 msgid "Main Type"
-msgstr "የመሰረታዊ አድረጃጀት ዓይነት"
+msgstr "የመሰረታዊ ድርጅት ዓይነት"
 
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__candidate_members__gender__male
@@ -2814,17 +2973,17 @@ msgstr "ወንድ"
 #. module: members_custom
 #: model:field.study,name:members_custom.mng
 msgid "Management"
-msgstr "መቆጣጠር"
+msgstr "የሥራ አመራር ጥናት"
 
 #. module: members_custom
 #: model:res.edlevel,name:members_custom.mst
 msgid "Master"
-msgstr "አዋቂ"
+msgstr "ማስተርስ"
 
 #. module: members_custom
 #: model:field.study,name:members_custom.mat
 msgid "Mathematics"
-msgstr "ሂሳብ"
+msgstr "የሂሳብ ጥናት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_payment_fee_configuration__maximum_wage
@@ -2834,17 +2993,17 @@ msgstr "ከፍተኛ ደመወዝ"
 #. module: members_custom
 #: model:ir.model.constraint,message:members_custom.constraint_payment_fee_configuration_check_on_maximum_wage
 msgid "Maximum wage must be more than Minimum Wage and 1"
-msgstr "ከፍተኛው ደመወዝ ከዝቅተኛ ደመወዝ በላይ መሆን አለበት እና 1"
+msgstr "ከፍተኛው ደመወዝ ከዝቅተኛ ደመወዝ እና 1 ብር በላይ መሆን አለበት "
 
 #. module: members_custom
 #: model:field.study,name:members_custom.med
 msgid "Medicine"
-msgstr "መድሃኒት"
+msgstr "ሕክምና"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_main_office__meeting_memebers_every
 msgid "Meeting Memebers Every"
-msgstr "የሁሉ አባል ስብሰባ"
+msgstr "አባላት ስብሰባ በየ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__member_id
@@ -2854,12 +3013,13 @@ msgid "Member"
 msgstr "አባል"
 
 #. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__cell_id
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__cell_id
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__member_cells
 #: model:ir.model.fields,field_description:members_custom.field_res_users__member_cells
 #: model:ir.ui.menu,name:members_custom.member_cell_menu
 msgid "Member Cells"
-msgstr "የአባላት ሕዋሳት"
+msgstr "የአባል ሕዋስ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__member_complaint_ids
@@ -2869,6 +3029,11 @@ msgid "Member Complaint"
 msgstr "የአባል ቅሬታ"
 
 #. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_membership_payment__total_estimated_for_members
+msgid "Member Estimated"
+msgstr "የአባላት ክፍያ በግምት"
+
+#. module: members_custom
 #: model:ir.module.category,name:members_custom.module_category_member_handlers
 msgid "Member Handlers"
 msgstr "የአባላት ተቆጣጣሪዎች"
@@ -2876,23 +3041,33 @@ msgstr "የአባላት ተቆጣጣሪዎች"
 #. module: members_custom
 #: model:ir.actions.report,name:members_custom.create_member_id
 msgid "Member ID card"
-msgstr "የአባላት መታወቂያ ካርድ"
+msgstr "የአባል መለያ ካርድ"
 
 #. module: members_custom
 #: model:ir.ui.menu,name:members_custom.member_office_menu
 msgid "Member Main Office"
-msgstr "የመሰረታዊ አድረጃጀት አባላት"
+msgstr "የአባል መሰረታዊ ድርጅት"
+
+#. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_membership_payment__total_paid_for_members
+msgid "Member Paid"
+msgstr "የአባላት የተከፈለው መጠን"
 
 #. module: members_custom
 #: model:ir.actions.report,name:members_custom.create_member_payment_report
 msgid "Member Payment Report"
-msgstr "የአባል ክፍያ ሪፖርት"
+msgstr "የሁሉም አባላት ክፍያ ሪፖርት"
+
+#. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_membership_payment__total_remaining_for_members
+msgid "Member Remaining"
+msgstr "የአባላት ቀሪ ክፍያ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__member_responsibility
 #: model:ir.model.fields,field_description:members_custom.field_res_users__member_responsibility
 msgid "Member Responsibility"
-msgstr "የአባልነት ሃላፊነት"
+msgstr "የአባል ሃላፊነት"
 
 #. module: members_custom
 #: model:ir.actions.act_window,name:members_custom.member_cell_action
@@ -2903,17 +3078,17 @@ msgstr "የአባላት ህዋስ"
 #. module: members_custom
 #: model:ir.actions.act_window,name:members_custom.payment_fee_configuration_action
 msgid "Member's Fee Menu"
-msgstr "የአባላት ክፍያ ሜኑ"
+msgstr "የአባላት ክፍያ ምናሌ"
 
 #. module: members_custom
 #: model:ir.actions.act_window,name:members_custom.member_office_action
 msgid "Member's Main Office"
-msgstr "የመሰረታዊ አድረጃጀት አባላት"
+msgstr "የአባላት መሰረታዊ ድርጅቶች"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.member_inherit_view_search
 msgid "Member_search"
-msgstr "የአባላት_ፍለጋ"
+msgstr "አባላት ፈልግ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_member_cells__members_ids
@@ -2923,6 +3098,7 @@ msgid "Members"
 msgstr "አባላት"
 
 #. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__members_payment_id
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__members_payment_id
 msgid "Members Payment"
 msgstr "የአባላት ክፍያ"
@@ -2930,18 +3106,18 @@ msgstr "የአባላት ክፍያ"
 #. module: members_custom
 #: model:ir.ui.menu,name:members_custom.fee_reports
 msgid "Members Total and Fee Report"
-msgstr ""
+msgstr "አጠቃላይ የአባላት ብዛት እና አጠቃላይ የክፍያቸው ሪፖርት"
 
 #. module: members_custom
 #: model:ir.ui.menu,name:members_custom.membership_payment_detail_menu
 #: model_terms:ir.ui.view,arch_db:members_custom.each_member_payment_search
 msgid "Members' Payment"
-msgstr "የአባላት ክፍያ"
+msgstr "የሁሉም አባላት ክፍያ"
 
 #. module: members_custom
 #: model:ir.actions.act_window,name:members_custom.membership_handler_city_action
 msgid "Membership City Wide Handlers"
-msgstr "የ አባልነት ከተማ አቀፍ ተቆጣጣሪዎች"
+msgstr "የአባልነት ከተማ አቀፍ ተቆጣጣሪዎች"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_leader_transfer__membership_fee
@@ -2957,12 +3133,12 @@ msgstr "የአባልነት ተቆጣጣሪዎች"
 #. module: members_custom
 #: model:ir.actions.act_window,name:members_custom.membership_handler_branch_action
 msgid "Membership Handlers Branch"
-msgstr "የአባልነት ተቆጣጣሪ ቅርንጫፍ "
+msgstr "የአባልነት ተቆጣጣሪ ወረዳ"
 
 #. module: members_custom
 #: model:ir.actions.act_window,name:members_custom.membership_handler_parent_action
 msgid "Membership Handlers Parent"
-msgstr "የአባልነት ተቆጣጣሪዎች ወላጅ"
+msgstr "የአባልነት ተቆጣጣሪዎች ክፍለ ከተማ"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.barnches_view_search
@@ -2978,40 +3154,40 @@ msgstr "የአባልነት መረጃ"
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__membership_monthly_fee_cash
 #: model:ir.model.fields,field_description:members_custom.field_res_users__membership_monthly_fee_cash
 msgid "Membership Monthly Fee Cash"
-msgstr "የአባልነት ወርሃዊ ክፍያ ገንዘብ"
+msgstr "የአባልነት ወርሃዊ መዋጮ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__membership_monthly_fee_cash_from_percent
 #: model:ir.model.fields,field_description:members_custom.field_res_users__membership_monthly_fee_cash_from_percent
 msgid "Membership Monthly Fee Cash From Percent"
-msgstr "የአባልነት ወርሃዊ የክፍያ ጥሬ ገንዘብ ከመቶው"
+msgstr "የአባልነት ወርሃዊ መዋጮ ከመቶኛ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__membership_monthly_fee_percent
 #: model:ir.model.fields,field_description:members_custom.field_res_users__membership_monthly_fee_percent
 msgid "Membership Monthly Fee Percent"
-msgstr "የወር ወርሃዊ ክፍያ መቶኛ"
+msgstr "የአባልነት ወርሃዊ ክፍያ በመቶኛ"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "Membership Organized Under"
-msgstr "የአባልነት የተደራጀ በ ስር "
+msgstr "የአባል ድርጅት"
 
 #. module: members_custom
 #: model:ir.actions.act_window,name:members_custom.membership_payment_action
 msgid "Membership Payment Menu"
-msgstr "የአባልነት ክፍያ ሜኑ"
+msgstr "የአባልነት ክፍያ ምናሌ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__membership_payments
 #: model:ir.model.fields,field_description:members_custom.field_res_users__membership_payments
 msgid "Membership Payments"
-msgstr "የአባልነት ክፍያዎች"
+msgstr "የአባል ክፍያዎች"
 
 #. module: members_custom
 #: model:ir.actions.act_window,name:members_custom.membership_reporting_action
 msgid "Membership Reporting"
-msgstr ""
+msgstr "የአባል ሪፖርት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_membership_stage__name
@@ -3022,7 +3198,7 @@ msgstr "የአባልነት ደረጃ"
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__start_of_membership
 #: model:ir.model.fields,field_description:members_custom.field_res_users__start_of_membership
 msgid "Membership Start Year"
-msgstr "የአባልነት ጅምር ዓመት"
+msgstr "አባልነት የጀመረበት ዓመት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__membership_status
@@ -3036,12 +3212,12 @@ msgstr "የአባልነት ሁኔታ"
 #: model:ir.cron,cron_name:members_custom.autochecker_on_candidate
 #: model:ir.cron,name:members_custom.autochecker_on_candidate
 msgid "Membership: Auto Checker On Candidate"
-msgstr "አባልነት-በራስ-ሰር ቼክ እጩ"
+msgstr "አባልነት: እጩን ተከታተል"
 
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__res_partner__grade__mid
 msgid "Mid"
-msgstr ""
+msgstr "መካከለኛ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_payment_fee_configuration__minimum_wage
@@ -3051,7 +3227,7 @@ msgstr "ዝቅተኛ ክፍያ"
 #. module: members_custom
 #: model:ir.model.constraint,message:members_custom.constraint_payment_fee_configuration_check_on_minimum_wage
 msgid "Minimum wage must be less than Maximum Wage and greater than 1"
-msgstr "አነስተኛ ደመወዝ ከፍተኛው ደሞዝ ያነሰ እና ከ 1 የሚበልጥ መሆን አለበት"
+msgstr "አነስተኛ ደመወዝ ከከፍተኛው ደሞዝ ያነሰ እና ከ 1 ብር የሚበልጥ መሆን አለበት::"
 
 #. module: members_custom
 #: model:ir.ui.menu,name:members_custom.minor_menus
@@ -3061,17 +3237,19 @@ msgstr "ጥቃቅን ውቅሮች"
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.ltd
 msgid "Missing Deadlines"
-msgstr "ቀነ-ገደብ ጠፍቷል"
+msgstr "የጊዜ ገደብ የሚያመልጠው"
 
 #. module: members_custom
+#: model_terms:ir.ui.view,arch_db:members_custom.each_league_payment_search
 #: model_terms:ir.ui.view,arch_db:members_custom.each_member_payment_search
+#: model_terms:ir.ui.view,arch_db:members_custom.supporter_payment_search
 msgid "Month"
-msgstr ""
+msgstr "ወር"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "Monthly Fee Cash"
-msgstr "ወርሃዊ ክፍያ ገንዘብ"
+msgstr "ወርሃዊ ክፍያ"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
@@ -3081,12 +3259,12 @@ msgstr "ወርሃዊ ክፍያ በጥሬ ገንዘብ"
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "Monthly Fee Percent"
-msgstr "ወርሃዊ ክፍያ መቶኛ"
+msgstr "ወርሃዊ ክፍያ በመቶኛ"
 
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.mts
 msgid "Multitasking"
-msgstr "ብዙ ስራ መስራት በ አንዴ"
+msgstr "በአንዴ ብዙ ስራ መስራት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__name
@@ -3099,6 +3277,7 @@ msgstr "ብዙ ስራ መስራት በ አንዴ"
 #: model:ir.model.fields,field_description:members_custom.field_responsible_bodies__name
 #: model:ir.model.fields,field_description:members_custom.field_supporter_members__name
 #: model_terms:ir.ui.view,arch_db:members_custom.candidate_members_tree_view
+#: model_terms:ir.ui.view,arch_db:members_custom.each_league_payment_search
 #: model_terms:ir.ui.view,arch_db:members_custom.each_member_payment_search
 #: model_terms:ir.ui.view,arch_db:members_custom.supported_members_tree_view
 msgid "Name"
@@ -3119,7 +3298,7 @@ msgstr "ስሞች"
 #: model:ir.model.fields,field_description:members_custom.field_res_users__nation
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "Nation"
-msgstr ""
+msgstr "ብሔር"
 
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__candidate_members__state__new
@@ -3144,25 +3323,32 @@ msgid "Non-Formal"
 msgstr "መደበኛ ያልሆነ"
 
 #. module: members_custom
+#: model:ir.model.fields.selection,name:members_custom.selection__each_league_payment__state__not_payed
 #: model:ir.model.fields.selection,name:members_custom.selection__each_member_payment__state__not_payed
 msgid "Not Payed"
-msgstr "አልተከፈለም"
+msgstr "ያልተከፈለ"
 
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__res_partner__stock__not_selected
 msgid "Not Selected"
-msgstr ""
+msgstr "ያልተመረጠ"
 
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.nwt
 msgid "Not Willing To Ask For Clarification"
-msgstr "ለማብራራት ፈቃደኛ አለመሆን"
+msgstr "ማብራሪያ ለመጠየቅ ፈቃደኛ ያልሆነ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__office_phone_number
 #: model_terms:ir.ui.view,arch_db:members_custom.candidate_members_form_view
 msgid "Office Phone Number"
 msgstr "የቢሮ ስልክ ቁጥር"
+
+#. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__original
+#: model:ir.model.fields,field_description:members_custom.field_each_member_payment__original
+msgid "Original"
+msgstr "የቀድሞ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__other_trainings
@@ -3175,25 +3361,28 @@ msgstr "ሌሎች ስልጠናዎች"
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__supporter_members__status__outside_of_country
 msgid "Outside of Country"
-msgstr ""
+msgstr "ከሀገር ውጪ"
 
 #. module: members_custom
 #: model:ir.actions.act_window,name:members_custom.default_filter_modification
 #: model:ir.ui.menu,name:members_custom.submenu_own_members
 msgid "Own Members"
-msgstr "የራስ አባላት"
+msgstr "የግል አባላት"
 
 #. module: members_custom
+#: model:ir.model.fields.selection,name:members_custom.selection__each_league_payment__state__paid
 #: model:ir.model.fields.selection,name:members_custom.selection__each_member_payment__state__paid
 msgid "Paid"
 msgstr "ተከፍሏል"
 
 #. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__paid_fully
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__paid_fully
 msgid "Paid Fully"
-msgstr "ተከፍሏል በሙሉ"
+msgstr "በሙሉ ተከፍሏል"
 
 #. module: members_custom
+#: model:ir.model.fields.selection,name:members_custom.selection__each_league_payment__state__paid_some
 #: model:ir.model.fields.selection,name:members_custom.selection__each_member_payment__state__paid_some
 msgid "Paid Some"
 msgstr "አንዳንድ ተከፍሏል"
@@ -3206,9 +3395,22 @@ msgid "Partner"
 msgstr "አጋር"
 
 #. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_res_partner__pay_for_league
+#: model:ir.model.fields,field_description:members_custom.field_res_users__pay_for_league
+msgid "Pay For League"
+msgstr "ለሊግ ክፈል"
+
+#. module: members_custom
+#: model_terms:ir.ui.view,arch_db:members_custom.each_league_payment_tree
 #: model_terms:ir.ui.view,arch_db:members_custom.each_member_payment_tree
+#: model_terms:ir.ui.view,arch_db:members_custom.membership_payment_form
 msgid "Pay Slip"
-msgstr "የክፍያ ስሊፕ"
+msgstr "ደረሰኝ"
+
+#. module: members_custom
+#: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
+msgid "Pay as a League"
+msgstr "ለሊግ ክፈል"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_supporter_members__payment_id
@@ -3219,17 +3421,17 @@ msgstr "ክፍያ"
 #. module: members_custom
 #: model:ir.ui.menu,name:members_custom.payment_fee_configuration_menu
 msgid "Payment Fee Configuration"
-msgstr "የክፍያ ገንዘብ ውቅር"
+msgstr "የክፍያ ገንዘብ ማዋቀርያ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_membership_payment__payment_for_supporter
 msgid "Payment For Supporter"
-msgstr "ለድጋፊ ክፍያ"
+msgstr "የደጋፊ ክፍያ"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.membership_payment_form
 msgid "Payment For Supporters"
-msgstr "ለድጋፊዎች ክፍያ"
+msgstr "የደጋፊዎች ክፍያ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__payment_method
@@ -3294,7 +3496,7 @@ msgstr "ስልክ"
 #: code:addons/members_custom/models/complaint_form.py:0
 #, python-format
 msgid "Pick A Date After The Date It Was Created"
-msgstr ""
+msgstr "ቅሬታው ከቀረበበት ቀን በኃላ ያሉት ቀናት ይምረጡ።"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_member_cells__place_of_meeting
@@ -3304,18 +3506,18 @@ msgstr "የመገናኛ ቦታ"
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_main_office__place_of_meeting_cells
 msgid "Place Of Meeting Cells"
-msgstr "የመገናኛ ሕዋሳት ቦታ"
+msgstr "የሕዋሳት መገናኛ ቦታ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_main_office__place_of_meeting_eachother
 msgid "Place Of Meeting Eachother"
-msgstr "እርስ በእርስ የመገናኘት ቦታ"
+msgstr "እርስ በእርስ የመገናኛ ቦታ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_leader_transfer__place_of_work
 #: model_terms:ir.ui.view,arch_db:members_custom.supported_members_form_view
 msgid "Place Of Work"
-msgstr ""
+msgstr "የስራ ቦታ"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
@@ -3323,12 +3525,24 @@ msgid "Place of Birth"
 msgstr "የትውልድ ቦታ"
 
 #. module: members_custom
+#: code:addons/members_custom/models/membership_payment.py:0
+#, python-format
+msgid "Please Add The Amount Paid"
+msgstr "የተቀበሉት አጠቃላይ የጥሬ ገንዘብ መጠን ይፃፉ::"
+
+#. module: members_custom
 #: code:addons/members_custom/models/candidate_members.py:0
 #: code:addons/members_custom/models/candidate_members.py:0
 #: code:addons/members_custom/models/candidate_members.py:0
 #, python-format
 msgid "Please Enter The Right Country Phone Code. eg +251......."
-msgstr "እባክዎ ትክክለኛውን የገር ስልክ ኮድ ያስገቡ. ለምሳሌ +251 ........."
+msgstr "እባክዎ ትክክለኛውን የገር ስልክ ኮድ ያስገቡ:: ለምሳሌ +251 ........."
+
+#. module: members_custom
+#: code:addons/members_custom/models/membership_payment.py:0
+#, python-format
+msgid "Please Fill In The Year and Month First."
+msgstr "መጀመሪያ ዓመተ ምህረት እና ወሩን ያስገቡ"
 
 #. module: members_custom
 #: code:addons/members_custom/models/candidate_members.py:0
@@ -3337,14 +3551,14 @@ msgstr "እባክዎ ትክክለኛውን የገር ስልክ ኮድ ያስገ�
 #, python-format
 msgid ""
 "Please Make Sure You Entered a 12 digit Phone Number with + At The Beginning"
-msgstr "እባክህን በመጀመሪያ የ 12 አሃዝ ስልክ ቁጥር + ማስገባትዎን ያረጋግጡ"
+msgstr "እባክዎ የመጀመሪያ የ12 አሃዝ ስልክ ቁጥር + ማስገባትዎን ያረጋግጡ::"
 
 #. module: members_custom
 #: code:addons/members_custom/models/complaint_form.py:0
 #: code:addons/members_custom/models/complaint_form.py:0
 #, python-format
 msgid "Please fill in the conclusion report."
-msgstr "እባክዎን ድምዳሜ ላይ ይሙሉ."
+msgstr "እባክዎ ድምዳሜውን ይሙሉ::"
 
 #. module: members_custom
 #: model:field.study,name:members_custom.pol
@@ -3354,18 +3568,18 @@ msgstr "የፖለቲካ ሳይንስ"
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.ptm
 msgid "Poor Time Management"
-msgstr "ደካማ ጊዜ አያያዝ"
+msgstr "ጊዜ አጠቃቀም ድክመት"
 
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.prs
 msgid "Poor Writing Skills"
-msgstr "ደካማ የጽሑፍ ችሎታ"
+msgstr "የአጻጻፍ ድክመት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__position
 #: model:ir.model.fields,field_description:members_custom.field_supporter_members__position
 msgid "Position"
-msgstr "ቦታ"
+msgstr "የሥራ አይነት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_interpersonal_skills__positive
@@ -3373,15 +3587,17 @@ msgid "Positive"
 msgstr "አዎንታዊ"
 
 #. module: members_custom
+#: model_terms:ir.ui.view,arch_db:members_custom.league_payment_report
 #: model_terms:ir.ui.view,arch_db:members_custom.member_payment_report
+#: model_terms:ir.ui.view,arch_db:members_custom.supporter_payment_report
 msgid "Prepared By:"
-msgstr "ያዘጋጀው ሰው"
+msgstr "አዘጋጅ:"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__previous_membership
 #: model_terms:ir.ui.view,arch_db:members_custom.candidate_members_form_view
 msgid "Previous Political Membership"
-msgstr "ቀዳሚ የፖለቲካ አባልነት"
+msgstr "የድሮ የፖለቲካ አባልነት"
 
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__candidate_members__source_of_livelihood__private
@@ -3396,12 +3612,12 @@ msgstr "የግል አድራሻ"
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.prc
 msgid "Procrastination"
-msgstr "ስንፍና"
+msgstr "መዘግየት"
 
 #. module: members_custom
 #: model:field.study,name:members_custom.psy
 msgid "Psychology"
-msgstr "ሳይኮሎጂ"
+msgstr "ሥነ-ልቦና ጥናት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_membership_payment__name
@@ -3429,18 +3645,18 @@ msgstr "የተመዘገበ"
 #: model:ir.model.fields.selection,name:members_custom.selection__member_complaint__state__rejected
 #: model_terms:ir.ui.view,arch_db:members_custom.view_complaint_form
 msgid "Rejected"
-msgstr "ተቀባይነት አላገኘም"
+msgstr "ተቀባይነት ያጣ"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.view_complaint_form
 #: model_terms:ir.ui.view,arch_db:members_custom.view_partner_form
 msgid "Report Comment"
-msgstr "አስተያየት ሪፖርት ያድርጉ"
+msgstr "የሪፖርት አስተያየት"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.city_report
 msgid "Report On Membership and Their Fee"
-msgstr "ሪፖርት በ አባልነት እና ክፍያቸው"
+msgstr "የአባልነት እና ክፍያቸው ሪፖርት"
 
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__member_complaint__state__resolved
@@ -3451,33 +3667,33 @@ msgstr "ተፈትቷል"
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.res
 msgid "Resourceful"
-msgstr "ሀብታም"
+msgstr "ዘዴኛ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_leader_transfer__responsibility_in_gov
 msgid "Responsibility In Goverment"
-msgstr ""
+msgstr "በመንግስት ያለው ኃላፊነት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_leader_transfer__responsibility_in_org
 msgid "Responsibility In Organization"
-msgstr ""
+msgstr "በድርጅት ያለው ኃላፊነት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_membership_city_handlers__responsible_id
 msgid "Responsible"
-msgstr ""
+msgstr "ተጠያቂ"
 
 #. module: members_custom
 #: model:ir.actions.act_window,name:members_custom.responsible_body_action
 #: model:ir.ui.menu,name:members_custom.responsible_body_menu
 msgid "Responsible Bodies"
-msgstr ""
+msgstr "ተጠያቂ አካላት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_responsible_bodies__responsible_for_ids
 msgid "Responsible For"
-msgstr ""
+msgstr "ተጠያቂነቱ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_complaint_category__responsible_person
@@ -3487,7 +3703,7 @@ msgstr "ኃላፊነት ያለበት ሰው"
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.syn
 msgid "Saying \"No\""
-msgstr "አይ \"ማለት\""
+msgstr "አይሆንም \"ማለት\""
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.member_cell_form
@@ -3503,12 +3719,12 @@ msgstr "ሳይንስ"
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__res_partner__stock__selected
 msgid "Selected"
-msgstr ""
+msgstr "የተመረጠ"
 
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.sfc
 msgid "Self-Criticizing"
-msgstr "ራስን የመውቀስ ችግር"
+msgstr "ራስን መተቸት"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.view_complaint_form
@@ -3523,7 +3739,7 @@ msgstr "ግምገማ ይላኩ"
 #. module: members_custom
 #: model:res.edlevel,name:members_custom.ss
 msgid "Senior Secondary"
-msgstr "አዛውንት ሁለተኛ ደረጃ"
+msgstr "ከፍተኛ ሁለተኛ ደረጃ ትምህርት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_payment_fee_configuration__sequence
@@ -3543,22 +3759,22 @@ msgstr "ማህበራዊ ሥራ"
 #. module: members_custom
 #: model:field.study,name:members_custom.soc
 msgid "Sociology"
-msgstr "ሶሺዮሎጂ"
+msgstr "የኅብረተሰብ ጥናት"
 
 #. module: members_custom
 #: model:field.study,name:members_custom.swe
 msgid "Software Engineering"
-msgstr "የሶፍትዌር ምህንድስና "
+msgstr "የሶፍትዌር ምህንድስና"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__source_of_livelihood
 msgid "Source Of Livelihood"
-msgstr "የኑሮ ምንጭ"
+msgstr " የገቢ ምንጭ"
 
 #. module: members_custom
 #: model:field.study,name:members_custom.spc
 msgid "Space Science"
-msgstr "የቦታ ሳይንስ"
+msgstr "የጠፈር ሳይንስ"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
@@ -3566,20 +3782,21 @@ msgstr "የቦታ ሳይንስ"
 #: model_terms:ir.ui.view,arch_db:members_custom.league_view_search
 #: model_terms:ir.ui.view,arch_db:members_custom.member_view_search
 msgid "Start of Membership"
-msgstr "አባልነት ጀማሬ"
+msgstr "አባልነት የጀመረበት አመት"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.supported_members_form_view
 msgid "Start of Support Year"
-msgstr "መደገፍ የጀመረበት ዓ/ም"
+msgstr "መደገፍ የጀመረበት አመት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__state
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__state
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__state
 #: model:ir.model.fields,field_description:members_custom.field_membership_handlers_parent__state
 #: model:ir.model.fields,field_description:members_custom.field_membership_payment__state
 msgid "State"
-msgstr "ግዛት"
+msgstr "ሁነት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_supporter_members__status
@@ -3597,32 +3814,33 @@ msgstr "ሁኔታ"
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__candidate_members__source_of_livelihood__stay_at_home
 msgid "Stay At Home"
-msgstr "ቤት ቆይ"
+msgstr "የቤት እመቤት/አባት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__stock
 #: model:ir.model.fields,field_description:members_custom.field_res_users__stock
 #: model_terms:ir.ui.view,arch_db:members_custom.member_view_search
 msgid "Stock"
-msgstr ""
+msgstr "ተተኪ አመራርነት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_leader_transfer__key_strength
 msgid "Strength"
-msgstr ""
+msgstr "ችሎታ"
 
 #. module: members_custom
 #: model:ir.ui.menu,name:members_custom.subcity_membership_handler_menu
 msgid "Sub City Membership Handlers"
-msgstr "ክፍለ ከተማ የአባልነት ተቆጣጣሪዎች"
+msgstr "የክፍለ ከተማ የአባልነት ተቆጣጣሪዎች"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.membership_handlers_city_form_view
 msgid "Subcities"
-msgstr ""
+msgstr "ክፍለ ከተማዎች"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__subcity_id
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__subcity_id
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__subcity_id
 #: model:ir.model.fields,field_description:members_custom.field_main_office__subcity_id
 #: model:ir.model.fields,field_description:members_custom.field_member_cells__subcity_id
@@ -3636,9 +3854,9 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:members_custom.candidate_members_tree_view
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 #: model_terms:ir.ui.view,arch_db:members_custom.member_cell_action_search
-#: model_terms:ir.ui.view,arch_db:members_custom.member_payment_report
 #: model_terms:ir.ui.view,arch_db:members_custom.membership_handlers_branch_form_view
 #: model_terms:ir.ui.view,arch_db:members_custom.membership_handlers_parent_tree_view
+#: model_terms:ir.ui.view,arch_db:members_custom.supporter_payment_search
 msgid "Subcity"
 msgstr "ክፍለ ከተማ"
 
@@ -3650,29 +3868,35 @@ msgstr "የክፍለ ከተማ አስተዳዳሪ"
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.barnches_view_search
 msgid "Subcity Head"
-msgstr "ክፍለ ከተማ ዋና "
+msgstr "የክፍለ ከተማ ኀላፊ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_membership_handlers_parent__parent_manager
 #: model_terms:ir.ui.view,arch_db:members_custom.membership_handlers_parent_tree_view
 msgid "Subcity Manager"
-msgstr "ክፍለ ከተማ ሰራ አስኪያጅ"
+msgstr "የክፍለ ከተማ ስራ አስኪያጅ"
 
 #. module: members_custom
 #: model:ir.actions.report,name:members_custom.report_for_subcity
 msgid "Subcity Report"
-msgstr "ክፍለ ከተማው ሪፖርት"
+msgstr "የክፍለ ከተማው ሪፖርት"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.subcity_report
 msgid "Subcity Report On Membership and Their Fee"
-msgstr "የአባልነት እና ክፍሎቻቸውን በተመለከተ የባለቤትነት ሪፖርት "
+msgstr "የሙሉ ክፍለ ከተማው አባላት እና መዋጮ ሪፖርት"
+
+#. module: members_custom
+#: model_terms:ir.ui.view,arch_db:members_custom.league_payment_report
+#: model_terms:ir.ui.view,arch_db:members_custom.member_payment_report
+msgid "Subcity, Woreda"
+msgstr "ክፍለ ከተማ፣ ወረዳ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_member_complaint__subject
 #: model_terms:ir.ui.view,arch_db:members_custom.complaint_form
 msgid "Subject"
-msgstr "ርዕሰ ጉዳይ"
+msgstr "ጉዳዩ"
 
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__membership_payment__state__submit
@@ -3695,26 +3919,43 @@ msgid "Supporter Members"
 msgstr "ደጋፊ አባላት"
 
 #. module: members_custom
+#: model:ir.actions.act_window,name:members_custom.supporter_payment_action
+msgid "Supporter Payment Menu"
+msgstr "የደጋፊዎች ክፍያ ምናሌ"
+
+#. module: members_custom
+#: model:ir.actions.report,name:members_custom.create_supporter_payment_report
+msgid "Supporter Payment Report"
+msgstr "የሁሉም ደጋፊዎች ክፍያ ሪፖርት"
+
+#. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_supporter_members__start_of_support
 msgid "Supporter Start Year"
-msgstr "ደጋፊውን የመጀመሪያ ዓመት"
+msgstr "ደጋፊውን የጀመረበት ዓመት"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.supported_members_form_view
 msgid "Supporter Status"
-msgstr "ደጋፊ ሁኔታ"
+msgstr "የደጋፊ ሁኔታ"
 
 #. module: members_custom
 #: model:ir.ui.menu,name:members_custom.supporter_members
 #: model_terms:ir.ui.view,arch_db:members_custom.membership_payment_form
+#: model_terms:ir.ui.view,arch_db:members_custom.supporter_payment_search
 msgid "Supporters"
-msgstr "ደጋፊ አባላት"
+msgstr "ደጋፊዎች"
+
+#. module: members_custom
+#: model:ir.ui.menu,name:members_custom.supporter_payment_detail_menu
+#: model_terms:ir.ui.view,arch_db:members_custom.supporter_payment_search
+msgid "Supporters' Payment"
+msgstr "የሁሉም ደጋፊዎች ክፍያ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_responsible_bodies__system_admin
 #: model:res.groups,name:members_custom.member_group_user_admin
 msgid "System Adminstrator"
-msgstr ""
+msgstr "ዋና አስተዳዳሪ"
 
 #. module: members_custom
 #: model:res.edlevel,name:members_custom.tvt
@@ -3724,7 +3965,7 @@ msgstr "ሙያ ሰልጣኞች"
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.tmp
 msgid "Team Player"
-msgstr "ቡድን ተጫዋች"
+msgstr "ተባብሮ መስራት ችሎታ"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.complaint_end
@@ -3735,138 +3976,144 @@ msgstr "አመሰግናለሁ!"
 #: code:addons/members_custom/models/supporter_members.py:0
 #, python-format
 msgid "The Supporter's Age Must Be Above 15"
-msgstr ""
+msgstr "የደጋፊው እድሜ ከ15 በላይ መሆን አለበት::"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_complaint_category
 msgid "These will hold a list of categories for complaints"
-msgstr "እነዚህ ቅሬታዎችን ለማቅረብ የሚረዱ ምድቦችን ይዘዋል"
+msgstr "እነዚህ ቅሬታዎችን ለማቅረብ የሚረዱ ምድቦችን ይዘዋል::"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_res_edlevel
 msgid "This model will contain education levels"
-msgstr "ይህ ሞዴል የትምህርት ደረጃን ይይዛል"
+msgstr "ይህ ሞዴል የትምህርት ደረጃን ይይዛል::"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_member_cells
 msgid "This model will contain the cells members will belong in"
-msgstr "ይህ ሞዴል የህዋሶች አባላቱን በውስጥ ይይዛል"
+msgstr "ይህ ሞዴል የህዋሶች በውስጥ ይይዛል::"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_main_office
 msgid "This model will contain the main offices the cells bellong in"
-msgstr "ይህ ሞዴል መሰረታዊ አድረጃጀት ጽ/ቤቶችን ያቀፈ ነው"
+msgstr "ይህ ሞዴል መሰረታዊ ድርጅት ጽ/ቤቶችን ያቀፈ ነው::"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_membership_stage
 msgid "This model will create different grades for members"
-msgstr "ይህ ሞዴል ለአባሎች የተለያዩ ክፍሎችን ይፈጥራል"
+msgstr "ይህ ሞዴል ለአባሎች የተለያዩ ደረጃ ይፈጥራል::"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_work_experience
 msgid "This model will create model that will hold history of work experince"
-msgstr "ይህ ሞዴል የሥራ ልምድን ታሪክ የሚይዝ ሞዴል ይፈጥርበታል"
+msgstr "ይህ ሞዴል የሥራ ልምድን ታሪክ ይፈጥራል::"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_interpersonal_skills
 msgid ""
 "This model will create models that will contain a list of skills and "
 "weaknesses"
-msgstr "ይህ ሞዴል የክህሎቶችን ዝርዝር እና ድክመቶች የሚይዙ ሞዴሎችን ይፈጥራል"
+msgstr "ይህ ሞዴል የክህሎቶችን ዝርዝር እና ድክመቶች ይፈጥራል::"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_leader_transfer
 msgid "This model will create tranfer sheets for leaders"
-msgstr ""
+msgstr "ይህ ሞዴል የአመራር ማዘዋወርያ ቅፅ ይፈጥራል::"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_candidate_members
 msgid "This model will handle candidate members"
-msgstr "ይህ ሞዴል የእጩዎችን አባላት ያስተዳድራል"
+msgstr "ይህ ሞዴል የእጩዎችን አባላት ይፈጥራል::"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_membership_handlers_branch
 msgid "This model will handle child divisions"
-msgstr "ይህ ሞዴል የልጆች ክፍሎች ያስተዳድራል"
+msgstr "ይህ ሞዴል አነስተኛ ክፍሎች ይፈጥራል::"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_membership_city_handlers
 msgid "This model will handle city wide membership"
-msgstr "ይህ ሞዴል ከተማን አቀፍ አባልነት ያወጣል"
+msgstr "ይህ ሞዴል ከተማን አቀፍ አባልነት ይፈጥራል::"
+
+#. module: members_custom
+#: model:ir.model,name:members_custom.model_each_league_payment
+msgid "This model will handle each league's payment"
+msgstr "ይህ ሞዴል የእያንዳንዱን የሊግ ክፍያ ይይዛል::"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_each_member_payment
 msgid "This model will handle each member's payment"
-msgstr "ይህ ሞዴል የእያንዳንዱን የአባላትን ክፍያ ይይዛል"
+msgstr "ይህ ሞዴል የእያንዳንዱን የአባል ክፍያ ይይዛል::"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_membership_handlers_parent
 msgid "This model will handle head divisions that will have child divisions"
-msgstr "ይህ ሞዴል ራስ ምድቦች ልጆች ምድብ የሚኖራቸውን ይይዛል"
+msgstr "ይህ ሞዴል የአነስተኛ ክፍሎች መሪ ይይዛል"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_supporter_members
 msgid "This model will handle supporting members"
-msgstr "ይህ ሞዴል ደጋፊ አባላትን ያስተዳድራል"
+msgstr "ይህ ሞዴል ደጋፊ አባላትን ያስተዳድራል::"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_payment_fee_configuration
 msgid ""
 "This model will handle the configuration of payment based on income range"
-msgstr "ይህ ሞዴል በገቢ ክልል ላይ በመመርኮዝ የክፍያውን ውቅር ይይዛል"
+msgstr "ይህ ሞዴል በገቢ ላይ በመመርኮዝ የክፍያውን ውቅር ይይዛል::"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_responsible_bodies
 msgid "This model will handle with the creation of Responsible bodies"
-msgstr ""
+msgstr "ይህ ሞዴል ተጠያቂ አካላት ይፈጥራል::"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_membership_payment
 msgid "This model will handle with the payment of memberships"
-msgstr "ይህ ሞዴል በአባልነት ክፍያ ይይዛል"
+msgstr "ይህ ሞዴል በአባልነት ክፍያ ይይዛል::"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_member_complaint
 msgid "This will contain the form for member complaint"
-msgstr "ለአባልነት ቅሬታ ቅጹን ይይዛል"
+msgstr "ለአባልነት ቅሬታ ቅጹን ይይዛል::"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_field_study
 msgid "This will craete a static fields of study"
-msgstr "ይህ የማይለዋወጥ የጥናት መስኮች ይፈጥራል"
+msgstr "ይህ የማይለዋወጥ የጥናት መስኮች ይፈጥራል::"
 
 #. module: members_custom
 #: model:ir.model,name:members_custom.model_attachment_type
 msgid ""
 "This will handle the different types of attachments the member is allowed to"
 " attach"
-msgstr "ይህ አባላቱ የተፈቀደላቸውን የተለያዩ አባሪ ዓይነቶችን ያስተባብራል"
+msgstr "ይህ አባላቱ የተፈቀደላቸውን የተለያዩ ተያያዥ ያስተባብራል::"
 
 #. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__month
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__month
 #: model:ir.model.fields,field_description:members_custom.field_membership_payment__month
 msgid "Time Frame"
-msgstr "የጊዜ እርከን"
+msgstr "የወር ገደብ"
 
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.tms
 msgid "Time Management Skills"
-msgstr "የጊዜ አጠቃቀም"
+msgstr "የጊዜ አጠቃቀም ችሎታ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_member_cells__time_of_meeting
 msgid "Time Of Meeting"
-msgstr "የስብሰባው ጊዜ"
+msgstr "የስብሰባው ሰዓት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_main_office__time_of_meeting_cells
 msgid "Time Of Meeting Cells"
-msgstr "የስብሰባ ሕዋሳት ጊዜ"
+msgstr "ሕዋሳት ጋር መሰብሰብያ ሰዓት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_main_office__time_of_meeting_eachother
 msgid "Time Of Meeting Eachother"
-msgstr "እርስ በእርስ የሚገናኙበት ጊዜ"
+msgstr "እርስ በእርስ የሚገናኙበት ሰዓት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_member_cells__total
@@ -3882,28 +4129,38 @@ msgstr "አጠቃላይ ህዋስ"
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_membership_payment__total_estimated
 msgid "Total Estimated"
-msgstr "አጠቃላይ ግምታዊ"
+msgstr "አጠቃላይ ግምት"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.membership_reporting_tree_view
 msgid "Total Fee"
-msgstr ""
+msgstr "አጠቃላይ ክፍያ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_member_cells__total_leader_fee
 msgid "Total Leader Fee"
-msgstr "ጠቅላላ መሪ ክፍያ"
+msgstr "አጠቃላይ የመሪ ክፍያ"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.membership_reporting_tree_view
 msgid "Total Leader Fees"
-msgstr ""
+msgstr "አጠቃላይ የመሪ ክፍያዎች"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_member_cells__total_leaders
 #: model_terms:ir.ui.view,arch_db:members_custom.membership_reporting_tree_view
 msgid "Total Leaders"
 msgstr "አጠቃላይ መሪዎች"
+
+#. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_member_cells__total_league_fee
+msgid "Total League Fee"
+msgstr "አጠቃላይ የሊጎች ክፍያ"
+
+#. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_member_cells__total_leagues
+msgid "Total Leagues"
+msgstr "አጠቃላይ ሊጎች"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_member_cells__total_member_fee
@@ -3913,14 +4170,14 @@ msgstr "አጠቃላይ የአባላት ክፍያ"
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.membership_reporting_tree_view
 msgid "Total Member Fees"
-msgstr ""
+msgstr "አጠቃላይ የአባላት ክፍያዎች"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_main_office__total_members
 #: model:ir.model.fields,field_description:members_custom.field_member_cells__total_members
 #: model_terms:ir.ui.view,arch_db:members_custom.membership_reporting_tree_view
 msgid "Total Members"
-msgstr "ሁሉም አባላት"
+msgstr "አጠቃላይ አባላት"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_main_office__total_membership_fee
@@ -3931,12 +4188,30 @@ msgstr "አጠቃላይ የአባልነት ክፍያ"
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_membership_payment__total_paid
 msgid "Total Paid"
-msgstr "ጠቅላላ ዋጋ"
+msgstr "የተከፈለው ድምር"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_membership_payment__total_remaining
 msgid "Total remaining"
-msgstr "ሙሉ በሙሉ ቀሪ"
+msgstr "የቀረው ድምር"
+
+#. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_res_partner__track_league_fee
+#: model:ir.model.fields,field_description:members_custom.field_res_users__track_league_fee
+msgid "Track League Fee"
+msgstr "የሊግ ክፍያ ተከታተል"
+
+#. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_res_partner__track_member_fee
+#: model:ir.model.fields,field_description:members_custom.field_res_users__track_member_fee
+msgid "Track Member Fee"
+msgstr "የአባልነት ክፍያ ተከታተል"
+
+#. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__traced_league_payment
+#: model:ir.model.fields,field_description:members_custom.field_each_member_payment__traced_member_payment
+msgid "Tracked Payment"
+msgstr "የክፍያ ክትትል"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__training_center
@@ -3976,14 +4251,15 @@ msgstr "ስልጠናዎች"
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.demo_view_partner_form
 msgid "Transfer Leader"
-msgstr ""
+msgstr "አመራር አዘዋውር"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.league_view_search
 msgid "Type"
-msgstr ""
+msgstr "አይነት"
 
 #. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__type_of_payment
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__type_of_payment
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__type_of_payment
 #: model:ir.model.fields,field_description:members_custom.field_res_users__type_of_payment
@@ -3994,25 +4270,28 @@ msgstr "የክፍያ ዓይነት"
 #. module: members_custom
 #: model:interpersonal.skills,name:members_custom.uwl
 msgid "Unhealth Work/Life Balance"
-msgstr "ጤናማ ያልሆነ ሥራ / የህይወት ሚዛን"
+msgstr "ያልተመጣጠነ የሥራ/የሥራ ዉጩ ሂዎት"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.complaint_form
 msgid "Update"
-msgstr "አዘምን"
+msgstr "አድስ"
 
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__member_complaint__state__updated
 msgid "Updated"
-msgstr "ዘምኗል"
+msgstr "ታድስዋል"
 
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__res_partner__league_org__urban_dweller
 msgid "Urban Dweller"
-msgstr ""
+msgstr "ከተማ ኑዋሪ"
 
 #. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__user_id
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__user_id
+#: model:ir.model.fields,field_description:members_custom.field_main_office__user_id
+#: model:ir.model.fields,field_description:members_custom.field_member_cells__user_id
 #: model:ir.model.fields,field_description:members_custom.field_membership_payment__user_id
 msgid "User"
 msgstr "ተጠቃሚ"
@@ -4038,13 +4317,13 @@ msgstr "ተጎጂዎች"
 #. module: members_custom
 #: model:ir.model.fields.selection,name:members_custom.selection__member_complaint__state__waiting_for_approval
 msgid "Waiting For Approval"
-msgstr "ማጽደቅ በመጠበቅ"
+msgstr "እስኪፀድቅ ድረስ በመጠባበቅ ላይ ያለ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__was_candidate
 #: model:ir.model.fields,field_description:members_custom.field_res_users__was_candidate
 msgid "Was Candidate"
-msgstr "ተመራጭ ነበር"
+msgstr "እጩ ነበር"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__was_league
@@ -4065,6 +4344,7 @@ msgid "Was Supporter"
 msgstr "ደጋፊ ነበር"
 
 #. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__wereda_id
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__wereda_id
 #: model:ir.model.fields,field_description:members_custom.field_membership_payment__wereda_id
 msgid "Wereda"
@@ -4088,6 +4368,7 @@ msgstr "ሴቶች"
 #: model_terms:ir.ui.view,arch_db:members_custom.member_cell_action_search
 #: model_terms:ir.ui.view,arch_db:members_custom.membership_handlers_branch_form_view
 #: model_terms:ir.ui.view,arch_db:members_custom.membership_handlers_branch_tree_view
+#: model_terms:ir.ui.view,arch_db:members_custom.supporter_payment_search
 msgid "Woreda"
 msgstr "ወረዳ"
 
@@ -4107,12 +4388,12 @@ msgstr "የወረዳ አባልነት ተቆጣጣሪዎች"
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__wereda_of_birth
 #: model:ir.model.fields,field_description:members_custom.field_res_users__wereda_of_birth
 msgid "Woreda of Birth"
-msgstr ""
+msgstr "የተወለዱበት ወረዳ"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.membership_handlers_parent_form_view
 msgid "Woredas"
-msgstr "ወረዳ"
+msgstr "ወረዳዎች"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__work_experience_ids
@@ -4124,7 +4405,7 @@ msgstr "የስራ ልምድ"
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_supporter_members__work_place
 msgid "Work Place"
-msgstr ""
+msgstr "የሚሰሩበት ቦታ"
 
 #. module: members_custom
 #: model:ir.model.fields,field_description:members_custom.field_candidate_members__x_css
@@ -4133,11 +4414,14 @@ msgid "X Css"
 msgstr ""
 
 #. module: members_custom
+#: model:ir.model.fields,field_description:members_custom.field_each_league_payment__year
 #: model:ir.model.fields,field_description:members_custom.field_each_member_payment__year
 #: model:ir.model.fields,field_description:members_custom.field_membership_payment__year
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__year_of_payment
 #: model:ir.model.fields,field_description:members_custom.field_res_users__year_of_payment
+#: model_terms:ir.ui.view,arch_db:members_custom.each_league_payment_search
 #: model_terms:ir.ui.view,arch_db:members_custom.each_member_payment_search
+#: model_terms:ir.ui.view,arch_db:members_custom.supporter_payment_search
 msgid "Year"
 msgstr "አመት"
 
@@ -4156,7 +4440,7 @@ msgstr "ወጣቶች"
 #: model:ir.model.fields,field_description:members_custom.field_res_partner__zone_city_of_birth
 #: model:ir.model.fields,field_description:members_custom.field_res_users__zone_city_of_birth
 msgid "Zone/City of Birth"
-msgstr ""
+msgstr "የተወለዱበት ከተማ/ዞን"
 
 #. module: members_custom
 #: model:ir.actions.act_window,name:members_custom.action_age_gender
@@ -4182,7 +4466,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:members_custom.candidate_kanban_view
 #: model_terms:ir.ui.view,arch_db:members_custom.supporter_kanban_view
 msgid "at"
-msgstr "በ"
+msgstr ":"
 
 #. module: members_custom
 #: model_terms:ir.ui.view,arch_db:members_custom.member_office_form

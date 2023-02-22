@@ -27,7 +27,7 @@ class MembershipHandlersParent(models.Model):
    name = fields.Char(required=True, string="Subcity", translate=True, copy=False)
    parent_manager = fields.Many2one('res.users', domain=lambda self: [("groups_id", "=", self.env.ref("members_custom.member_group_admin").id)], string="Subcity Manager", copy=False)
    branch_ids = fields.One2many('membership.handlers.branch', 'parent_id', copy=False, readonly=True)
-   city_id = fields.Many2one('membership.city.handlers', readonly=True)
+   city_id = fields.Many2one('membership.city.handlers')
    state = fields.Selection(selection=[('new', 'New')], default='new')
 
 

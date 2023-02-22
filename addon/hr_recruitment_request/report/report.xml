@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report 
+        string="Application Request" 
+        id="action_application_request" 
+        model="hr.employee.position.request" 
+        report_type="qweb-pdf"
+        name="hr_request_position.report_application_request" 
+        file="hr_request_position.report_application_request"
+        print_report_name="'Application - %s' % (object.employee_id.name)"
+    />
+
+</odoo>

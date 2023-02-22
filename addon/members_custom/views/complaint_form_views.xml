@@ -56,7 +56,7 @@
             </group>
            </group>
            <group>
-             <field name="perpertrators" widget="many2many_tags" readonly="1"/>
+             <!-- <field name="perpertrators" widget="many2many_tags" readonly="1"/> -->
              <field name="circumstances" readonly="1"/>
            </group>
            <notebook>
@@ -140,7 +140,7 @@
                   </group>
                   <group>
                     <field name="victim_id" string="Victims"/>
-                    <field name="perpertrators" widget="many2many_tags"/>
+                    <!-- <field name="perpertrators" widget="many2many_tags"/> -->
                   </group>
                 </group>
                 <group>

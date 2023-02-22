@@ -58,11 +58,11 @@
     <field name="domain_force">['|', ('handler', '=', False), ('handler', '=', user.id)]</field>
   </record>
 
-  <record id="manager_complaint_handling" model="ir.rule">
+  <!-- <record id="manager_complaint_handling" model="ir.rule">
     <field name="name">Manager Complaint Rule</field>
     <field name="model_id" ref="members_custom.model_member_complaint"/>
     <field name="groups" eval="[(4, ref('member_group_manager'))]"/>
     <field name="domain_force">['|', ('victim_id.wereda_id.branch_manager', '=', user.id), ('victim_id.subcity_id.parent_manager', '=', user.id)]</field>
-  </record>
+  </record> -->
 
 </odoo>

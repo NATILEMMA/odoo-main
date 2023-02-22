@@ -78,7 +78,7 @@ from odoo.service import db, security
 from odoo.addons.auth_signup.models.res_users import SignupError
 
 from odoo.addons.auth_signup.controllers.main import AuthSignupHome
-from odoo.addons.web.controllers.main import ensure_db, Home, SIGN_UP_REQUEST_PARAMS
+from odoo.addons.web.controllers.main import ensure_db, Home
 from odoo.osv.expression import OR
 from odoo import fields, http, _
 from odoo.addons.http_routing.models.ir_http import slug
