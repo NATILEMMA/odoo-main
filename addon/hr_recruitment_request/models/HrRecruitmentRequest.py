@@ -90,14 +90,26 @@ class HrRecruitmentRequest(models.Model):
 
     
     def button_intialize_recruitment(self):
-        self.env['hr.job'].create({
-            'name': self.job_id.id,
+        vals = {
+            'name': self.job_id.name,
             'company_id': self.company_id.id,
             'department_id': self.department_id.id,
             'no_of_recruitment': self.expected_employees,
             'user_id': self.env.uid,
-        })
-        self.write({'state':'in_recruitment'})
+            'state':'recruit'
+        }
+        #checking if there is already a recruitment with the same values
+        existing_recruitment =  self.env['hr.job'].search([('name','=',self.job_id.name),('company_id','=',self.company_id.id),('department_id','=',self.department_id.id),('state','=','recruit')])
+        
+        _logger.info("existing recruitment %s",existing_recruitment)
+        _logger.info("existing recruitment no of expected employee %s",existing_recruitment.no_of_recruitment)
+
+        if existing_recruitment:
+            existing_recruitment.update({'no_of_recruitment': (existing_recruitment.no_of_recruitment + self.expected_employees)})
+            self.write({'state':'in_recruitment'})
+        else:
+            result = self.env['hr.job'].create(vals)
+            self.write({'state':'in_recruitment'})
 
 
         

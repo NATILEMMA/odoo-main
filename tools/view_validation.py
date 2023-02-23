@@ -71,7 +71,7 @@ def field_is_editable(field, node):
     """ Return whether a field is editable (not always readonly). """
     return (
         (not field.readonly or READONLY.search(str(field.states or ""))) and
-        (node.get('readonly') != "1" or READONLY.search(node.get('attrs') or ""))
+        (node.get('readon ly') != "1" or READONLY.search(node.get('attrs') or ""))
     )
 
 

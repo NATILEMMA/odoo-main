@@ -7,7 +7,7 @@
     "author": "mes",
     "website": " ",
     "category": "",
-    "depends": ["contacts","base","calendar",'reconciliation'],
+    "depends": ["contacts","base","calendar","members_custom"],
     "license": "LGPL-3",
     "data": [
         'security/ir.model.access.csv',

@@ -97,18 +97,16 @@
     </record>
 
    
-    <menuitem name="Hr recruitment Request" id="hr_recruitment_request.menu_root" parent="hr.menu_hr_root" groups="hr_recruitment_request.group_recruitment_hr_approval,hr_recruitment_request.group_request_recruitment"/>
+    <menuitem name="Hr recruitment Request" id="menu_root" parent="hr_recruitment.menu_hr_recruitment_root" groups="hr_recruitment_request.group_recruitment_hr_approval,hr_recruitment_request.group_request_recruitment"/>
 
-    <menuitem name="Hr recruitment Request" id="hr_recruitment_request.menu_recruitment_request" sequence="0" parent="hr_recruitment_request.menu_root" groups="hr_recruitment_request.group_recruitment_hr_approval,hr_recruitment_request.group_request_recruitment"/>
     
-    <menuitem name="Approve Requests" id="hr_recruitment_request.menu_ot_request_to_approve"   sequence="2" groups="hr_recruitment_request.group_recruitment_hr_approval,hr_recruitment_request.group_request_recruitment"
-         parent="hr_recruitment_request.menu_root" action="hr_recruitment_request_to_approve"  />
+
  
     
      <menuitem
         id="menu_recrutiement_requests"
         sequence="1"
-        parent="hr_recruitment_request.menu_recruitment_request"
+        parent="menu_root"
         action="action_hr_recruitment_request" groups="hr_recruitment_request.group_recruitment_hr_approval,hr_recruitment_request.group_request_recruitment"/>
   </data>
 

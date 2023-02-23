@@ -98,7 +98,7 @@ class CandidateMembers(models.Model):
                     search = self.env[models].search([('id','=',id[0])])
                     date_gr = EthiopianDateConverter.to_gregorian(picked_date['year'], picked_date['month'], picked_date['day'])
                     date = EthiopianDateConverter.to_ethiopian(date_gr.year,date_gr.month,date_gr.day)
-                    if models == "reconciliation.time.fream":
+                    if models == "candidate.members":
                         if picked_date['pick'] == 1:
                             search.update({
                                 'date': date_gr,
