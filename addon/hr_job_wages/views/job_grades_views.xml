@@ -42,7 +42,7 @@
                     <group>
                       <group>
                         <field name="name"/>
-                        <field name="job_grade_id" string="Job Position"/>
+                        <field name="job_grade_title" string="Job Position"/>
                       </group>
                       <group>
                         <field name="minimum_wage"/>

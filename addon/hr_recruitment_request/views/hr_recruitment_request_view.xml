@@ -12,10 +12,18 @@
                     <button name="button_set_draft" states="waiting_approval" string="Set To Draft" type="object" groups="hr_recruitment_request.group_request_recruitment"/>
                     <button name="button_intialize_recruitment" states="approved" string="Start recruitment" type="object" groups="hr_recruitment_request.group_recruitment_hr_approval"/>
                     <button name="button_request" states="draft" string="Request" class="oe_highlight" type="object" groups="hr_recruitment_request.group_request_recruitment"/>
-                    <button name="button_done" states="in_recruitment" string="Done" class="oe_highlight" type="object" groups="hr_recruitment_request.group_request_recruitment"/>
+                    <button name="button_done" states="in_external_recruitment,in_internal_recruitment" string="Done" class="oe_highlight" type="object" groups="hr_recruitment_request.group_request_recruitment"/>
+                    <button name="button_intialize_internal_recruitment" states="approved" string="launch internal recruitment" class="oe_highlight" type="object" groups="hr_recruitment_request.group_request_recruitment"/>
+                    <button name="button_apply" states="in_internal_recruitment" string="Apply" class="oe_highlight" type="object" groups="hr_recruitment_request.group_apply"/>
                     <field  name="state" widget="statusbar" statusbar_visible="draft,waiting_approval,approved,in_recruitment,done,rejected" statusbar_colors='{"manager_approval":"blue"}'/>
                 </header>
                <sheet>
+                        <div name="button_box" class="oe_button_box" states="in_external_recruitent,in_internal_recruitment,">
+                          <button name="hr_recruitment_request.act_action_employee_application" class="oe_stat_button" icon="fa-credit-card" type="action" states="in_external_recruitment,in_internal_recruitment">
+                            <field name="applicant_count" widget="statinfo" string="Applications" />
+                          </button>
+                        </div>
+
                <div class="oe_title">
                     <h1>
                         <field name="reference_no" readonly="1"/>
@@ -25,25 +33,28 @@
                     <group>
                         <field name="company_id"  attrs = "{'readonly':[('state', 'in', ('hr_approval','rejected','in_progress'))]}"/>
                         <field name="job_id"/>
+                        <field name="job_title" attrs="{'invisible':True}"/>
+                        <field name="applied_job_grade_id"/>
                         <field name="department_id"></field>
                     </group>
                     <group>
                         <field name="expected_employees"></field>
-                        <field name="employee_id"></field>
-
+                        <field name="requester_employee_id"></field>
                     </group>
-                    
                   </group>
-                  <!-- <notebook>
-                     <page string="Attachment">
-                     <group>
-                        <field name="attachment" filename="attachment_name" attrs = "{'readonly':[('state', 'in', ('hr_approval','manager_approval','rejected','in_progress'))]}" />
-                        <field name="attachment_name" invisible="1"/>
-                        <field name="note" />
-                        </group>
-                     </page>
-                  </notebook> -->
+                  <notebook colspan="4">
+                        <page string="Job description">
+                            <field name="job_description" string="Job description"></field>
+                        </page>
+                        <page string="Internal recruitments" groups="hr_recruitment_request.group_request_recruitment,hr_recruitment_request.group_recruitment_hr_approval">
+                             <field name="applicant_ids"></field>
+                        </page>
+                    </notebook>
                </sheet>
+               <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
             </form>
          </field>
       </record>
@@ -80,34 +91,37 @@
     </field>
     </record>
 
-    <record model="ir.actions.act_window" id="hr_recruitment_request_to_approve">
-        <field name="name">recruitment Requests for Approval</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">hr.recruitment.request</field>
-        <field name="view_mode">tree,form,search</field>
-        <field name="domain">[('state', '!=', 'draft')]</field>
-     </record>
 
-     <record model="ir.actions.act_window" id="action_hr_recruitment_request">
+   
+
+     <record model="ir.actions.act_window" id = "action_hr_recruitment_request">
         <field name="name">recruitment Requests</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr.recruitment.request</field>
         <field name="view_mode">tree,form,search</field>
         <field name="domain">[('id', '>', '0')]</field>
     </record>
+    <record id="seq_recruitment_request" model="ir.sequence">
+        <field name="name">Reruitment request</field>
+        <field name="code">hr.recruitment.request.sequence</field>
+        <field name="prefix">RR</field>
+        <field name="padding">3</field>
+    </record>
 
    
-    <menuitem name="Hr recruitment Request" id="menu_root" parent="hr_recruitment.menu_hr_recruitment_root" groups="hr_recruitment_request.group_recruitment_hr_approval,hr_recruitment_request.group_request_recruitment"/>
+    <menuitem name="Hr recruitment Request" 
+        id="recruitment_request_menu_root" 
+        parent="hr_recruitment.menu_hr_recruitment_root" 
+        groups="hr_recruitment_request.group_recruitment_hr_approval,hr_recruitment_request.group_request_recruitment,hr_recruitment_request.group_apply"
+        />
 
-    
-
- 
-    
+        
      <menuitem
         id="menu_recrutiement_requests"
         sequence="1"
-        parent="menu_root"
-        action="action_hr_recruitment_request" groups="hr_recruitment_request.group_recruitment_hr_approval,hr_recruitment_request.group_request_recruitment"/>
+        parent="recruitment_request_menu_root"
+        action="action_hr_recruitment_request" groups="hr_recruitment_request.group_recruitment_hr_approval,hr_recruitment_request.group_request_recruitment,hr_recruitment_request.group_apply"
+        />
   </data>
 
 </odoo>

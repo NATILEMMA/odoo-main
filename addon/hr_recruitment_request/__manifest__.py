@@ -8,7 +8,7 @@
     'sequence': 1,
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'hr','hr_recruitment'],
+    'depends': ['base', 'hr','hr_recruitment','mail','hr_request_position','hr_job_wages'],
 
     # always loaded
     'data': [
@@ -16,6 +16,7 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/hr_recruitment_request_view.xml',
+        'views/job_view.xml',
         'report/report.xml',
         'report/report_application_request.xml',
     ],

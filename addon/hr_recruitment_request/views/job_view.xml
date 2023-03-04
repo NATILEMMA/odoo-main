@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   <data>
+      <record model="ir.ui.view" id="custom_job_form">
+         <field name="name">job form</field>
+         <field name="model">custom.job</field>
+         <field name="arch" type="xml">
+            <form string="Test">
+               <header>
+                     <button name="button_reject" states="initial_qualifications,first_interview,second_interview" string="Reject" type="object" groups="hr_recruitment_request.group_recruitment_hr_approval" />
+                     <button name="button_accept" states="second_interview" string="Accept" class="oe_highlight" type="object" groups="hr_recruitment_request.group_recruitment_hr_approval" />
+                     <field name="state" widget="statusbar" statusbar_visible="initial_qualifications,first_interview,second_interview,rejected" statusbar_colors='{"manager_approval":"blue"}' clickable="1" groups="hr_recruitment_request.group_recruitment_hr_approval,hr_recruitment_request.group_request_recruitment,hr_recruitment_request.group_apply"/>
+                  </header>
+               <sheet>
+                  <div class="oe_title">
+                     <h1>
+                        <field name="reference_no" readonly="1" />
+                     </h1>
+                  </div>
+                  <group>
+                     <group>
+                        <field name="reference_no" />
+                        <field name="employee_id" />
+                        <field name="job_title" />
+                        <field name="work_phone" />
+                        <field name="work_email" />
+                        <field name="work_location" />
+                        <field name="department_id" />
+                        <field name="employee_parent_id" />
+                        <field name="contract_id"/>
+                     </group>
+                     <group>
+                        <field name="applied_job_title"></field>
+                        <field name="applied_job_department_id"></field>
+                        <field name="applied_grade_id"></field>
+                        <field name="related_position_request_id"></field>
+                     </group>
+                  </group>
+               </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+         </field>
+      </record>
+
+      <record id="view_job_filter" model="ir.ui.view">
+         <field name="name">recruitment.request.search</field>
+         <field name="model">custom.job</field>
+         <field name="arch" type="xml">
+            <search string="Search Hr recruitment Request">
+               <field name="applied_grade_id" string="Job name" filter_domain="[('job_id.name', 'ilike', self)]" />
+               <filter string="My Requests" name="my Request" domain="[('user_id', '=', uid)]" />
+               <separator />
+            </search>
+         </field>
+      </record>
+
+      <record id="view_job_tree" model="ir.ui.view">
+         <field name="name">recruitment.request.tree</field>
+         <field name="model">custom.job</field>
+         <field name="arch" type="xml">
+            <tree string="Hr recruitment Requests">
+               <field name="reference_no" />
+               <field name="job_title" />
+               <field name="employee_id" />
+            </tree>
+         </field>
+      </record>
+      
+
+      <record model="ir.actions.act_window" id="action_custom_job">
+         <field name="name">Internal job posts</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="res_model">custom.job</field>
+         <field name="view_mode">tree,form,search,kanban</field>
+      </record>
+       <record model="ir.actions.act_window" id="act_action_employee_application">
+         <field name="name">Applicants</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="res_model">custom.job</field>
+         <field name="view_mode">kanban,tree,form,search</field>
+      </record>
+
+      <record id="seq_custom_job" model="ir.sequence">
+        <field name="name">Applications</field>
+        <field name="code">custom.job.sequence</field>
+        <field name="prefix">AP</field>
+        <field name="padding">3</field>
+    </record>
+
+    
+
+    
+      <record id="custom_job_view_kanban" model="ir.ui.view">
+         <field name="name">custom_job.view.kanban</field>
+         <field name="model">custom.job</field>
+         <field name="arch" type="xml">
+            <kanban default_group_by="state">
+               <templates>
+                  <t t-name="kanban-box">
+                     <div class="oe_kanban_global_click">
+                        <field name="employee_id" />
+                        <div class="oe_kanaban_details">
+                            <ul>
+                              <li>
+                                    Job title: <b><field name="job_title" /></b>
+                              </li>
+                              <li>
+                                    Department: <b><field name="department_id" /></b>
+                              </li>
+                              <li>
+                                    Applied job:<b><field name="applied_job_title"/></b>
+                              </li>
+                              <li>
+                                    Applied department: <b><field name="applied_job_department_name"/> </b>
+                              </li>
+                            </ul>
+                        </div>
+                     </div>
+                  </t>
+               </templates>
+            </kanban>
+         </field>
+      </record>
+
+      <menuitem id="interal_recruitment_menu_root" action="action_custom_job" name="Internal recruitment Jobs" sequence="0" parent="hr_recruitment_request.recruitment_request_menu_root" groups="hr_recruitment_request.group_recruitment_hr_approval,hr_recruitment_request.group_request_recruitment,hr_recruitment_request.group_apply" />
+   </data>
+</odoo>

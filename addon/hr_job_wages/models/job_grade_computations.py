@@ -8,7 +8,7 @@ class Grade(models.Model):
   _description="This class will create grades for a job positions"
 
   name = fields.Char(required=True, copy=False, string="Grade Name")
-  job_grade_id = fields.Many2one(related="job_dup_id.name")
+  job_grade_title = fields.Many2one(related="job_dup_id.name")
   minimum_wage = fields.Float(required=True, copy=False)
   maximum_wage = fields.Float(required=True, copy=False)
   job_dup_id = fields.Many2one('hr.job.dup')
@@ -43,7 +43,7 @@ class JobDuplicate(models.Model):
 class JobWageCheck(models.Model):
   _inherit="hr.contract"
 
-  grade_id = fields.Many2one('hr.job.grade', domain="[('job_grade_id', '=', job_id)]", required=True, string="Grade")
+  grade_id = fields.Many2one('hr.job.grade', domain="[('job_grade_title', '=', job_id)]", required=True, string="Grade")
 
   @api.onchange('wage')
   def check_wage_range(self):
