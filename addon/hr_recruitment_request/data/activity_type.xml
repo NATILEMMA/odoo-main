@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<odoo>
+
+    <data noupdate="1">
+
+        <record id="mail_act_state_change_mail" model="mail.activity.type">
+            <field name="name">State change mail</field>
+            <field name="icon">fa-sun-o</field>
+            <field name="res_model_id" ref="hr_recruitment_request.model_custom_job"/>
+        </record>
+         <record id="mail_act_recruitment_request_mail" model="mail.activity.type">
+            <field name="name">Recruitment request mail</field>
+            <field name="icon">fa-sun-o</field>
+            <field name="res_model_id" ref="hr_recruitment_request.model_hr_recruitment_request"/>
+        </record>
+
+    </data>
+</odoo>

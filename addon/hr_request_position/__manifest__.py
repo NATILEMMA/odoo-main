@@ -8,7 +8,7 @@
     'sequence': 1,
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'hr', 'hr_contract'],
+    'depends': ['base', 'hr', 'hr_contract','mail'],
 
     # always loaded
     'data': [
@@ -18,6 +18,7 @@
         'views/hr_employee_request_view.xml',
         'report/report.xml',
         'report/report_application_request.xml',
+        'data/activity_type.xml'
     ],
     # only loaded in demonstration mode
     'license': 'AGPL-3',

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<odoo>
+
+    <data noupdate="1">
+
+
+        <record id="mail_act_Position_request" model="mail.activity.type">
+            <field name="name">Position request mail</field>
+            <field name="icon">fa-sun-o</field>
+            <field name="res_model_id" ref="hr_request_position.model_hr_employee_position_request"/>
+        </record>
+
+    </data>
+</odoo>

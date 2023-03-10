@@ -13,10 +13,9 @@ _logger = logging.getLogger(__name__)
 REQUEST_STATES = [
     ('draft', 'Draft'),
     ('in_progress', 'Requested'),
-    ('hr_approval', 'Hr Approval' ),
-    ('manager_approval', 'Manager Approval'),
+    ('hr_approval', 'HR Approved'),
+    ('manager_approval', 'Manager Approved'),
     ('rejected', 'Rejected'),
-    ('closed', 'Closed')
 ]
 
 REQUEST_TYPE = [
@@ -27,20 +26,27 @@ REQUEST_TYPE = [
 class HrEmployeeRequest(models.Model):
     _name = 'hr.employee.position.request'
     _description = 'Employees Position Request'
+    _inherit = ['portal.mixin', 'mail.thread', 'mail.activity.mixin', 'utm.mixin']
 
     reference_no = fields.Char(string='Request Document Reference', required=True,
                           readonly=True, default='New', index=True)
-    employee_id = fields.Many2one('hr.employee', string="Company employee", required=True)
-    job_id = fields.Many2one(related='employee_id.job_id', related_sudo=False, tracking=True)
-    work_phone = fields.Char(related='employee_id.work_phone', related_sudo=False, tracking=True)
-    work_email = fields.Char(related='employee_id.work_email', related_sudo=False, tracking=True)
+    
+    def _get_employee_id(self):
+        employee_rec = self.env['hr.employee'].search([('user_id', '=', self.env.uid)], limit=1)
+        return employee_rec.id
+    
+    name = fields.Char( required=True,readonly=True, default='New', index=True)
+    employee_id = fields.Many2one('hr.employee', string="Requested By", default=_get_employee_id,readonly=True)
+    job_id = fields.Many2one(related='employee_id.job_id', related_sudo=False, tracking=True,readonly=True)
+    work_phone = fields.Char(related='employee_id.work_phone', related_sudo=False, tracking=True,readonly=True)
+    work_email = fields.Char(related='employee_id.work_email', related_sudo=False, tracking=True,readonly=True)
     department_id = fields.Many2one(related='employee_id.department_id', readonly=False, related_sudo=False, tracking=True)
-    work_location = fields.Char(related='employee_id.work_location', related_sudo=False, tracking=True)
+    work_location = fields.Char(related='employee_id.work_location', related_sudo=False, tracking=True,readonly=True)
     employee_parent_id = fields.Many2one('hr.employee',related='employee_id.parent_id', string='Manager', related_sudo=False, tracking=True)
-    coach_id = fields.Many2one('hr.employee',related='employee_id.coach_id', string='Coach',related_sudo=False, tracking=True)
+    coach_id = fields.Many2one('hr.employee',related='employee_id.coach_id', string='Coach',related_sudo=False, tracking=True,readonly=True)
     state = fields.Selection(REQUEST_STATES,'Status', tracking=True,copy=False, default='draft')
-    contract_id = fields.Many2one('hr.contract',string='Current Contract', compute ="_compute_contract", help='Current contract of the employee', related_sudo=False, tracking=True)
-    hr_responsible_user_id = fields.Many2one('res.users', related='contract_id.hr_responsible_id',tracking=True,help='Person responsible for validating the employee\'s contracts.')
+    contract_id = fields.Many2one('hr.contract',string='Current Contract', compute ="_compute_contract", help='Current contract of the employee', related_sudo=False, tracking=True,readonly=True)
+    hr_responsible_user_id = fields.Many2one('res.users', related='contract_id.hr_responsible_id',tracking=True,help='Person responsible for validating the employee\'s contracts.',readonly=True)
     user_id = fields.Many2one('res.users')
     requested_position_id = fields.Many2one('hr.job','Requested Job Position')
     requested_department_id = fields.Many2one('hr.department', 'Requested Department')
@@ -58,56 +64,119 @@ class HrEmployeeRequest(models.Model):
                               'Request Type', tracking=True, required=True,
                               copy=False, default='position_request')
    
-    grade_id = fields.Many2one('hr.job.grade',readonly=True)
+    grade_id = fields.Many2one('hr.job.grade',string = "Requested Grade")
 
+    
     @api.depends("employee_id")
     def _compute_contract(self):
          if self.employee_id:
             self.contract_id = self.env['hr.contract'].search([('employee_id', '=', self.employee_id.id)], limit=1)
          else:
-              self.contract_id = self.contract_id     
+              self.contract_id = self.contract_id
+    def isEmployee(self):
+        #This function checks if the user applying or asking recruitment request is employee
+        isemployee = self.env['hr.employee'].search([('user_id', '=', self.env.uid)], limit=1)
+
+        return isemployee   
     @api.model
     def create(self, vals):
+        Employee = self.isEmployee()
+        contract = self.env['hr.contract'].search([('employee_id', '=',self.employee_id.id)], limit=1)
+        if not Employee:
+            raise UserError(("The recruitment requester should be an employee of company ")) 
+
         if vals['salary_or_position'] == 'position_request':
-            if vals['requested_position_id'] == self.contract_id.job_id or vals['requested_department_id'] ==  self.department_id:
+            if vals['requested_position_id'] == contract.job_id and vals['requested_department_id'] ==  self.department_id:
                 raise UserError(('Already in Position'))
 
             vals['state'] = 'in_progress'
             vals['reference_no'] = self.env['ir.sequence'].next_by_code('hr.employee.position.request')
+            vals['name'] = self.env['ir.sequence'].next_by_code('hr.employee.position.request')
             request = super(HrEmployeeRequest, self).create(vals)
         elif vals['salary_or_position'] == 'salary_request':
 
-            if(not self.contract_id):
+            if(not   vals['contract_id']):
                   raise UserError(('Please setup the employee job contract first!'))
             
-            if(not self.contract_id.wage):
+            if(not  vals['contract_id'].wage):
                   raise UserError(('The employee current job wage is not set!'))
             
-            if(not self.contract_id.grade_id):
+            if(not  vals['contract_id'].grade_id):
                   raise UserError(('The job grade of the employee is not set!'))
             
             if vals.get('estimated_salary') == None:
                  raise UserError(('Estimated salary must be inserted in the input field'))
             
-            if vals.get('estimated_salary') <= self.contract_id.wage:
+            if vals.get('estimated_salary') <=  vals['contract_id'].wage:
                         raise UserError(('Please correct your estimation on provided salary to be greater than current wage of the employee.'))
             else:    
-                if(vals.get('estimated_salary') < self.contract_id.grade_id.minimum_wage):
-                      raise UserError(('Your estimated salary request is below your current job grade of Birr ',self.contract_id.grade_id.minimum_wage))
+                if(vals.get('estimated_salary') < contract.grade_id.minimum_wage):
+                      raise UserError(('Your estimated salary request is below your current job grade of Birr ', vals['contract_id'].grade_id.minimum_wage))
                 
-                elif (vals.get('estimated_salary') > self.contract_id.grade_id.maximum_wage):
-                         raise UserError(('Your estimated salary request is above your current job grade of Birr ' ,self.contract_id.grade_id.maximum_wage))     
+                elif (vals.get('estimated_salary') >  vals['contract_id'].grade_id.maximum_wage):
+                         raise UserError(('Your estimated salary request is above your current job grade of Birr ' , vals['contract_id'].grade_id.maximum_wage))     
                 else:
                       vals['state'] = 'in_progress'
                       vals['reference_no'] = self.env['ir.sequence'].next_by_code('hr.employee.position.request')
+                      vals['name'] = self.env['ir.sequence'].next_by_code('hr.employee.position.request')
                       request = super(HrEmployeeRequest, self).create(vals)       
         return request
+    
+    
+    @api.depends('state')
+    def send_activity_notification_to_position_Approvers(self):
+        """This function will alert a for activities on job applicants"""
+        
+        _logger.info(" the change of state value ************************* %s  ",self.state)
+            
+        model = self.env['ir.model'].search([('model', '=', 'hr.employee.position.request'),('is_mail_activity','=',True)])
+        activity_type = self.env['mail.activity.type'].search([('name', '=', 'Position request mail')], limit=1)
+        _logger.info("value *************************  self employee  %s activity type %s, model %s self id ,%s  and if the strings are equal waiting approval %s and the state %s and type %s",self.employee_id.user_id.id,activity_type.id,model.id,self.id,str(self.state) == "waiting_approval",self.state,type(self.state))
+        if self.state == 'in_progress':
+            Approvers = self.env.ref('hr_request_position.group_request_hr_approval_request').users
+
+            for Approver in Approvers:
+                message = str(Approver.name) + " , you have new Position/salary request to approve  as HR.."
+                self.env['mail.activity'].sudo().create({
+                    'display_name': message,
+                    'summary': "Position/salary request",
+                    'user_id': Approver.id,
+                    'res_model_id': model.id,
+                    'res_id': self.id,
+                    'activity_type_id': activity_type.id
+                })
+                Approver.notify_warning('<h4> Your have new Position/salary request Approval in Activity.</h4>', True)
+        elif self.state == 'hr_approval':
+            Approvers = self.env.ref('hr_request_position.group_position_request_manager_approval').users
+
+            for Approver in Approvers:
+                message = str(Approver.name) + " , you have new Position/salary request to approve as a Manager."
+                self.env['mail.activity'].sudo().create({
+                    'display_name': message,
+                    'summary': "Position/salary request",
+                    'user_id': Approver.id,
+                    'res_model_id': model.id,
+                    'res_id': self.id,
+                    'activity_type_id': activity_type.id
+                })
+                Approver.notify_warning('<h4> Your have new Position/salary request Approval in Activity.</h4>', True)
+        elif self.state != 'waiting_approval' and self.state != 'draft' :
+            self.env['mail.activity'].sudo().create({
+                    'display_name': 'Job recruitment request status',
+                    'summary': "Position/salary request",
+                    'user_id': self.employee_id.user_id.id,
+                    'res_model_id': model.id,
+                    'res_id': self.id,
+                    'activity_type_id': activity_type.id
+                })
+            self.employee_id.user_id.notify_warning('<h4> Position/salary request status is changed to '+str(self.state)+'.</h4>', True)
+
+        return
+    
 
     def button_request(self):
         self.write({'state':'in_progress'})
-
-    def button_close(self):
-        self.write({'state':'closed'})
+        self.send_activity_notification_to_position_Approvers()
 
     def write(self, vals):
         res = super(HrEmployeeRequest, self).write(vals)
@@ -122,9 +191,11 @@ class HrEmployeeRequest(models.Model):
                 raise UserError(('Please correct your estimation on provided salary'))
             else:
                 self.write({'state':'hr_approval'})
+                self.send_activity_notification_to_position_Approvers()
         
         elif self.salary_or_position == 'position_request':
             self.write({'state':'hr_approval'})
+            self.send_activity_notification_to_position_Approvers()
 
     def manager_button_approve(self):
 
@@ -136,17 +207,21 @@ class HrEmployeeRequest(models.Model):
             self.contract_id.job_id = self.requested_position_id
             self.contract_id.department_id = self.requested_department_id.id
             self.contract_id.grade_id = self.grade_id.id
+            self.contract_id.wage = self.grade_id.minimum_wage
             self.employee_id.job_id = self.requested_position_id.id
             self.employee_id.department_id = self.requested_department_id.id
             self.employee_id.job_title = self.requested_position_id.name
             self.write({'state':'manager_approval'})
+            self.send_activity_notification_to_position_Approvers()
         
         elif self.salary_or_position == 'salary_request':
             self.wage = self.estimated_salary
             self.write({'state':'manager_approval'})
+            self.send_activity_notification_to_position_Approvers()
 
     def button_reject(self):
         self.write({'state':'rejected'})
+        self.send_activity_notification_to_position_Approvers()
 
     def button_set_draft(self):
         print('x')
@@ -165,6 +240,10 @@ class HrEmployeeRequest(models.Model):
             self.period = 1
         else:
             self.period = (d2 - d1).days // 365
+  
+
+
+    
 
 class HrEmployeePrivate(models.Model):
     _inherit = "hr.employee"

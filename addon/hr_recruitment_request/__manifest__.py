@@ -15,10 +15,11 @@
         'data/seq.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
-        'views/hr_recruitment_request_view.xml',
         'views/job_view.xml',
+        'views/hr_recruitment_request_view.xml',
         'report/report.xml',
         'report/report_application_request.xml',
+        'data/activity_type.xml'
     ],
     # only loaded in demonstration mode
     'license': 'AGPL-3',
