@@ -1,44 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <record id="employee_training_program_round_view_form" model="ir.ui.view">
-            <field name="name">employee.training.program.round.view.form</field>
-            <field name="model">employee.training.program.round</field>
-            <field name="arch" type="xml">
-                <form string="">
-                    <sheet>
-                        <group>
-                            <field name="name" />
-                            <field name="training_id"/>
-                            <field name="description"/>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-        <record id="employee_training_program_view_form" model="ir.ui.view">
-            <field name="name">employee.training.program.view.form</field>
-            <field name="model">employee.training.program</field>
-            <field name="arch" type="xml">
-                <form string="">
-                    <sheet>
-                        <group>
-                            <field name="name" />
-                            <field name="description"/>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
         <record id="view_employee_training_tree" model="ir.ui.view">
             <field name="name">employee.training.tree</field>
             <field name="model">employee.training</field>
             <field name="arch" type="xml">
                 <tree string="Employee Training Program">
                     <field name="program_name"/>
-                    <field name="program_id"/>
                     <field name="program_department"/>
                     <field name="program_convener" domain="[('department_id.name', '=', 'program_department.name')]"/>
                     <field name="state"/>
@@ -60,9 +28,7 @@
                     </header>
                     <sheet>
                         <group colspan="1" col="4" name="main">
-                            <field name="program_name"/>
-                            <field name="program_id" />
-                            <field name="program_round_id" />
+                            <field name="program_name" />
                             <field name="program_department"/>
                             <label for="date_from" string="Time Period"/>
                             <div><field name="date_from" class="oe_inline"/> to <field name="date_to" class="oe_inline"/></div>
@@ -98,7 +64,6 @@
             <field name="model">employee.training</field>
             <field name="arch" type="xml">
                 <search string="Employee Training Program">
-                    <field name="program_id"/>
                     <field name="program_name"/>
                     <newline/>
                 </search>

@@ -25,6 +25,7 @@
                         <field name="department_id" />
                     </group>
                     <group>
+                        <field name="company_id" />
                         <field name="job_id" />
                         <field name="instution_type_id"/>
                         <field name="instution_id" />

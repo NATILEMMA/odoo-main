@@ -14,7 +14,6 @@
         "views/hr_employee_medical_examination_type_views.xml",
         "views/hr_employee_medical_examination_views.xml",
         "views/hr_employee_instution_type_views.xml",
-        "wizards/wizard_generate_medical_examination.xml",
         "views/hr_employee_views.xml",
         "security/ir.model.access.csv",
         "security/hr_employee_medical_examination_security.xml",

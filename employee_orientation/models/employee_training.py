@@ -36,9 +36,8 @@ class EmployeeTraining(models.Model):
     _rec_name = 'program_name'
     _description = "Employee Training"
     _inherit = 'mail.thread'
+
     program_name = fields.Char(string='Training Program', required=True)
-    program_id = fields.Many2one('employee.training',string='Training Program', required=True)
-    program_round_id = fields.Many2one('employee.trianing.round',string='Training round',domain = "[('training_id','=',program_id.id)]")
     program_department = fields.Many2one('hr.department', string='Department', required=True)
     program_convener = fields.Many2one('res.users', string='Responsible User', size=32, required=True)
     training_id = fields.One2many('hr.employee', string='Employee Details', compute="employee_details")
@@ -48,8 +47,6 @@ class EmployeeTraining(models.Model):
     user_id = fields.Many2one('res.users', string='users', default=lambda self: self.env.user)
     company_id = fields.Many2one('res.company', string='Company', required=True,
                                  default=lambda self: self.env.user.company_id)
-    instution_type_id = fields.Many2one("hr.employee.instution.type",domain= "[('instution_type_id.name','=','Training Center')]", string="Instution Type",readonly=True)
-    instution_id = fields.Many2one("res.partner", string="Instution",domain= "[('instution_type_id','=',instution_type_id.id)]")
 
     state = fields.Selection([
         ('new', 'New'),
@@ -125,25 +122,3 @@ class EmployeeTraining(models.Model):
             'target': 'new',
             'context': ctx,
         }
-
-
-
-class Trianing(models.Model):
-
-    _name = "employee.training.program"
-    _description = "Type of training for employees"
-
-
-    name = fields.Char( String = 'name',required=True)
-    description = fields.Char(string="description")
-
-class TrianingRound(models.Model):
-
-    _name = "employee.training.program.round"
-    _description = "rounds of training for employee"
-
-
-    name = fields.Char(required=True, track_visibility="onchange",)
-    training_id = fields.Many2one('employee.training',string="employee trainging")
-    description = fields.Char(string="description")
-
