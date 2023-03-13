@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+<!-- Inherited res.partner  -->
+        <record model="ir.ui.view" id="res_partner_form_view_inherited">
+            <field name="name">res.partner.form.view.inherited</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+	                        <xpath expr="//field[@name='website']" position="after">
+	                        	<field name="instution_type_id"/>
+	                        </xpath>
+            </field>
+        </record>
+
+<!-- Instution Type -->
+    <record id="hr_instution_type_view_form" model="ir.ui.view">
+            <field name="name">hr.employee.instution.type.form</field>
+            <field name="model">hr.employee.instution.type</field>
+            <field name="arch" type="xml">
+                <form string="Instution Type">
+                    <group col="4">
+                        <field colspan="4" name="name"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_instution_type_view_tree" model="ir.ui.view">
+            <field name="name">hr.employee.instution.type.tree</field>
+            <field name="model">hr.employee.instution.type</field>
+            <field name="arch" type="xml">
+                <tree string="Instution Type">
+                    <field colspan="4" name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hr_instution_type_view_search" model="ir.ui.view">
+            <field name="name">hr.employee.instution.type.search</field>
+            <field name="model">hr.employee.instution.type</field>
+            <field name="arch" type="xml">
+                <search string="Search Instution Type">
+                    <field name="name" string="Instution Type"/>
+               </search>
+            </field>
+        </record>
+
+        <record id="action_hr_instution_type" model="ir.actions.act_window">
+            <field name="name">Instution Types</field>
+            <field name="res_model">hr.employee.instution.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="hr_instution_type_view_search"/>
+        </record>
+
+        <menuitem
+            id="hr_menu_instution_type"
+            action="action_hr_instution_type"
+            parent="hr.menu_human_resources_configuration"
+            groups="base.group_no_one"/>
+</odoo>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="hr_employee_medical_examination_type_view_form" model="ir.ui.view">
+            <field name="name">hr.employee.medical.examination.type.form</field>
+            <field name="model">hr.employee.medical.examination.type</field>
+            <field name="arch" type="xml">
+                <form string="Examination Type">
+                    <group col="4">
+                        <field colspan="4" name="name"/>
+                    </group>
+                    <group col="4">
+                        <field name="parent_id" />
+                    </group>
+                    
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_employee_medical_examination_type_view_tree" model="ir.ui.view">
+            <field name="name">hr.employee.medical.examination.type.tree</field>
+            <field name="model">hr.employee.medical.examination.type</field>
+            <field name="arch" type="xml">
+                <tree string="Examination Type">
+                    <field colspan="4" name="name"/>
+                    <field name="parent_id" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="hr_employee_medical_examination_type_view_search" model="ir.ui.view">
+            <field name="name">hr.employee.medical.examination.type.search</field>
+            <field name="model">hr.employee.medical.examination.type</field>
+            <field name="arch" type="xml">
+                <search string="Search Examination Type">
+                    <field name="name" string="Examination Type"/>
+               </search>
+            </field>
+        </record>
+
+        <record id="action_hr_employee_medical_examination_type" model="ir.actions.act_window">
+            <field name="name">Examination Type</field>
+            <field name="res_model">hr.employee.medical.examination.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="hr_employee_medical_examination_type_view_search"/>
+        </record>
+
+        <menuitem
+            id="hr_menu_employee_medical_examination_type"
+            action="action_hr_employee_medical_examination_type"
+            parent="hr.menu_human_resources_configuration"
+            groups="base.group_no_one"/>
+</odoo>
