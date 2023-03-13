@@ -33,22 +33,22 @@
                         <field name="employee_parent_id"/>
                         <field name="contract_id"/>
                     </group>
-                    <group String="Request information">
-                        <field name="salary_or_position" attrs = "{'readonly':[('state','!=','draft')]}"/>
-                        <field name="requested_position_id"  attrs="{'invisible': [('salary_or_position','=','salary_request')], 'required':[('salary_or_position','=','position_request')],'readonly':[('state','!=','draft')]}"/>
-                        <field name="requested_department_id" attrs="{'invisible': [('salary_or_position', '=', 'salary_request')], 'required':[('salary_or_position','=','position_request')],'readonly':[('state','!=','draft')]}" />
-                        <field name="grade_id" attrs = "{'readonly':[('state','!=','draft')],'invisible': [('salary_or_position','=','salary_request')]}"/> 
-                        <field name="hr_responsible_user_id" attrs = "{'readonly':[('state','!=','draft')]}"/>
-                        <field name="wage" attrs="{'invisible': [('salary_or_position','=','position_request')],'readonly':[('state', '!=', 'draft')]}"/>
-                        <field name="estimated_salary" attrs="{'invisible': [('salary_or_position','=','position_request')],'readonly':[('state','!=','draft')]}"/>
+                    <group >
+                        <field name="salary_or_position" attrs = "{'readonly':[('state','!=','draft'),('state','!=','new')]}"/>
+                        <field name="requested_position_id"  attrs="{'invisible': [('salary_or_position','=','salary_request')], 'required':[('salary_or_position','=','position_request')],'readonly':[('state','!=','draft'),('state','!=','new')]}"/>
+                        <field name="requested_department_id" attrs="{'invisible': [('salary_or_position', '=', 'salary_request')], 'required':[('salary_or_position','=','position_request')],'readonly':[('state','!=','draft'),('state','!=','new')]}" />
+                        <field name="grade_id" attrs = "{'readonly':[('state','!=','draft'),('state','!=','new')],'invisible': [('salary_or_position','=','salary_request')]}"/> 
+                        <field name="hr_responsible_user_id" attrs = "{'readonly':[('state','!=','draft'),('state','!=','new')]}"/>
+                        <field name="wage" attrs="{'invisible': [('salary_or_position','=','position_request')],'readonly':[('state','!=','draft'),('state','!=','new')]}"/>
+                        <field name="estimated_salary" attrs="{'invisible': [('salary_or_position','=','position_request')],'readonly':[('state','!=','draft'),('state','!=','new')]}"/>
                     </group>
                   </group>
                   <notebook>
                      <page string="Attachment">
                      <group>
-                        <field name="attachment" filename="attachment_name" attrs = "{'readonly':[('state','!=','draft')]}" />
-                        <field name="attachment_name" invisible="1" attrs = "{'readonly':[('state','!=','draft')]}"/>
-                        <field name="note" attrs = "{'readonly':[('state','!=','draft')]}"/>
+                        <field name="attachment" filename="attachment_name" attrs = "{'readonly':[('state','!=','draft'),('state','!=','new')]}" />
+                        <field name="attachment_name" invisible="1" attrs = "{'readonly':[('state','!=','draft'),('state','!=','new')]}"/>
+                        <field name="note" attrs = "{'readonly':[('state','!=','draft'),('state','!=','new')]}"/>
                         </group>
                      </page>
                   </notebook>
@@ -173,7 +173,7 @@
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr.employee.position.request</field>
         <field name="view_mode">tree,form,search</field>
-        <field name="domain">[('state', '!=', 'draft')]</field>
+        <field name="domain">[('state','!=','draft'),('state','!=','new')]</field>
      </record>
 
     

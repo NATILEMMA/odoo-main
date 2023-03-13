@@ -11,6 +11,7 @@ _logger = logging.getLogger(__name__)
 
 
 REQUEST_STATES = [
+    ('New', 'new'),
     ('draft', 'Draft'),
     ('in_progress', 'Requested'),
     ('hr_approval', 'HR Approved'),
@@ -44,7 +45,7 @@ class HrEmployeeRequest(models.Model):
     work_location = fields.Char(related='employee_id.work_location', related_sudo=False, tracking=True,readonly=True)
     employee_parent_id = fields.Many2one('hr.employee',related='employee_id.parent_id', string='Manager', related_sudo=False, tracking=True)
     coach_id = fields.Many2one('hr.employee',related='employee_id.coach_id', string='Coach',related_sudo=False, tracking=True,readonly=True)
-    state = fields.Selection(REQUEST_STATES,'Status', tracking=True,copy=False, default='draft')
+    state = fields.Selection(REQUEST_STATES,'Status', tracking=True,copy=False,default = 'new')
     contract_id = fields.Many2one('hr.contract',string='Current Contract', compute ="_compute_contract", help='Current contract of the employee', related_sudo=False, tracking=True,readonly=True)
     hr_responsible_user_id = fields.Many2one('res.users', related='contract_id.hr_responsible_id',tracking=True,help='Person responsible for validating the employee\'s contracts.',readonly=True)
     user_id = fields.Many2one('res.users')
@@ -81,45 +82,15 @@ class HrEmployeeRequest(models.Model):
     @api.model
     def create(self, vals):
         Employee = self.isEmployee()
-        contract = self.env['hr.contract'].search([('employee_id', '=',self.employee_id.id)], limit=1)
         if not Employee:
             raise UserError(("The recruitment requester should be an employee of company ")) 
 
-        if vals['salary_or_position'] == 'position_request':
-            if vals['requested_position_id'] == contract.job_id and vals['requested_department_id'] ==  self.department_id:
-                raise UserError(('Already in Position'))
+       
+        vals['state'] = 'draft'
+        vals['reference_no'] = self.env['ir.sequence'].next_by_code('hr.employee.position.request')
+        vals['name'] = self.env['ir.sequence'].next_by_code('hr.employee.position.request')
+        request = super(HrEmployeeRequest, self).create(vals)     
 
-            vals['state'] = 'in_progress'
-            vals['reference_no'] = self.env['ir.sequence'].next_by_code('hr.employee.position.request')
-            vals['name'] = self.env['ir.sequence'].next_by_code('hr.employee.position.request')
-            request = super(HrEmployeeRequest, self).create(vals)
-        elif vals['salary_or_position'] == 'salary_request':
-
-            if(not   vals['contract_id']):
-                  raise UserError(('Please setup the employee job contract first!'))
-            
-            if(not  vals['contract_id'].wage):
-                  raise UserError(('The employee current job wage is not set!'))
-            
-            if(not  vals['contract_id'].grade_id):
-                  raise UserError(('The job grade of the employee is not set!'))
-            
-            if vals.get('estimated_salary') == None:
-                 raise UserError(('Estimated salary must be inserted in the input field'))
-            
-            if vals.get('estimated_salary') <=  vals['contract_id'].wage:
-                        raise UserError(('Please correct your estimation on provided salary to be greater than current wage of the employee.'))
-            else:    
-                if(vals.get('estimated_salary') < contract.grade_id.minimum_wage):
-                      raise UserError(('Your estimated salary request is below your current job grade of Birr ', vals['contract_id'].grade_id.minimum_wage))
-                
-                elif (vals.get('estimated_salary') >  vals['contract_id'].grade_id.maximum_wage):
-                         raise UserError(('Your estimated salary request is above your current job grade of Birr ' , vals['contract_id'].grade_id.maximum_wage))     
-                else:
-                      vals['state'] = 'in_progress'
-                      vals['reference_no'] = self.env['ir.sequence'].next_by_code('hr.employee.position.request')
-                      vals['name'] = self.env['ir.sequence'].next_by_code('hr.employee.position.request')
-                      request = super(HrEmployeeRequest, self).create(vals)       
         return request
     
     
@@ -175,8 +146,35 @@ class HrEmployeeRequest(models.Model):
     
 
     def button_request(self):
-        self.write({'state':'in_progress'})
-        self.send_activity_notification_to_position_Approvers()
+        if self.salary_or_position == 'position_request':
+            if self.requested_position_id == self.contract_id.job_id and self.requested_department_id ==  self.department_id:
+                raise UserError(('Already in Position'))
+
+        elif self.salary_or_position == 'salary_request':
+
+            if(not  self.contract_id):
+                  raise UserError(('Please setup the employee job contract first!'))
+            
+            if(not self.contract_id.wage):
+                  raise UserError(('The employee current job wage is not set!'))
+            
+            if(not self.contract_id.grade_id):
+                  raise UserError(('The job grade of the employee is not set!'))
+            
+            if self.estimated_salary == None:
+                 raise UserError(('Estimated salary must be inserted in the input field'))
+            
+            if self.estimated_salary <= self.contract_id.wage:
+                        raise UserError(('Please correct your estimation on provided salary to be greater than current wage of the employee.'))
+            else:    
+                if(self.estimated_salary < self.contract_id.grade_id.minimum_wage):
+                      raise UserError(('Your estimated salary request is below your current job grade of Birr ',self.contract_id.grade_id.minimum_wage))
+                
+                elif (self.estimated_salary > self.contract_id.grade_id.maximum_wage):
+                         raise UserError(('Your estimated salary request is above your current job grade of Birr ' ,self.contract_id.grade_id.maximum_wage))     
+                else:
+                      self.state = 'in_progress'
+                      self.send_activity_notification_to_position_Approvers()
 
     def write(self, vals):
         res = super(HrEmployeeRequest, self).write(vals)
