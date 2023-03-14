@@ -26,3 +26,5 @@ from . import employee_orientation
 from . import orientation_checklist_request
 from . import employee_training
 from . import report
+from . import employee_training_program_round
+from . import employee_training_program

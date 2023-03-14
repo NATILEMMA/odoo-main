@@ -14,3 +14,4 @@ class GamificationBadge(models.Model):
     def _compute_survey_id(self):
         for badge in self:
             badge.survey_id = badge.survey_ids[0] if badge.survey_ids else None
+    

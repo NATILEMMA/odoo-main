@@ -33,11 +33,10 @@ class HrEmployee(models.Model):
 
 class EmployeeTraining(models.Model):
     _name = 'employee.training'
-    _rec_name = 'program_name'
     _description = "Employee Training"
     _inherit = 'mail.thread'
-
-    program_name = fields.Char(string='Training Program', required=True)
+    program_id = fields.Many2one('employee.training.program',string='Training Program', required=True)
+    program_round_id = fields.Many2one('employee.training.program.round',domain= "[('training_id','=',program_id)]",string='Training round')
     program_department = fields.Many2one('hr.department', string='Department', required=True)
     program_convener = fields.Many2one('res.users', string='Responsible User', size=32, required=True)
     training_id = fields.One2many('hr.employee', string='Employee Details', compute="employee_details")
@@ -47,6 +46,8 @@ class EmployeeTraining(models.Model):
     user_id = fields.Many2one('res.users', string='users', default=lambda self: self.env.user)
     company_id = fields.Many2one('res.company', string='Company', required=True,
                                  default=lambda self: self.env.user.company_id)
+    instution_type_id = fields.Many2one("hr.employee.instution.type",domain= "[('instution_type_id.name','=','Training Center')]", string="Instution Type",readonly=True)
+    instution_id = fields.Many2one("res.partner", string="Instution",domain= "[('instution_type_id','=',instution_type_id.id)]")
 
     state = fields.Selection([
         ('new', 'New'),
@@ -71,8 +72,10 @@ class EmployeeTraining(models.Model):
         minutes = difference.minutes
         data = {
             'dept_id': self.program_department.id,
-            'program_name': self.program_name,
+            'program_name': self.program_id.name,
+            'program_round': self.program_round_id.name,
             'company_name': self.company_id.name,
+            'institution':self.instution_id.name,
             'date_to': started_date,
             'duration': duration,
             'hours': hours,

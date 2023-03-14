@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    <record id="employee_training_program_round_view_tree" model="ir.ui.view">
+            <field name="name">employee.training.program.round.view.tree</field>
+            <field name="model">employee.training.program.round</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name" />
+                    <field name="training_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="employee_training_program_round_view_form" model="ir.ui.view">
+            <field name="name">employee.training.program.round.view.form</field>
+            <field name="model">employee.training.program.round</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="training_id"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_employee_training_program_round">
+            <field name="name">Employee Training Program round</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">employee.training.program.round</field>
+            <field name="view_mode">tree,form</field>
+    
+             <field name="help" type="html">
+                <field class="oe_view_nocontent_create">
+                    Create Employee Training Program type round.
+                </field>
+             </field>
+        </record>
+
+    </data>
+    
+
+</odoo>

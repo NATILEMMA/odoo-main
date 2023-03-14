@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="print_pack_template">
+    <t t-set="data_report_landscape" t-value="True" />
+    <t t-set="full_width" t-value="True" />
+    <t t-call="web.html_container">
+     
+        <t t-call="web.external_layout">
+          <t t-foreach="data" t-as="o">
+            <div class="page">
+                <div class="article certification-wrapper">
+                <div t-attf-class="certification ">
+                    <h2 align="center" style="margin-top: 200px; padding-top: 50px">Certificate of Participation</h2>
+                    <table align="center" style="page-break-after: always !important">
+                    <tr>
+                        <td>
+                        <br /><br />
+                        <p>
+                            This certificate is awarded to
+                            <span
+                            ><strong><t t-esc="o['name']" /></strong
+                            ></span>
+                            for certifying his/her participation in the training program <strong> <t t-esc="o['program_name']" /></strong> in round
+                            <strong> <t t-esc="o['program_round']" /></strong> conducted by <strong> <t t-esc="o['program_convener']" /></strong> at <strong> <t t-esc="o['institution']" /></strong> from
+                            <strong> <t t-esc="o['date_to']" /></strong> ,with duration of <strong> <t t-esc="o['duration']" /></strong>days, <strong> <t t-esc="o['hours']" /></strong>Hours by company
+                            <strong><t t-esc="o['company_name']" /></strong>.
+                        </p>
+                        </td>
+                    </tr>
+                    </table>
+                </div>
+                </div>
+            </div>
+          </t>
+        </t>
+      
+    </t>
+  </template>
+</odoo>
