@@ -44,8 +44,7 @@ class PackingReportValues(models.AbstractModel):
                 'program_convener': data['program_convener'],
                 'duration': data['duration'],
                 'hours': data['hours'],
-                'minutes': data['minutes'],
-                
+                'minutes': data['minutes'],   
             })
 
         return {
