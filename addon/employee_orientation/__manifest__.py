@@ -29,7 +29,7 @@
     'author': 'Cybrosys Techno Solutions',
     'company': 'Cybrosys Techno Solutions',
     'website': 'https://www.cybrosys.com',
-    'depends': ['base', 'hr','web','hr_'],
+    'depends': ['base', 'hr','web'],
     'data': [
         'views/orientation_checklist_line.xml',
         'views/employee_orientation.xml',
@@ -40,7 +40,7 @@
         'views/print_pack_certificates_template.xml',
         'views/employee_training.xml',
         'security/ir.model.access.csv',
-       'views/assets.xml',  
+        'views/assets.xml',  
         'views/training_program_view.xml',
         'views/training_program_round.xml',
         'views/report.xml'
