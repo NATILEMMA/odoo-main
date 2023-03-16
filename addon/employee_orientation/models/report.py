@@ -30,6 +30,7 @@ class PackingReportValues(models.AbstractModel):
 
         lst = []
         empl_obj = self.env['hr.employee'].search([('department_id', '=', data['dept_id'])])
+        docs = self.env['model'].browse(self.env.context.get('active_id'))
 
         for line in empl_obj:
             lst.append({
@@ -44,9 +45,11 @@ class PackingReportValues(models.AbstractModel):
                 'duration': data['duration'],
                 'hours': data['hours'],
                 'minutes': data['minutes'],
+                
             })
 
         return {
+            'docs':docs,
             'data': lst,
         }
 
