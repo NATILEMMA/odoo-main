@@ -46,8 +46,8 @@ class EmployeeTraining(models.Model):
     user_id = fields.Many2one('res.users', string='users', default=lambda self: self.env.user)
     company_id = fields.Many2one('res.company', string='Company', required=True,
                                  default=lambda self: self.env.user.company_id)
-    instution_type_id = fields.Many2one("hr.employee.instution.type",domain= "[('instution_type_id.name','=','Training Center')]", string="Instution Type",readonly=True)
-    instution_id = fields.Many2one("res.partner", string="Instution",domain= "[('instution_type_id','=',instution_type_id.id)]")
+    instution_type_id = fields.Many2one("hr.employee.instution.type", string="Instution Type")
+    instution_id = fields.Many2one("res.partner", string="Instution",domain= "[('instution_type_id','=',instution_type_id)]")
 
     state = fields.Selection([
         ('new', 'New'),

@@ -1,0 +1,36 @@
+ <!-- <div class="header">
+              <div>
+                <img t-if="doc.company_id.logo" t-att-src="image_data_uri(doc.company_id.logo)" alt="Company Logo" class="float-left" />
+                <div style="font-size: 14px; text-align: right" class="float-right">
+                  <div>
+                    <span t-field="doc.company_id.partner_id.name" />
+                    <span t-field="doc.company_id.partner_id" t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}' />
+                    <span t-field="doc.company_id.partner_id.website" />
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+             <!-- <div class="footer">
+              <div class="text-center" style="border-top: 1px solid black">
+                <ul class="list-inline">
+                  <li t-if="doc.company_id.phone">E-mail: <span t-field="doc.company_id.email" /></li>
+                </ul>
+              </div>
+            </div> -->
+
+
+
+
+             <!-- <div style="width: 750px; height: 563px; display: table-cell; vertical-align: middle">
+                      <div style="border-bottom: 2px solid black; font-size: 32px; font-style: italic; margin: 20px auto; width: 400px">
+                        <t t-esc="o['name']" />
+                      </div>
+
+                      <div style="margin: 20px">
+                        for certifying his/her participation in the training program <strong> <t t-esc="o['program_name']" /></strong> in round
+                        <strong> <t t-esc="o['program_round']" /></strong> conducted by <strong> <t t-esc="o['program_convener']" /></strong> at <strong> <t t-esc="o['institution']" /></strong> from
+                        <strong> <t t-esc="o['date_to']" /></strong> ,with duration of <strong> <t t-esc="o['duration']" /></strong>days, <strong> <t t-esc="o['hours']" /></strong>Hours by company
+                        <strong><t t-esc="o['company_name']" /></strong>.
+                      </div>
+                    </div> -->

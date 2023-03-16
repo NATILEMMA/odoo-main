@@ -4,7 +4,7 @@
 
     <template id="training_report_assets_pdf" inherit_id="web.report_assets_pdf">
         <xpath expr="link[last()]" position="after">
-            <link rel="stylesheet" type="text/scss" href="/survey/static/src/scss/survey_reports.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/employee_orientation/static/src/scss/report.scss"/>
         </xpath>
     </template>
 

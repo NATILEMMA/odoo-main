@@ -36,6 +36,9 @@
                             <label for="date_from" string="Time Period"/>
                             <div><field name="date_from" class="oe_inline"/> to <field name="date_to" class="oe_inline"/></div>
                             <field name="program_convener"/>
+                            <field name="instution_id"/>
+                            <field name="instution_type_id"/> 
+                             
                         </group>
                         <notebook colspan="4">
                             <page name="checklist_lines" string="Employee Details">

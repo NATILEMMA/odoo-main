@@ -1,21 +1,22 @@
-.certification-wrapper {
+.certification-wrapper-training {
+    background: url(/employee_orientation/static/src/img/certifcate_background.png) no-repeat;
+    background-size: 100% 100%;
+    box-sizing: border-box;
     height: 100%;
     width: 100%;
-    border-style: dashed;
-    height: 1000px;
-    border-color: black;
 
-    .certification {
-        margin-left: 350px;
-        padding-top: 140px;
-        width: 510px;
-        text-align: center;
-
-        h2 {
-            color: #876B81;
-        }
-
-
-    }
+    
 }
 
+.certification-training {
+    margin-left: 350px;
+    padding-top: 140px;
+    width: 510px;
+    text-align: center;
+
+    h2 {
+        color: #052b70;
+    }
+
+
+}

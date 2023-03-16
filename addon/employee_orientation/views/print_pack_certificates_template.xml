@@ -7,24 +7,26 @@
      
         <t t-call="web.external_layout">
           <t t-foreach="data" t-as="o">
-            <div class="page">
-                <div class="article certification-wrapper">
-                <div t-attf-class="certification ">
-                    <h2 align="center" style="margin-top: 200px; padding-top: 50px">Certificate of Participation</h2>
+            
+                <div class="article certification-wrapper-training">
+                <div t-attf-class="certification-training">
+                 <div class="page">
                     <table align="center" style="page-break-after: always !important">
                     <tr>
                         <td>
                         <br /><br />
-                        <p>
-                            This certificate is awarded to
-                            <span
-                            ><strong><t t-esc="o['name']" /></strong
-                            ></span>
-                            for certifying his/her participation in the training program <strong> <t t-esc="o['program_name']" /></strong> in round
-                            <strong> <t t-esc="o['program_round']" /></strong> conducted by <strong> <t t-esc="o['program_convener']" /></strong> at <strong> <t t-esc="o['institution']" /></strong> from
-                            <strong> <t t-esc="o['date_to']" /></strong> ,with duration of <strong> <t t-esc="o['duration']" /></strong>days, <strong> <t t-esc="o['hours']" /></strong>Hours by company
-                            <strong><t t-esc="o['company_name']" /></strong>.
-                        </p>
+                        <div style="display: table-cell; vertical-align: middle">
+                            <div style="border-bottom: 2px solid black; font-size: 32px; font-style: italic; margin: 20px auto; width: 400px">
+                                <t t-esc="o['name']" />
+                            </div>
+
+                            <div style="margin: 20px">
+                                for certifying his/her participation in the training program <strong> <t t-esc="o['program_name']" /></strong> in round
+                                <strong> <t t-esc="o['program_round']" /></strong> conducted by <strong> <t t-esc="o['program_convener']" /></strong> at <strong> <t t-esc="o['institution']" /></strong> from
+                                <strong> <t t-esc="o['date_to']" /></strong> ,with duration of <strong> <t t-esc="o['duration']" /></strong>days, <strong> <t t-esc="o['hours']" /></strong>Hours by company
+                                <strong><t t-esc="o['company_name']" /></strong>.
+                            </div>
+                            </div>
                         </td>
                     </tr>
                     </table>

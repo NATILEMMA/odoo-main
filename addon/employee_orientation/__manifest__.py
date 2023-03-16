@@ -40,7 +40,7 @@
         'views/print_pack_certificates_template.xml',
         'views/employee_training.xml',
         'security/ir.model.access.csv',
-        'views/assets.xml',
+       'views/assets.xml',  
         'views/training_program_view.xml',
         'views/training_program_round.xml',
         'views/report.xml'
