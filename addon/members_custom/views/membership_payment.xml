@@ -36,8 +36,7 @@
                 <field name="amount_paid" attrs="{'readonly': [('state', '=', 'paid')]}" force_save="1"/>
                 <field name="amount_remaining" readonly="1" force_save="1"/>
                 <field name="traced_member_payment" readonly="1" force_save="1"/>
-                <field name="type_of_payment" readonly="1" optional="hidden"/>
-                <field name="id_payment"/>
+                <field name="type_of_payment" readonly="1"/>
                 <field name="state"/>
                 <button name="print_payslip" string="Pay Slip" type="object" icon="fa-download" attrs="{'invisible': [('state', '=', 'not payed')]}"/>
             </tree>
@@ -55,7 +54,7 @@
                             <field name="wereda_id" invisible="1"/>
                             <field name="month" options="{'no_create': True, 'no_create_edit': True}" attrs="{'readonly': [('state', '=', 'paid')]}" force_save="1"/>
                             <field name="year"/>
-                            <field name="member_id" options="{'no_create': True, 'no_create_edit': True}" attrs="{'readonly': [('state', '=', 'paid')]}" force_save="1" context="{'form_view_ref': 'members_custom.membership_view_partner_form'}"/>
+                            <field name="member_id" options="{'no_create': True, 'no_create_edit': True}" attrs="{'readonly': [('state', '=', 'paid')]}" force_save="1"/>
                             <field name="fee_amount"/>
                             <field name="type_of_payment" attrs="{'readonly': [('state', '=', 'paid')]}"/>
                             <field name="members_payment_id" invisible="1"/>
@@ -63,7 +62,6 @@
                         <group>
                             <field name="amount_paid" attrs="{'readonly': [('state', '=', 'paid')]}"/>
                             <field name="amount_remaining" force_save="1" attrs="{'readonly': [('state', '=', 'paid')]}"/>
-                            <field name="id_payment"/>
                             <field name="traced_member_payment" force_save="1" attrs="{'readonly': [('state', '=', 'paid')]}"/>
                             <field name="paid_fully" invisible="1"/>
                             <field name="annual_fee" attrs="{'invisible': [('paid_fully', '=', False)], 'readonly': [('state', '=', 'paid')]}"/>
@@ -71,11 +69,6 @@
                         </group>
                     </group>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers"/>
-                    <field name="activity_ids" widget="mail_activity"/>
-                    <field name="message_ids" widget="mail_thread"/>
-                </div>
             </form>
         </field>
     </record>
@@ -108,7 +101,6 @@
                 <field name="fee_amount" readonly="1"/>
                 <field name="amount_paid" readonly="1"/>
                 <field name="amount_remaining" readonly="1"/>
-                <field name="id_payment" readonly="1"/>
                 <field name="type_of_payment" readonly="1"/>
             </tree>
         </field>
@@ -120,7 +112,7 @@
         <field name="view_mode">tree,pivot</field>
         <field name="search_view_id" ref="each_member_payment_search"/>
         <field name="view_id" ref="each_member_payment_tree_report"/>
-        <field name="domain">['|', '|', '|', '|', ('wereda_id.branch_manager', '=', uid), ('subcity_id.parent_manager.id', '=', uid), ('subcity_id.city_id.city_manager', 'in', [uid]), ('subcity_id.city_id.transfer_handler', '=', uid), ('subcity_id.city_id.responsible_id.system_admin', '=', uid)]</field>
+        <field name="domain">['|', '|', '|', ('wereda_id.branch_manager', '=', uid), ('subcity_id.parent_manager.id', '=', uid), ('subcity_id.city_id.city_manager', 'in', [uid]), ('subcity_id.city_id.responsible_id.system_admin', '=', uid)]</field>
     </record>
 
     <record id="each_league_payment_tree" model="ir.ui.view">
@@ -134,13 +126,12 @@
                 <field name="month" attrs="{'readonly': [('state', '=', 'paid')]}" force_save="1"/>
                 <field name="cell_id" readonly="1"/>
                 <field name="league_type"/>
-                <field name="league_org" optional="hidden"/>
+                <field name="league_org"/>
                 <field name="fee_amount" readonly="1"/>
                 <field name="amount_paid" attrs="{'readonly': [('state', '=', 'paid')]}" force_save="1"/>
                 <field name="amount_remaining" readonly="1" force_save="1"/>
                 <field name="traced_league_payment" readonly="1" force_save="1"/>
-                <field name="type_of_payment" readonly="1" optional="hidden"/>
-                <field name="id_payment"/>
+                <field name="type_of_payment" readonly="1"/>
                 <field name="state"/>
                 <button name="print_league_payslip" string="Pay Slip" type="object" icon="fa-download" attrs="{'invisible': [('state', '=', 'not payed')]}"/>
             </tree>
@@ -158,7 +149,7 @@
                             <field name="wereda_id" invisible="1"/>
                             <field name="month" options="{'no_create': True, 'no_create_edit': True}" attrs="{'readonly': [('state', '=', 'paid')]}" force_save="1"/>
                             <field name="year"/>
-                            <field name="league_id" options="{'no_create': True, 'no_create_edit': True}" attrs="{'readonly': [('state', '=', 'paid')]}" force_save="1" context="{'form_view_ref': 'members_custom.membership_view_partner_form'}"/>
+                            <field name="league_id" options="{'no_create': True, 'no_create_edit': True}" attrs="{'readonly': [('state', '=', 'paid')]}" force_save="1"/>
                             <field name="fee_amount"/>
                             <field name="type_of_payment" attrs="{'readonly': [('state', '=', 'paid')]}"/>
                             <field name="members_payment_id" invisible="1"/>
@@ -166,7 +157,6 @@
                         <group>
                             <field name="amount_paid" attrs="{'readonly': [('state', '=', 'paid')]}"/>
                             <field name="amount_remaining" force_save="1" attrs="{'readonly': [('state', '=', 'paid')]}"/>
-                            <field name="id_payment"/>
                             <field name="traced_league_payment" force_save="1" attrs="{'readonly': [('state', '=', 'paid')]}"/>
                             <field name="paid_fully" invisible="1"/>
                             <field name="annual_league_fee" attrs="{'invisible': [('paid_fully', '=', False)], 'readonly': [('state', '=', 'paid')]}"/>
@@ -174,11 +164,6 @@
                         </group>
                     </group>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers"/>
-                    <field name="activity_ids" widget="mail_activity"/>
-                    <field name="message_ids" widget="mail_thread"/>
-                </div>
             </form>
         </field>
     </record>
@@ -214,7 +199,6 @@
                 <field name="fee_amount" readonly="1"/>
                 <field name="amount_paid" readonly="1"/>
                 <field name="amount_remaining" readonly="1"/>
-                <field name="id_payment" readonly="1"/>
                 <field name="type_of_payment" readonly="1"/>
                 <!-- <field name="state" readonly="1"/>
                 <button name="print_payslip" string="Pay Slip" type="object" icon="fa-download" attrs="{'invisible': [('state', '!=', 'paid')]}"/> -->
@@ -228,7 +212,7 @@
         <field name="view_mode">tree,pivot</field>
         <field name="search_view_id" ref="each_league_payment_search"/>
         <field name="view_id" ref="each_league_payment_tree_report"/>
-        <field name="domain">['|', '|', '|', '|', ('wereda_id.branch_manager', '=', uid), ('subcity_id.parent_manager.id', '=', uid), ('subcity_id.city_id.city_manager', 'in', [uid]), ('subcity_id.city_id.transfer_handler', '=', uid), ('subcity_id.city_id.responsible_id.system_admin', '=', uid)]</field>
+        <field name="domain">['|', '|', '|', ('wereda_id.branch_manager', '=', uid), ('subcity_id.parent_manager.id', '=', uid), ('subcity_id.city_id.city_manager', 'in', [uid]), ('subcity_id.city_id.responsible_id.system_admin', '=', uid)]</field>
     </record>
 
     <record id="membership_payment_tree" model="ir.ui.view">
@@ -267,8 +251,7 @@
                             <field name="user_id" invisible="1"/>
                             <field name="year" attrs="{'readonly': [('state', '=', 'submit')]}"/>
                             <field name="month" attrs="{'readonly': [('state', '=', 'submit')]}"/>
-                            <field name="payment_for_league_member" string="League or Member" attrs="{'invisible': [('payment_for_supporter', '=', True)], 'readonly': [('state', '=', 'submit')]}"/>
-                            <field name="payment_for_supporter" string="Other Payments" attrs="{'readonly': [('state', '=', 'submit')]}"/>
+                            <field name="payment_for_supporter" string="Payment For Supporters" attrs="{'readonly': [('state', '=', 'submit')]}"/>
                         </group>
                         <group>
                             <field name="subcity_id" attrs="{'readonly': [('state', '=', 'submit')]}"/>
@@ -279,62 +262,35 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Members" name="members_ids" attrs="{'invisible': ['|', ('payment_for_league_member', '=', 'league'), ('payment_for_supporter', '=', True)], 'readonly': [('state', '=', 'submit')]}">
+                        <page string="Members" name="members_ids" attrs="{'invisible': [('payment_for_supporter', '=', True)], 'readonly': [('state', '=', 'submit')]}">
                             <field name="member_ids" attrs="{'readonly': [('state', '=', 'submit')]}"/>
-                        </page>
-                        <page string="Supporters" name="supporter_ids" attrs="{'invisible': [('payment_for_supporter', '=', False)], 'readonly': [('state', '=', 'submit')]}">
                             <group>
-                                <group>
-                                    <field name="donor_supporter" string="Are you registered as a Donor?"/>
-                                </group>
-                                <group>
-                                    <field name="supporter_ids" attrs="{'invisible': [('donor_supporter', '=', 'donor')], 'readonly': [('state', '=', 'submit')]}"/>
-                                    <field name="donors_id" attrs="{'invisible': [('donor_supporter', '=', 'supporter')], 'readonly': [('state', '=', 'submit')]}"/>
-                                </group>
+                                <field name="total_estimated_for_members" widget="monetary" force_save="1" attrs="{'invisible': [('payment_for_supporter', '=', True)]}"/>
+                                <field name="total_paid_for_members" widget="monetary" force_save="1" attrs="{'invisible': [('payment_for_supporter', '=', True)]}"/>
+                                <field name="total_remaining_for_members" widget="monetary" force_save="1" attrs="{'invisible': [('payment_for_supporter', '=', True)]}"/>
                             </group>
                         </page>
-                        <page string="Leagues" name="league_ids" attrs="{'invisible': ['|', ('payment_for_league_member', '=', 'member'), ('payment_for_supporter', '=', True)], 'readonly': [('state', '=', 'submit')]}">
+                        <page string="Supporters" name="supporter_ids" attrs="{'invisible': [('payment_for_supporter', '=', False)], 'readonly': [('state', '=', 'submit')]}">
+                            <field name="supporter_ids" attrs="{'readonly': [('state', '=', 'submit')]}"/>
+                        </page>
+                        <page string="Leagues" name="league_ids" attrs="{'invisible': [('payment_for_supporter', '=', True)], 'readonly': [('state', '=', 'submit')]}">
                             <field name="league_ids" attrs="{'readonly': [('state', '=', 'submit')]}"/>
-                            <!-- <group>
+                            <group>
                                 <field name="total_estimated_for_leagues" widget="monetary" force_save="1" attrs="{'invisible': [('payment_for_supporter', '=', True)]}"/>
                                 <field name="total_paid_for_leagues" widget="monetary" force_save="1" attrs="{'invisible': [('payment_for_supporter', '=', True)]}"/>
                                 <field name="total_remaining_for_leagues" widget="monetary" force_save="1" attrs="{'invisible': [('payment_for_supporter', '=', True)]}"/>
-                                <field name="total_id_payments_leagues" widget="monetary" force_save="1" attrs="{'invisible': [('payment_for_supporter', '=', True)]}"/>
-                            </group> -->
+                            </group>
                         </page>
                     </notebook>
-                    <group class="oe_subtotal_footer oe_right" attrs="{'invisible': ['|', ('payment_for_league_member', '=', 'league'), ('payment_for_supporter', '=', True)]}">
-                        <field name="total_estimated_for_members" widget="monetary" force_save="1" attrs="{'invisible': ['|', ('payment_for_league_member', '=', 'league'), ('payment_for_supporter', '=', True)]}"/>
-                        <field name="total_paid_for_members" widget="monetary" force_save="1" attrs="{'invisible': ['|', ('payment_for_league_member', '=', 'league'), ('payment_for_supporter', '=', True)]}"/>
-                        <field name="total_id_payments_members" widget="monetary" force_save="1" attrs="{'invisible': ['|', ('payment_for_league_member', '=', 'league'), ('payment_for_supporter', '=', True)]}"/>
-                        <div class="oe_subtotal_footer_separator oe_inline">
-                            <!-- <label for="total_remaining_for_members" attrs="{'invisible': ['|', ('payment_for_league_member', '=', 'league'), ('payment_for_supporter', '=', True)]}"/> -->
-                        </div>
-                        <field name="total_remaining_for_members" widget="monetary" force_save="1" attrs="{'invisible': ['|', ('payment_for_league_member', '=', 'league'), ('payment_for_supporter', '=', True)]}"/>
-                    </group>
-                    <group class="oe_subtotal_footer oe_right" attrs="{'invisible': ['|', ('payment_for_league_member', '=', 'member'), ('payment_for_supporter', '=', True)]}">
-                        <field name="total_estimated_for_leagues" widget="monetary" force_save="1" attrs="{'invisible': ['|', ('payment_for_league_member', '=', 'member'), ('payment_for_supporter', '=', True)]}"/>
-                        <field name="total_paid_for_leagues" widget="monetary" force_save="1" attrs="{'invisible': ['|', ('payment_for_league_member', '=', 'member'), ('payment_for_supporter', '=', True)]}"/>
-                        <field name="total_id_payments_leagues" widget="monetary" force_save="1" attrs="{'invisible': ['|', ('payment_for_league_member', '=', 'member'), ('payment_for_supporter', '=', True)]}"/>
-                        <div class="oe_subtotal_footer_separator oe_inline">
-                            <!-- <label for="total_remaining_for_leagues" attrs="{'invisible': ['|', ('payment_for_league_member', '=', 'member'), ('payment_for_supporter', '=', True)]}"/> -->
-                        </div>
-                        <field name="total_remaining_for_leagues" widget="monetary" force_save="1" attrs="{'invisible': ['|', ('payment_for_league_member', '=', 'member'), ('payment_for_supporter', '=', True)]}"/>
-                    </group>
-                    <group class="oe_subtotal_footer oe_right" attrs="{'invisible': [('payment_for_supporter', '=', False)]}">
-                        <!-- <field name="total_estimated" widget="monetary" force_save="1" attrs="{'invisible': [('payment_for_supporter', '=', True)]}"/> -->
+                    <group class="oe_subtotal_footer oe_right">
+                        <field name="total_estimated" widget="monetary" force_save="1" attrs="{'invisible': [('payment_for_supporter', '=', True)]}"/>
                         <field name="total_paid" widget="monetary" force_save="1"/>
-                        <!-- <div class="oe_subtotal_footer_separator oe_inline"> -->
-                            <!-- <label for="total_remaining" attrs="{'invisible': [('payment_for_supporter', '=', True)]}"/> -->
-                        <!-- </div> -->
-                        <!-- <field name="total_remaining" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" force_save="1" attrs="{'invisible': [('payment_for_supporter', '=', True)]}"/> -->
+                        <div class="oe_subtotal_footer_separator oe_inline">
+                            <label for="total_remaining" attrs="{'invisible': [('payment_for_supporter', '=', True)]}"/>
+                        </div>
+                        <field name="total_remaining" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" force_save="1" attrs="{'invisible': [('payment_for_supporter', '=', True)]}"/>
                     </group>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers"/>
-                    <field name="activity_ids" widget="mail_activity"/>
-                    <field name="message_ids" widget="mail_thread"/>
-                </div>
             </form>
         </field>
     </record>
@@ -343,7 +299,7 @@
         <field name="name">Membership Payment Menu</field>
         <field name="res_model">membership.payment</field>
         <field name="view_mode">tree,form</field>
-        <field name="domain">['|', '|', '|', '|', ('wereda_id.branch_manager', '=', uid), ('subcity_id.parent_manager.id', '=', uid), ('subcity_id.city_id.city_manager', 'in', [uid]), ('subcity_id.city_id.transfer_handler', '=', uid), ('subcity_id.city_id.responsible_id.system_admin', '=', uid)]</field>
+        <field name="domain">['|', '|', '|', ('wereda_id.branch_manager', '=', uid), ('subcity_id.parent_manager.id', '=', uid), ('subcity_id.city_id.city_manager', 'in', [uid]), ('subcity_id.city_id.responsible_id.system_admin', '=', uid)]</field>
     </record>
 
     <record id="supporter_payment_search" model="ir.ui.view">
@@ -385,7 +341,7 @@
         <field name="view_mode">tree,pivot</field>
         <field name="view_id" ref="supporter_payment_tree"/>
         <field name="search_view_id" ref="supporter_payment_search"/>
-        <field name="domain">['|', '|', '|', '|', ('wereda_id.branch_manager', '=', uid), ('subcity_id.parent_manager.id', '=', uid), ('subcity_id.city_id.city_manager', 'in', [uid]), ('subcity_id.city_id.transfer_handler', '=', uid), ('subcity_id.city_id.responsible_id.system_admin', '=', uid)]</field>
+        <field name="domain">['|', '|', '|', ('wereda_id.branch_manager', '=', uid), ('subcity_id.parent_manager.id', '=', uid), ('subcity_id.city_id.city_manager', 'in', [uid]), ('subcity_id.city_id.responsible_id.system_admin', '=', uid)]</field>
         <field name="context">{"search_default_supporter": 1}</field>
     </record>
 

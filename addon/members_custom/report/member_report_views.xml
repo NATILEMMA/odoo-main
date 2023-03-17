@@ -45,17 +45,6 @@
      <field name="binding_type">report</field>
    </record>
 
-   <!-- This record will hold the action to the report of ID payment -->
-   <record id="membership_id_payment_report" model="ir.actions.report">
-     <field name="name">Membership ID Payment</field>
-     <field name="model">membership.payment</field>
-     <field name="report_type">qweb-pdf</field>
-     <field name="report_name">members_custom.membership_id_payment_report</field>
-     <field name="report_file">members_custom.membership_id_payment_report</field>
-     <field name="binding_model_id" ref="model_membership_payment"/>
-     <field name="binding_type">report</field>
-   </record>
-
    <!-- This record will hold the action to the report of subcity -->
    <record id="report_for_subcity" model="ir.actions.report">
      <field name="name">Subcity Report</field>
@@ -86,17 +75,6 @@
      <field name="report_name">members_custom.certificate_template</field>
      <field name="report_file">members_custom.certificate_template</field>
      <field name="binding_model_id" ref="model_res_partner"/>
-     <field name="binding_type">report</field>
-   </record>
-
-  <!-- This record will hold the action to create certificate for trainings details -->
-   <record id="create_training_certificate" model="ir.actions.report">
-     <field name="name">Certificate</field>
-     <field name="model">member.training</field>
-     <field name="report_type">qweb-pdf</field>
-     <field name="report_name">members_custom.training_certificate_template</field>
-     <field name="report_file">members_custom.training_certificate_template</field>
-     <field name="binding_model_id" ref="model_member_training"/>
      <field name="binding_type">report</field>
    </record>
 

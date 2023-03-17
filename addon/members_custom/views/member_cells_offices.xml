@@ -8,9 +8,6 @@
         <field name="arch" type="xml">
             <search string="Member's Cell">
                 <group expand="0" string="Group By" colspan="10" col="8">
-                    <filter string="Members" name="members" context="{'group_by': 'for_which_members'}"/>
-                    <filter string="Member Organization" name="member_org" context="{'group_by': 'member_cell_type_id'}"/>
-                    <filter string="League Organization" name="league_org" context="{'group_by': 'league_cell_type_id'}"/>
                     <filter string="Main Office" name="office" context="{'group_by': 'main_office'}"/>
                     <filter string="Woreda" name="woreda" context="{'group_by': 'wereda_id'}"/>
                     <filter string="Subcity" name="subcity" context="{'group_by': 'subcity_id'}"/>
@@ -24,7 +21,7 @@
        <field name="res_model">member.cells</field>
        <field name="view_mode">tree,form</field>
        <field name="search_view_id" ref="member_cell_action_search"/>
-       <field name="domain">['|', '|', '|', '|', ('wereda_id.branch_manager', '=', uid), ('subcity_id.parent_manager', '=', uid), ('subcity_id.city_id.city_manager', 'in', [uid]), ('subcity_id.city_id.transfer_handler', '=', uid), ('subcity_id.city_id.responsible_id.system_admin', '=', uid)]</field>
+       <field name="domain">['|', '|', '|', ('wereda_id.branch_manager', '=', uid), ('subcity_id.parent_manager', '=', uid), ('subcity_id.city_id.city_manager', 'in', [uid]), ('subcity_id.city_id.responsible_id.system_admin', '=', uid)]</field>
    </record>
 
    <record id="member_cell_tree" model="ir.ui.view">
@@ -33,12 +30,9 @@
        <field name="arch" type="xml">
            <tree>
                 <field name="user_id" invisible="1"/>
-                <field name="for_which_members" invisible="1"/>
-                <field name="member_cell_type_id" attrs="{'invisible': [('for_which_members', '=', 'league')]}"/>
-                <field name="league_cell_type_id" attrs="{'invisible': [('for_which_members', '=', 'member')]}"/>
                 <field name="name"/>
-                <field name="main_office" string="Member Main Office" attrs="{'invisible': [('for_which_members', '=', 'league')]}"/>
-                <field name="main_office_league" string="League Main Office" attrs="{'invisible': [('for_which_members', '=', 'member')]}"/>
+                <field name="cell_type_id"/>
+                <field name="main_office"/>
                 <field name="subcity_id"/>
                 <field name="wereda_id"/>
            </tree>
@@ -50,66 +44,78 @@
        <field name="model">member.cells</field>
        <field name="arch" type="xml">
            <form>
-                <sheet>
-                    <h1>
+              <sheet>
+                  <h1>
                     <field name="name"/>
-                    </h1>
-                    <group>
-                        <group>
+                  </h1>
+                  <group>
+                     <group>
                         <field name="user_id" invisible="1"/>
                         <field name="subcity_id"/>
                         <field name="wereda_id"/>
+                     </group>
+                     <group>
+                        <field name="main_office"/>
+                        <field name="cell_type_id"/>
                         <field name="total_membership_fee" widget="monetary" force_save="1" readonly="1"/>
-                        </group>
-                        <group>
-                        <field name="for_which_members"/>
-                        <field name="member_cell_type_id" attrs="{'invisible': [('for_which_members', '=', 'league')], 'required': [('for_which_members', '=', 'member')]}"/>
-                        <field name="league_cell_type_id" attrs="{'invisible': [('for_which_members', '=', 'member')], 'required': [('for_which_members', '=', 'league')]}"/>
-                        <field name="main_office" string="Member Main Office" attrs="{'invisible': [('for_which_members', '=', 'league')], 'required': [('for_which_members', '=', 'member')]}"/>
-                        <field name="main_office_league" string="League Main Office" attrs="{'invisible': [('for_which_members', '=', 'member')], 'required': [('for_which_members', '=', 'league')]}"/>
-                        </group>
-                    </group>
-                    <notebook>
-                        <page string="Members" name="members_ids" attrs="{'invisible': [('for_which_members', '=', 'league')]}">
-                        <field name="members_ids" context="{'form_view_ref': 'members_custom.membership_view_partner_form'}"/>
+                        <!-- <field name="all_partners" invisible="1" force_save="1"/> -->
+                     </group>
+                  </group>
+                  <notebook>
+                      <page string="Members" name="members_ids">
+                        <field name="members_ids">
+                            <tree>
+                                <field name="name"/>
+                                <field name="member_responsibility"/>
+                                <field name="phone"/>
+                            </tree>
+                        </field>
                         <group class="oe_subtotal_footer oe_right">
                             <field name="total_member_fee" widget="monetary" force_save="1" readonly="1"/>
                         </group>
-                        </page>
-                        <page string="Leaders" name="leaders_ids" attrs="{'invisible': [('for_which_members', '=', 'league')]}">
-                        <field name="leaders_ids" context="{'form_view_ref': 'members_custom.membership_view_partner_form'}"/>
+                      </page>
+                      <page string="Leaders" name="leaders_ids">
+                        <field name="leaders_ids">
+                            <tree>
+                                <field name="name"/>
+                                <field name="member_responsibility"/>
+                                <field name="phone"/>
+                            </tree>
+                        </field>
                         <group class="oe_subtotal_footer oe_right">
                             <field name="total_leader_fee" widget="monetary" force_save="1" readonly="1"/>
                         </group>
-                        </page>
-                        <page string="Leagues" name="leagues_ids" attrs="{'invisible': [('for_which_members', '=', 'member')]}">
-                        <field name="leagues_ids" context="{'form_view_ref': 'members_custom.membership_view_partner_form'}"/>
+                      </page>
+                      <page string="Leagues" name="leagues_ids">
+                        <field name="leagues_ids">
+                            <tree>
+                                <field name="name"/>
+                                <field name="league_type"/>
+                                <field name="league_status"/>
+                                <field name="phone"/>
+                            </tree>
+                        </field>
                         <group class="oe_subtotal_footer oe_right">
                             <field name="total_league_fee" widget="monetary" force_save="1" readonly="1"/>
                         </group>
-                        </page>
-                        <page string="League Leaders" name="league_leaders_ids" attrs="{'invisible': [('for_which_members', '=', 'member')]}">
-                        <field name="league_leaders_ids" context="{'form_view_ref': 'members_custom.membership_view_partner_form'}"/>
-                        <group class="oe_subtotal_footer oe_right">
-                            <field name="total_leader_league_fee" widget="monetary" force_save="1" readonly="1"/>
-                        </group>
-                        </page>
-                        <page string="Schedules">
+                      </page>
+                      <page string="Schedules">
+                          <group>
                             <group>
-                            <group>
-                                <field name="date_of_meeting"/>
-                                <field name="time_of_meeting" widget="float_time"/>
-                                <field name="place_of_meeting"/>
+                              <field name="date_of_meeting"/>
+                              <!-- <field name="date_of_meeting_ethiopian" class="oe_read_only" style=" float:left"/>
+                              <div>
+                              </div>
+                              <div style="margin-bottom:40px;margin-top:-15px;margin-left:10px;margin-right:0px">
+                                <widget name="ethiopian_calander_widget" style=" float:left;width:500" class="oe_edit_only"/>
+                              </div>                               -->
+                              <field name="time_of_meeting" widget="float_time"/>
+                              <field name="place_of_meeting"/>
                             </group>
-                            </group>
-                        </page>
-                    </notebook>
-                </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers"/>
-                    <field name="activity_ids" widget="mail_activity"/>
-                    <field name="message_ids" widget="mail_thread"/>
-                </div>
+                          </group>
+                      </page>
+                  </notebook>
+              </sheet>
            </form>
        </field>
    </record>
@@ -139,28 +145,11 @@
     <field name="view_id" ref="membership_reporting_tree_view"/>
   </record>
 
-    <record id="main_office_action_search" model="ir.ui.view">
-        <field name="name">Members' Main Office</field>
-        <field name="model">main.office</field>
-        <field name="arch" type="xml">
-            <search string="Members' Main Office">
-                <group expand="0" string="Group By" colspan="10" col="8">
-                    <filter string="Members" name="members" context="{'group_by': 'for_which_members'}"/>
-                    <filter string="Member Organization" name="member_org" context="{'group_by': 'member_main_type_id'}"/>
-                    <filter string="League Organization" name="league_org" context="{'group_by': 'league_main_type_id'}"/>
-                    <filter string="Woreda" name="woreda" context="{'group_by': 'wereda_id'}"/>
-                    <filter string="Subcity" name="subcity" context="{'group_by': 'subcity_id'}"/>
-                </group>
-            </search>
-        </field>
-    </record>
-
    <record id="member_office_action" model="ir.actions.act_window">
        <field name="name">Member's Main Office</field>
        <field name="res_model">main.office</field>
        <field name="view_mode">tree,form</field>
-       <field name="search_view_id" ref="main_office_action_search"/>
-       <field name="domain">['|', '|', '|', '|', ('wereda_id.branch_manager', '=', uid), ('subcity_id.parent_manager.id', '=', uid), ('subcity_id.city_id.city_manager', 'in', [uid]), ('subcity_id.city_id.transfer_handler', '=', uid), ('subcity_id.city_id.responsible_id.system_admin', '=', uid)]</field>
+       <field name="domain">['|', '|', '|', ('wereda_id.branch_manager', '=', uid), ('subcity_id.parent_manager.id', '=', uid), ('subcity_id.city_id.city_manager', 'in', [uid]), ('subcity_id.city_id.responsible_id.system_admin', '=', uid)]</field>
    </record>
 
    <record id="member_office_tree" model="ir.ui.view">
@@ -169,10 +158,8 @@
        <field name="arch" type="xml">
            <tree>
                 <field name="user_id" invisible="1"/>
-                <field name="for_which_members" invisible="1"/>
                 <field name="name"/>
-                <field name="member_main_type_id" attrs="{'invisible': [('for_which_members', '=', 'league')]}"/>
-                <field name="league_main_type_id" attrs="{'invisible': [('for_which_members', '=', 'member')]}"/>
+                <field name="main_type_id"/>
                 <field name="subcity_id"/>
                 <field name="wereda_id"/>
                 <field name="total_cell"/>
@@ -185,68 +172,59 @@
        <field name="model">main.office</field>
        <field name="arch" type="xml">
            <form>
-                <sheet>
-                    <h1>
-                        <field name="name"/>
-                    </h1>
-                    <group>
-                        <group>
-                            <field name="cells"/>
-                            <field name="user_id" invisible="1"/>
-                            <field name="subcity_id" force_save="1" attrs="{'readonly': [('cells', '=', True)]}"/>
-                            <field name="wereda_id" force_save="1" attrs="{'readonly': [('cells', '=', True)]}"/>
-                            <field name="for_which_members" attrs="{'readonly': [('cells', '=', True)]}"/>
-                            <field name="member_main_type_id" attrs="{'invisible': [('for_which_members', '=', 'league')], 'required': [('for_which_members', '=', 'member')], 'readonly': [('cells', '=', True)]}"/>
-                            <field name="league_main_type_id" attrs="{'invisible': [('for_which_members', '=', 'member')], 'required': [('for_which_members', '=', 'league')], 'readonly': [('cells', '=', True)]}"/>                        
-                        </group>
-                        <group>
-                            <field name="total_cell_league" force_save="1" attrs="{'invisible': [('for_which_members', '=', 'member')]}"/>
-                            <field name="total_cell" force_save="1" attrs="{'invisible': [('for_which_members', '=', 'league')]}"/>
-                            <field name="total_league" invisible="1"/>
-                            <field name="total_leagues" force_save="1" attrs="{'invisible': [('for_which_members', '=', 'member')]}"/>
-                            <field name="total_member" invisible="1"/>
-                            <field name="total_members" force_save="1" attrs="{'invisible': [('for_which_members', '=', 'league')]}"/>
-                            <field name="total_league_fee" invisible="1"/>
-                            <field name="total_leagues_fee" force_save="1" attrs="{'invisible': [('for_which_members', '=', 'member')]}"/>
-                            <field name="total_member_fee" invisible="1"/>
-                            <field name="total_membership_fee" force_save="1" attrs="{'invisible': [('for_which_members', '=', 'league')]}"/>
-                        </group>
-                    </group>
-                    <notebook>
-                        <page string="Cells" name="cell_ids" attrs="{'invisible': [('for_which_members', '=', 'league')]}">
-                            <field name="cell_ids"/>
-                        </page>
-                        <page string="League Cells" name="league_cell_ids" attrs="{'invisible': [('for_which_members', '=', 'member')]}">
-                            <field name="league_cell_ids"/>
-                        </page>
-                        <page string="Leaders" name="leader_ids" attrs="{'invisible': [('for_which_members', '=', 'league')]}">
-                            <field name="leader_ids" context="{'form_view_ref': 'members_custom.membership_view_partner_form'}"/>
-                        </page>
-                        <page string="League Leaders" name="league_leader_ids" attrs="{'invisible': [('for_which_members', '=', 'member')]}">
-                            <field name="league_leader_ids" context="{'form_view_ref': 'members_custom.membership_view_partner_form'}"/>
-                        </page>
-                        <page string="Schedules">
+              <sheet>
+                  <h1>
+                    <field name="name"/>
+                  </h1>
+                  <group>
+                     <group>
+                        <field name="user_id" invisible="1"/>
+                        <field name="main_type_id"/>
+                        <field name="subcity_id" force_save="1"/>
+                        <field name="wereda_id" force_save="1"/>
+                     </group>
+                     <group>
+                         <field name="total_cell"/>
+                         <field name="total_members"/>
+                         <field name="total_membership_fee"/>
+                     </group>
+                  </group>
+                  <notebook>
+                      <page string="cells" name="cell_ids">
+                          <field name="cell_ids"/>
+                      </page>
+                      <page string="leaders" name="leader_ids">
+                          <field name="leader_ids"/>
+                      </page>
+                      <page string="Schedules">
+                          <group>
                             <group>
-                                <group>
-                                <field name="date_of_meeting_eachother"/>
-                                <field name="time_of_meeting_eachother" widget="float_time"/>
-                                <field name="place_of_meeting_eachother"/>
-                                </group>
-                                <group>
-                                <field name="date_of_meeting_cells"/>
-                                <field name="time_of_meeting_cells" widget="float_time"/>
-                                <field name="place_of_meeting_cells"/>
-                                </group>
-                                <field name="meeting_memebers_every"/>
+                              <field name="date_of_meeting_eachother"/>
+                              <!-- <field name="date_of_meeting_eachother_ethiopian" class="oe_read_only" style=" float:left"/>
+                              <div>
+                              </div>
+                              <div style="margin-bottom:40px;margin-top:-15px;margin-left:10px;margin-right:0px">
+                                <widget name="ethiopian_calander_widget" style=" float:left;width:500" class="oe_edit_only"/>
+                              </div> -->
+                              <field name="time_of_meeting_eachother" widget="float_time"/>
+                              <field name="place_of_meeting_eachother"/>
                             </group>
-                        </page>
-                    </notebook>
-                </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers"/>
-                    <field name="activity_ids" widget="mail_activity"/>
-                    <field name="message_ids" widget="mail_thread"/>
-                </div>
+                            <group>
+                              <field name="date_of_meeting_cells"/>
+                              <!-- <field name="date_of_meeting_cells_ethiopian" class="oe_read_only" style=" float:left"/>
+                              <div>
+                              </div>
+                              <div style="margin-bottom:40px;margin-top:-15px;margin-left:10px;margin-right:0px">
+                                <widget name="ethiopian_calander_widget_two" style=" float:left;width:500" class="oe_edit_only"/>
+                              </div>                               -->
+                              <field name="time_of_meeting_cells" widget="float_time"/>
+                              <field name="place_of_meeting_cells"/>
+                            </group>
+                            <field name="meeting_memebers_every"/>
+                          </group>
+                      </page>
+                  </notebook>
+              </sheet>
            </form>
        </field>
    </record>

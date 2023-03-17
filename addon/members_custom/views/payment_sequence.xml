@@ -20,24 +20,5 @@
             <field name="number_increment">1</field>
         </record>
 
-        <record id="sequence_transfer_member" model="ir.sequence">
-            <field name="name">Transfer Member</field>
-            <field name="code">members.transfer</field>
-            <field name="prefix">TRMB</field>
-            <field name="padding">8</field>
-            <field name="number_next">1</field>
-            <field name="number_increment">1</field>
-        </record>
-
-
-        <record id="sequence_training_leader" model="ir.sequence">
-            <field name="name">Training Leaders</field>
-            <field name="code">member.training</field>
-            <field name="prefix">TRAIN</field>
-            <field name="padding">6</field>
-            <field name="number_next">1</field>
-            <field name="number_increment">1</field>
-        </record>
-
     </data>
 </odoo>

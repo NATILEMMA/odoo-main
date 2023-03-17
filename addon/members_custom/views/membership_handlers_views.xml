@@ -1,349 +1,6 @@
 <?xml version="1.0"?>
 <odoo> 
 
-  <!-- This record will create an ction for annual planning -->
-  <record id="annual_planning_action" model="ir.actions.act_window">
-    <field name="name">Annual Planning</field>
-    <field name="res_model">annual.plans</field>
-    <field name="view_mode">kanban,tree,form</field>
-    <field name="domain">['|', '|', ('city_id.transfer_handler', '=', uid), ('city_id.city_manager', 'in', [uid]), ('city_id.responsible_id.system_admin', '=', uid)]</field>
-  </record> 
-
-  <!-- This record will create tree view for annual planning -->
-  <record id="annual_planning_city_tree" model="ir.ui.view">
-    <field name="name">Annual Planning</field>
-    <field name="model">annual.plans</field>
-    <field name="arch" type="xml">
-      <tree decoration-danger="colors == 'red'" decoration-warning="colors == 'orange'" decoration-info="colors == 'blue'" decoration-success="colors == 'green'">
-        <field name="name"/>
-        <field name="type_of_member"/>
-        <field name="fiscal_year"/>
-        <field name="city_id"/>
-        <field name="total_estimated"/>
-        <field name="total_registered"/>
-        <field name="accomplished" force_save="1"/>
-        <field name="approved_date"/>
-        <field name="colors" invisible="1"/>
-        <field name="state"/>
-      </tree>
-    </field>
-  </record>
-
-  <!-- This record will create form view for annual planning -->
-  <record id="annual_planning_city_form" model="ir.ui.view">
-    <field name="name">Annual Planning</field>
-    <field name="model">annual.plans</field>
-    <field name="arch" type="xml">
-      <form>
-        <sheet>
-          <h1>
-            <field name="name" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-          </h1>
-          <group>
-            <group>
-              <field name="state" invisible="1"/>
-              <field name="fiscal_year" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-              <field name="type_of_member" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-              <field name="male" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-              <field name="female" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-              <field name="total_estimated" force_save="1"/>
-            </group>
-            <group>
-              <field name="city_id"/>
-              <field name="registered_male" force_save="1"/>
-              <field name="registered_female" force_save="1"/>
-              <field name="total_registered" force_save="1"/>
-              <field name="approved_date"/>
-            </group>
-          </group>
-          <group>
-            <field name="accomplished" widget="gauge"/>
-          </group>
-        </sheet>
-        <div class="oe_chatter">
-            <field name="message_follower_ids" widget="mail_followers"/>
-            <field name="activity_ids" widget="mail_activity"/>
-            <field name="message_ids" widget="mail_thread"/>
-        </div>
-      </form>
-    </field>
-  </record>
-
-  <!--This record will create a form view for annual planning -->
-  <record id="annual_planning_city_kanban" model="ir.ui.view">
-    <field name="name">Annual Planning</field>
-    <field name="model">annual.plans</field>
-    <field name="arch" type="xml">  
-      <kanban>
-        <field name="name"/>
-        <field name="state"/>
-        <field name="fiscal_year"/>
-        <field name="type_of_member"/>
-        <field name="male"/>
-        <field name="female"/>
-        <field name="total_estimated"/>
-        <field name="city_id"/>
-        <field name="registered_male"/>
-        <field name="registered_female"/>
-        <field name="total_registered"/>
-        <field name="approved_date"/>
-        <field name="accomplished"/>
-        <templates>
-          <t t-name="kanban-box">
-            <div class="oe_kanban_content">
-                <div class="o_kanban_record_top">
-                    <div class="o_kanban_record_headings">
-                        <div class="oe_kanban_center">
-                          <strong><field name="city_id"/>: <span>For The Year <field name="fiscal_year"/> For <field name="type_of_member"/></span></strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="o_kanban_record_bottom">
-                  <div class="oe_kanban_bottom_left">
-                      <field name="accomplished" widget="gauge"/>
-                  </div>
-                  <div class="oe_kanban_bottom_right">
-                    <t t-if="record.state.raw_value == 'approved'">
-                      <span class="fa fa-circle text-success" role="img"/>
-                    </t>
-                    <t t-if="record.state.raw_value == 'draft'">
-                      <span class="fa fa-circle text-danger" role="img"/>
-                    </t>
-                  </div>
-                </div>
-            </div>
-          </t>
-        </templates>
-      </kanban>
-    </field>
-  </record>
-
-
-  <!-- This record will create an ction for annual planning -->
-  <record id="annual_planning_subcity_action" model="ir.actions.act_window">
-    <field name="name">Annual Planning Subcity</field>
-    <field name="res_model">annual.plans.subcity</field>
-    <field name="view_mode">kanban,tree,form</field>
-    <field name="domain">['|', '|', '|', ('subcity_id.parent_manager.id', '=', uid), ('subcity_id.city_id.city_manager', 'in', [uid]), ('subcity_id.city_id.transfer_handler', '=', uid), ('subcity_id.city_id.responsible_id.system_admin', '=', uid)]</field>
-  </record> 
-
-  <!-- This record will create tree view for annual planning -->
-  <record id="annual_planning_subcity_tree" model="ir.ui.view">
-    <field name="name">Annual Planning Subcity</field>
-    <field name="model">annual.plans.subcity</field>
-    <field name="arch" type="xml">
-      <tree decoration-danger="colors == 'red'" decoration-warning="colors == 'orange'" decoration-info="colors == 'blue'" decoration-success="colors == 'green'">
-        <field name="name"/>
-        <field name="type_of_member"/>
-        <field name="fiscal_year"/>
-        <field name="subcity_id"/>
-        <field name="total_estimated"/>
-        <field name="total_registered"/>
-        <field name="accomplished" force_save="1"/>
-        <field name="approved_date"/>
-        <field name="colors" invisible="1"/>
-        <field name="state"/>
-      </tree>
-    </field>
-  </record>
-
-  <!-- This record will create form view for annual planning -->
-  <record id="annual_planning_subcity_view" model="ir.ui.view">
-    <field name="name">Annual Planning Subcity</field>
-    <field name="model">annual.plans.subcity</field>
-    <field name="arch" type="xml">
-      <form>
-        <sheet>
-          <h1>
-            <field name="name" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-          </h1>
-          <group>
-            <group>
-              <field name="state" invisible="1"/>
-              <field name="name" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-              <field name="type_of_member" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-              <field name="fiscal_year" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-              <field name="male" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-              <field name="female" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-              <field name="total_estimated" force_save="1"/>
-            </group>
-            <group>
-              <field name="subcity_id"/>
-              <field name="from_city_plan" force_save="1"/>
-              <field name="registered_male" force_save="1"/>
-              <field name="registered_female" force_save="1"/>
-              <field name="total_registered" force_save="1"/>
-              <field name="approved_date"/>
-            </group>
-          </group>
-          <group>
-            <field name="accomplished" widget="gauge"/>
-          </group>
-        </sheet>
-        <div class="oe_chatter">
-            <field name="message_follower_ids" widget="mail_followers"/>
-            <field name="activity_ids" widget="mail_activity"/>
-            <field name="message_ids" widget="mail_thread"/>
-        </div>
-      </form>
-    </field>
-  </record>
-
-  <!--This record will create a form view for annual planning -->
-  <record id="annual_planning_subcity_kanban" model="ir.ui.view">
-    <field name="name">Annual Planning Subcity</field>
-    <field name="model">annual.plans.subcity</field>
-    <field name="arch" type="xml">  
-      <kanban>
-        <field name="name"/>
-        <field name="state"/>
-        <field name="fiscal_year"/>
-        <field name="type_of_member"/>
-        <field name="subcity_id"/>
-        <field name="approved_date"/>
-        <field name="accomplished"/>
-        <templates>
-          <t t-name="kanban-box">
-            <div class="oe_kanban_content">
-                <div class="o_kanban_record_top">
-                    <div class="o_kanban_record_headings">
-                        <div class="oe_kanban_center">
-                          <strong><field name="subcity_id"/>: <span>For The Year <field name="fiscal_year"/> For <field name="type_of_member"/></span></strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="o_kanban_record_bottom">
-                  <div class="oe_kanban_bottom_left">
-                      <field name="accomplished" widget="gauge"/>
-                  </div>
-                  <div class="oe_kanban_bottom_right">
-                    <t t-if="record.state.raw_value == 'approved'">
-                      <span class="fa fa-circle text-success" role="img"/>
-                    </t>
-                    <t t-if="record.state.raw_value == 'draft'">
-                      <span class="fa fa-circle text-danger" role="img"/>
-                    </t>
-                  </div>
-                </div>
-            </div>
-          </t>
-        </templates>
-      </kanban>
-    </field>
-  </record>
-
-  <!-- This record will create an ction for annual planning -->
-  <record id="annual_planning_wereda_action" model="ir.actions.act_window">
-    <field name="name">Annual Planning Woreda</field>
-    <field name="res_model">annual.plans.wereda</field>
-    <field name="view_mode">kanban,tree,form</field>
-    <field name="domain">['|', '|', '|', '|', ('wereda_id.branch_manager.id', '=', uid), ('wereda_id.parent_id.parent_manager.id', '=', uid), ('wereda_id.parent_id.city_id.city_manager', 'in', [uid]), ('wereda_id.parent_id.city_id.transfer_handler', '=', uid), ('wereda_id.parent_id.city_id.responsible_id.system_admin', '=', uid)]</field>
-  </record>
-
-  <!-- This record will create tree view for annual planning -->
-  <record id="annual_planning_wereda_tree" model="ir.ui.view">
-    <field name="name">Annual Planning Woreda</field>
-    <field name="model">annual.plans.wereda</field>
-    <field name="arch" type="xml">
-      <tree decoration-danger="colors == 'red'" decoration-warning="colors == 'orange'" decoration-info="colors == 'blue'" decoration-success="colors == 'green'">
-        <field name="name"/>
-        <field name="type_of_member"/>
-        <field name="fiscal_year"/>
-        <field name="wereda_id"/>
-        <field name="total_estimated"/>
-        <field name="total_registered"/>
-        <field name="accomplished" force_save="1"/>
-        <field name="approved_date"/>
-        <field name="colors" invisible="1"/>
-        <field name="state"/>
-      </tree>
-    </field>
-  </record>
-
-  <!-- This record will create form view for annual planning -->
-  <record id="annual_planning_wereda_view" model="ir.ui.view">
-    <field name="name">Annual Planning Woreda</field>
-    <field name="model">annual.plans.wereda</field>
-    <field name="arch" type="xml">
-      <form>
-        <sheet>
-          <h1>
-            <field name="name" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-          </h1>
-          <group>
-            <group>
-              <field name="state" invisible="1"/>
-              <field name="type_of_member" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-              <field name="fiscal_year" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-              <field name="male" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-              <field name="female" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-              <field name="total_estimated" force_save="1"/>
-            </group>
-            <group>
-              <field name="wereda_id"/>
-              <field name="from_subcity_plan" force_save="1"/>
-              <field name="registered_male" force_save="1"/>
-              <field name="registered_female" force_save="1"/>
-              <field name="total_registered" force_save="1"/>
-              <field name="approved_date"/>
-            </group>
-          </group>
-          <group>
-            <field name="accomplished" widget="gauge"/>
-          </group>
-        </sheet>
-        <div class="oe_chatter">
-            <field name="message_follower_ids" widget="mail_followers"/>
-            <field name="activity_ids" widget="mail_activity"/>
-            <field name="message_ids" widget="mail_thread"/>
-        </div>
-      </form>
-    </field>
-  </record>
-
-  <!--This record will create a form view for annual planning -->
-  <record id="annual_planning_wereda_kanban" model="ir.ui.view">
-    <field name="name">Annual Planning Woreda</field>
-    <field name="model">annual.plans.wereda</field>
-    <field name="arch" type="xml">  
-      <kanban>
-        <field name="name"/>
-        <field name="state"/>
-        <field name="fiscal_year"/>
-        <field name="type_of_member"/>
-        <field name="wereda_id"/>
-        <field name="approved_date"/>
-        <field name="accomplished"/>
-        <templates>
-          <t t-name="kanban-box">
-            <div class="oe_kanban_content">
-                <div class="o_kanban_record_top">
-                    <div class="o_kanban_record_headings">
-                        <div class="oe_kanban_center">
-                          <strong><field name="wereda_id"/>: <span>For The Year <field name="fiscal_year"/> For <field name="type_of_member"/></span></strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="o_kanban_record_bottom">
-                  <div class="oe_kanban_bottom_left">
-                      <field name="accomplished" widget="gauge"/>
-                  </div>
-                  <div class="oe_kanban_bottom_right">
-                    <t t-if="record.state.raw_value == 'approved'">
-                      <span class="fa fa-circle text-success" role="img"/>
-                    </t>
-                    <t t-if="record.state.raw_value == 'draft'">
-                      <span class="fa fa-circle text-danger" role="img"/>
-                    </t>
-                  </div>
-                </div>
-            </div>
-          </t>
-        </templates>
-      </kanban>
-    </field>
-  </record>
-
  <!-- This record will create an action for the responsible body model -->
   <record id="responsible_body_action" model="ir.actions.act_window">
     <field name="name">Responsible Bodies</field>
@@ -389,11 +46,6 @@
             </page>
           </notebook>
         </sheet>
-        <div class="oe_chatter">
-            <field name="message_follower_ids" widget="mail_followers"/>
-            <field name="activity_ids" widget="mail_activity"/>
-            <field name="message_ids" widget="mail_thread"/>
-        </div>
       </form>
     </field>
   </record>
@@ -402,8 +54,8 @@
   <record id="membership_handler_city_action" model="ir.actions.act_window">
     <field name="name">Membership City Wide Handlers</field>
     <field name="res_model">membership.city.handlers</field>
-    <field name="view_mode">tree,form,kanban</field>
-    <field name="domain">['|', '|', ('city_manager', 'in', [uid]), ('transfer_handler', '=', uid), ('responsible_id.system_admin', '=', uid)]</field>
+    <field name="view_mode">tree,form</field>
+    <field name="domain">['|', ('city_manager', 'in', [uid]), ('responsible_id.system_admin', '=', uid)]</field>
   </record>
 
   <!-- This record will create a tree view for membership handlers parent -->
@@ -428,7 +80,6 @@
           <group>
             <group>
               <field name="name"/>
-              <field name="transfer_handler"/>
             </group>
             <group>
               <field name="city_manager" widget="many2many_tags"/>
@@ -444,101 +95,18 @@
                 </tree>
               </field>
             </page>
-            <page string="Annual Plans">
-              <field name="annual_plans_ids">
-                <tree decoration-danger="colors == 'red'" decoration-warning="colors == 'orange'" decoration-info="colors == 'blue'" decoration-success="colors == 'green'">
-                  <field name="name"/>
-                  <field name="type_of_member"/>
-                  <field name="fiscal_year"/>
-                  <field name="city_id"/>
-                  <field name="total_estimated"/>
-                  <field name="total_registered"/>
-                  <field name="accomplished" force_save="1"/>
-                  <field name="approved_date"/>
-                  <field name="colors" invisible="1"/>
-                  <field name="state"/>
-                  <button name="change_state" type="object" string="Approve" states="draft" class="oe_highlight"/>
-                </tree>
-                <form>
-                  <sheet>
-                    <group>
-                      <group>
-                        <field name="state" invisible="1"/>
-                        <field name="name" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-                        <field name="fiscal_year" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-                        <field name="type_of_member" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-                        <field name="male" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-                        <field name="female" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-                        <field name="total_estimated" force_save="1"/>
-                      </group>
-                      <group>
-                        <field name="city_id"/>
-                        <field name="registered_male" force_save="1"/>
-                        <field name="registered_female" force_save="1"/>
-                        <field name="total_registered" force_save="1"/>
-                        <field name="approved_date"/>
-                      </group>
-                    </group>
-                  </sheet>
-                </form>
-              </field>
-            </page>
           </notebook>
         </sheet>
-        <div class="oe_chatter">
-            <field name="message_follower_ids" widget="mail_followers"/>
-            <field name="activity_ids" widget="mail_activity"/>
-            <field name="message_ids" widget="mail_thread"/>
-        </div>
       </form>
     </field>
   </record>
-
-
-  <!-- This record will hold the kanban view for city -->
-  <record id="city_view_kanban" model="ir.ui.view">
-      <field name="name">city.view.kanban</field>
-      <field name="model">membership.city.handlers</field>
-      <field name="arch" type="xml">
-          <kanban class="o_kanban_mobile" create="0" sample="1">
-              <field name="id"/>
-              <field name="name"/>
-              <field name="city_manager"/>
-              <field name="transfer_handler"/>
-              <field name="responsible_id"/>
-              <templates>
-                <t t-name="kanban-box">
-                    <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_partner_kanban">
-                        <div class="oe_kanban_details d-flex flex-column justify-content-between">
-                            <div class="o_kanban_record_top">
-                                <div class="o_kanban_record_headings">
-                                    <strong class="o_kanban_record_title">
-                                      <ul>
-                                        <li>
-                                          <t><strong><field name="name"/></strong></t>
-                                        </li>
-                                        <li>
-                                          <t>Responsible To <field name="responsible_id"/></t>
-                                        </li>
-                                      </ul>
-                                    </strong>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </t>
-              </templates>
-          </kanban>
-      </field>
-  </record>
-
 
  <!-- This record will create an action for the membership handlers parent model -->
   <record id="membership_handler_parent_action" model="ir.actions.act_window">
     <field name="name">Membership Handlers Parent</field>
     <field name="res_model">membership.handlers.parent</field>
     <field name="view_mode">tree,form,kanban</field>
-    <field name="domain">['|', '|', '|', ('parent_manager.id', '=', uid), ('city_id.city_manager', 'in', [uid]), ('city_id.transfer_handler', '=', uid), ('city_id.responsible_id.system_admin', '=', uid)]</field>
+    <field name="domain">['|', '|', ('parent_manager.id', '=', uid), ('city_id.city_manager', 'in', [uid]), ('city_id.responsible_id.system_admin', '=', uid)]</field>
   </record>
 
   <!-- This record will create a tree view for membership handlers parent -->
@@ -564,7 +132,6 @@
             <group>
               <field name="name"/>
               <field name="state" invisible="1"/>
-              <field name="is_special_subcity"/>
             </group>
             <group>
               <field name="parent_manager"/>
@@ -581,93 +148,9 @@
                 </tree>
               </field>
             </page>
-            <page string="Annual Plans">
-              <field name="annual_plans_subcity_ids">
-                <tree decoration-danger="colors == 'red'" decoration-warning="colors == 'orange'" decoration-info="colors == 'blue'" decoration-success="colors == 'green'">
-                  <field name="name"/>
-                  <field name="type_of_member"/>
-                  <field name="fiscal_year"/>
-                  <field name="subcity_id"/>
-                  <field name="total_estimated"/>
-                  <field name="total_registered"/>
-                  <field name="accomplished" force_save="1"/>
-                  <field name="approved_date"/>
-                  <field name="colors" invisible="1"/>
-                  <field name="state"/>
-                  <button name="change_state" type="object" string="Approve" states="draft" class="oe_highlight"/>
-                </tree>
-                <form>
-                  <sheet>
-                    <group>
-                      <group>
-                        <field name="state" invisible="1"/>
-                        <field name="name" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-                        <field name="type_of_member" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-                        <field name="fiscal_year" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-                        <field name="male" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-                        <field name="female" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-                        <field name="total_estimated" force_save="1"/>
-                      </group>
-                      <group>
-                        <field name="subcity_id"/>
-                        <field name="from_city_plan" force_save="1"/>
-                        <field name="registered_male" force_save="1"/>
-                        <field name="registered_female" force_save="1"/>
-                        <field name="total_registered" force_save="1"/>
-                        <field name="approved_date"/>
-                      </group>
-                    </group>
-                  </sheet>
-                </form>
-              </field>
-            </page>
           </notebook>
         </sheet>
-        <div class="oe_chatter">
-            <field name="message_follower_ids" widget="mail_followers"/>
-            <field name="activity_ids" widget="mail_activity"/>
-            <field name="message_ids" widget="mail_thread"/>
-        </div>
       </form>
-    </field>
-  </record>
-
-  <!-- This record will hold the kanban view for subcity -->
-  <record id="subcity_view_kanban" model="ir.ui.view">
-      <field name="name">subcity.view.kanban</field>
-      <field name="model">membership.handlers.parent</field>
-      <field name="arch" type="xml">
-          <kanban class="o_kanban_mobile" create="0" sample="1">
-              <field name="id"/>
-              <field name="name"/>
-              <field name="parent_manager"/>
-              <field name="city_id"/>
-              <templates>
-                <t t-name="kanban-box">
-                    <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_partner_kanban">
-                        <div class="oe_kanban_details d-flex flex-column justify-content-between">
-                            <div class="o_kanban_record_top">
-                                <div class="o_kanban_record_headings">
-                                    <strong class="o_kanban_record_title">
-                                      <ul>
-                                        <li>
-                                          <t><strong><field name="name"/></strong></t>
-                                        </li>
-                                        <li>
-                                          <t><strong>Managed By:</strong> <field name="parent_manager"/></t>
-                                        </li>
-                                        <li>
-                                          <t>Under The City Of <field name="city_id"/></t>
-                                        </li>
-                                      </ul>
-                                    </strong>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </t>
-          </templates>
-        </kanban>
     </field>
   </record>
 
@@ -677,7 +160,7 @@
     <field name="res_model">membership.handlers.branch</field>
     <field name="view_mode">tree,form,kanban</field>
     <field name="context">{'search_default_parent_id': 1}</field>
-    <field name="domain">['|', '|', '|', '|', ('branch_manager.id', '=', uid), ('parent_id.parent_manager.id', '=', uid), ('parent_id.city_id.city_manager', 'in', [uid]), ('parent_id.city_id.transfer_handler', '=', uid), ('parent_id.city_id.responsible_id.system_admin', '=', uid)]</field>
+    <field name="domain">['|', '|', '|', '|', ('branch_manager.id', '=', uid), ('complaint_handler', '=', uid), ('parent_id.parent_manager.id', '=', uid), ('parent_id.city_id.city_manager', 'in', [uid]), ('parent_id.city_id.responsible_id.system_admin', '=', uid)]</field>
     <field name="groups_id" eval="[(6,0,[ref('members_custom.member_group_admin')])]"/>
   </record>
 
@@ -705,7 +188,6 @@
             <group>
               <field name="parent_id" string="Subcity"/>
               <field name="name" string="Woreda"/>
-              <field name="is_special_woreda"/>
             </group>
             <group>
               <field name="branch_manager"/>
@@ -717,9 +199,7 @@
               <field name="main_office_ids">
                 <tree>
                   <field name="name"/>
-                  <field name="for_which_members" invisible="1"/>
-                  <field name="member_main_type_id" attrs="{'invisible': [('for_which_members', '=', 'league')]}"/>
-                  <field name="league_main_type_id" attrs="{'invisible': [('for_which_members', '=', 'member')]}"/> 
+                  <field name="main_type_id"/>
                   <field name="subcity_id"/>
                   <field name="wereda_id"/>
                   <field name="total_cell"/>
@@ -728,96 +208,11 @@
                 </tree>
               </field>
             </page>
-            <page string="Annual Plans">
-              <field name="annual_plans_wereda_ids">
-                <tree decoration-danger="colors == 'red'" decoration-warning="colors == 'orange'" decoration-info="colors == 'blue'" decoration-success="colors == 'green'">
-                  <field name="name"/>
-                  <field name="type_of_member"/>
-                  <field name="fiscal_year"/>
-                  <field name="wereda_id"/>
-                  <field name="total_estimated"/>
-                  <field name="total_registered"/>
-                  <field name="accomplished" force_save="1"/>
-                  <field name="approved_date"/>
-                  <field name="colors" invisible="1"/>
-                  <field name="state"/>
-                  <button name="change_state" type="object" string="Approve" states="draft" class="oe_highlight"/>
-                </tree>
-                <form>
-                  <sheet>
-                    <group>
-                      <group>
-                        <field name="state" invisible="1"/>
-                        <field name="name" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-                        <field name="type_of_member" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-                        <field name="fiscal_year" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-                        <field name="male" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-                        <field name="female" attrs="{'readonly': [('state', '=', 'approved')]}"/>
-                        <field name="total_estimated" force_save="1"/>
-                      </group>
-                      <group>
-                        <field name="wereda_id"/>
-                        <field name="from_subcity_plan" force_save="1"/>
-                        <field name="registered_male" force_save="1"/>
-                        <field name="registered_female" force_save="1"/>
-                        <field name="total_registered" force_save="1"/>
-                        <field name="approved_date"/>
-                      </group>
-                    </group>
-                  </sheet>
-                </form>
-              </field>
-            </page>
           </notebook>
         </sheet>
-        <div class="oe_chatter">
-            <field name="message_follower_ids" widget="mail_followers"/>
-            <field name="activity_ids" widget="mail_activity"/>
-            <field name="message_ids" widget="mail_thread"/>
-        </div>
       </form>
     </field>
   </record>
-
- <!-- This record will hold the kanban view for woreda -->
-  <record id="woreda_view_kanban" model="ir.ui.view">
-      <field name="name">woreda.view.kanban</field>
-      <field name="model">membership.handlers.branch</field>
-      <field name="arch" type="xml">
-          <kanban class="o_kanban_mobile" create="0" sample="1">
-              <field name="id"/>
-              <field name="name"/>
-              <field name="parent_id"/>
-              <field name="branch_manager"/>
-              <templates>
-                <t t-name="kanban-box">
-                    <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_partner_kanban">
-                        <div class="oe_kanban_details d-flex flex-column justify-content-between">
-                            <div class="o_kanban_record_top">
-                                <div class="o_kanban_record_headings">
-                                    <strong class="o_kanban_record_title">
-                                      <ul>
-                                        <li>
-                                          <t><strong><field name="name"/></strong></t>
-                                        </li>
-                                        <li>
-                                          <t><strong>Managed By:</strong> <field name="branch_manager"/></t>
-                                        </li>
-                                        <li>
-                                          <t>Under The SubCity Of <field name="parent_id"/></t>
-                                        </li>
-                                      </ul>
-                                    </strong>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </t>
-          </templates>
-        </kanban>
-    </field>
-  </record>
-
 
   <!-- This record will handle the search options for Branches -->
   <record id="barnches_view_search" model="ir.ui.view">
@@ -831,188 +226,6 @@
       </search>
     </field>
   </record>
-
-  <!-- This record tree_view will deal with transfering of members -->
-  <record id="transfer_members_tree_view" model="ir.ui.view">
-    <field name="name">Tranfer Members</field>
-    <field name="model">members.transfer</field>
-    <field name="arch" type="xml">
-      <tree>
-        <field name="wereda_id" invisible="1"/>
-        <field name="partner_id"/>
-        <field name="from_subcity_id"/>
-        <field name="from_wereda_id"/>
-        <field name="responsibility_state"/>
-        <field name="state"/>
-      </tree>
-    </field>
-  </record>
-
-  <!-- This record form view will deal with transfering of members -->
-  <record id="transfer_members_form_view" model="ir.ui.view">
-    <field name="name">Tranfer Members</field>
-    <field name="model">members.transfer</field>
-    <field name="arch" type="xml">
-      <form>
-        <header>
-          <field name="wereda_id" invisible="1"/>
-          <field name="correct_user" invisible="1"/>
-          <field name="for_woreda"/>
-          <field name="for_subcity"/>
-          <field name="for_city"/>
-          <field name="for_main"/>
-          <field name="for_cell"/>
-          <button name="review" states="waiting for approval" string="Review" type="object" class="oe_highlight"/>
-          <button name="waiting_for_approval" states="draft" string="Send For Approval" type="object" class="oe_highlight"/>
-          <button name="approve_transfer" string="Approve" type="object" class="oe_highlight" attrs="{'invisible': ['|', ('state', '!=', 'review'), ('correct_user', '=', False)]}"/>
-          <button name="reject_transfer" string="Reject" type="object" class="oe_highlight" attrs="{'invisible': ['|', ('state', '!=', 'review'), ('correct_user', '=', False)]}"/>
-          <field name="state" widget="statusbar" statusbar_visible="draft,waiting for approval,approved,rejected"/>
-        </header>
-        <sheet>
-          <h1>
-              <field name="name"/>
-          </h1>
-          <group>
-            <group>
-              <separator string="Member Current Place"/>
-              <field name="is_league" invisible="1"/>
-              <field name="is_leader" invisible="1"/>
-              <field name="is_member" invisible="1"/>
-              <field name="wereda_id" invisible="1"/>
-              <field name="x_css" force_save="1" nolabel="1" invisible="1"/>
-              <field name="wereda_id"/>
-              <field name="partner_id" string="Member" context="{'form_view_ref': 'members_custom.membership_view_partner_form'}"/>
-              <field name="transfer_as_a_league_or_member" string="Transfer As" attrs="{'invisible': [('is_leader', '=', True)], 'required': [('is_member', '=', True)]}"/>
-              <field name="transfer_as_a_leader_or_member" string="Transfer As" attrs="{'invisible': [('is_leader', '=', False)], 'required': [('is_leader', '=', True)]}"/>
-              <separator string="Transfer From"/>
-              <field name="from_subcity_id" string="From Subcity" force_save="1"/>
-              <field name="from_wereda_id" string="From Woreda" force_save="1"/>
-              <field name="from_main_office" string="From Main Office" force_save="1" attrs="{'invisible': ['|', ('transfer_as_a_leader_or_member', '=', 'league'), ('transfer_as_a_league_or_member', '=', 'league')]}"/>
-              <field name="from_member_cells" string="From Cell" force_save="1" attrs="{'invisible': ['|', ('transfer_as_a_leader_or_member', '=', 'league'), ('transfer_as_a_league_or_member', '=', 'league')]}"/>
-              <field name="from_league_main_office" string="From League Main Office" force_save="1" attrs="{'invisible': ['|', '|', ('transfer_as_a_leader_or_member', '=', 'leader'), ('transfer_as_a_leader_or_member', '=', 'member'), ('transfer_as_a_league_or_member', '=', 'member')]}"/>
-              <field name="from_league_member_cells" string="From League Cell" force_save="1" attrs="{'invisible': ['|', '|', ('transfer_as_a_leader_or_member', '=', 'leader'), ('transfer_as_a_leader_or_member', '=', 'member'), ('transfer_as_a_league_or_member', '=', 'member')]}"/>
-              <button name="add_attachment" string="Attachment" type="object" class="oe_highlight"/>
-            </group>
-            <group>
-              <separator string="Experience and Work"/>
-              <field name="place_of_work" force_save="1"/>
-              <field name="responsibility_in_gov" force_save="1"/>
-              <separator string="Tranfer To"/>
-              <field name="transfer_membership_org" attrs="{'required': ['|', ('transfer_as_a_leader_or_member', '=', 'member'), ('transfer_as_a_league_or_member', '=', 'member')], 'invisible': ['|', '|', ('transfer_as_a_league_or_member', '=', 'league'), ('transfer_as_a_leader_or_member', '=', 'league'), ('transfer_as_a_leader_or_member', '=', 'leader')]}"/>
-              <field name="transfer_league_org" attrs="{'required': ['|', ('transfer_as_a_leader_or_member', '=', 'league'), ('transfer_as_a_league_or_member', '=', 'league')], 'invisible': ['|', '|', ('transfer_as_a_leader_or_member', '=', 'leader'), ('transfer_as_a_leader_or_member', '=', 'member'), ('transfer_as_a_league_or_member', '=', 'member')]}"/>
-              <field name="transfer_responsibility_league" string="To League Responsibility" attrs="{'invisible': ['|', '|', ('transfer_as_a_leader_or_member', '=', 'leader'), ('transfer_as_a_leader_or_member', '=', 'member'), ('transfer_as_a_league_or_member', '=', 'member')]}"/>
-              <field name="transfer_responsibility_member" string="To Member Responsibility" attrs="{'invisible': ['|', '|', ('transfer_as_a_leader_or_member', '=', 'league'), ('transfer_as_a_league_or_member', '=', 'league'), ('is_member', '=', False)]}"/>
-              <field name="transfer_responsibility_leader" string="To Leader Responsibility" attrs="{'invisible': ['|', '|', '|', ('transfer_as_a_leader_or_member', '=', 'league'), ('transfer_as_a_leader_or_member', '=', 'member'), ('transfer_as_a_league_or_member', '=', 'league'), ('is_leader', '=', False)], 'required': [('transfer_as_a_leader_or_member', '=', 'leader')]}"/>
-              <field name="transfer_subcity_id" string="To Subcity" attrs="{'required': ['|', ('for_subcity', '=', True), ('for_woreda', '=', True)],'invisible': ['&amp;', '&amp;', ('is_leader', '=', True), ('transfer_as_a_leader_or_member', '=', 'leader'), ('for_city', '=', True)]}"/>
-              <field name="transfer_wereda_id" string="To Woreda" attrs="{'required': [('for_woreda', '=', True)], 'invisible': ['&amp;', '&amp;', ('is_leader', '=', True), ('transfer_as_a_leader_or_member', '=', 'leader'), '|', ('for_city', '=', True), ('for_woreda', '=', False)]}"/>
-              <field name="transfer_main_office" string="To Main Office" attrs="{'invisible': ['|', '|', ('transfer_as_a_leader_or_member', '=', 'league'), ('transfer_as_a_league_or_member', '=', 'league'),  ('transfer_as_a_leader_or_member', '=', 'leader')]}"/>
-              <field name="transfer_member_cells" string="To Cell" attrs="{'invisible': ['|', '|', ('transfer_as_a_leader_or_member', '=', 'league'), ('transfer_as_a_league_or_member', '=', 'league'), ('transfer_as_a_leader_or_member', '=', 'leader')]}"/>
-              <field name="transfer_league_main_office" string="To League Main Office" attrs="{'invisible': ['|', '|', ('transfer_as_a_leader_or_member', '=', 'leader'), ('transfer_as_a_leader_or_member', '=', 'member'), ('transfer_as_a_league_or_member', '=', 'member')]}"/>
-              <field name="transfer_league_member_cells" string="To League Cell" attrs="{'invisible': ['|', '|', ('transfer_as_a_leader_or_member', '=', 'leader'), ('transfer_as_a_leader_or_member', '=', 'member'), ('transfer_as_a_league_or_member', '=', 'member')]}"/>  
-              <field name="responsibility_state"/>
-              <field name="receiving_manager" string="Receiving Manager" attrs="{'invisible': ['|', '|', ('for_woreda', '=', True), ('for_subcity', '=', True), ('for_city', '=', True)]}"/>
-              <!-- <field name="receiving_manager" string="Receiving Manager" attrs="{'invisible': ['|', '&amp;', '&amp;', ('is_leader', '=', True), ('transfer_as_a_leader_or_member', '=', 'leader'), ('for_subcity', '=', True), '|', ('for_city', '=', True)]}" force_save="1"/> -->
-              <!-- <field name="receiving_manager_subcity" string="Receiving Manager" attrs="{'invisible': [('for_subcity', '=', False)]}" force_save="1"/> -->
-              <field name="receiving_manager_city" string="Receiving Manager" attrs="{'invisible': ['&amp;', '&amp;', ('for_woreda', '=', False), ('for_subcity', '=', False), ('for_city', '=', False)]}" force_save="1"/>
-            </group>
-          </group>
-          <notebook>
-            <page string="Membership Information" attrs="{'invisible': [('is_member', '=', False)]}">
-              <group>
-                <group>
-                  <separator string="Current Membership Information"/>
-                    <field name="membership_org" force_save="1"/>
-                    <field name="responsibility_in_org_member" string="Responsibility in Organization" force_save="1"/>
-                    <field name="membership_status" force_save="1"/>
-                    <field name="membership_fee" force_save="1"/>
-                </group>
-                <group>
-                  <separator string="Evaluations"/>
-                    <field name="grade" force_save="1"/>
-                    <field name="key_strength" widget="many2many_tags" force_save="1"/>
-                    <field name="key_weakness" widget="many2many_tags" force_save="1"/>
-                </group>
-              </group>
-            </page>
-            <page string="League Information" attrs="{'invisible': [('is_league', '=', False)]}">
-              <group>
-                <group>
-                  <separator string="Current League Information"/>
-                    <field name="league_org" force_save="1"/>
-                    <field name="responsibility_in_org_league" string="Responsibility in Organization" force_save="1"/>
-                    <field name="league_fee" force_save="1"/>
-                </group>
-                <group>
-                  <separator string="Evaluations"/>
-                    <field name="grade" force_save="1"/>
-                    <field name="key_strength" widget="many2many_tags" force_save="1"/>
-                    <field name="key_weakness" widget="many2many_tags" force_save="1"/>
-                </group>
-              </group>
-            </page>
-            <page string="Leader Information" attrs="{'invisible': [('is_leader', '=', False)]}">
-              <group>
-                <group>
-                  <separator string="Current Leadership Information"/>
-                    <field name="responsibility_in_org_leader" string="Responsibility in Organization" force_save="1"/>
-                    <field name="leadership_experience" force_save="1"/>
-                    <field name="leadership_status" force_save="1"/>
-                    <field name="membership_fee" force_save="1"/>
-                    <field name="membership_org" force_save="1"/>
-                </group>
-                <group>
-                  <separator string="Evaluations"/>
-                    <field name="grade" force_save="1"/>
-                    <field name="key_strength" widget="many2many_tags" force_save="1"/>
-                    <field name="key_weakness" widget="many2many_tags" force_save="1"/>
-                </group>
-              </group>
-            </page>
-          </notebook>
-        </sheet>
-        <div class="oe_chatter">
-            <field name="message_follower_ids" widget="mail_followers"/>
-            <field name="activity_ids" widget="mail_activity"/>
-            <field name="message_ids" widget="mail_thread"/>
-        </div>
-      </form>
-    </field>
-  </record>
-
-  <!-- This record will handle the transfer action -->
-  <record id="tranfer_member_menu" model="ir.actions.act_window">
-    <field name="name">Tranfer Member Menu</field>
-    <field name="res_model">members.transfer</field>
-    <field name="view_mode">tree,form</field>
-    <field name="domain">['|', '|', '|', '|', '|', ('receiving_manager_city', '=', uid), ('receiving_manager', '=', uid), ('from_wereda_id.branch_manager.id', '=', uid), ('from_wereda_id.parent_id.parent_manager.id', '=', uid), ('from_wereda_id.parent_id.city_id.city_manager', 'in', [uid]), ('from_wereda_id.parent_id.city_id.responsible_id.system_admin', '=', uid)]</field>
-  </record>
-
-  <menuitem id="annual_planning"
-              name="Annual Planning"
-              parent="membership.menu_report_membership"
-              sequence="0"
-              groups="members_custom.member_group_manager"/>
-
-  <menuitem name="City Annual Planning"
-            id="annual_planning_city"
-            parent="annual_planning"
-            action="annual_planning_action"
-            groups="members_custom.member_group_city_admin,members_custom.member_group_city_transfer_handler"
-            sequence="1"/>
-
-  <menuitem name="Subcity Annual Planning"
-            id="annual_planning_subcity"
-            parent="annual_planning"
-            action="annual_planning_subcity_action"
-            groups="members_custom.member_group_admin"
-            sequence="2"/>
-
-  <menuitem name="Woreda Annual Planning"
-            id="annual_planning_wereda"
-            parent="annual_planning"
-            action="annual_planning_wereda_action"
-            groups="members_custom.member_group_manager"
-            sequence="3"/>
 
   <menuitem name="Membership Handlers"
             id="membership_handlers_menu"
@@ -1047,12 +260,5 @@
             action="membership_handler_branch_action"
             groups="members_custom.member_group_manager"
             sequence="4"/>
-
-  <menuitem id="tranfer_approval_menu"
-            name="Transfer"
-            parent="membership.menu_association"
-            sequence="90"
-            groups="members_custom.member_group_manager"
-            action="tranfer_member_menu"/>
 
 </odoo>

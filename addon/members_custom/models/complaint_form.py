@@ -21,18 +21,42 @@ class ComplaintCategory(models.Model):
 class Complaints(models.Model):
   _name="member.complaint"
   _description = 'This will contain the form for member complaint'
-  _inherit = ['portal.mixin', 'mail.thread', 'mail.activity.mixin', 'utm.mixin']
 
-  subject = fields.Char(translate=True, track_visibility='onchange')
-  victim_id = fields.Many2one('res.partner', domain="['|', '|', ('is_member', '=', True), ('is_league', '=', True), ('is_leader', '=', True)]")
+  subject = fields.Char()
+#  complaint_category = fields.Many2one('complaint.category', string="Complaint Category")
+  victim_id = fields.Many2one('res.partner', readonly=True)
   handler = fields.Many2one(related="victim_id.wereda_id.complaint_handler")
   perpertrators = fields.Many2many('res.partner', domain="['|', ('is_member', '=', True), ('is_leader', '=', True)]")
-  circumstances= fields.Text(translate=True, track_visibility='onchange')
-  conclusion_report = fields.Text(translate=True, track_visibility='onchange')
-  state = fields.Selection(string="Complaint status", selection=[('new', 'New'), ('updated', 'Updated'), ('waiting for approval', 'Waiting For Approval'), ('resolved', 'Resolved'), ('rejected', 'Rejected'), ('cancelled', 'Cancelled')], default='new', track_visibility='onchange')
+  circumstances= fields.Text()
+  conclusion_report = fields.Text(readonly=True)
+  state = fields.Selection(string="Complaint status", selection=[('new', 'New'), ('updated', 'Updated'), ('waiting for approval', 'Waiting For Approval'), ('resolved', 'Resolved'), ('rejected', 'Rejected'), ('cancelled', 'Cancelled')], default='new')
   handler = fields.Many2one(related="victim_id.wereda_id.complaint_handler")
-  duration_of_remedy = fields.Integer(default=30, store=True, track_visibility='onchange')
-  date_of_remedy = fields.Datetime(store=True, track_visibility='onchange')
+  duration_of_remedy = fields.Integer(default=30, store=True)
+  date_of_remedy = fields.Datetime(store=True)
+#  ethiopian_date = fields.Date('Ethiopian Date', store=True)
+
+  # @api.model
+  # def create(self, vals):
+  #     res =  super(Complaints, self).create(vals)
+  #     res.date_of_remedy  = res.create_date + timedelta(days=res.duration_of_remedy)
+  #     string = str(res.date_of_remedy).split(' ')[0]
+  #     date_time_obj = string.split('-')
+  #     Edate = EthiopianDateConverter.to_ethiopian(int(date_time_obj[0]),int(date_time_obj[1]),int(date_time_obj[2]))
+  #     res.ethiopian_date = Edate
+  #     return res
+
+  # def write(self, vals):
+  #     _logger.info("############# Write:%s",vals) 
+  #     try:
+  #         if vals['date_of_remedy'] is not None:
+  #             date_str = str(vals['date_of_remedy']).split(' ')[0]
+  #             date_time_obj = date_str.split('-')
+  #             Edate = EthiopianDateConverter.to_ethiopian(int(date_time_obj[0]),int(date_time_obj[1]),int(date_time_obj[2]))
+  #             vals['ethiopian_date'] = Edate
+  #     except:
+  #         pass
+  #     return super(Complaints, self).write(vals) 
+
 
   def send_pending_to_member(self):
       """This action will be able to send a pending complaint to a member"""
