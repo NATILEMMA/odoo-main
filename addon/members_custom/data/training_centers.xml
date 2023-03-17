@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<odoo>
+
+    <record id="ada" model="training.centers">
+        <field name="name">Adama</field>
+    </record>
+
+    <record id="add" model="training.centers">
+        <field name="name">Addis Ababa</field>
+    </record>
+
+    <record id="bsh" model="training.centers">
+        <field name="name">Bishoftu</field>
+    </record>
+
+    <record id="awa" model="training.centers">
+        <field name="name">Hawassa</field>
+    </record>
+
+
+    <record id="high" model="training.type">
+        <field name="name">Higher Level Leader</field>
+    </record>
+
+    <record id="mid" model="training.type">
+        <field name="name">Mid Level Leader</field>
+    </record>
+
+    <record id="beg" model="training.type">
+        <field name="name">Beginner Level Leader</field>
+    </record>
+
+    <record id="low" model="training.type">
+        <field name="name">Lower Level Leader</field>
+    </record>
+
+    <record id="notra" model="training.type">
+        <field name="name">Not Trained</field>
+    </record>
+
+    <record id="uncat" model="training.type">
+        <field name="name">Uncategorized Leader</field>
+    </record>
+</odoo>

@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- This record will handle the tree ciew for Donors -->
+    <record id="donor_tree_view" model="ir.ui.view">
+        <field name="name">Donor Tree View</field>
+        <field name="model">donors</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="address"/>
+                <field name="start_of_support"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- This record will handle the form view for Donors -->
+    <record id="donor_form_view" model="ir.ui.view">
+        <field name="name">Donor Form View</field>
+        <field name="model">donors</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="active" invisible="1"/>
+                    <button name="archive_record" string="Archive" type="object" groups="members_custom.member_group_manager" attrs="{'invisible': [('active', '=', False)]}"/>
+                    <button name="un_archive_record" string="Unarchive" type="object" groups="members_custom.member_group_manager" attrs="{'invisible': [('active', '=', True)]}"/>
+                </header>
+                <sheet>
+                    <field name="is_company" invisible="1"/>
+                    <field name="active" invisible="1"/>
+                    <header>
+                        <field name="type_of_supporter" widget="radio" options="{'horizontal': true}" force_save="1"/>
+                    </header>
+                    <separator/>
+                    <field name="image_1920" widget="image" class="oe_avatar" options='{"preview_image": "image_1920"}'/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <group>
+                        <group>
+                            <separator string="Information"/>
+                            <field name="name" placeholder="Eg. John Does Smith"/>
+                            <field name="age" string="Age" attrs="{'invisible': [('type_of_supporter', '=', 'company')]}"/>
+                            <field name="gender" string="Gender" attrs="{'invisible': [('type_of_supporter', '=', 'company')]}"/>
+                            <field name="ethnic_group" string="Ethnicity" attrs="{'invisible': [('type_of_supporter', '=', 'company')]}"/>
+                            <field name="email" string="email" attrs="{'invisible': [('type_of_supporter', '=', 'individual')]}"/>
+                            <field name="website" string="website" attrs="{'invisible': [('type_of_supporter', '=', 'individual')]}"/>
+                            <separator string="Educational Status" attrs="{'invisible': [('type_of_supporter', '=', 'company')]}"/>
+                            <field name="education_level" string="Education Level" attrs="{'invisible': [('type_of_supporter', '=', 'company')]}"/>
+                            <field name="field_of_study_id" widget="many2many_tags" string="Field of Study" options="{'no_create': True, 'no_create_edit': True}" attrs="{'invisible': [('type_of_supporter', '=', 'company')]}"/>
+                            <separator string="Supporter Status"/>
+                            <field name="start_of_support" string="Start of Support Year"/>
+                            <field name="status"/>
+                            <field name="gov_responsibility"/>
+                        </group>
+                        <group>
+                            <separator string="Employment Status" attrs="{'invisible': [('type_of_supporter', '=', 'company')]}"/>
+                            <field name="work_place" string="Place Of Work" attrs="{'invisible': [('type_of_supporter', '=', 'company')]}"/>
+                            <field name="position" string="Job Position" attrs="{'invisible': [('type_of_supporter', '=', 'company')]}"/>
+                            <separator string="Address"/>
+                            <field name="address" string="Address"/>
+                            <field name="phone" string="Phone" attrs="{'invisible': [('type_of_supporter', '=', 'company')]}"/>
+                            <field name="phone" string="Office Phone Number" attrs="{'invisible': [('type_of_supporter', '=', 'individual')]}"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- This record will handle the kanban view for Donors -->
+    <record id="donor_kanban_view" model="ir.ui.view">
+        <field name="name">Donor Kanban View</field>
+        <field name="model">donors</field>
+        <field name="arch" type="xml">
+            <kanban class="o_donor_kanban" sample="1">
+                <field name="id"/>
+                <field name="image_1920"/>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="is_company"/>
+                <field name="position"/>
+                <field name="ethnic_group"/>
+                <field name="address"/>
+                <field name="phone"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_donor_kanban">
+                            <t t-if="!record.is_company.raw_value">
+                                <t t-set="placeholder" t-value="'/base/static/img/company_image.png'"/>
+                                <div class="o_kanban_image_fill_left o_kanban_image_full" t-attf-style="background-image: url(#{kanban_image('donors', 'image_1920', record.id.raw_value, placeholder)})" role="img"/>
+                            </t>
+                            <t t-else="">
+                                <t t-set="placeholder" t-value="'/base/static/img/avatar_grey.png'"/>
+                                <div class="o_kanban_image_fill_left o_kanban_image_full" t-attf-style="background-image: url(#{kanban_image('donors', 'image_1920', record.id.raw_value, placeholder)})" role="img"/>
+                            </t>
+                            <div class="oe_kanban_details d-flex flex-column justify-content-between">
+                                <div>
+                                    <strong class="o_kanban_record_title oe_partner_heading"><field name="name"/><t t-if="record.is_company">, <field name="age"/></t></strong>
+                                    <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                                    <ul>
+                                        <t t-if="record.is_company">
+                                            <li t-if="record.position.raw_value"><field name="position"/> in <field name="work_place"/></li>
+                                        </t>
+                                        <li t-if="record.address.raw_value">From <field name="address"/></li>
+                                        <li t-if="record.phone.raw_value" class="o_text_overflow"><field name="phone"/></li>
+                                    </ul>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left"/>
+                                    <div class="oe_kanban_bottom_right"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- This record will handle the search options for Donors -->
+    <record id="donor_view_search" model="ir.ui.view">
+        <field name="name">Donor Search View</field>
+        <field name="model">donors</field>
+        <field name="arch" type="xml">
+        <search>
+            <field name="name" string="Names" filter_domain="[('name', 'ilike', self)]"/>
+            <field name="phone" string="Phone" filter_domain="[('phone', 'ilike', self)]"/>
+            <group expand="0" string="Group By" colspan="10" col="8">
+                <filter name="status" string="Status" context="{'group_by': 'status'}"/>
+                <filter name="address" string="Address" context="{'group_by': 'address'}"/>
+            </group>
+        </search>
+        </field>
+    </record>
+
+    <!-- This record will create the action for donors -->
+    <record id="donor_action" model="ir.actions.act_window">
+        <field name="name">Donors</field>
+        <field name="res_model">donors</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="limit">20</field>
+        <field name="search_view_id" ref="donor_view_search"/>
+    </record>
+
+    <menuitem id="donors_menu"
+            name="Donors"
+            parent="membership.menu_membership"
+            sequence="7"           
+            action="donor_action"
+            groups="members_custom.member_group_agent"/>
+
+</odoo>

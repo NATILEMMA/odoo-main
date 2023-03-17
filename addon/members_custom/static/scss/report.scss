@@ -1,0 +1,19 @@
+.certification-wrapper-training {
+    background: url(/members_custom/static/img/certifcate_background.png) no-repeat;
+    background-size: 100% 100%;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+
+    .certification-training {
+        margin-left: 350px;
+        padding-top: 140px;
+        width: 510px;
+        text-align: center;
+    
+        h2 {
+            color: #052b70;
+        }
+    }
+
+}

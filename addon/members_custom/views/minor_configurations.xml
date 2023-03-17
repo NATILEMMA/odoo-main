@@ -1,6 +1,137 @@
 <?xml version="1.0"?>
 <odoo>
 
+    <!-- This record will crate a view for cell member counting -->
+    <record id="main_office_tree_view" model="ir.ui.view">
+        <field name="name">Main Office Member Estimation</field>
+        <field name="model">main.office.configuration</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="for_members_or_leagues" string="For Members or Leagues"/>
+                <field name="maximum_cell" string="Cells"/>
+                <field name="reject" string="Reject"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- This record will hold the menu for cell member counting -->
+    <record id="main_office_action" model="ir.actions.act_window">
+        <field name="name">Main Office Member Estimation</field>
+        <field name="res_model">main.office.configuration</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- This record will crate a view for main office member counting -->
+    <record id="cell_tree_view" model="ir.ui.view">
+        <field name="name">Cells Member Estimation</field>
+        <field name="model">cell.configuration</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="for_members_or_leagues" string="For Members or Leagues"/>
+                <field name="minimum_number" string="Minimum Members"/>
+                <field name="maximum_number" string="Maximum Members"/>
+                <field name="reject" string="Reject"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- This record will hold the menu for cell and main office member counting -->
+    <record id="cell_action" model="ir.actions.act_window">
+        <field name="name">Cells Member Estimation</field>
+        <field name="res_model">cell.configuration</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- This record will create view for membership organization -->
+    <record id="membership_organization_tree_view" model="ir.ui.view">
+        <field name="name">Membership Organization</field>
+        <field name="model">membership.organization</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- This record will create an action for membership organization -->
+    <record id="membership_organization_action" model="ir.actions.act_window">
+        <field name="name">Membership Organization</field>
+        <field name="res_model">membership.organization</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- This record will create view for league organization -->
+    <!-- <record id="league_organization_tree_view" model="ir.ui.view">
+        <field name="name">League Organization</field>
+        <field name="model">league.organization</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record> -->
+
+    <!-- This record will create an action for league organization -->
+    <!-- <record id="league_organization_action" model="ir.actions.act_window">
+        <field name="name">League Organization</field>
+        <field name="res_model">league.organization</field>
+        <field name="view_mode">tree</field>
+    </record> -->
+
+    <!-- This record will create view for leaders responsibility -->
+    <record id="leaders_responsibility_tree_view" model="ir.ui.view">
+        <field name="name">Leaders Responsibility</field>
+        <field name="model">leaders.responsibility</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- This record will create an action for leaders responsibility -->
+    <record id="leaders_responsibility_action" model="ir.actions.act_window">
+        <field name="name">Leaders Responsibility</field>
+        <field name="res_model">leaders.responsibility</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- This record will create view for members responsibility -->
+    <record id="members_responsibility_tree_view" model="ir.ui.view">
+        <field name="name">Members Responsibility</field>
+        <field name="model">members.responsibility</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- This record will create an action for members responsibility -->
+    <record id="members_responsibility_action" model="ir.actions.act_window">
+        <field name="name">Members Responsibility</field>
+        <field name="res_model">members.responsibility</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- This record will create view for training centers -->
+    <record id="training_center_tree_view" model="ir.ui.view">
+        <field name="name">Training Centers</field>
+        <field name="model">training.centers</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- This record will create an action for training center -->
+    <record id="training_center_action" model="ir.actions.act_window">
+        <field name="name">Training Centers</field>
+        <field name="res_model">training.centers</field>
+        <field name="view_mode">tree</field>
+    </record>
+
     <!-- This record will create view for education level -->
     <record id="res_ed_level_tree_view" model="ir.ui.view">
         <field name="name">Education Level</field>
@@ -74,4 +205,50 @@
               sequence="3"
               action="interpersonal_skills_action"/>
 
+    <menuitem id="training_center_menu"
+              name="Training Centers Configuration"
+              parent="members_custom.minor_menus"
+              sequence="4"
+              action="training_center_action"/>
+
+    <menuitem id="members_responsibility_menu"
+            name="Members Responsibility Configuration"
+            parent="members_custom.minor_menus"
+            sequence="5"
+            action="members_responsibility_action"/>
+
+    <menuitem id="leaders_responsibility_menu"
+            name="Leaders Responsibility Configuration"
+            parent="members_custom.minor_menus"
+            sequence="6"
+            action="leaders_responsibility_action"/>
+
+    <menuitem id="membership_organization_menu"
+            name="Membership Organization Configuration"
+            parent="members_custom.minor_menus"
+            sequence="7"
+            action="membership_organization_action"/>
+
+    <menuitem id="main_office_cell_menu"
+            name="Members Estimation Configuration"
+            parent="members_custom.minor_menus"
+            sequence="8"/>
+
+    <menuitem id="main_office_estimation_menu"
+            name="Main Office Members Estimation Configuration"
+            parent="main_office_cell_menu"
+            sequence="1"
+            action="main_office_action"/>
+
+    <menuitem id="cell_estimation_menu"
+            name="Cells Members Estimation Configuration"
+            parent="main_office_cell_menu"
+            sequence="2"
+            action="cell_action"/>
+
+    <!-- <menuitem id="league_organization_menu"
+            name="League Organization Configuration"
+            parent="members_custom.minor_menus"
+            sequence="5"
+            action="league_organization_action"/> -->
 </odoo>

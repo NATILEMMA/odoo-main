@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- This record will hold the form for archive -->
+    <record id="archive_member_form" model="ir.ui.view">
+        <field name="name">archive.member.form</field>
+        <field name="model">archive.members.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="reason" string="Why Do You Want To Archive This Record?"/>
+                </group>
+                <footer>
+                    <button name="action_done" string="Archive" type="object" class="oe_highlight btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- This record will hold the form for archive -->
+    <record id="archive_candidate_form" model="ir.ui.view">
+        <field name="name">archive.candidate.wizard.form</field>
+        <field name="model">archive.candidate.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="reason" string="Why Do You Want To Archive This Record?"/>
+                </group>
+                <footer>
+                    <button name="action_done" string="Archive" type="object" class="oe_highlight btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- This record will hold the form for archive -->
+    <record id="archive_supporter_form" model="ir.ui.view">
+        <field name="name">archive.supporter.wizard.form</field>
+        <field name="model">archive.supporter.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="reason" string="Why Do You Want To Archive This Record?"/>
+                </group>
+                <footer>
+                    <button name="action_done" string="Archive" type="object" class="oe_highlight btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- This record will hold the form for archive -->
+    <record id="archive_donor_form" model="ir.ui.view">
+        <field name="name">archive.donor.wizard.form</field>
+        <field name="model">archive.donor.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="reason" string="Why Do You Want To Archive This Record?"/>
+                </group>
+                <footer>
+                    <button name="action_done" string="Archive" type="object" class="oe_highlight btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- This record will hold the form for member creation -->
+    <record id="create_member_wizard_form" model="ir.ui.view">
+        <field name="name">create.member.wizard.form</field>
+        <field name="model">create.member.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="membership_org" string="Membership Organization"/>
+                        <field name="member_responsibility" string="Membership Responsibility"/>
+                        <field name="start_of_membership" string="Membership Start Year"/>
+                    </group>
+                    <group>
+                        <field name="stock"/>
+                        <field name="income"/>
+                        <field name="national_id"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_done" string="Create Member" type="object" class="oe_highlight btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- This record will hold the form for leader creation -->
+    <record id="create_leader_wizard_form" model="ir.ui.view">
+        <field name="name">create.leader.wizard.form</field>
+        <field name="model">create.leader.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="membership_org" string="Membership Organization"/>
+                        <field name="leader_responsibility" string="Leadership Responsibility"/>
+                    </group>
+                    <group>
+                        <field name="experience"/>
+                        <field name="leadership_status"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_done" string="Create Leader" type="object" class="oe_highlight btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- This record will hold the form for league creation -->
+    <record id="create_league_wizard_form" model="ir.ui.view">
+        <field name="name">create.league.wizard.form</field>
+        <field name="model">create.league.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="league_org" string="League Organization"/>
+                        <field name="league_type" string="League Type"/>
+                    </group>
+                    <group>
+                        <field name="league_status" string="League Responsibility"/>
+                        <field name="start_of_league" string="League Start Year"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_done" string="Create League" type="object" class="oe_highlight btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- This record will hold the form for attachment creation -->
+    <record id="attachment_wizard_form" model="ir.ui.view">
+        <field name="name">attachment.wizard.form</field>
+        <field name="model">attachment.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="attachment_type"/>
+                    </group>
+                    <group>
+                        <field name="datas"/>
+                        <field name="description"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_done" string="Attach" type="object" class="oe_highlight btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- This record will hold the form for member creation -->
+    <record id="create_from_league_wizard_form" model="ir.ui.view">
+        <field name="name">create.from.league.wizard.form</field>
+        <field name="model">create.from.league.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="membership_org" string="Membership Organization"/>
+                        <field name="member_responsibility" string="Membership Responsibility"/>
+                        <field name="start_of_membership" string="Membership Start Year"/>
+                    </group>
+                    <group>
+                        <field name="stock"/>
+                        <field name="income"/>
+                        <field name="national_id"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_done" string="Create Member" type="object" class="oe_highlight btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- This record will hold the form for member creation -->
+    <record id="create_from_candidate_wizard_form" model="ir.ui.view">
+        <field name="name">create.from.candidate.wizard.form</field>
+        <field name="model">create.from.candidate.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="partner_id" invisible="1"/>
+                        <field name="membership_org" string="Membership Organization"/>
+                        <field name="member_responsibility" string="Membership Responsibility"/>
+                        <field name="start_of_membership" string="Membership Start Year"/>
+                    </group>
+                    <group>
+                        <field name="stock"/>
+                        <field name="national_id" string="National ID"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_done" string="Create Member" type="object" class="oe_highlight btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

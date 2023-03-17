@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<odoo>
+
+    <data noupdate="1">
+
+        <record id="mail_act_candidate_appproval" model="mail.activity.type">
+            <field name="name">Candidate Approval</field>
+            <field name="icon">fa-sun-o</field>
+            <field name="res_model_id" ref="members_custom.model_candidate_members"/>
+        </record>
+
+        <record id="mail_act_wereda_transfer" model="mail.activity.type">
+            <field name="name">Woreda Manager Transfer</field>
+            <field name="icon">fa-sun-o</field>
+            <field name="res_model_id" ref="members_custom.model_membership_handlers_branch"/>
+        </record>
+
+        <record id="mail_act_subcity_transfer" model="mail.activity.type">
+            <field name="name">Subcity Manager Transfer</field>
+            <field name="icon">fa-sun-o</field>
+            <field name="res_model_id" ref="members_custom.model_membership_handlers_parent"/>
+        </record>
+
+        <record id="mail_act_city_transfer" model="mail.activity.type">
+            <field name="name">City Manager Transfer</field>
+            <field name="icon">fa-sun-o</field>
+            <field name="res_model_id" ref="members_custom.model_membership_city_handlers"/>
+        </record>
+
+    </data>
+</odoo>

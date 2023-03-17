@@ -9,8 +9,8 @@
         
           <t t-foreach="data" t-as="o">
             
-                <div class="article ">
-                <div >
+              <div class="article certification-wrapper-training">
+                <div t-attf-class="certification-training">
                  <div class="page">
                     <table align="center" style="page-break-after: always !important">
                     <tr>

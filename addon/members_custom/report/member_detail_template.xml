@@ -37,7 +37,7 @@
                     <strong>Email: </strong><span t-field="leader.email_address"/>
                 </td>
                 <td>
-                    <strong>Nation: </strong><span t-field="leader.nation"/>
+                    <strong>Etnicity: </strong><span t-field="leader.ethnic_group"/>
                 </td>
               </tr>
               <tr>
@@ -83,15 +83,41 @@
                 </t>
               </t>
               <tr>
-                <td>
-                    <strong>Organization Resposibility: </strong><span t-field="leader.member_responsibility"/>
-                </td>
+                <t t-if="leader.is_member == True">
+                  <td>
+                      <strong>Member Resposibility: </strong><span t-field="leader.member_responsibility"/>
+                  </td>
+                </t>
+                <t t-if="leader.is_leader == True">
+                  <td>
+                      <strong>Leader Resposibility: </strong><span t-field="leader.leader_responsibility"/>
+                  </td>
+                </t>
+                <t t-if="leader.is_league == True">
+                  <td>
+                      <strong>League Resposibility: </strong><span t-field="leader.league_status"/>
+                  </td>
+                </t>
+              </tr>
+              <tr>
                 <td>
                     <strong>Government Responsibility: </strong><span t-field="leader.gov_responsibility"/>
                 </td>
-                <td>
-                    <strong>Start of Membership: </strong><span t-field="leader.start_of_membership"/>
-                </td>
+                <t t-if="leader.is_league == True">
+                  <td>
+                      <strong>Start of League: </strong><span t-field="leader.start_of_league"/>
+                  </td>
+                </t>
+                <t t-if="leader.is_leader == True">
+                  <td>
+                      <strong>Start of Membership: </strong><span t-field="leader.start_of_membership"/>
+                  </td>
+                </t>
+                <t t-if="leader.is_member == True">
+                  <td>
+                      <strong>Start of Membership: </strong><span t-field="leader.start_of_membership"/>
+                  </td>
+                </t>                
               </tr>
               <tr>
                 <td>
@@ -104,7 +130,7 @@
                     <strong>Grade: </strong><span t-field="leader.grade"/>
                 </td>
               </tr>
-              <tr>
+              <!-- <tr>
                 <t t-if="leader.is_leader == True">
                   <td>
                       <strong>Leadership State: </strong><span t-field="leader.leadership_status"/>
@@ -117,16 +143,100 @@
                   <td>
                       <strong>Stock: </strong><span t-field="leader.stock"/>
                   </td>                  
-                </t>
-                <t t-if="leader.membership_monthly_fee_cash == 0.00">
-                  <td>
+                </t> -->
+              <tr>
+                <t t-if="leader.is_member == True">
+                  <t t-if="leader.membership_monthly_fee_cash == 0.00">
+                    <td>
+                        <strong>Membership Fee: </strong><span t-field="leader.membership_monthly_fee_cash_from_percent"/>
+                    </td>
+                  </t>
+                  <!-- <t t-if="leader.membership_monthly_fee_cash == 0.00">
+                    <td>
+                        <strong>Membership Fee: </strong><span t-field="leader.membership_monthly_fee_cash"/>
+                    </td>
+                  </t> -->
+                  <t t-if="leader.membership_monthly_fee_cash_from_percent == 0.00">
+                    <td>
+                      <strong>Membership Fee: </strong><span t-field="leader.membership_monthly_fee_cash"/>
+                    </td>
+                  </t>
+                  <!-- <t t-if="leader.membership_monthly_fee_cash_from_percent == 0.00">
+                    <td>
                       <strong>Membership Fee: </strong><span t-field="leader.membership_monthly_fee_cash_from_percent"/>
+                    </td>
+                  </t> -->
+                </t>
+                <t t-if="leader.is_leader == True">
+                  <t t-if="leader.membership_monthly_fee_cash == 0.00">
+                    <td>
+                        <strong>Membership Fee: </strong><span t-field="leader.membership_monthly_fee_cash_from_percent"/>
+                    </td>
+                  </t>
+                  <!-- <t t-if="leader.membership_monthly_fee_cash == 0.00">
+                    <td>
+                        <strong>Membership Fee: </strong><span t-field="leader.membership_monthly_fee_cash"/>
+                    </td>
+                  </t> -->
+                  <t t-if="leader.membership_monthly_fee_cash_from_percent == 0.00">
+                    <td>
+                      <strong>Membership Fee: </strong><span t-field="leader.membership_monthly_fee_cash"/>
+                    </td>
+                  </t>
+                  <!-- <t t-if="leader.membership_monthly_fee_cash_from_percent == 0.00">
+                    <td>
+                      <strong>Membership Fee: </strong><span t-field="leader.membership_monthly_fee_cash_from_percent"/>
+                    </td>
+                  </t> -->
+                </t>
+                <t t-if="leader.is_league == True">
+                  <td>
+                      <strong>League Fee: </strong><span t-field="leader.league_payment"/>
+                  </td>                
+                </t>
+                <t t-if="leader.is_member == True">
+                  <td>
+                      <strong>Stock: </strong><span t-field="leader.stock"/>
+                  </td>                  
+                </t>
+              </tr>
+              <tr>
+                <t t-if="leader.is_member == True">
+                  <td>
+                      <strong>Main Office: </strong><span t-field="leader.main_office"/>
+                  </td>
+                  <td>
+                    <strong>Cell: </strong><span t-field="leader.member_cells"/>
+                  </td>
+                  <td>
+                    <strong>Organization: </strong><span t-field="leader.membership_org"/>
                   </td>
                 </t>
-                <t t-if="leader.membership_monthly_fee_cash_from_percent == 0.00">
+              </tr>
+              <tr>
+                <t t-if="leader.is_leader == True">
                   <td>
-                    <strong>Membership Fee: </strong><span t-field="leader.membership_monthly_fee_cash"/>
+                      <strong>Main Office: </strong><span t-field="leader.main_office"/>
                   </td>
+                  <td>
+                    <strong>Cell: </strong><span t-field="leader.member_cells"/>
+                  </td>
+                  <td>
+                    <strong>Organization: </strong><span t-field="leader.membership_org"/>
+                  </td>
+                </t>
+              </tr>
+              <tr>
+                <t t-if="leader.is_league == True">
+                  <td>
+                      <strong>League Main Office: </strong><span t-field="leader.league_main_office"/>
+                  </td>
+                  <td>
+                    <strong>League Cell: </strong><span t-field="leader.league_member_cells"/>
+                  </td>
+                  <td>
+                    <strong>League Organization: </strong><span t-field="leader.league_org"/>
+                  </td>                 
                 </t>
               </tr>
             </table>

@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- This record will create tree view for training Type -->
+    <record id="training_type_tree" model="ir.ui.view">
+        <field name="name">Training Type</field>
+        <field name="model">training.type</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- This record will create tree view for training Type -->
+    <record id="training_type_form" model="ir.ui.view">
+        <field name="name">Training Type</field>
+        <field name="model">training.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="name"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- This record will create a tree view for training -->
+    <record id="member_training_tree" model="ir.ui.view">
+        <field name="name">Leader Training</field>
+        <field name="model">member.training</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="training_type"/>
+                <field name="instution_id"/>
+                <field name="training_round"/>
+                <field name="training_year"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- This record will create a form view for training -->
+    <record id="member_training_form" model="ir.ui.view">
+        <field name="name">Leader Training</field>
+        <field name="model">member.training</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="confirm_event" string="Confirm Event" type="object" states="new" class="btn-primary" />
+                    <button name="complete_event" string="Event Complete" type="object" states="confirm"  class="btn-primary"/>
+                    <button name="cancel_event" string="Cancel Event" type="object" states="confirm"/>
+                    <button name="print_event" string="Print Certificates"  type="object"  class="oe_highlight" attrs="{'invisible': [('state', 'not in', 'complete')]}"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="wereda_id"/>
+                            <field name="training_type"/>
+                            <field name="training_round"/>
+                            <field name="training_year"/>
+                        </group>
+                        <group>
+                            <field name="instution_type_id"/>
+                            <field name="instution_id"/>
+                            <label for="date_from" string="Time Period"/>
+                            <div><field name="start_date" class="oe_inline"/> to <field name="end_date" class="oe_inline"/></div>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Leaders">
+                            <field name="leader_ids">
+                                <tree editable="bottom" create="false">
+                                    <field name="partner_id" readonly="1"/>
+                                    <field name="leader_responsibility" readonly="1"/>
+                                    <field name="training_result"/>
+                                    <field name="certificate"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Notes">
+                            <field name="note_id"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>    
+
+    <!--This record will create the action of training -->
+    <record id="member_training_action" model="ir.actions.act_window">
+        <field name="name">Leader Training</field>
+        <field name="res_model">member.training</field>
+        <field name="view_mode">tree,form</field>
+        <field name="limit">20</field>
+        <field name="domain">['|', '|', '|', '|', '|', ('wereda_id.branch_manager.id', '=', uid), ('wereda_id.complaint_handler', '=', uid), ('wereda_id.parent_id.parent_manager.id', '=', uid), ('wereda_id.parent_id.city_id.city_manager', 'in', [uid]), ('wereda_id.parent_id.city_id.transfer_handler', '=', uid), ('wereda_id.parent_id.city_id.responsible_id.system_admin', '=', uid)]</field>
+    </record>
+
+    <menuitem id="member_training_menu"
+              name="Leader Trainings"
+              parent="membership.menu_association"
+              sequence="80"
+              groups="members_custom.member_group_manager"
+              action="member_training_action"/>
+
+</odoo>
