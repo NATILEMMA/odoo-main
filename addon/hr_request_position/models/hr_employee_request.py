@@ -52,12 +52,13 @@ class HrEmployeeRequest(models.Model):
     hr_responsible_user_id = fields.Many2one('res.users', related='contract_id.hr_responsible_id',tracking=True,help='Person responsible for validating the employee\'s contracts.',readonly=True)
     user_id = fields.Many2one('res.users')
     requested_position_id = fields.Many2one('hr.job','Requested Job Position')
+    job_title = fields.Char(related='requested_position_id.name',default ='job', related_sudo=False)
     requested_department_id = fields.Many2one('hr.department', 'Requested Department')
     attachment = fields.Binary(string="Upload Attachment file")
     attachment_name = fields.Char(string='File Name')
     note = fields.Text('Notes')
     period = fields.Char('Period', compute="_compute_period")
-    company_id = fields.Many2one('res.company', string=  'Company',default=lambda self: self.env.company, required=True)
+    company_id = fields.Many2one('res.company', string=  'Company',default=lambda self: self.env.company, required=True,readonly=True)
     currency_id = fields.Many2one('res.currency', related='contract_id.currency_id', readonly=True)
     estimated_salary = fields.Monetary(string='Requested Salary', help="Employee's Requested salary.", 
     groups= "hr_request_position.group_request_hr_approval_request,hr_request_position.group_request_manager_approval")
@@ -69,7 +70,7 @@ class HrEmployeeRequest(models.Model):
                               'Request Type', tracking=True, required=True,
                               copy=False, default='position_request')
    
-    grade_id = fields.Many2one('hr.job.grade',string = "Requested Grade")
+    grade_id = fields.Many2one('hr.job.grade',string = "Requested Grade",domain="[('job_grade_title','=',job_title)]")
 
     
     @api.depends("employee_id")
@@ -217,6 +218,7 @@ class HrEmployeeRequest(models.Model):
             self.contract_id.grade_id = self.grade_id.id
             self.contract_id.wage = self.grade_id.fixed_wage
             self.employee_id.job_id = self.requested_position_id.id
+            self.employee_id.parent_id = self.requested_department_id.manager_id.id
             self.employee_id.department_id = self.requested_department_id.id
             self.employee_id.job_title = self.requested_position_id.name
             self.write({'state':'manager_approval'})

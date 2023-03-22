@@ -30,6 +30,7 @@
                         <field name="employee_id" />
                         <field name="company_id"  /> 
                         <field name="job_id" />
+                        <field name="job_title" attrs="{'invisible':True}" />
                         <field name="current_grade_id"/>
                         <field name="employee_parent_id"/>
                         <field name="contract_id"/>
@@ -93,6 +94,7 @@
             <field name="work_phone" />
             <field name="work_email" />
             <field name="job_id" />
+            <field name="job_title" attrs="{'invisible':True}" />
             <field name="salary_or_position" />
             <field name="requested_position_id" attrs="{'invisible': [('salary_or_position','=','salary_request')]}"/>
             <field name="requested_department_id" attrs="{'invisible': [('salary_or_position','=','salary_request')]}" />

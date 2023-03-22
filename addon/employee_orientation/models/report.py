@@ -38,7 +38,8 @@ class PackingReportValues(models.AbstractModel):
         image_url_body = base_url + '/employee_orientation/static/src/img/body_certificate.png'
         image_url_header = base_url + '/employee_orientation/static/src/img/certificate_header.png'
         image_url_footer = base_url + '/employee_orientation/static/src/img/certificate_footer.png'
-       
+        print("********************************************** image types")
+        print(image_url_body,type(image_url_body))
         if(docids):
             docs = self.env['employee.training'].browse(docids[0])          
             for doc in docs:

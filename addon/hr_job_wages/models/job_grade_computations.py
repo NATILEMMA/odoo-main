@@ -20,15 +20,17 @@ class Grade(models.Model):
                       ('check_on_minimum_wage', 'CHECK(minimum_wage > 0 AND minimum_wage < maximum_wage)', 'Minimum wage must be less than Maximum Wage and greater than 0')
                      ]
 
-  api.onchange('fixed_wage')
+  @api.onchange('fixed_wage')
   def change_all_employee_with_fixed_wage(self):
-    for rec in self:
-      contracts = self.env['hr.contract'].search([('job_id', '=',rec.job_dup_id.id),('name', '=', rec.grade_id.name)])
-      for contract in contracts :
-        contract.wage = rec.fixed_wage
+    if self.fixed_wage:
+      for rec in self:
+        contracts = self.env['hr.contract'].search([('job_id','=',rec.job_grade_title.id),('grade_id','=',rec._origin.id)])
+        for contract in contracts :
+          contract.wage = rec.fixed_wage
+  
 class JobDuplicate(models.Model):
   _name="hr.job.dup"
-  _description="This class will handle the addtion of job grades to their respective job positions"
+  _description = "This class will handle the addtion of job grades to their respective job positions"
 
   name = fields.Many2one('hr.job', required=True)
   job_dup_ids = fields.One2many('hr.job.grade', 'job_dup_id' ,required=True)
@@ -63,3 +65,8 @@ class JobWageCheck(models.Model):
     elif (self['wage'] > maximum):
       Message = "Wage must be less than the company Maximum wage scale of " + str(maximum)
       raise UserError(_(Message))
+  @api.onchange('grade_id')
+  def change_wage_with_grade_with_fixed_wage(self):
+    if self.grade_id:
+      for rec in self:
+        rec.wage = rec.grade_id.fixed_wage
