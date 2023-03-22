@@ -106,6 +106,12 @@
                 </field>
              </field>
         </record>
-        <menuitem action="action_employee_orientation" id="menu_employee_orientation_child" name="Employee Orientation" parent="menu_employee_orientation" sequence="1" groups="hr.group_hr_manager,hr.group_hr_user"/>
+        <menuitem 
+                action="action_employee_orientation" 
+                id="menu_employee_orientation_child" 
+                name="Employee Orientation" 
+                parent="menu_employee_orientation" 
+                sequence="1" 
+                groups="hr.group_hr_manager,hr.group_hr_user"/>
     </data>
 </odoo>

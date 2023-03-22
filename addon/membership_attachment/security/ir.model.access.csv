@@ -1,6 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-
-access.attachment.type.manager,access_attachment_type,membership_attachment.model_attachment_type,members_custom.member_group_manager,1,1,1,1
-access.attachment.type.agent,access_attachment_type,membership_attachment.model_attachment_type,members_custom.member_group_agent,1,0,0,0
-access.attachment.type.portal,access_attachment_type,membership_attachment.model_attachment_type,base.group_portal,1,0,0,0
-access.attachment.type,access_attachment_type,model_attachment_type,base.group_user,1,1,1,1

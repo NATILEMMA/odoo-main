@@ -11,7 +11,7 @@ _logger = logging.getLogger(__name__)
 
 
 REQUEST_STATES = [
-    ('New', 'new'),
+    ('new', 'New'),
     ('draft', 'Draft'),
     ('in_progress', 'Requested'),
     ('hr_approval', 'HR Approved'),
@@ -39,6 +39,7 @@ class HrEmployeeRequest(models.Model):
     name = fields.Char( required=True,readonly=True, default='New', index=True)
     employee_id = fields.Many2one('hr.employee', string="Requested By", default=_get_employee_id,readonly=True)
     job_id = fields.Many2one(related='employee_id.job_id', related_sudo=False, tracking=True,readonly=True)
+    
     work_phone = fields.Char(related='employee_id.work_phone', related_sudo=False, tracking=True,readonly=True)
     work_email = fields.Char(related='employee_id.work_email', related_sudo=False, tracking=True,readonly=True)
     department_id = fields.Many2one(related='employee_id.department_id', readonly=False, related_sudo=False, tracking=True)
@@ -47,6 +48,7 @@ class HrEmployeeRequest(models.Model):
     coach_id = fields.Many2one('hr.employee',related='employee_id.coach_id', string='Coach',related_sudo=False, tracking=True,readonly=True)
     state = fields.Selection(REQUEST_STATES,'Status', tracking=True,copy=False,default = 'new')
     contract_id = fields.Many2one('hr.contract',string='Current Contract', compute ="_compute_contract", help='Current contract of the employee', related_sudo=False, tracking=True,readonly=True)
+    current_grade_id = fields.Many2one('hr.job.grade',related='contract_id.grade_id',string = "Current job Grade")
     hr_responsible_user_id = fields.Many2one('res.users', related='contract_id.hr_responsible_id',tracking=True,help='Person responsible for validating the employee\'s contracts.',readonly=True)
     user_id = fields.Many2one('res.users')
     requested_position_id = fields.Many2one('hr.job','Requested Job Position')
@@ -57,7 +59,9 @@ class HrEmployeeRequest(models.Model):
     period = fields.Char('Period', compute="_compute_period")
     company_id = fields.Many2one('res.company', string=  'Company',default=lambda self: self.env.company, required=True)
     currency_id = fields.Many2one('res.currency', related='contract_id.currency_id', readonly=True)
-    estimated_salary = fields.Monetary(string='Estimated Salary', help="Employee's monthly gross wage.", 
+    estimated_salary = fields.Monetary(string='Requested Salary', help="Employee's Requested salary.", 
+    groups= "hr_request_position.group_request_hr_approval_request,hr_request_position.group_request_manager_approval")
+    previous_salary = fields.Monetary(string='Prior Salary', help="Employee's salary befor salary request.", 
     groups= "hr_request_position.group_request_hr_approval_request,hr_request_position.group_request_manager_approval")
     wage = fields.Monetary(related='contract_id.wage', related_sudo=False, tracking=True,
     groups= "hr_request_position.group_request_hr_approval_request,hr_request_position.group_request_manager_approval")
@@ -74,6 +78,7 @@ class HrEmployeeRequest(models.Model):
             self.contract_id = self.env['hr.contract'].search([('employee_id', '=', self.employee_id.id)], limit=1)
          else:
               self.contract_id = self.contract_id
+   
     def isEmployee(self):
         #This function checks if the user applying or asking recruitment request is employee
         isemployee = self.env['hr.employee'].search([('user_id', '=', self.env.uid)], limit=1)
@@ -147,8 +152,11 @@ class HrEmployeeRequest(models.Model):
 
     def button_request(self):
         if self.salary_or_position == 'position_request':
-            if self.requested_position_id == self.contract_id.job_id and self.requested_department_id ==  self.department_id:
+            if self.requested_position_id == self.contract_id.job_id and self.requested_department_id ==  self.department_id and self.grade_id ==  self.contract_id.grade_id:
                 raise UserError(('Already in Position'))
+            else:
+                  self.state = 'in_progress'
+                  self.send_activity_notification_to_position_Approvers()
 
         elif self.salary_or_position == 'salary_request':
 
@@ -174,6 +182,7 @@ class HrEmployeeRequest(models.Model):
                          raise UserError(('Your estimated salary request is above your current job grade of Birr ' ,self.contract_id.grade_id.maximum_wage))     
                 else:
                       self.state = 'in_progress'
+                      self.previous_salary = self.wage
                       self.send_activity_notification_to_position_Approvers()
 
     def write(self, vals):
@@ -200,12 +209,13 @@ class HrEmployeeRequest(models.Model):
         if not self.contract_id:
              raise UserError(("The Requester employee doesn't have contract."))
         
+        
         if self.salary_or_position == 'position_request':
             #Updating employee object and employee contract with the approved department and job postions
             self.contract_id.job_id = self.requested_position_id
             self.contract_id.department_id = self.requested_department_id.id
             self.contract_id.grade_id = self.grade_id.id
-            self.contract_id.wage = self.grade_id.minimum_wage
+            self.contract_id.wage = self.grade_id.fixed_wage
             self.employee_id.job_id = self.requested_position_id.id
             self.employee_id.department_id = self.requested_department_id.id
             self.employee_id.job_title = self.requested_position_id.name
@@ -213,7 +223,9 @@ class HrEmployeeRequest(models.Model):
             self.send_activity_notification_to_position_Approvers()
         
         elif self.salary_or_position == 'salary_request':
-            self.wage = self.estimated_salary
+            grade_id = self.env['hr.job.grade'].search([('job_dup_id', '=',self.contract_id.job_id.id),('name', '=',self.contract_id.grade_id.name)], limit=1)
+            grade_id.fixed_wage = self.estimated_salary
+            self.contract_id.wage = self.estimated_salary
             self.write({'state':'manager_approval'})
             self.send_activity_notification_to_position_Approvers()
 

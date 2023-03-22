@@ -5,7 +5,7 @@
   'description': "",
   'author': 'Samra Solomon',
   'depends': [
-    'hr_contract'
+    'hr_contract','hr_menu_organizer'
   ],
   'data': [
     'security/ir.model.access.csv',

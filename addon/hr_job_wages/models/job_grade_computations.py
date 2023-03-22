@@ -10,15 +10,22 @@ class Grade(models.Model):
   name = fields.Char(required=True, copy=False, string="Grade Name")
   job_grade_title = fields.Many2one(related="job_dup_id.name")
   minimum_wage = fields.Float(required=True, copy=False)
+  fixed_wage = fields.Float(required=True, copy=False)
   maximum_wage = fields.Float(required=True, copy=False)
   job_dup_id = fields.Many2one('hr.job.dup')
 
   _sql_constraints = [
                       ('check_on_maximum_wage', 'CHECK(maximum_wage > 0 AND maximum_wage > minimum_wage)', 'Maximum wage must be more than Minimum Wage and 0'),
+                      ('check_on_maximum_wage', 'CHECK(minimum_wage <= fixed_wage)', 'Minimum wage must less or equal to fixed Wage'),
                       ('check_on_minimum_wage', 'CHECK(minimum_wage > 0 AND minimum_wage < maximum_wage)', 'Minimum wage must be less than Maximum Wage and greater than 0')
                      ]
 
-
+  api.onchange('fixed_wage')
+  def change_all_employee_with_fixed_wage(self):
+    for rec in self:
+      contracts = self.env['hr.contract'].search([('job_id', '=',rec.job_dup_id.id),('name', '=', rec.grade_id.name)])
+      for contract in contracts :
+        contract.wage = rec.fixed_wage
 class JobDuplicate(models.Model):
   _name="hr.job.dup"
   _description="This class will handle the addtion of job grades to their respective job positions"

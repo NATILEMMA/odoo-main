@@ -22,6 +22,7 @@
 from datetime import datetime, timedelta
 from odoo import api, models, _
 from dateutil.relativedelta import relativedelta
+from odoo.http import request
 
 
 
@@ -32,25 +33,24 @@ class PackingReportValues(models.AbstractModel):
     def _get_report_values(self, docids, data=None):
 
         lst = []
+        param_obj = request.env['ir.config_parameter'].sudo()
+        base_url = param_obj.get_param('web.base.url')
+        image_url_body = base_url + '/employee_orientation/static/src/img/body_certificate.png'
+        image_url_header = base_url + '/employee_orientation/static/src/img/certificate_header.png'
+        image_url_footer = base_url + '/employee_orientation/static/src/img/certificate_footer.png'
        
         if(docids):
-            docs = self.env['employee.training'].browse(docids[0])
-            department = -1
-            
+            docs = self.env['employee.training'].browse(docids[0])          
             for doc in docs:
-                print('******************************************* department')
-                department = doc.program_department.id
                 started_date = datetime.strftime(doc.create_date, "%Y-%m-%d ")
                 duration = (doc.write_date - doc.create_date).days
                 pause = relativedelta(hours=0)
                 difference = relativedelta(doc.write_date, doc.create_date) - pause
                 hours = difference.hours
                 minutes = difference.minutes
-                empl_obj = self.env['hr.employee'].search([('department_id', '=',department)])
-
-                for line in empl_obj:
-                     lst.append({
-                    'name': line.name,
+                for emp in doc.training_id:
+                    lst.append({
+                    'name': emp.name,
                     'date_to': started_date,
                     'duration': duration,
                     'hours': hours,
@@ -61,34 +61,15 @@ class PackingReportValues(models.AbstractModel):
                     'program_round': doc.program_round_id.name,  
                     'institution':doc.instution_id.name,
                     'program_convener': doc.program_convener.name,
+                    'background_body_image_link':image_url_body,
+                    'background_header_image_link':image_url_header,
+                    'background_footer_image_link':image_url_footer
                 })
-               
+            return {
+                'docids':docids,
+                'docs':docs,
+                'data': lst,
+            }
 
-        else:
-            empl_obj = self.env['hr.employee'].search([('department_id', '=', data['dept_id'])])
-            for line in empl_obj:
-                lst.append({
-                'name': line.name,
-                'department_id': line.department_id.name,
-                'program_name': data['program_name'],
-                'program_round':data['program_round'],
-                'company_name': data['company_name'],
-                'institution' : data['institution'],
-                'date_to': data['date_to'],
-                'program_convener': data['program_convener'],
-                'duration': data['duration'],
-                'hours': data['hours'],
-                'minutes': data['minutes'],
-            })
-               
-
-        print("all info")
-        print(docids)
-        print(lst)
-
-       
-        return {
-            'docids':docids,
-            'data': lst,
-        }
-
+        
+ 

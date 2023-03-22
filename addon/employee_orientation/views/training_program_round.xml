@@ -30,10 +30,10 @@
         </record>
 
         <record model="ir.actions.act_window" id="action_employee_training_program_round">
-            <field name="name">Employee Training Program round</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">employee.training.program.round</field>
-            <field name="view_mode">tree,form</field>
+            <field name ="name">Employee Training Program round</field>
+            <field name ="type">ir.actions.act_window</field>
+            <field name ="res_model">employee.training.program.round</field>
+            <field name ="view_mode">tree,form</field>
     
              <field name="help" type="html">
                 <field class="oe_view_nocontent_create">
@@ -41,7 +41,12 @@
                 </field>
              </field>
         </record>
-
+        <menuitem
+            id="program_round_menu"
+            action="action_employee_training_program_round"
+            parent="employee_orientation.menu_employee_training_child"
+            name = "Program round"
+        />
     </data>
     
 

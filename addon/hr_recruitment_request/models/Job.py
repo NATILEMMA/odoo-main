@@ -107,4 +107,6 @@ class Job(models.Model):
         else:
             raise UserError(("Applicant doesn't have contract.Setup a job contract to proceed"))
         
+    def button_reject(self):
+         self.write({'state':'rejected'})
 

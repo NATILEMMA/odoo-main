@@ -1,6 +1,0 @@
-id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
-access_register_payment,service_register_payment,model_register_payment_woreda,,1,1,1,1
-access_sub_payment,service_sub_payment,model_sub_payment,,1,1,1,1
-access_city_payment,service_city_payment,model_city_payment,,1,1,1,1
-access_membership_main_payment_action,service_city_main_payment,model_main_branch,,1,1,1,1
-access_membership_supporter_payment_action,service_city_main_payment,model_supporter_payment,,1,1,1,1

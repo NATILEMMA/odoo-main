@@ -8,7 +8,7 @@
     'sequence': 1,
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'hr', 'hr_contract','mail'],
+    'depends': ['base', 'hr', 'hr_contract','mail','hr_menu_organizer'],
 
     # always loaded
     'data': [

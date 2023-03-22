@@ -25,31 +25,31 @@
                         <button name="confirm_event" string="Confirm Event" type="object" states="new" class="btn-primary" />
                         <button name="complete_event" string="Event Complete" type="object" states="confirm"  class="btn-primary"/>
                         <button name="cancel_event" string="Cancel Event" type="object" states="confirm"/>
-                        <button name="print_event" string="Print Certificates"  type="object"  class="oe_highlight" attrs="{'invisible': [('state', 'not in', 'complete')]}"/>
                         <field name="state" widget="statusbar" statusbar_visible="new,confirm,complete"/>
                     </header>
                     <sheet>
-                        <group colspan="1" col="4" name="main">
-                            <field name="program_id" />
-                            <field name="program_round_id" attrs="{'invisible': [('program_id','=',False)]}"/>
-                            <field name="program_department"/>
-                            <label for="date_from" string="Time Period"/>
-                            <div><field name="date_from" class="oe_inline"/> to <field name="date_to" class="oe_inline"/></div>
+                        <field name="name"/>
+                        <group col="4" name="main">
+                            <field name="program_id"/>
+    
+                            <field name="program_round_id" widget="selection" attrs="{'invisible': [('program_id','=',False)]}"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
                             <field name="program_convener"/>
-                            <field name="instution_id"/>
+                             <field name="program_department"/>
                             <field name="instution_type_id"/> 
-                             
+                            <field name="instution_id"/>
                         </group>
-                        <notebook colspan="4">
-                            <page name="checklist_lines" string="Employee Details">
-                                <field name="training_id">
-                                    <tree editable="true">
+                       
+                        <notebook>
+                            <page string="Training taking Employee Detail">
+                            
+                                <field name="training_id"  editable="top">
+                                    <tree>
                                         <field name="name"/>
-                                        <field name="job_id"/>
                                         <field name="parent_id"/>
                                         <field name="certificates" />
                                     </tree>
-<!--                                    <field name="product_updatable" invisible="1"/>-->
                                 </field>
                             </page>
                             <page name="note_book"
@@ -89,14 +89,7 @@
                 </field>
              </field>
         </record>
-        <menuitem
-            id="menu_employee_training_child"
-            name="Training Program"
-            parent="hr.menu_hr_root"
-            action="action_employee_training"
-            sequence="91"
-            />
-       <record id="hr_employee_view_for" model="ir.ui.view">
+         <record id="hr_employee_view_for" model="ir.ui.view">
             <field name="name">hr.employee.inherit.form</field>
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr.view_employee_form" />
@@ -107,5 +100,25 @@
                 </xpath>
             </field>
         </record>
+
+         <record id="seq_training_" model="ir.sequence">
+            <field name="name">Employee Training</field>
+            <field name="code">employee.training.sequence</field>
+            <field name="prefix">Training - </field>
+            <field name="padding">3</field>
+        </record>
+
+        <menuitem
+            id="menu_employee_training_child"
+            name="Training"
+            parent="hr_menu_organizer.hr_employee_activities_menu"
+            sequence="91"
+            />
+            <menuitem
+            id="menu_employee_training_child_all"
+            name="Training Program"
+            parent="menu_employee_training_child"
+            action="action_employee_training"
+            />  
     </data>
 </odoo>

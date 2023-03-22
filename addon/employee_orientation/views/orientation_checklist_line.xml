@@ -61,7 +61,7 @@
         <menuitem
             id="menu_employee_orientation"
             name="Orientations"
-            parent="hr.menu_hr_root"
+            parent="hr_menu_organizer.hr_employee_activities_menu"
             sequence="90"
         />
 

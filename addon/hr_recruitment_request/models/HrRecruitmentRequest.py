@@ -49,7 +49,7 @@ class HrRecruitmentRequest(models.Model):
     applicant_count = fields.Integer(compute='_compute_applicant_count', string='Applicant count')       
     applied_job_grade_id = fields.Many2one('hr.job.grade', domain="[('job_grade_title','=',job_title)]", required=True, string="Grade")
 
-    state = fields.Selection(REQUEST_STATES,'Status', tracking=True,copy=False, default='draft')
+    state = fields.Selection(REQUEST_STATES,'Status',tracking=True,copy=False, default='draft')
     
    
 
@@ -155,7 +155,7 @@ class HrRecruitmentRequest(models.Model):
         }
         #checking if there is already a recruitment with the same values
         
-        existing_recruitment = self.env['hr.job'].search([('name','=',self.job_id.name),('company_id','=',self.employee_id.company_id.id),('department_id','=',self.employee_id.department_id.id)])
+        existing_recruitment = self.env['hr.job'].search([('name','=',self.job_id.name),('company_id','=',self.requester_employee_id.company_id.id),('department_id','=',self.requester_employee_id.department_id.id)])
         
         if existing_recruitment:
             existing_recruitment.update({'no_of_recruitment': (existing_recruitment.no_of_recruitment + self.expected_employees)})

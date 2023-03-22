@@ -4,38 +4,41 @@
     <t t-set="data_report_landscape" t-value="True" />
     <t t-set="full_width" t-value="True" />
     <t t-call="web.html_container">
-     
-        <t t-call="web.external_layout">
-        
-          <t t-foreach="data" t-as="o">
-            
-                <div class="article ">
-                <div >
-                 <div class="page">
-                    <table align="center" style="page-break-after: always !important">
-                    <tr>
-                        <td>
-                        <br/><br/>
-                        <div style="display: table-cell; vertical-align: middle">
-                            <div style="border-bottom: 2px solid black; font-size: 32px; font-style: italic; margin: 20px auto; width: 400px">
-                                <t t-esc="o['name']"/>
-                            </div>
-                            <div style="margin:20px">
-                                for certifying his/her participation in the training program <strong> <t t-esc="o['program_name']" /></strong> in round
-                                <strong> <t t-esc="o['program_round']"/></strong> conducted by <strong> <t t-esc="o['program_convener']" /></strong> at <strong> <t t-esc="o['institution']" /></strong> from
-                                <strong> <t t-esc="o['date_to']"/></strong> ,with duration of <strong> <t t-esc="o['duration']" /></strong>days, <strong> <t t-esc="o['hours']" /></strong>Hours by company
-                                <strong><t t-esc="o['company_name']"/></strong>.
-                            </div>
-                           </div>
-                        </td>
-                    </tr>
-                    </table>
-                </div>
-                </div>
+      <t t-foreach="data" t-as="o">
+      <div class="header" style="background-image:url(o['image_url_header']) !important; background-size: 100% 400px !important; background-repeat: no-repeat !important; height: 100% !important; width: 100% !important; "></div>
+       <div class="article">
+        <div style="background-image:url(o['background_image_link']); background-size: 100% 400px; background-repeat: no-repeat; height: 400px; width: 100%; ">
+         
+            <div style="width: 100%; background-color: blue;">
+              <t t-foreach="docs" t-as="doc">
+                <img t-if="doc.company_id.logo" t-att-src="image_data_uri(doc.company_id.logo)" alt="Company Logo" class="float-left" style="width: 100px; height: 100px; object-fit: contain" />
+              </t>
             </div>
-          </t>
-        </t>
+            <div style=" margin-left: 350px;padding-top: 140px;width: 510px;text-align: center;">
+              <table align="center" style="page-break-after: always !important">
+                <tr>
+                  <td>
+                    <br /><br />
+                    <div style="display: table-cell; vertical-align: middle">
+                      <div style="border-bottom: 2px solid black; font-size: 32px; font-style: italic; margin: 20px auto; width: 400px">
+                        <t t-esc="o['name']" />
+                      </div>
+                      <div style="margin: 20px">
+                        for certifying his/her participation in the training program <strong> <t t-esc="o['program_name']" /></strong> in round
+                        <strong> <t t-esc="o['program_round']" /></strong> conducted by <strong> <t t-esc="o['program_convener']" /></strong> at <strong> <t t-esc="o['institution']" /></strong> from
+                        <strong> <t t-esc="o['date_to']" /></strong> ,with duration of <strong> <t t-esc="o['duration']" /></strong>days, <strong> <t t-esc="o['hours']" /></strong>Hours by company
+                        <strong><t t-esc="o['company_name']" /></strong>.
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+        </div>
+      </div>
+       <div class="footer" style="background-image:url((o['image_url_footer']) !important; background-size: 100% 400px !important; background-repeat: no-repeat !important; height: 400px !important; width: 100% !important; "></div>
       
+      </t>
     </t>
   </template>
 </odoo>

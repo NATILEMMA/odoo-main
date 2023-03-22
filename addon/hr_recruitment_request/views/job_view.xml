@@ -146,7 +146,7 @@
          </field>
       </record>
 
-      <menuitem id="interal_recruitment_menu_root"  name="Internal recruitment" sequence="0" parent="hr.menu_hr_root"/>
+      <menuitem id="interal_recruitment_menu_root"  name="Internal recruitment" sequence="0" parent="hr_menu_organizer.hr_employee_status_menu"/>
       <menuitem name="Job Applications Personal" id="interal_recruitment_menu_applications_personal"  sequence="1" parent="interal_recruitment_menu_root" action="action_custom_job_all_personal" groups="hr_recruitment_request.group_recruitment_hr_approval,hr_recruitment_request.group_apply" />
       <menuitem name="Job Applications" id="interal_recruitment_menu_applications"  sequence="1" parent="interal_recruitment_menu_root" action="action_custom_job" groups="hr_recruitment_request.group_recruitment_hr_approval,hr_recruitment_request.group_request_recruitment,hr_recruitment_request.group_apply" />
    </data>

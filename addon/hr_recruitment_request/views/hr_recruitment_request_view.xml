@@ -119,10 +119,10 @@
       </record>
 
 
-    <menuitem name="Internal/External Recruitment" id="recruitment_request_menu_root" parent="hr.menu_hr_root" groups="hr_recruitment_request.group_recruitment_hr_approval,hr_recruitment_request.group_request_recruitment,hr_recruitment_request.group_apply" />
+    <menuitem name="Internal/External Recruitment" id="recruitment_request_menu_root" parent="hr_menu_organizer.hr_employee_status_menu" groups="hr_recruitment_request.group_recruitment_hr_approval,hr_recruitment_request.group_request_recruitment,hr_recruitment_request.group_apply" />
    
-    <menuitem name="Job Posts" id="menu_recruitment_applier" sequence="1" parent="recruitment_request_menu_root" action="action_hr_recruitment_request_applier" groups="hr_recruitment_request.group_apply,hr_recruitment_request.group_recruitment_hr_approval,hr_recruitment_request.group_request_recruitment"/>
+    <menuitem name="Job Posts" id="menu_recruitment_applier" sequence="100" parent="recruitment_request_menu_root" action="action_hr_recruitment_request_applier" groups="hr_recruitment_request.group_apply,hr_recruitment_request.group_recruitment_hr_approval,hr_recruitment_request.group_request_recruitment"/>
 
-    <menuitem name="Recruitment request" id="menu_recruitment_requests"  sequence="1" parent="recruitment_request_menu_root" action="action_hr_recruitment_request" groups="hr_recruitment_request.group_recruitment_hr_approval,hr_recruitment_request.group_request_recruitment"/>
+    <menuitem name="Recruitment request" id="menu_recruitment_requests"  sequence="0" parent="recruitment_request_menu_root" action="action_hr_recruitment_request" groups="hr_recruitment_request.group_recruitment_hr_approval,hr_recruitment_request.group_request_recruitment"/>
   </data>
 </odoo>

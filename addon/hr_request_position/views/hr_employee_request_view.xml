@@ -30,6 +30,7 @@
                         <field name="employee_id" />
                         <field name="company_id"  /> 
                         <field name="job_id" />
+                        <field name="current_grade_id"/>
                         <field name="employee_parent_id"/>
                         <field name="contract_id"/>
                     </group>
@@ -40,6 +41,7 @@
                         <field name="grade_id" attrs = "{'readonly':[('state','!=','draft'),('state','!=','new')],'invisible': [('salary_or_position','=','salary_request')]}"/> 
                         <field name="hr_responsible_user_id" attrs = "{'readonly':[('state','!=','draft'),('state','!=','new')]}"/>
                         <field name="wage" attrs="{'invisible': [('salary_or_position','=','position_request')],'readonly':[('state','!=','draft'),('state','!=','new')]}"/>
+                        <field name="previous_salary" attrs="{'invisible': [('salary_or_position','=','position_request')],'readonly':True}"/>
                         <field name="estimated_salary" attrs="{'invisible': [('salary_or_position','=','position_request')],'readonly':[('state','!=','draft'),('state','!=','new')]}"/>
                     </group>
                   </group>
@@ -53,6 +55,10 @@
                      </page>
                   </notebook>
                </sheet>
+                <div class="oe_chatter">
+                     <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
             </form>
          </field>
       </record>
@@ -177,17 +183,28 @@
      </record>
 
     
-    <menuitem name="Employee Request" id="hr_request_position.menu_root" parent="hr.menu_hr_root" groups="hr_request_position.group_request_hr_approval_request,hr_request_position.group_position_request_manager_approval,hr_request_position.group_requester"/>
+    <!-- <menuitem 
+        name="Employee Status" 
+        id="hr_request_position.menu_root" 
+        parent="hr.menu_hr_root" 
+        groups="hr_request_position.group_request_hr_approval_request,hr_request_position.group_position_request_manager_approval,hr_request_position.group_requester"/> -->
 
-    <menuitem name="Employee Request" id="hr_request_position.menu_employee_request" parent="hr_request_position.menu_root" sequence="0" groups="hr_request_position.group_request_hr_approval_request,hr_request_position.group_position_request_manager_approval,hr_request_position.group_requester"/>
+    <menuitem 
+        name="Employee's Requests" 
+        id="hr_request_position.menu_employee_request" 
+        parent="hr_menu_organizer.hr_employee_status_menu" 
+        action="action_employee_requests" 
+        sequence="0" 
+        groups="hr_request_position.group_request_hr_approval_request,hr_request_position.group_position_request_manager_approval,hr_request_position.group_requester"/>
     
-    <menuitem name="Approve Requests" id="hr_request_position.menu_ot_request_to_approve"   sequence="2"
-         parent="hr_request_position.menu_root" action="hr_request_position_to_approve"  groups="hr_request_position.group_request_hr_approval_request,hr_request_position.group_position_request_manager_approval"/>
-     <menuitem
-        id="menu_employee_requests"
+    <menuitem 
+        name="Approve Requests" 
+        id="hr_request_position.menu_ot_request_to_approve"   
         sequence="1"
-        parent="hr_request_position.menu_employee_request"
-        action="action_employee_requests" groups="hr_request_position.group_request_hr_approval_request,hr_request_position.group_position_request_manager_approval,hr_request_position.group_requester"/>
+        parent="hr_menu_organizer.hr_employee_status_menu" 
+        action="hr_request_position_to_approve"  
+        groups="hr_request_position.group_request_hr_approval_request,hr_request_position.group_position_request_manager_approval"/>
+     
   </data>
 
 </odoo>

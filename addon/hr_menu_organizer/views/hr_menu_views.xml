@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="hr_menu_organizer.hr_employee_activities_menu"
+                  name="Employee Activities"
+                  groups="hr.group_hr_manager"
+                  parent="hr.menu_hr_root"
+                  sequence="23"/>
+
+        <menuitem id="hr_menu_organizer.hr_employee_status_menu"
+                  name="Employee Status" 
+                  parent="hr.menu_hr_root" 
+                  groups="hr.group_hr_manager"
+                  sequence="25"/>
+
+    </data>
+</odoo>

@@ -78,6 +78,11 @@
                 </field>
              </field>
         </record>
-        <menuitem action="action_orientation_request" id="menu_orientation_request" name="Orientation Request" parent="menu_employee_orientation" sequence="2"/>
+        <menuitem 
+            action="action_orientation_request" 
+            id="menu_orientation_request" 
+            name="Orientation Request" 
+            parent="menu_employee_orientation" 
+            sequence="2"/>
     </data>
 </openerp>

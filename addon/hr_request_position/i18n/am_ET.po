@@ -1,0 +1,758 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_request_position
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20221005\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-10 07:30+0000\n"
+"PO-Revision-Date: 2023-03-10 07:30+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_request_position
+#: model:ir.actions.report,print_report_name:hr_request_position.action_application_request
+msgid "'Application - %s' % (object.employee_id.name)"
+msgstr ""
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid ", I request you to kindly promote me to the position of"
+msgstr ", ወደ ቦታው እንድታሳድገኝ እጠይቃለሁ"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid ""
+". I wanted to let you know that we've decided to offer the position to another colleague/new hire.\n"
+"\n"
+"While your work and dedication are appreciated,Please keep up the good work and don't lose your competitive spirit. I expect that more opportunities will come up."
+msgstr ""
+". ወደ ሌላ የስራ ባልደረባ / አዲስ ቅጥር ቦታውን ለማቅረብ እንደወሰንኩ እንዲያውቁ እፈልጋለሁ.\n"
+"\n"
+"ሥራዎ ቢደናቀሙ,እባክዎን ጥሩ ስራዎን ይቀጥሉ እና የፉክክር መንፈስዎን እንዳያጡ.ተጨማሪ ዕድሎች ይወጣሉ ብዬ እጠብቃለሁ."
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__access_warning
+msgid "Access warning"
+msgstr "የመጠቀም ማስጠንቀቂያ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__message_needaction
+msgid "Action Needed"
+msgstr "የመጠቀም ማስጠንቀቂያ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__activity_ids
+msgid "Activities"
+msgstr "እንቅስቃሴዎች"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "የእንቅስቃሴ ልዩ ችግሮች ማስዋብ" 
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__activity_state
+msgid "Activity State"
+msgstr "የእንቅስቃሴ ሁኔታ"
+
+#. module: hr_request_position
+#: model:ir.actions.report,name:hr_request_position.action_application_request
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid "Application Request"
+msgstr "የማመልከቻዎች ጥያቄ"
+
+#. module: hr_request_position
+#: model:ir.ui.menu,name:hr_request_position.menu_ot_request_to_approve
+msgid "Approve Requests"
+msgstr "ጥያቄ ማጽደቅ"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.view_employee_request_filter
+msgid "Approved"
+msgstr "ጸድቋል"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.view_employee_position_request_form
+msgid "Attachment"
+msgstr "ዓባሪ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__message_attachment_count
+msgid "Attachment Count"
+msgstr "የተያያዥ ቆጠራ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__campaign_id
+msgid "Campaign"
+msgstr "ዘመቻ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__coach_id
+msgid "Coach"
+msgstr "አለቃ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__company_id
+msgid "Company"
+msgstr "ኩባንያ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__create_uid
+msgid "Created by"
+msgstr "የተፈጠረ በ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__create_date
+msgid "Created on"
+msgstr "ተፈጠረ በ ቀን"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__currency_id
+msgid "Currency"
+msgstr "የ ገንዘብ አይነት"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__contract_id
+msgid "Current Contract"
+msgstr "የአሁኑ ውል"
+
+#. module: hr_request_position
+#: model:ir.model.fields,help:hr_request_position.field_hr_employee_position_request__contract_id
+msgid "Current contract of the employee"
+msgstr "የሰራተኛውን የአሁኑ ውል"
+
+#. module: hr_request_position
+#: model:ir.model.fields,help:hr_request_position.field_hr_employee_position_request__access_url
+msgid "Customer Portal URL"
+msgstr "የደንበኛ ፖርታል ዩ አር ኤል"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid "Date :"
+msgstr "ቀን"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__department_id
+msgid "Department"
+msgstr "ክፍል"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid "Department."
+msgstr "ክፍል"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid ""
+"Department.\n"
+"                I assure you, I completely understand the responsibilities with this post and I promise that I will prove to be the righteous choice for our firm."
+msgstr ""
+"መምሪያ.\n"
+"               እኔ እመሰክራለሁ, ከዚህ ልኡክ ጽሁፍ ጋር ያለውን ኃላፊነቶች ሙሉ በሙሉ እረዳለሁ እናም ለእነርሱ  ጥሩ ምርጫ እንድሆንኩ ቃል እገባለሁ."
+
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid ""
+"Department. \n"
+"                During this time, I have worked earnestly and passionately for achieving the highest profits for our firm."
+msgstr ""
+"መምሪያ. \n"
+"                በዚህ ወቅት, ለእኛ ጽኑ ሥራችን ከፍተኛ ትርፍ ለማግኘት አጥብቄ እየሰራሁ ነው."
+
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__display_name
+msgid "Display Name"
+msgstr "መጠሪያው ስም"
+
+#. module: hr_request_position
+#: model:ir.model.fields.selection,name:hr_request_position.selection__hr_employee_position_request__state__draft
+#: model_terms:ir.ui.view,arch_db:hr_request_position.view_employee_request_filter
+msgid "Draft"
+msgstr "ረቂቅ"
+
+#. module: hr_request_position
+#: model:ir.model,name:hr_request_position.model_hr_employee
+msgid "Employee"
+msgstr "ሠራተኛ"
+
+#. module: hr_request_position
+#: model:ir.model,name:hr_request_position.model_hr_contract
+msgid "Employee Contract"
+msgstr "የሰራተኛ ኮንትራት"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.view_employee_request_filter
+msgid "Employee Name"
+msgstr "ሠራተኛ ስም"
+
+#. module: hr_request_position
+#: model:ir.module.category,name:hr_request_position.module_category_employee_request
+msgid "Employee Position Request"
+msgstr "የሰራተኛ የሥራ መደቦች ጥያቄ"
+
+#. module: hr_request_position
+#: model:ir.ui.menu,name:hr_request_position.menu_employee_request
+#: model:ir.ui.menu,name:hr_request_position.menu_root
+msgid "Employee Request"
+msgstr "የሰራተኛ ጥያቄ"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.view_employee_position_request_tree
+msgid "Employee Requests"
+msgstr "የሰራተኛ ጥያቄዎች"
+
+#. module: hr_request_position
+#: model:ir.actions.act_window,name:hr_request_position.act_action_employee_requests
+#: model:ir.actions.act_window,name:hr_request_position.action_employee_requests
+#: model:ir.ui.menu,name:hr_request_position.menu_employee_requests
+msgid "Employee's Requests"
+msgstr "የሰራተኛ ጥያቄዎች"
+
+#. module: hr_request_position
+#: model:ir.actions.act_window,name:hr_request_position.hr_request_position_to_approve
+msgid "Employee's Requests for Approval"
+msgstr "የሰራተኛ ጥያቄዎች ለማፅደቅ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,help:hr_request_position.field_hr_employee_position_request__estimated_salary
+#: model:ir.model.fields,help:hr_request_position.field_hr_employee_position_request__wage
+msgid "Employee's monthly gross wage."
+msgstr "የሰራተኛ ወርሃዊ አጠቃላይ ደመወዝ."
+
+#. module: hr_request_position
+#: model:ir.model,name:hr_request_position.model_hr_employee_position_request
+msgid "Employees Position Request"
+msgstr "የሰራተኞች የሥራ መደቦች ጥያቄ"
+
+#. module: hr_request_position
+#: model:ir.module.category,description:hr_request_position.module_category_employee_request
+msgid "Employees Request Position"
+msgstr "የሰራተኞች የሥራ መደቦች ጥያቄ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__estimated_salary
+msgid "Estimated Salary"
+msgstr "የተገመተ ደመወዝ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__attachment_name
+msgid "File Name"
+msgstr "የመዝገብ ስም"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__message_follower_ids
+msgid "Followers"
+msgstr "ተከታዮች"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "ተከታዮች (ሰርጦች)"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "ተከታዮች (አጋሮች)"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid "From:"
+msgstr "ከ:"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid "Good Day!"
+msgstr "መልካም ቀን!"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.view_employee_request_filter
+msgid "Group By"
+msgstr "ቡድን በ"
+
+#. module: hr_request_position
+#: model:ir.model.fields.selection,name:hr_request_position.selection__hr_employee_position_request__state__hr_approval
+msgid "HR Approved"
+msgstr "የሰው ሃይል ማጸደቅ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__hr_responsible_user_id
+msgid "HR Responsible"
+msgstr "ከሰው ሃይል ኃላፊነት የተቀበለው"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.view_employee_position_request_form
+msgid "Hr Approve"
+msgstr "Hr ማጽደቅ"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid ""
+"I would like to bring to your notice that I have been working at your firm "
+"for the past"
+msgstr "እኔ በድርጅቱ ላይ እየሠራሁ መሆኑን ማሳሰቢያዎ ማምጣት እፈልጋለሁ ላለፉት "
+
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__id
+msgid "ID"
+msgstr "መታወቂያ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__activity_exception_icon
+msgid "Icon"
+msgstr "ምልክት"
+
+#. module: hr_request_position
+#: model:ir.model.fields,help:hr_request_position.field_hr_employee_position_request__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "ለየት ያለ እንቅስቃሴን ለማመልከት ምልክት."
+
+#. module: hr_request_position
+#: model:ir.model.fields,help:hr_request_position.field_hr_employee_position_request__message_needaction
+#: model:ir.model.fields,help:hr_request_position.field_hr_employee_position_request__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "ይህ ከተነካ, አዳዲስ መልእክቶች ትኩረትዎን ይፈልጋሉ."
+
+#. module: hr_request_position
+#: model:ir.model.fields,help:hr_request_position.field_hr_employee_position_request__message_has_error
+#: model:ir.model.fields,help:hr_request_position.field_hr_employee_position_request__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "ይህ ከተነካ, አንዳንድ መልእክቶች የመላኪያ ስህተት አላቸው."
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.view_employee_request_filter
+msgid "In Process For Approval"
+msgstr "ለማፅደቅ በሂደት ላይ"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.view_employee_request_filter
+msgid "In negotiation"
+msgstr "በ ድርድር"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__message_is_follower
+msgid "Is Follower"
+msgstr "ተከታይ ነው"
+
+#. module: hr_request_position
+#: model:ir.model,name:hr_request_position.model_hr_job
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__job_id
+msgid "Job Position"
+msgstr "የሥራ መደብ"
+
+#. module: hr_request_position
+#: model:ir.model.fields.selection,name:hr_request_position.selection__hr_employee_position_request__salary_or_position__position_request
+msgid "Job Position Request"
+msgstr "የሥራ አቀማመጥ ጥያቄ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request____last_update
+msgid "Last Modified on"
+msgstr "ለመጨረሻ ጊዜ ተሻሽሏል"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__write_uid
+msgid "Last Updated by"
+msgstr "ለመጨረሻ ጊዜ የተዘመነ በ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__write_date
+msgid "Last Updated on"
+msgstr "ለመጨረሻ ጊዜ የተዘመነ"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid "Looking forward to a positive response!"
+msgstr "አዎንታዊ ምላሽን በጉጉት እጠብቃለሁ!"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "ዋና ተያያዝ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__employee_parent_id
+msgid "Manager"
+msgstr "ሥራ አስኪያጅ"
+
+#. module: hr_request_position
+#: model:ir.model.fields.selection,name:hr_request_position.selection__hr_employee_position_request__state__manager_approval
+msgid "Manager Approved"
+msgstr "ሥራ አስኪያጅ ጸድቋል"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.view_employee_position_request_form
+msgid "Managerial Approve"
+msgstr "የአመራር ማጽደቅ"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid ""
+"Managment is expecting good things and more contribution from you. We "
+"believe you have what it takes to take the challenges of this new job and "
+"bring about a great success to the business."
+msgstr ""
+"አስተዳደር ከርስዎ ጥሩ ነገሮችን እናም የበለጠ አስተዋጽኦ እየጠበቀ  ነው. እኛ"
+"የዚህ አዲስ ሥራ ተፈታታኝ ሁኔታዎችን መውሰድ እንደሚችሉ እና"
+"ለ ቢዝነሱ ታላቅ ስኬት እንደሚያመጡ እናምናለን. "
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__medium_id
+msgid "Medium"
+msgstr "መካከለኛ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__message_has_error
+msgid "Message Delivery error"
+msgstr "የመልእክት መላኪያ ስህተት"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__message_ids
+msgid "Messages"
+msgstr "መልእክቶች"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.view_employee_request_filter
+msgid "My Requests"
+msgstr "የእኔ ጥያቄዎች"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__name
+msgid "Name"
+msgstr "ስም"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.view_employee_request_filter
+msgid "New Requests"
+msgstr "አዲስ ጥያቄዎች"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "የሚቀጥለው እንቅስቃሴ ቀነ-ገደብ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__activity_summary
+msgid "Next Activity Summary"
+msgstr "የሚቀጥለው የእንቅስቃሴ ማጠቃለያ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__activity_type_id
+msgid "Next Activity Type"
+msgstr "የሚቀጥለው የእንቅስቃሴ አይነት"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__note
+msgid "Notes"
+msgstr "ማስታወሻዎች"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__message_needaction_counter
+msgid "Number of Actions"
+msgstr "የእርምጃዎች ብዛት"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__message_has_error_counter
+msgid "Number of errors"
+msgstr "ስህተቶች ብዛት"
+
+#. module: hr_request_position
+#: model:ir.model.fields,help:hr_request_position.field_hr_employee_position_request__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "እርምጃ የሚጠይቁ የመልእክት ብዛት"
+
+#. module: hr_request_position
+#: model:ir.model.fields,help:hr_request_position.field_hr_employee_position_request__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "የመላክ ስህተት ያላችው የመላእክት ብዛት"
+
+#. module: hr_request_position
+#: model:ir.model.fields,help:hr_request_position.field_hr_employee_position_request__message_unread_counter
+msgid "Number of unread messages"
+msgstr "ያልተነበቡ መልእክቶች ብዛት"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid ""
+"On behalf of the management, i congratulate you on your performance for tis year. Your performance and the attached resume clearly speaks for itself and the whole board acknowledges the contributions you have made this year. \n"
+"                They have anonimously voted to approve your promotion request to the position of"
+msgstr ""
+"አስተዳደሩን ወክሎ, ለዚህ አመት ላለዎት መልካም በአፈፃፀምዎ ላይ እንኳን ደስ አለዎት. የእርስዎ አፈፃፀም እና የተያያዘው የስራ ማመልከቻ በጣም ጥሩ ነው እና ሁሉም ቦርዱ ይህንን  አስተዋጽኦ በግልፅ እውቅና ይሰጣል. \ N"
+"የሰራ ጥያቄዎን ለማፅደቅ በአስቸኳይ ድምጽ ሰጥተዋል"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__period
+msgid "Period"
+msgstr "ጊዜ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,help:hr_request_position.field_hr_employee_position_request__hr_responsible_user_id
+msgid "Person responsible for validating the employee's contracts."
+msgstr "የሰራተኛውን ኮንትራቶች ለማረጋጥ ተጠያቂው ሰው."
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__access_url
+msgid "Portal Access URL"
+msgstr "ፖርታል መዳረሻ ዩ.አር.ኤል."
+
+#. module: hr_request_position
+#: model:res.groups,name:hr_request_position.group_request_hr_approval_request
+msgid "Position or salary Hr Approval"
+msgstr "የሥራ መደቡ መጠሪያ ወይም የደመወዝ ክፍያ"
+
+#. module: hr_request_position
+#: model:res.groups,name:hr_request_position.group_position_request_manager_approval
+msgid "Position or salary Managerial Approval"
+msgstr "የሥራ መደቡ መጠሪያ ወይም የደመወዝ ስርዓት ማጽደቅ"
+
+#. module: hr_request_position
+#: model:res.groups,name:hr_request_position.group_requester
+msgid "Position or salary Requester"
+msgstr "የስራ መደብ ወይም የደመወዝ ክፍያ ጠይቅ"
+
+#. module: hr_request_position
+#: model:mail.activity.type,name:hr_request_position.mail_act_Position_request
+msgid "Position request mail"
+msgstr "የሥራ መደቡ ጥያቄ ደብዳቤ"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.view_employee_position_request_form
+msgid "Reject"
+msgstr "አለመቀበል"
+
+#. module: hr_request_position
+#: model:ir.model.fields.selection,name:hr_request_position.selection__hr_employee_position_request__state__rejected
+msgid "Rejected"
+msgstr "ተቀባይነት አላገኘም"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.view_employee_position_request_form
+msgid "Request"
+msgstr "ጥያቄ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee__request_count
+msgid "Request Count"
+msgstr "ጥያቄ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__reference_no
+msgid "Request Document Reference"
+msgstr "የጥያቄ የሰነድ ማጣቀሻ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__salary_or_position
+msgid "Request Type"
+msgstr "የጥያቄ ዓይነት"
+
+#. module: hr_request_position
+#: model:ir.model.fields.selection,name:hr_request_position.selection__hr_employee_position_request__state__in_progress
+msgid "Requested"
+msgstr "ጠይቋል"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__employee_id
+msgid "Requested By"
+msgstr "ተጠይቋል በ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__requested_department_id
+msgid "Requested Department"
+msgstr "የተጠየቀ ክፍል"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__grade_id
+msgid "Requested Grade"
+msgstr "የተጠየቀ ደረጃ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__requested_position_id
+msgid "Requested Job Position"
+msgstr "የተጠየቀ የሥራ አቀማመጥ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__activity_user_id
+msgid "Responsible User"
+msgstr "ኃላፊነት የሚሰማው ተጠቃሚ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "ኤስኤምኤስ ማቅረቢያ ስህተት"
+
+#. module: hr_request_position
+#: model:ir.model.fields.selection,name:hr_request_position.selection__hr_employee_position_request__salary_or_position__salary_request
+msgid "Salary Request"
+msgstr "የደመወዝ ጥያቄ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee__salary_request_ids
+#: model_terms:ir.ui.view,arch_db:hr_request_position.salary_request_hr_employee_view_form
+msgid "Salary Requests"
+msgstr "የደመወዝ ጥያቄዎች"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.view_employee_request_filter
+msgid "Search Employee Request"
+msgstr "የሰራተኛ ጥያቄ ይፈልጉ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__access_token
+msgid "Security Token"
+msgstr "የደህንነት ማስመሰያ"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.view_employee_position_request_form
+msgid "Set To Draft"
+msgstr "ወደ ረቂቅ ይመልሱ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__source_id
+msgid "Source"
+msgstr "ምንጭ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__state
+#: model_terms:ir.ui.view,arch_db:hr_request_position.view_employee_request_filter
+msgid "Status"
+msgstr "ሁኔታ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,help:hr_request_position.field_hr_employee_position_request__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"እንቅስቃሴዎች ላይ የተመሠረተ ሁኔታ\n"
+"ጊዜው ያለፈበት ቀን: -\n"
+"ዛሬ: የእንቅስቃሴ ቀን ዛሬ ነው\n"
+"የታቀደ: የወደፊቱ እንቅስቃሴዎች."
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid "Subject : Promotion Request"
+msgstr "ርዕሰ ጉዳይ: የእድገት ጥያቄ"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.view_employee_position_request_form
+msgid "Test"
+msgstr "ሙከራ"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid "Thank you for throwing your hat into the ring for the promotion to"
+msgstr "ለ ስራ እድገቱ ላሳዩት ፍላጎት እናመሰግናለን"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid "Thanking you in anticipation."
+msgstr "በተጠበቀው ነገር ከማመስገን."
+
+#. module: hr_request_position
+#: model:ir.model.fields,help:hr_request_position.field_hr_employee_position_request__campaign_id
+msgid ""
+"This is a name that helps you keep track of your different campaign efforts,"
+" e.g. Fall_Drive, Christmas_Special"
+msgstr ""
+"ይህ የተለየ ዘመቻ ስራዎች የሚከታተሉበት ስም ነው."
+"e.g. የገና_ልዩ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,help:hr_request_position.field_hr_employee_position_request__medium_id
+msgid "This is the method of delivery, e.g. Postcard, Email, or Banner Ad"
+msgstr "ይህ የመላኪያ ዘዴ, ምሳሌ የፖስታ ካርድ, ኢሜል ወይም የሰንደቅ ማስታወቂያ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,help:hr_request_position.field_hr_employee_position_request__source_id
+msgid ""
+"This is the source of the link, e.g. Search Engine, another domain, or name "
+"of email list"
+msgstr ""
+"ይህ ግንኙነት ምንጭ ነው, e.g.የፍለጋ ሞተር, ሌላ ጎራ ወይም የኢሜል ዝርዝር ስም"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid "To:"
+msgstr "ለ:"
+
+#. module: hr_request_position
+#: model:ir.model.fields,help:hr_request_position.field_hr_employee_position_request__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "በምዝገባ ላይ ለየት ያለ እንቅስቃሴ አይነት"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__message_unread
+msgid "Unread Messages"
+msgstr "ያልተነበቡ መልእክቶች"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "ያልተነበቡ መልእክቶች ቆጣሪ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__attachment
+msgid "Upload Attachment file"
+msgstr "የአባሪውን ፋይል አፕሎድ ያርጉ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__user_id
+msgid "User"
+msgstr "ተጠቃሚ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__wage
+msgid "Wage"
+msgstr "ደመወዝ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__website_message_ids
+msgid "Website Messages"
+msgstr "የድርጣቢያ መልእክቶች"
+
+#. module: hr_request_position
+#: model:ir.model.fields,help:hr_request_position.field_hr_employee_position_request__website_message_ids
+msgid "Website communication history"
+msgstr "የድርጣቢያ ግንኙነት ታሪክ"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid ""
+"With all the knowledge, experience, and know-how-of how things work here at"
+msgstr ""
+"እዚህ  በእውቀት, ልምዶች እና ነገሮች እንዴ እንደሚሰሩ ማወቅ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__work_email
+msgid "Work Email"
+msgstr "የሥራ ኢሜይል"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__work_location
+msgid "Work Location"
+msgstr "የሥራ ቦታ"
+
+#. module: hr_request_position
+#: model:ir.model.fields,field_description:hr_request_position.field_hr_employee_position_request__work_phone
+msgid "Work Phone"
+msgstr "የስራ ስልክ"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid "in"
+msgstr "በ ውስጥ"
+
+#. module: hr_request_position
+#: model_terms:ir.ui.view,arch_db:hr_request_position.report_application_request
+msgid "years as the"
+msgstr "ዓመታት እንደ"

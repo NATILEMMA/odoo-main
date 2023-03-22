@@ -29,7 +29,7 @@
     'author': 'Cybrosys Techno Solutions',
     'company': 'Cybrosys Techno Solutions',
     'website': 'https://www.cybrosys.com',
-    'depends': ['base', 'hr','web','hr_employee_medical_examination'],
+    'depends': ['base', 'hr','web','hr_employee_medical_examination','hr_menu_organizer'],
     'data': [
         'views/orientation_checklist_line.xml',
         'views/employee_orientation.xml',

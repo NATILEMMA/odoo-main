@@ -5,5 +5,5 @@ access_hr_recruitment_request_hr_approval,hr.recruitment.hr,model_hr_recruitment
 access_hr_recruitment_request_apply,hr.recruitment.applicant,model_hr_recruitment_request,hr_recruitment_request.group_apply,1,1,0,0
 
 access_job_application_for_applier,access.job.application.applier,model_custom_job,hr_recruitment_request.group_apply,1,0,0,0
-access_job_application_approval,access.job.application.approver,model_custom_job,hr_recruitment_request.group_recruitment_hr_approval,1,1,1,1
+access_job_application_approval,access.job.application.approver,model_custom_job,hr_recruitment_request.group_recruitment_hr_approval,1,1,0,1
 access_job_application_recruitment_requester,access.job.application.requester,model_custom_job,hr_recruitment_request.group_request_recruitment,1,0,0,0

@@ -4,19 +4,17 @@
     box-sizing: border-box;
     height: 100%;
     width: 100%;
-
+    .certification-training {
+        margin-left: 350px;
+        padding-top: 140px;
+        width: 510px;
+        text-align: center;
+        
+        h2 {
+            color: #052b70;
+        }
     
-}
-
-.certification-training {
-    margin-left: 350px;
-    padding-top: 140px;
-    width: 510px;
-    text-align: center;
-
-    h2 {
-        color: #052b70;
+    
     }
-
 
 }

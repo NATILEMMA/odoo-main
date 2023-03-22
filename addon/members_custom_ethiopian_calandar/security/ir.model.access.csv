@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_candidate_member_inherit,hr.contract.manager.inherit,model_candidate_members,base.group_user,1,1,1,1
-access_membersoffice_inherit,access.members.office.inherit,model_main_office,base.group_user,1,1,1,1
-access_complaint_category_inherit,access.complaint.category.inherit,model_member_complaint,base.group_user,1,1,1,1
