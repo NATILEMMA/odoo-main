@@ -46,17 +46,23 @@ class HrRecruitmentRequest(models.Model):
     
     expected_employees = fields.Integer(string ="Expected Employees",required=True,default = 1)
     applicant_ids = fields.One2many('custom.job','recruitment_request_id',string="Applicants")
-    applicant_count = fields.Integer(compute='_compute_applicant_count', string='Applicant count')       
+    applicant_count = fields.Integer(compute='_compute_applicant_count')       
     applied_job_grade_id = fields.Many2one('hr.job.grade', domain="[('job_grade_title','=',job_title)]", required=True, string="Grade")
 
     state = fields.Selection(REQUEST_STATES,'Status',tracking=True,copy=False, default='draft')
-    
+    personal_application_count = fields.Integer(compute ="_compute_applicant_count")
    
 
     @api.depends('applicant_ids')
     def _compute_applicant_count(self):
         for request in self:
             request.applicant_count = len(request.applicant_ids)
+        for record in self:
+            for application in record.applicant_ids:
+                if application.employee_id.user_id == self.env.uid:
+                    record.personal_application_count += 1
+
+
     
     def isEmployee(self):
         #This function checks if the user applying or asking recruitment request is employee

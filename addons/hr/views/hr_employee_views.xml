@@ -298,6 +298,8 @@
             </field>
         </record>
 
+        
+
         <record id="open_view_employee_tree" model="ir.actions.act_window">
             <field name="name">Employees Structure</field>
             <field name="res_model">hr.employee</field>

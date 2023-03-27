@@ -39,7 +39,7 @@ class HrEmployeeRequest(models.Model):
     name = fields.Char( required=True,readonly=True, default='New', index=True)
     employee_id = fields.Many2one('hr.employee', string="Requested By", default=_get_employee_id,readonly=True)
     job_id = fields.Many2one(related='employee_id.job_id', related_sudo=False, tracking=True,readonly=True)
-    
+    nati = fields.Char('nati')
     work_phone = fields.Char(related='employee_id.work_phone', related_sudo=False, tracking=True,readonly=True)
     work_email = fields.Char(related='employee_id.work_email', related_sudo=False, tracking=True,readonly=True)
     department_id = fields.Many2one(related='employee_id.department_id', readonly=False, related_sudo=False, tracking=True)

@@ -25,11 +25,7 @@
                         <strong> <t t-esc="o['date_to']" /></strong> ,with duration of <strong> <t t-esc="o['duration']" /></strong>days, <strong> <t t-esc="o['hours']" /></strong>Hours by company
                         <strong><t t-esc="o['company_name']" /></strong>.
                       </div>
-                      <div style="vertical-align: middle">
-                          <t t-foreach="docs" t-as="doc">
-                            <img t-if="doc.company_id.logo" t-att-src="image_data_uri(doc.company_id.logo)" alt="Company Logo" class="float-l" style="width: 150px; height: 150px; object-fit: contain" />
-                          </t>
-                        </div>
+                      
                     </div>
                   </td>
                 </tr>
